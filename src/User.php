@@ -136,9 +136,67 @@
             $GLOBALS['DB']->exec("DELETE FROM users;");
         }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM users WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM collaborations WHERE user_id = {$this->getId()};");
+        }
 
+        function update($new_username)
+        {
+            $GLOBALS['DB']->exec("UPDATE users SET username = '{$new_username}' WHERE id = {$this->getId()};");
+            $this->setUsername($new_username);
+        }
 
+        static function find($search_id)
+        {
+            $found_user = null;
+            $users = User::getAll();
+            foreach($users as $user) {
+                $user_id = $user->getId();
+                if ($user_id == $search_id) {
+                  $found_user = $user;
+                }
+            }
+            return $found_user;
+        }
 
+        static function findUsername($search_username)
+        {
+            $found_user = null;
+            $users = User::getAll();
+            foreach($users as $user) {
+                if ($search_username == $user->getUsername()) {
+                  $found_user = $user;
+                }
+            }
+            return $found_user;
+        }
+
+        function addProject($project)
+       {
+           $GLOBALS['DB']->exec("INSERT INTO collaborations (user_id, project_id) VALUES ({$this->getId()}, {$project->getId()});");
+       }
+
+       function getProjects()
+       {
+           $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
+
+		    $projects = array();
+            foreach ($query as $project) {
+               $id = $project['id'];
+               $title = $project['title'];
+               $description = $project['description'];
+               $genre = $project['genre'];
+               $resources = $project['resources'];
+               $lyrics = $project['lyrics'];
+               $type = $project['type'];
+               $user_id = $project['user_id'];
+
+               array_push($projects, $new_project);
+            }
+            return $projects;
+       }
 
     }
 ?>
