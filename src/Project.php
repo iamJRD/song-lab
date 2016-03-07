@@ -6,7 +6,7 @@
         private $description;
         private $genre;
         private $resources;
-        private $lyrics
+        private $lyrics;
         private $type;
 
         function __construct($id = null, $title, $description, $genre, $resources, $lyrics, $type)
