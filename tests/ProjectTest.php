@@ -170,7 +170,8 @@
             $username = "drummyD";
             $bio = "Beat maker and dog papa";
             $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
 
             $title = "Dream Song";
@@ -331,7 +332,8 @@
             $username = "drummyD";
             $bio = "Beat maker and dog papa";
             $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
 
             $title = "Dream Song";
@@ -372,7 +374,8 @@
             $username = "drummyD";
             $bio = "Beat maker and dog papa";
             $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
 
             $first_name2 = "Molly";
@@ -381,7 +384,8 @@
             $username2 = "CurtinSongs";
             $bio2 = "Analog synth loops";
             $photo2 = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
-            $test_user2 = new User($id, $first_name2, $last_name2, $email2, $username2, $bio2, $photo2);
+            $password2 = "password2";
+            $test_user2 = new User($id, $first_name2, $last_name2, $email2, $username2, $bio2, $photo2, $password2);
             $test_user2->save();
 
             // Act
