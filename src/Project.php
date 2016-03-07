@@ -149,10 +149,10 @@
 
         function addUser($user)
         {
-            $GLOBALS['DB']->exec("INSERT INTO projects_users (user_id, project_id) VALUES ({$user->getId()}, {$this->getId()};)");
+            $GLOBALS['DB']->exec("INSERT INTO projects_users (user_id, project_id) VALUES ({$user->getId()}, {$this->getId()});");
         }
 
-        function getUser()
+        function getUsers()
         {
             $returned_users = $GLOBALS['DB']->query("SELECT users.* FROM projects JOIN projects_users ON (projects_users.project_id = projects.id) JOIN users ON (users.id = projects_users.user_id) WHERE projects.id = {$this->getId()};");
 
@@ -166,7 +166,8 @@
                 $username = $user['username'];
                 $bio = $user['bio'];
                 $photo = $user['photo'];
-                array_push($users, $user);
+                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+                array_push($users, $new_user);
             }
             return $users;
         }

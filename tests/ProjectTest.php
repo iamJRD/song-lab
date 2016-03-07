@@ -5,6 +5,7 @@
     */
 
     require_once "src/Project.php";
+    require_once "src/User.php";
 
     $server = 'mysql:host=localhost;dbname=songlab_test';
     $username = 'root';
@@ -16,6 +17,7 @@
         protected function tearDown()
         {
             Project::deleteAll();
+            User::deleteAll();
         }
 
         function testGetId()
@@ -171,7 +173,7 @@
             $this->assertEquals($test_project, $result[0]);
         }
 
-        function testgetAll()
+        function testGetAll()
         {
             // Arrange
             $id = null;
@@ -298,16 +300,17 @@
             $bio = "Beat maker and dog papa";
             $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $test_user->save();
 
             //Act
             $test_project->addUser($test_user);
-            $result = $test_project->getUser();
+            $result = $test_project->getUsers();
 
             //Assert
-            $this->assertEquals($test_user, $result);
+            $this->assertEquals([$test_user], $result);
         }
 
-        function testGetUser()
+        function testGetUsers()
         {
             // Arrange
             $id = null;
@@ -327,6 +330,7 @@
             $bio = "Beat maker and dog papa";
             $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $test_user->save();
 
             $first_name2 = "Molly";
             $last_name2 = "Curtin";
@@ -335,6 +339,7 @@
             $bio2 = "Analog synth loops";
             $photo2 = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
             $test_user2 = new User($id, $first_name2, $last_name2, $email2, $username2, $bio2, $photo2);
+            $test_user2->save();
 
             // Act
             $test_project->addUser($test_user);
