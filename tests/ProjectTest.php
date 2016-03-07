@@ -200,6 +200,83 @@
             $this->assertEquals([$test_project, $test_project2], $result);
         }
 
+        function testFind()
+        {
+            // Arrange
+            $id = null;
+            $title = "Dream Song";
+            $description = "Song about dreams";
+            $genre = "Drone";
+            $resources = "http://fakeembedcode.com";
+            $lyrics = "";
+            $type = "Lyrics";
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $test_project->save();
+
+            // Act
+            $result = Project::find($test_project->getId());
+
+            // Assert
+            $this->assertEquals($test_project, $result);
+        }
+
+        function testDelete()
+        {
+            // Arrange
+            $id = null;
+            $title = "Dream Song";
+            $description = "Song about dreams";
+            $genre = "Drone";
+            $resources = "http://fakeembedcode.com";
+            $lyrics = "";
+            $type = "Lyrics";
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $test_project->save();
+
+            $title2 = "Dream Song";
+            $description2 = "Song about dreams";
+            $genre2 = "Drone";
+            $resources2 = "http://fakeembedcode.com";
+            $lyrics2 = "";
+            $type2 = "Lyrics";
+            $test_project2 = new Project($id, $title2, $description2, $genre2, $resources2, $lyrics2, $type2);
+            $test_project2->save();
+
+            // Act
+            $test_project->delete();
+            $result = Project::getAll();
+
+            // Assert
+            $this->assertEquals([$test_project2], $result);
+        }
+
+        function testUpdate()
+        {
+            // Arrange
+            $id = null;
+            $title = "Dream Song";
+            $description = "Song about dreams";
+            $genre = "Drone";
+            $resources = "http://fakeembedcode.com";
+            $lyrics = "";
+            $type = "Lyrics";
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $test_project->save();
+
+            $new_title = "Song of Dreams";
+            $new_description = "Dreamy song";
+            $new_genre = "Funk";
+            $new_resources = "http://testsite.com";
+            $new_lyrics = "These are lyrics for a song";
+            $new_type = "Lyrics";
+
+            // Act
+            $test_project->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
+            $result = [$test_project->getTitle(), $test_project->getDescription(), $test_project->getGenre(), $test_project->getResources(), $test_project->getLyrics(), $test_project->getType()];
+
+            // Assert
+            $this->assertEquals([$new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type], $result);
+        }
 
     }
 ?>

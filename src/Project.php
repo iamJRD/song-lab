@@ -111,6 +111,37 @@
             return $projects;
         }
 
+        static function find($search_id)
+        {
+            $found_project = null;
+            $returned_projects = Project::getAll();
+
+            foreach($returned_projects as $project){
+                $project_id = $project->getId();
+                if ($project_id == $search_id)
+                {
+                    $found_project = $project;
+                }
+            }
+            return $project;
+        }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM projects WHERE id = {$this->getId()}");
+        }
+
+        function update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type)
+        {
+            $GLOBALS['DB']->exec("UPDATE projects SET title = '{$new_title}', description = '{$new_description}', genre = '{$new_genre}', resources = '{$new_resources}', lyrics = '{$new_lyrics}', type = '{$new_type}' WHERE id = {$this->getId()};");
+            $this->setTitle($new_title);
+            $this->setDescription($new_description);
+            $this->setGenre($new_genre);
+            $this->setResources($new_resources);
+            $this->setLyrics($new_lyrics);
+            $this->setType($new_type);
+        }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM projects");
