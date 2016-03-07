@@ -175,13 +175,13 @@
 
         function addProject($project)
        {
-           $GLOBALS['DB']->exec("INSERT INTO collaborations (user_id, project_id) VALUES ({$this->getId()}, {$project->getId()});");
+           $GLOBALS['DB']->exec("INSERT INTO collaborations (project_id, user_id) VALUES ({$project->getId()}, {$this->getId()});");
        }
 
        function getProjects()
        {
            $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
-
+var_dump($query);
 		    $projects = array();
             foreach ($query as $project) {
                $id = $project['id'];
@@ -192,6 +192,7 @@
                $lyrics = $project['lyrics'];
                $type = $project['type'];
                $user_id = $project['user_id'];
+               $new_project = new Project ($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
                array_push($projects, $new_project);
             }

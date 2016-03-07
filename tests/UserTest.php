@@ -393,7 +393,7 @@
             $photo = '/../web/img/test_photo.jpg';
             $password = 'password';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);             $test_user->save();
-var_dump($test_user);
+// var_dump($test_user);
 
             $id1 = 3;
             $title = 'Herding Cats';
@@ -405,7 +405,7 @@ var_dump($test_user);
             $user_id = $test_user->getId();
             $test_project = new Project($id1, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
-var_dump($test_project);
+// var_dump($test_project);
 
             //Act
             $test_user->AddProject($test_project);
@@ -440,7 +440,7 @@ var_dump($test_project);
 
             $id2 = 4;
             $title1 = 'Still Water';
-            $description1 = 'A song about artisan cheese.';
+            $description1 = 'A song about artisan cheese';
             $genre1 = 'Russian Bubblegum Pop';
             $resources1 = 'http://fakeembedcode.com';
             $lyrics1 = '';
