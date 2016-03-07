@@ -17,7 +17,7 @@
         protected function tearDown()
         {
             User::deleteAll();
-            // Project::deleteAll();
+            Project::deleteAll();
         }
 
         function testGetId()
@@ -30,7 +30,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
 
             //Act
             $result = $test_user->getId();
@@ -49,7 +50,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
 
             //Act
             $result = $test_user->getFirstName();
@@ -68,7 +70,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
 
             //Act
             $result = $test_user->getLastName();
@@ -87,7 +90,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
 
             //Act
             $result = $test_user->getEmail();
@@ -105,7 +109,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
 
             //Act
             $result = $test_user->getUsername();
@@ -124,7 +129,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
 
             //Act
             $result = $test_user->getBio();
@@ -143,7 +149,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
 
             //Act
             $result = $test_user->getPhoto();
@@ -170,6 +177,7 @@
 
             //Assert
             $this->assertEquals('/../web/img/test_photo.jpg', $result);
+
         }
 
         function testsave()
@@ -182,7 +190,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
 
             //Act
@@ -202,7 +211,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
 
             $id1 = 2;
@@ -212,7 +222,8 @@
             $username1 = 'jammingerald';
             $bio1 = 'Tennesse transplant looking for a band that loves to rock.';
             $photo1 = '/../web/img/test_photo2.jpg';
-            $test_user1 = new User($id1, $first_name1, $last_name1, $email1, $username1, $bio1, $photo1);
+            $password1 = "password";
+            $test_user1 = new User($id1, $first_name1, $last_name1, $email1, $username1, $bio1, $photo1, $password1);
             $test_user1->save();
 
             //Act
@@ -232,7 +243,8 @@
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $password = "password";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
 
             $id1 = 2;
@@ -242,7 +254,8 @@
             $username1 = 'jammingerald';
             $bio1 = 'Tennesse transplant looking for a band that loves to rock.';
             $photo1 = '/../web/img/test_photo2.jpg';
-            $test_user1 = new User($id1, $first_name1, $last_name1, $email1, $username1, $bio1, $photo1);
+            $password1 = "password";
+            $test_user1 = new User($id1, $first_name1, $last_name1, $email1, $username1, $bio1, $photo1, $password1);
             $test_user1->save();
 
             //Act

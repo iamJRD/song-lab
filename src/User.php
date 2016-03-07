@@ -104,8 +104,8 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO users (first_name, last_name, email, username, bio, photo) VALUES (
-                '{$this->getFirstName()}', '{$this->getLastName()}', '{$this->getEmail()}', '{$this->getUsername()}', '{$this->getBio()}', '{$this->getPhoto()}');");
+            $GLOBALS['DB']->exec("INSERT INTO users (first_name, last_name, email, username, bio, photo, password) VALUES (
+                '{$this->getFirstName()}', '{$this->getLastName()}', '{$this->getEmail()}', '{$this->getUsername()}', '{$this->getBio()}', '{$this->getPhoto()}', '{$this->getPassword()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
 
         }
@@ -123,7 +123,8 @@
                 $username= $user['username'];
                 $bio= $user['bio'];
                 $photo= $user['photo'];
-                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+                $password = $user['password'];
+                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
                 array_push($users, $new_user);
             }
             return $users;

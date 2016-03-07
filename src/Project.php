@@ -173,7 +173,8 @@
                 $username = $user['username'];
                 $bio = $user['bio'];
                 $photo = $user['photo'];
-                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+                $password = $user['password'];
+                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
                 array_push($users, $new_user);
             }
             return $users;
