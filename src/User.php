@@ -8,8 +8,9 @@
         private $username;
         private $bio;
         private $photo;
+        private $password;
 
-        function __construct($id = null, $first_name, $last_name, $email, $username, $bio, $photo)
+        function __construct($id = null, $first_name, $last_name, $email, $username, $bio, $photo, $password)
         {
             $this->id = $id;
             $this->first_name = $first_name;
@@ -18,6 +19,7 @@
             $this->username = $username;
             $this->bio = $bio;
             $this->photo = $photo;
+            $this->password = $password;
         }
 
         // Setters
@@ -50,6 +52,11 @@
         function setPhoto($new_photo)
         {
             $this->photo = $new_photo;
+        }
+
+        function setPassword($new_password)
+        {
+            $this->password = $new_password;
         }
 
         // Getters
@@ -89,11 +96,16 @@
             return $this->photo;
         }
 
+        function getPassword()
+        {
+            return $this->password;
+        }
+
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO users (first_name, last_name, email, username, bio, photo) VALUES (
-                '{$this->getFirstName()}', '{$this->getLastName()}', '{$this->getEmail()}', '{$this->getUsername()}', '{$this->getBio()}', '{$this->getPhoto()}');");
+            $GLOBALS['DB']->exec("INSERT INTO users (first_name, last_name, email, username, bio, photo, password) VALUES (
+                '{$this->getFirstName()}', '{$this->getLastName()}', '{$this->getEmail()}', '{$this->getUsername()}', '{$this->getBio()}', '{$this->getPhoto()}', '{$this->getPassword()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
 
         }
@@ -111,7 +123,8 @@
                 $username= $user['username'];
                 $bio= $user['bio'];
                 $photo= $user['photo'];
-                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+                $password = $user['password'];
+                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
                 array_push($users, $new_user);
             }
             return $users;
