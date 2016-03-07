@@ -84,5 +84,36 @@
         {
             return $this->type;
         }
+
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO projects (title, description, genre, resources, lyrics, type) VALUES ('{$this->getTitle()}', '{$this->getDescription()}', '{$this->getGenre()}', '{$this->getResources()}', '{$this->getLyrics()}', '{$this->getType()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function getAll()
+        {
+            $returned_projects = $GLOBALS['DB']->query("SELECT * FROM projects");
+            $projects = array();
+
+            foreach($returned_projects as $project)
+            {
+                $id = $project['id'];
+                $title = $project['title'];
+                $description = $project['description'];
+                $genre = $project['genre'];
+                $resources = $project['resources'];
+                $lyrics = $project['lyrics'];
+                $type = $project['type'];
+                $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+                array_push($projects, $new_project);
+            }
+            return $projects;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM projects");
+        }
     }
 ?>
