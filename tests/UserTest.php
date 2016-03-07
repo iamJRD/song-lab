@@ -264,6 +264,26 @@
             $this->assertEquals([$test_user1], User::getAll());
         }
 
+        function testUpdate()
+        {
+            //Arrange
+            $id = 1;
+            $first_name = 'Sammy';
+            $last_name = 'Singsalot';
+            $email = 'sammysinger@gmail.com';
+            $username = 'sammysinger';
+            $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
+            $photo = '/../web/img/test_photo.jpg';
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $test_user->save();
+            $new_username = "singsongsammy";
+
+            //Act
+            $test_user->update($new_username);
+            //Assert
+            $this->assertEquals("singsongsammy", $test_user->getUsername());
+        }
+
 
     }
 ?>

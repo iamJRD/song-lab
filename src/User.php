@@ -129,6 +129,12 @@
             $GLOBALS['DB']->exec("DELETE FROM projects_useres WHERE user_id = {$this->getId()};");
         }
 
+        function update($new_username)
+        {
+            $GLOBALS['DB']->exec("UPDATE users SET username = '{$new_username}' WHERE id = {$this->getId()};");
+            $this->setUsername($new_username);
+        }
+
 
 
 
