@@ -7,7 +7,7 @@ html {
 .header .summary p:nth-child(2), .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p {
+p, .headerButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 .header .summary p:nth-child(2) {
@@ -40,15 +40,36 @@ a {
   background-size: cover;
   height: 70vh; }
   .header .headerContent {
+    display: flex;
+    flex-direction: column;
     text-align: center; }
   .header .summary {
-    color: #fff; }
+    color: #fff;
+    margin-bottom: 3%; }
     .header .summary p:first-child {
+      margin-top: 0px;
       font-size: 2.5em; }
     .header .summary p:nth-child(2) {
       font-size: 1.6em;
-      letter-spacing: 5px;
+      letter-spacing: 6px;
       font-weight: bold; }
+
+.headerButtons {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  width: 35%;
+  align-self: center; }
+  .headerButtons a {
+    font-size: 1.3em;
+    color: #fff;
+    padding: 0.8em 2em;
+    border: 1px solid #fff;
+    background: transparent;
+    transition: all 500ms linear; }
+    .headerButtons a:hover {
+      color: #000;
+      background: #99FFE6; }
 
 .songLabWrapper {
   display: flex;

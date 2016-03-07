@@ -8,15 +8,18 @@
   background-size: cover;
   height: 70vh;
   .headerContent {
+    @include flexbox($direction: column);
     text-align: center;
   }
   .summary {
     color: $white;
+    margin-bottom: 3%;
     p:first-child {
+      margin-top: 0px;
       font-size: 2.5em;
     }
     p:nth-child(2) {
-      @include textFormat(1.6em, $l-spacing: 5px);
+      @include textFormat(1.6em, $l-spacing: 6px);
       @extend %uppercase;
       @extend %logoFont;
       font-weight: bold;

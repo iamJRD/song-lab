@@ -1,3 +1,23 @@
-// -----------------------------------------------------------------------------
-// This file contains all styles related to the button component.
-// -----------------------------------------------------------------------------
+// ---------------------
+// Buttons
+// ---------------------
+
+.headerButtons {
+  @extend %headerFont;
+  @include flexbox($justify: space-between);
+  @include size(35% auto);
+  align-self: center;
+  a {
+    @include textFormat(1.3em, $white);
+    @include padding(.8em 2em);
+    border: 1px solid $white;
+    background: transparent;
+    transition: all 500ms linear;
+    &:hover {
+      color: $black;
+      background: $subColor2;
+    }
+  }
+}
+
+// background-color:linear-gradient(to bottom right, $subColor2, $subColor1, $primary);
