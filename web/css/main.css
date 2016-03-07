@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  padding: 0px;
+  margin: 0px; }
+
+/**
+ * Basic styles for links
+ */
+a {
+  text-decoration: none; }
+
+/**
+ * Basic typography style for copy text
+ */
+
+/*# sourceMappingURL=main.css.map */
