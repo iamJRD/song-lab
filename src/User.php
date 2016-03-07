@@ -139,7 +139,7 @@
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM users WHERE id = {$this->getId()};");
-            $GLOBALS['DB']->exec("DELETE FROM projects_useres WHERE user_id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM projects_users WHERE user_id = {$this->getId()};");
         }
 
         function update($new_username)
