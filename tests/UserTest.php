@@ -5,7 +5,7 @@
     */
 
     require_once "src/User.php";
-    // require_once "src/Project.php";
+    require_once "src/Project.php";
 
     $server = 'mysql:host=localhost;dbname=songlab_test';
     $username = 'root';
@@ -230,6 +230,27 @@
 
             //Assert
             $this->assertEquals([$test_user, $test_user1], $result);
+        }
+
+        function testVerifyLogin()
+        {
+            //Arrange
+            $id = 1;
+            $first_name = 'Sammy';
+            $last_name = 'Singsalot';
+            $email = 'sammysinger@gmail.com';
+            $username = 'sammysinger';
+            $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
+            $photo = '/../web/img/test_photo.jpg';
+            $password = "cool hat";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
+            $test_user->save();
+
+            //Act
+            $result = $test_user->verifyLogin($username, $password);
+
+            //Assert
+            $this->assertEquals($test_user, $result);
         }
 
         function testdeleteAll()

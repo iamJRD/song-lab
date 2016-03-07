@@ -131,6 +131,26 @@
 
         }
 
+        function verifyLogin($username, $password)
+        {
+            $query = $GLOBALS['DB']->query("SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}'");
+            $login_match = $query->fetchAll(PDO::FETCH_ASSOC);
+            $found_match = null;
+
+            foreach($login_match as $match){
+                $id = $match['id'];
+                $first_name = $match['first_name'];
+                $last_name = $match['last_name'];
+                $email= $match['email'];
+                $username= $match['username'];
+                $bio= $match['bio'];
+                $photo= $match['photo'];
+                $password = $match['password'];
+                $found_match = User::find($id);
+            }
+            return $found_match;
+        }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM users;");
