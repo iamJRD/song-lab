@@ -4,7 +4,7 @@
     require_once __DIR__."/../src/Project .php";
 
     $app = new Silex\Application();
-    $server = 'mysql:host=localhost;dbname=song_lab';
+    $server = 'mysql:host=localhost;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
