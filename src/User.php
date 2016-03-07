@@ -90,17 +90,40 @@
         }
 
 
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO users (first_name, last_name, email, username, bio, photo) VALUES (
+                '{$this->getFirstName()}', '{$this->getLastName()}', '{$this->getEmail()}', '{$this->getUsername()}', '{$this->getBio()}', '{$this->getPhoto()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+
+        }
+
+        static function getAll()
+        {
+            $returned_users = $GLOBALS['DB']->query("SELECT * FROM users;");
+
+            $users = array();
+            foreach($returned_users as $user) {
+                $id = $user['id'];
+                $first_name = $user['first_name'];
+                $last_name = $user['last_name'];
+                $email= $user['email'];
+                $username= $user['username'];
+                $bio= $user['bio'];
+                $photo= $user['photo'];
+                $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+                array_push($users, $new_user);
+            }
+            return $users;
+
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM users;");
+        }
 
 
-
-
-
-
-        // function save()
-        // {
-        //     $GLOBALS['DB']->exec("INSERT INTO stores (name) VALUES ('{$this->getName()}');");
-        //     $this->id = $GLOBALS['DB']->lastInsertId();
-        // }
 
 
 
