@@ -24,4 +24,13 @@
   }
 }
 
+.modal-footer {
+  a {
+    @extend %uppercase;
+    @include textFormat(1.1em);
+    @include padding(.5em 1em);
+    background: tomato;
+  }
+}
+
 // background-color:linear-gradient(to bottom right, $subColor2, $subColor1, $primary);
