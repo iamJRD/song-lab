@@ -228,7 +228,6 @@
        function getOwnerProjects()
        {
            $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
-
 		    $projects = array();
             foreach ($query as $project) {
                $id = $project['id'];
@@ -240,6 +239,7 @@
                $type = $project['type'];
                $user_id = $project['user_id'];
                $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+
 
                array_push($projects, $new_project);
             }
