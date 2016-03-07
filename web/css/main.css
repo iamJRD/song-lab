@@ -10,7 +10,7 @@ html {
 p, .headerButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-.header .summary p:nth-child(2) {
+.header .summary p:nth-child(2), .headerButtons a {
   text-transform: uppercase; }
 
 *,
@@ -63,6 +63,7 @@ a {
   .headerButtons a {
     font-size: 1.3em;
     color: #fff;
+    letter-spacing: 2px;
     padding: 0.8em 2em;
     border: 1px solid #fff;
     background: transparent;
@@ -70,6 +71,8 @@ a {
     .headerButtons a:hover {
       color: #000;
       background: #99FFE6; }
+    .headerButtons a:nth-child(2):hover {
+      background: #99ccff; }
 
 .songLabWrapper {
   display: flex;

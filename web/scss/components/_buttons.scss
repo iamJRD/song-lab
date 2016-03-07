@@ -8,7 +8,8 @@
   @include size(35% auto);
   align-self: center;
   a {
-    @include textFormat(1.3em, $white);
+    @extend %uppercase;
+    @include textFormat(1.3em, $white, $l-spacing: 2px);
     @include padding(.8em 2em);
     border: 1px solid $white;
     background: transparent;
@@ -16,6 +17,9 @@
     &:hover {
       color: $black;
       background: $subColor2;
+    }
+    &:nth-child(2):hover {
+      background: $subColor1;
     }
   }
 }
