@@ -139,7 +139,7 @@
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM users WHERE id = {$this->getId()};");
-            $GLOBALS['DB']->exec("DELETE FROM projects_users WHERE user_id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM collaborations WHERE user_id = {$this->getId()};");
         }
 
         function update($new_username)
@@ -175,16 +175,15 @@
 
         function addProject($project)
        {
-           $GLOBALS['DB']->exec("INSERT INTO projects_users (user_id, project_id) VALUES ({$this->getId()}, {$project->getId()});");
+           $GLOBALS['DB']->exec("INSERT INTO collaborations (user_id, project_id) VALUES ({$this->getId()}, {$project->getId()});");
        }
-
 
        function getProjects()
        {
-           $query = $GLOBALS['DB']->query("SELECT * FROM project WHERE user_id = {$this->getId()};");
+           $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
 
-			$projects = array();
-           foreach ($query as $project) {
+		    $projects = array();
+            foreach ($query as $project) {
                $id = $project['id'];
                $title = $project['title'];
                $description = $project['description'];
@@ -195,16 +194,9 @@
                $user_id = $project['user_id'];
 
                array_push($projects, $new_project);
-           }
-           return $projects;
+            }
+            return $projects;
        }
-
-
-
-
-
-
-
 
     }
 ?>
