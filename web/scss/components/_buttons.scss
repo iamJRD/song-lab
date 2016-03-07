@@ -1,0 +1,41 @@
+// ---------------------
+// Buttons
+// ---------------------
+
+.headerButtons {
+  @extend %headerFont;
+  @include flexbox($justify: space-between);
+  @include size(45% auto);
+  align-self: center;
+  a {
+    @extend %uppercase;
+    @include textFormat(1.3em, $white, $l-spacing: 2px);
+    @include padding(.8em 2em);
+    border: 1px solid $white;
+    background: transparent;
+    transition: all 500ms linear;
+    &:hover {
+      color: $black;
+      background: $subColor2;
+    }
+    &:nth-child(2):hover {
+      background: $subColor1;
+    }
+  }
+}
+
+.modal-footer {
+  a {
+    @extend %uppercase;
+    @include textFormat(1.1em, $black);
+    background: transparent;
+    border: 1px solid $black;
+    transition: background 200ms linear;
+    &:hover {
+      background: $subColor2;
+      border: 1px solid transparent;
+    }
+  }
+}
+
+// background-color:linear-gradient(to bottom right, $subColor2, $subColor1, $primary);

@@ -1,0 +1,28 @@
+// --------------------------
+// Header
+// --------------------------
+
+.header {
+  @include flexbox ($justify: center, $direction: column, $align-items: center);
+  @include background-image(linear-gradient(rgba($primary, 0.5), rgba($black,0)),url("#{$img-path}/piano-hands.jpeg"));
+  background-size: cover;
+  height: 70vh;
+  .headerContent {
+    @include flexbox($direction: column);
+    text-align: center;
+  }
+  .summary {
+    color: $white;
+    margin-bottom: 3%;
+    p:first-child {
+      margin-top: 0px;
+      font-size: 2.5em;
+    }
+    p:nth-child(2) {
+      @include textFormat(1.6em, $l-spacing: 6px);
+      @extend %uppercase;
+      @extend %logoFont;
+      font-weight: bold;
+    }
+  }
+}
