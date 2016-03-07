@@ -5,6 +5,7 @@
     */
 
     require_once "src/Project.php";
+    require_once "src/User.php";
 
     $server = 'mysql:host=localhost;dbname=songlab_test';
     $username = 'root';
@@ -16,6 +17,7 @@
         protected function tearDown()
         {
             Project::deleteAll();
+            User::deleteAll();
         }
 
         function testGetId()
@@ -28,7 +30,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $result = $test_project->getId();
@@ -47,7 +50,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $result = $test_project->getTitle();
@@ -66,7 +70,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $result = $test_project->getDescription();
@@ -85,7 +90,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $result = $test_project->getGenre();
@@ -104,7 +110,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $result = $test_project->getResources();
@@ -123,7 +130,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $result = $test_project->getLyrics();
@@ -142,13 +150,43 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $result = $test_project->getType();
 
             // Assert
             $this->assertEquals($type, $result);
+        }
+
+        function testGetUserId()
+        {
+            // Arrange
+            $id = null;
+            $first_name = "Drummy";
+            $last_name = "David";
+            $email = "ddavid@hotmail.com";
+            $username = "drummyD";
+            $bio = "Beat maker and dog papa";
+            $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $test_user->save();
+
+            $title = "Dream Song";
+            $description = "Song about dreams";
+            $genre = "Drone";
+            $resources = "http://fakeembedcode.com";
+            $lyrics = "";
+            $type = "Lyrics";
+            $user_id = $test_user->getId();
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+
+            // Act
+            $result = $test_project->getUserId();
+
+            // Assert
+            $this->assertEquals($user_id, $result);
         }
 
         function testSave()
@@ -161,7 +199,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
             $test_project->save();
@@ -171,7 +210,7 @@
             $this->assertEquals($test_project, $result[0]);
         }
 
-        function testgetAll()
+        function testGetAll()
         {
             // Arrange
             $id = null;
@@ -181,7 +220,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             $title2 = "Dream Song";
             $description2 = "Song about dreams";
@@ -189,7 +229,7 @@
             $resources2 = "http://fakeembedcode.com";
             $lyrics2 = "";
             $type2 = "Lyrics";
-            $test_project2 = new Project($id, $title2, $description2, $genre2, $resources2, $lyrics2, $type2);
+            $test_project2 = new Project($id, $title2, $description2, $genre2, $resources2, $lyrics2, $type2, $user_id);
 
             // Act
             $test_project->save();
@@ -210,7 +250,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
 
             // Act
@@ -230,7 +271,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
 
             $title2 = "Dream Song";
@@ -239,7 +281,7 @@
             $resources2 = "http://fakeembedcode.com";
             $lyrics2 = "";
             $type2 = "Lyrics";
-            $test_project2 = new Project($id, $title2, $description2, $genre2, $resources2, $lyrics2, $type2);
+            $test_project2 = new Project($id, $title2, $description2, $genre2, $resources2, $lyrics2, $type2, $user_id);
             $test_project2->save();
 
             // Act
@@ -260,7 +302,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
 
             $new_title = "Song of Dreams";
@@ -282,15 +325,6 @@
         {
             // Arrange
             $id = null;
-            $title = "Dream Song";
-            $description = "Song about dreams";
-            $genre = "Drone";
-            $resources = "http://fakeembedcode.com";
-            $lyrics = "";
-            $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
-            $test_project->save();
-
             $first_name = "Drummy";
             $last_name = "David";
             $email = "ddavid@hotmail.com";
@@ -298,16 +332,27 @@
             $bio = "Beat maker and dog papa";
             $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $test_user->save();
+
+            $title = "Dream Song";
+            $description = "Song about dreams";
+            $genre = "Drone";
+            $resources = "http://fakeembedcode.com";
+            $lyrics = "";
+            $type = "Lyrics";
+            $user_id = $test_user->getId();
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+            $test_project->save();
 
             //Act
             $test_project->addUser($test_user);
-            $result = $test_project->getUser();
+            $result = $test_project->getUsers();
 
             //Assert
-            $this->assertEquals($test_user, $result);
+            $this->assertEquals([$test_user], $result);
         }
 
-        function testGetUser()
+        function testGetUsers()
         {
             // Arrange
             $id = null;
@@ -317,7 +362,8 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $user_id = null;
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
 
             $first_name = "Drummy";
@@ -327,6 +373,7 @@
             $bio = "Beat maker and dog papa";
             $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+            $test_user->save();
 
             $first_name2 = "Molly";
             $last_name2 = "Curtin";
@@ -335,6 +382,7 @@
             $bio2 = "Analog synth loops";
             $photo2 = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
             $test_user2 = new User($id, $first_name2, $last_name2, $email2, $username2, $bio2, $photo2);
+            $test_user2->save();
 
             // Act
             $test_project->addUser($test_user);
