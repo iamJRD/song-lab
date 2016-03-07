@@ -135,6 +135,31 @@
             $this->setUsername($new_username);
         }
 
+        static function find($search_id)
+        {
+            $found_user = null;
+            $users = User::getAll();
+            foreach($users as $user) {
+                $user_id = $user->getId();
+                if ($user_id == $search_id) {
+                  $found_user = $user;
+                }
+            }
+            return $found_user;
+        }
+
+        static function findUsername($search_username)
+        {
+            $found_user = null;
+            $users = User::getAll();
+            foreach($users as $user) {
+                if ($search_username == $user->getUsername()) {
+                  $found_user = $user;
+                }
+            }
+            return $found_user;
+        }
+
 
 
 
