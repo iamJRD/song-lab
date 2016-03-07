@@ -33,18 +33,38 @@
               <div id="modal1" class="modal">
                 <div class="modal-content">
                   <h2>Create your songLab account</h2>
-                  <hr>
-                  <p>A bunch of text</p>
+                  <form class="createAccountForm" action="index.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                    </div>
+                    <label for="question">What types of music will you be posting for collaborations?</label>
+                    <p class="musicType">
+                      <input type="checkbox" id="test1" />
+                      <label for="test1">Lyrics</label>
+                      <input type="checkbox" id="test2" />
+                      <label for="test2">Compositions</label>
+                      <input type="checkbox" id="test3" />
+                      <label for="test3">Bass Tracks</label>
+                      <input type="checkbox" id="test4" />
+                      <label for="test4">Flute</label>
+                    </p>
+                  </form>
                 </div>
                 <div class="modal-footer">
-                  <a class="modal-close" href="#">Agree</a>
+                  <a class="modal-close" href="#">Create Your Account</a>
                 </div>
               </div>
             <a class="modal-trigger" href="#modal2">Sign In</a>
             <div id="modal2" class="modal">
               <div class="modal-content">
                 <h4>Modal Header2</h4>
-                <form class="" action="index.html" method="post">
+                <form class="signInForm" action="index.html" method="post">
                   <div class="input-field">
                     <input placeholder="First Name" id="first_name" type="text" class="validate">
                   </div>

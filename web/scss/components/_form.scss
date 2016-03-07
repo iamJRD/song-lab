@@ -1,3 +1,19 @@
+//============================
+// FORMS
+//============================
+
+form {
+  .musicType {
+    padding-top: 2em;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+
+// MATERIALIZE FORM SASS
+//============================
+
 /* Remove Focus Boxes */
 select:focus {
   outline: 1px solid lighten($formPrimary, 47%);
@@ -9,7 +25,7 @@ button:focus {
 
 label {
   font-size: $label-font-size;
-  color: $input-border-color;
+  color: $black;
 }
 
 /***************************
@@ -18,7 +34,7 @@ label {
 
 // Style Placeholders
 ::-webkit-input-placeholder {
-   color: darken($primary, 30%);
+   color: lighten($primary, 5%);
 }
 
 :-moz-placeholder { /* Firefox 18- */
@@ -259,6 +275,7 @@ form p:last-child {
   + label {
     position: relative;
     padding-left: 35px;
+    padding-right: 50px;
     cursor: pointer;
     display: inline-block;
     height: 25px;

@@ -27,9 +27,14 @@
 .modal-footer {
   a {
     @extend %uppercase;
-    @include textFormat(1.1em);
-    @include padding(.5em 1em);
-    background: tomato;
+    @include textFormat(1.1em, $black);
+    background: transparent;
+    border: 1px solid $black;
+    transition: background 200ms linear;
+    &:hover {
+      background: $subColor2;
+      border: 1px solid transparent;
+    }
   }
 }
 

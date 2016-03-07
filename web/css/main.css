@@ -76,8 +76,13 @@ a {
 
 .modal-footer a {
   font-size: 1.1em;
-  padding: 0.5em 1em;
-  background: tomato; }
+  color: #000;
+  background: transparent;
+  border: 1px solid #000;
+  transition: background 200ms linear; }
+  .modal-footer a:hover {
+    background: #99FFE6;
+    border: 1px solid transparent; }
 
 .songLabWrapper {
   display: flex;
@@ -149,7 +154,7 @@ a {
   .modal .modal-footer {
     border-radius: 0 0 2px 2px;
     background-color: #fafafa;
-    padding: 4px 6px;
+    padding: 3em 6px 5em 6px;
     height: 56px;
     width: 100%; }
     .modal .modal-footer .btn, .modal .modal-footer .btn-flat {
@@ -192,6 +197,11 @@ a {
   border-radius: 0;
   will-change: bottom, opacity; }
 
+form .musicType {
+  padding-top: 2em;
+  display: flex;
+  justify-content: space-around; }
+
 /* Remove Focus Boxes */
 select:focus {
   outline: 1px solid white; }
@@ -201,14 +211,14 @@ button:focus {
   background-color: #0a0a0a; }
 
 label {
-  font-size: 16px;
-  color: #99ccff; }
+  font-size: 20px;
+  color: #000; }
 
 /***************************
    Text Inputs + Textarea
 ****************************/
 ::-webkit-input-placeholder {
-  color: #4100ff; }
+  color: #c6b3ff; }
 
 :-moz-placeholder {
   /* Firefox 18- */
@@ -235,7 +245,7 @@ input[type=search],
 textarea.materialize-textarea {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #99ccff;
+  border-bottom: 1px solid #000;
   border-radius: 0;
   outline: none;
   height: 3rem;
@@ -447,15 +457,15 @@ textarea.materialize-textarea {
   position: relative;
   margin-top: 1rem; }
   .input-field label {
-    color: #99ccff;
+    color: #000;
     position: absolute;
     top: 0.8rem;
-    left: 10px;
+    left: 25px;
     font-size: 1rem;
     cursor: text;
     transition: .2s ease-out; }
   .input-field label.active {
-    font-size: 16px;
+    font-size: 20px;
     transform: translateY(-140%); }
   .input-field .prefix {
     position: absolute;
@@ -541,6 +551,7 @@ form p:last-child {
   [type="checkbox"] + label {
     position: relative;
     padding-left: 35px;
+    padding-right: 50px;
     cursor: pointer;
     display: inline-block;
     height: 25px;
@@ -562,7 +573,7 @@ form p:last-child {
     width: 18px;
     height: 18px;
     z-index: 0;
-    border: 2px solid white;
+    border: 2px solid grey;
     border-radius: 1px;
     margin-top: 2px;
     transition: .2s; }
@@ -577,8 +588,8 @@ form p:last-child {
   height: 22px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
-  border-right: 2px solid #99ccff;
-  border-bottom: 2px solid #99ccff;
+  border-right: 2px solid #99FFE6;
+  border-bottom: 2px solid #99FFE6;
   transform: rotate(40deg);
   backface-visibility: hidden;
   transform-origin: 100% 100%; }
@@ -594,7 +605,7 @@ form p:last-child {
   height: 22px;
   border-top: none;
   border-left: none;
-  border-right: 2px solid #99ccff;
+  border-right: 2px solid #99FFE6;
   border-bottom: none;
   transform: rotate(90deg);
   backface-visibility: hidden;
@@ -627,7 +638,7 @@ form p:last-child {
   height: 20px;
   width: 20px;
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid grey;
   top: 0px;
   z-index: 0; }
 [type="checkbox"].filled-in:checked + label:before {
@@ -675,7 +686,7 @@ form p:last-child {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #99ccff;
+    border-bottom: 1px solid #000;
     outline: none;
     height: 3rem;
     line-height: 3rem;
@@ -695,7 +706,7 @@ form p:last-child {
   .select-wrapper + label {
     position: absolute;
     top: -14px;
-    font-size: 16px; }
+    font-size: 20px; }
 
 select {
   display: none; }
@@ -788,7 +799,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background-color: #99ccff;
+  background-color: #99FFE6;
   transform-origin: 50% 50%;
   margin: -5px 0 0 0;
   transition: .3s; }
@@ -811,7 +822,7 @@ input[type=range]::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background: #99ccff;
+  background: #99FFE6;
   margin-top: -5px; }
 
 /*hide the outline behind the border*/
@@ -843,7 +854,7 @@ input[type=range]::-ms-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background: #99ccff; }
+  background: #99FFE6; }
 
 input[type=range]:focus::-ms-fill-lower {
   background: #888; }
