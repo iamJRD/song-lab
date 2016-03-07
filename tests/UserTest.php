@@ -22,7 +22,7 @@
             $email = 'sammysinger@gmail.com';
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
-            $photo = 'img';
+            $photo = '/../web/img/test_photo.jpg';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
 
             //Act
@@ -41,7 +41,7 @@
             $email = 'sammysinger@gmail.com';
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
-            $photo = 'img';
+            $photo = '/../web/img/test_photo.jpg';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
 
             //Act
@@ -60,7 +60,7 @@
             $email = 'sammysinger@gmail.com';
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
-            $photo = 'img';
+            $photo = '/../web/img/test_photo.jpg';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
 
             //Act
@@ -79,7 +79,7 @@
             $email = 'sammysinger@gmail.com';
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
-            $photo = 'img';
+            $photo = '/../web/img/test_photo.jpg';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
 
             //Act
@@ -97,7 +97,7 @@
             $email = 'sammysinger@gmail.com';
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
-            $photo = 'img';
+            $photo = '/../web/img/test_photo.jpg';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
 
             //Act
@@ -116,7 +116,7 @@
             $email = 'sammysinger@gmail.com';
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
-            $photo = 'img';
+            $photo = '/../web/img/test_photo.jpg';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
 
             //Act
@@ -135,14 +135,14 @@
             $email = 'sammysinger@gmail.com';
             $username = 'sammysinger';
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
-            $photo = 'img';
+            $photo = '/../web/img/test_photo.jpg';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
 
             //Act
             $result = $test_user->getPhoto();
 
             //Assert
-            $this->assertEquals('img', $result);
+            $this->assertEquals('/../web/img/test_photo.jpg', $result);
         }
     }
 ?>
