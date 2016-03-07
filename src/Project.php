@@ -8,8 +8,9 @@
         private $resources;
         private $lyrics;
         private $type;
+        private $user_id;
 
-        function __construct($id = null, $title, $description, $genre, $resources, $lyrics, $type)
+        function __construct($id = null, $title, $description, $genre, $resources, $lyrics, $type, $user_id = null)
         {
             $this->id = $id;
             $this->title = $title;
@@ -18,6 +19,7 @@
             $this->resources = $resources;
             $this->lyrics = $lyrics;
             $this->type = $type;
+            $this->user_id = $user_id;
         }
 // SETTERS
         function setTitle($new_title)
@@ -85,6 +87,11 @@
             return $this->type;
         }
 
+        function getUserId()
+        {
+            return $this->user_id;
+        }
+
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO projects (title, description, genre, resources, lyrics, type) VALUES ('{$this->getTitle()}', '{$this->getDescription()}', '{$this->getGenre()}', '{$this->getResources()}', '{$this->getLyrics()}', '{$this->getType()}');");
@@ -149,12 +156,12 @@
 
         function addUser($user)
         {
-            $GLOBALS['DB']->exec("INSERT INTO projects_users (user_id, project_id) VALUES ({$user->getId()}, {$this->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO collaborations (project_id, user_id) VALUES ({$this->getId()}, {$user->getId()});");
         }
 
         function getUsers()
         {
-            $returned_users = $GLOBALS['DB']->query("SELECT users.* FROM projects JOIN projects_users ON (projects_users.project_id = projects.id) JOIN users ON (users.id = projects_users.user_id) WHERE projects.id = {$this->getId()};");
+            $returned_users = $GLOBALS['DB']->query("SELECT users.* FROM projects JOIN collaborations ON (collaborations.project_id = projects.id) JOIN users ON (users.id = collaborations.user_id) WHERE projects.id = {$this->getId()};");
 
             $users = array();
             foreach($returned_users as $user)
