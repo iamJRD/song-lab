@@ -146,5 +146,29 @@
         {
             $GLOBALS['DB']->exec("DELETE FROM projects");
         }
+
+        function addUser($user)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO projects_users (user_id, project_id) VALUES ({$user->getId()}, {$this->getId()};)");
+        }
+
+        function getUser()
+        {
+            $returned_users = $GLOBALS['DB']->query("SELECT users.* FROM projects JOIN projects_users ON (projects_users.project_id = projects.id) JOIN users ON (users.id = projects_users.user_id) WHERE projects.id = {$this->getId()};");
+
+            $users = array();
+            foreach($returned_users as $user)
+            {
+                $id = $user['id'];
+                $first_name = $user['first_name'];
+                $last_name = $user['last_name'];
+                $email = $user['email'];
+                $username = $user['username'];
+                $bio = $user['bio'];
+                $photo = $user['photo'];
+                array_push($users, $user);
+            }
+            return $users;
+        }
     }
 ?>

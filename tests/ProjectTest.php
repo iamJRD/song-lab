@@ -278,5 +278,72 @@
             $this->assertEquals([$new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type], $result);
         }
 
+        function testAddUser()
+        {
+            // Arrange
+            $id = null;
+            $title = "Dream Song";
+            $description = "Song about dreams";
+            $genre = "Drone";
+            $resources = "http://fakeembedcode.com";
+            $lyrics = "";
+            $type = "Lyrics";
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $test_project->save();
+
+            $first_name = "Drummy";
+            $last_name = "David";
+            $email = "ddavid@hotmail.com";
+            $username = "drummyD";
+            $bio = "Beat maker and dog papa";
+            $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+
+            //Act
+            $test_project->addUser($test_user);
+            $result = $test_project->getUser();
+
+            //Assert
+            $this->assertEquals($test_user, $result);
+        }
+
+        function testGetUser()
+        {
+            // Arrange
+            $id = null;
+            $title = "Dream Song";
+            $description = "Song about dreams";
+            $genre = "Drone";
+            $resources = "http://fakeembedcode.com";
+            $lyrics = "";
+            $type = "Lyrics";
+            $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+            $test_project->save();
+
+            $first_name = "Drummy";
+            $last_name = "David";
+            $email = "ddavid@hotmail.com";
+            $username = "drummyD";
+            $bio = "Beat maker and dog papa";
+            $photo = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo);
+
+            $first_name2 = "Molly";
+            $last_name2 = "Curtin";
+            $email2 = "curtinSongs@gmail.com";
+            $username2 = "CurtinSongs";
+            $bio2 = "Analog synth loops";
+            $photo2 = "https://c1.staticflickr.com/7/6019/6278800280_3be400e1e3_b.jpg";
+            $test_user2 = new User($id, $first_name2, $last_name2, $email2, $username2, $bio2, $photo2);
+
+            // Act
+            $test_project->addUser($test_user);
+            $test_project->addUser($test_user2);
+            $result = $test_project->getUsers();
+
+            // Assert
+            $this->assertEquals([$test_user, $test_user2], $result);
+        }
+
     }
 ?>
