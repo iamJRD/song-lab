@@ -14,10 +14,10 @@ html, body {
   margin: 0px;
 }
 
-
-/**
- * Basic styles for links
- */
 a {
   text-decoration: none;
+}
+
+p {
+  @extend %headerFont;
 }

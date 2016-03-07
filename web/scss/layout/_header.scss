@@ -1,3 +1,25 @@
-// -----------------------------------------------------------------------------
-// This file contains all styles related to the header of the site/application.
-// -----------------------------------------------------------------------------
+// --------------------------
+// Header
+// --------------------------
+
+.header {
+  @include flexbox ($justify: center, $direction: column, $align-items: center);
+  @include background-image(linear-gradient(rgba($primary, 0.5), rgba($black,0)),url("#{$img-path}/piano-hands.jpeg"));
+  background-size: cover;
+  height: 70vh;
+  .headerContent {
+    text-align: center;
+  }
+  .summary {
+    color: $white;
+    p:first-child {
+      font-size: 2.5em;
+    }
+    p:nth-child(2) {
+      @include textFormat(1.6em, $l-spacing: 5px);
+      @extend %uppercase;
+      @extend %logoFont;
+      font-weight: bold;
+    }
+  }
+}

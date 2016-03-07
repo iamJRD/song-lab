@@ -1,0 +1,65 @@
+// ------------------------
+// Logo
+// ------------------------
+
+.songLabWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 100%;
+}
+.songLabLogo h1 {
+  @extend %logoFont;
+  color: white;
+  font-size: 100px;
+  letter-spacing: 3px;
+}
+
+.songLabLogo {
+  display: flex;
+  width: 50%;
+}
+
+
+.musicBars {
+  display: flex;
+  padding-left: 5px;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.bar {
+  width: 80px;
+  margin: 5px;
+  background: #99ccff;
+  height: 15px;
+  border-radius: 5px;
+}
+
+
+.songLabLogo #bar1 {
+  -webkit-animation: musicBars 1s ease-in-out backwards alternate-reverse infinite;
+}
+.songLabLogo #bar2 {
+  -webkit-animation: musicBars 1.2s .2s ease-in-out backwards alternate-reverse infinite;
+}
+.songLabLogo #bar3 {
+  -webkit-animation: musicBars 1.2s 1s ease-in-out backwards alternate-reverse infinite;
+}
+
+
+@-webkit-keyframes musicBars {
+  0% {
+    width: 30px;
+    background:#99ffe6;
+  }
+  50% {
+    width: 90px;
+    background: #b399ff;
+  }
+  100% {
+    width: 70px;
+  }
+}

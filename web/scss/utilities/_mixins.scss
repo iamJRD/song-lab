@@ -1,20 +1,19 @@
-// -----------------------------------------------------------------------------
-// This file contains all application-wide Sass mixins.
-// -----------------------------------------------------------------------------
+// ---------------------------
+// Mixins
+// ---------------------------
 
-@mixin on-event($self: false) {
-  @if $self {
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-      @content;
-    }
-  } @else {
-    &:hover,
-    &:active,
-    &:focus {
-      @content;
-    }
-  }
+@mixin textFormat ($size: null, $color: null, $weight: null, $l-spacing: null, $l-height: null) {
+  font-size: $size;
+  color: $color;
+  weight: $weight;
+  letter-spacing: $l-spacing;
+  line-height: $l-height;
+}
+
+@mixin flexbox ($display: flex, $justify: null, $align-items: null, $direction: null, $align-self: null) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align-items;
+  flex-direction: $direction;
+  align-self: $align-self;
 }

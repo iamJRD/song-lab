@@ -4,6 +4,15 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+.header .summary p:nth-child(2), .songLabLogo h1 {
+  font-family: 'Fjalla One', sans-serif; }
+
+p {
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+.header .summary p:nth-child(2) {
+  text-transform: uppercase; }
+
 *,
 *::before,
 *::after {
@@ -15,14 +24,79 @@ html, body {
   padding: 0px;
   margin: 0px; }
 
-/**
- * Basic styles for links
- */
 a {
   text-decoration: none; }
 
 /**
  * Basic typography style for copy text
  */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
+  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
+  background-size: cover;
+  height: 70vh; }
+  .header .headerContent {
+    text-align: center; }
+  .header .summary {
+    color: #fff; }
+    .header .summary p:first-child {
+      font-size: 2.5em; }
+    .header .summary p:nth-child(2) {
+      font-size: 1.6em;
+      letter-spacing: 5px;
+      font-weight: bold; }
+
+.songLabWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 100%; }
+
+.songLabLogo h1 {
+  color: white;
+  font-size: 100px;
+  letter-spacing: 3px; }
+
+.songLabLogo {
+  display: flex;
+  width: 50%; }
+
+.musicBars {
+  display: flex;
+  padding-left: 5px;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5px; }
+
+.bar {
+  width: 80px;
+  margin: 5px;
+  background: #99ccff;
+  height: 15px;
+  border-radius: 5px; }
+
+.songLabLogo #bar1 {
+  -webkit-animation: musicBars 1s ease-in-out backwards alternate-reverse infinite; }
+
+.songLabLogo #bar2 {
+  -webkit-animation: musicBars 1.2s .2s ease-in-out backwards alternate-reverse infinite; }
+
+.songLabLogo #bar3 {
+  -webkit-animation: musicBars 1.2s 1s ease-in-out backwards alternate-reverse infinite; }
+
+@-webkit-keyframes musicBars {
+  0% {
+    width: 30px;
+    background: #99ffe6; }
+  50% {
+    width: 90px;
+    background: #b399ff; }
+  100% {
+    width: 70px; } }
 
 /*# sourceMappingURL=main.css.map */
