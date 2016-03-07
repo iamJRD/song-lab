@@ -154,12 +154,12 @@
             $GLOBALS['DB']->exec("DELETE FROM projects");
         }
 
-        function addUser($user)
+        function addCollaborator($user)
         {
             $GLOBALS['DB']->exec("INSERT INTO collaborations (project_id, user_id) VALUES ({$this->getId()}, {$user->getId()});");
         }
 
-        function getUsers()
+        function getCollaborators()
         {
             $returned_users = $GLOBALS['DB']->query("SELECT users.* FROM projects JOIN collaborations ON (collaborations.project_id = projects.id) JOIN users ON (users.id = collaborations.user_id) WHERE projects.id = {$this->getId()};");
 

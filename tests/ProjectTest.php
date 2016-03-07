@@ -321,7 +321,7 @@
             $this->assertEquals([$new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type], $result);
         }
 
-        function testAddUser()
+        function testAddCollaborator()
         {
             // Arrange
             $id = null;
@@ -345,14 +345,14 @@
             $test_project->save();
 
             //Act
-            $test_project->addUser($test_user);
-            $result = $test_project->getUsers();
+            $test_project->addCollaborator($test_user);
+            $result = $test_project->getCollaborators();
 
             //Assert
             $this->assertEquals([$test_user], $result);
         }
 
-        function testGetUsers()
+        function testGetCollaborators()
         {
             // Arrange
             $id = null;
@@ -385,9 +385,9 @@
             $test_user2->save();
 
             // Act
-            $test_project->addUser($test_user);
-            $test_project->addUser($test_user2);
-            $result = $test_project->getUsers();
+            $test_project->addCollaborator($test_user);
+            $test_project->addCollaborator($test_user2);
+            $result = $test_project->getCollaborators();
 
             // Assert
             $this->assertEquals([$test_user, $test_user2], $result);
