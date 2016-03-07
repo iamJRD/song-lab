@@ -8,8 +8,9 @@
         private $username;
         private $bio;
         private $photo;
+        private $password;
 
-        function __construct($id = null, $first_name, $last_name, $email, $username, $bio, $photo)
+        function __construct($id = null, $first_name, $last_name, $email, $username, $bio, $photo, $password)
         {
             $this->id = $id;
             $this->first_name = $first_name;
@@ -18,6 +19,7 @@
             $this->username = $username;
             $this->bio = $bio;
             $this->photo = $photo;
+            $this->password = $password;
         }
 
         // Setters
@@ -50,6 +52,11 @@
         function setPhoto($new_photo)
         {
             $this->photo = $new_photo;
+        }
+
+        function setPassword($new_password)
+        {
+            $this->password = $new_password;
         }
 
         // Getters
@@ -87,6 +94,11 @@
         function getPhoto()
         {
             return $this->photo;
+        }
+
+        function getPassword()
+        {
+            return $this->password;
         }
 
 
@@ -159,6 +171,34 @@
             }
             return $found_user;
         }
+
+        function addProject($project)
+       {
+           $GLOBALS['DB']->exec("INSERT INTO projects_users (user_id, project_id) VALUES ({$this->getId()}, {$project->getId()});");
+       }
+
+
+       function getProjects()
+       {
+           $query = $GLOBALS['DB']->query("SELECT * FROM project WHERE user_id = {$this->getId()};");
+
+			$projects = array();
+           foreach ($query as $project) {
+               $id = $project['id'];
+               $title = $project['title'];
+               $description = $project['description'];
+               $genre = $project['genre'];
+               $resources = $project['resources'];
+               $lyrics = $project['lyrics'];
+               $type = $project['type'];
+               $user_id = $project['user_id'];
+
+               array_push($projects, $new_project);
+           }
+           return $projects;
+       }
+
+
 
 
 
