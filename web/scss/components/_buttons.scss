@@ -5,7 +5,7 @@
 .headerButtons {
   @extend %headerFont;
   @include flexbox($justify: space-between);
-  @include size(35% auto);
+  @include size(45% auto);
   align-self: center;
   a {
     @extend %uppercase;

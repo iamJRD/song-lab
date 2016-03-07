@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
     <title>SongLab | Homepage</title>
   </head>
   <body>
@@ -28,15 +29,46 @@
             <p>Connect. Collaborate. Create.</p>
           </div>
           <div class="headerButtons">
-            <a href="#">Sign Up</a>
-            <a href="#">Sign In</a>
+            <a class="modal-trigger" href="#modal1">Sign Up</a>
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h4>Modal Header</h4>
+                  <p>A bunch of text</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+              </div>
+            <a class="modal-trigger" href="#modal2">Sign In</a>
+            <div id="modal2" class="modal">
+              <div class="modal-content">
+                <h4>Modal Header2</h4>
+                <p>A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="completedCollabs">
 
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+
       </div>
     </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
   </body>
 </html>
