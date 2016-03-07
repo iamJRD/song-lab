@@ -5,7 +5,7 @@
 @mixin textFormat ($size: null, $color: null, $weight: null, $l-spacing: null, $l-height: null) {
   font-size: $size;
   color: $color;
-  weight: $weight;
+  font-weight: $weight;
   letter-spacing: $l-spacing;
   line-height: $l-height;
 }

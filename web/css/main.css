@@ -132,6 +132,13 @@ a {
     background: #b399ff; }
   100% {
     width: 70px; } }
+.modal-content h2 {
+  margin-bottom: 0; }
+.modal-content h4 {
+  font-weight: lighter;
+  letter-spacing: 0.8px;
+  padding-top: 0; }
+
 .modal {
   display: none;
   position: fixed;

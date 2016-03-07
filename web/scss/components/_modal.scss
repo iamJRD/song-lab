@@ -1,3 +1,17 @@
+.modal-content {
+  h2 {
+    margin-bottom: 0;
+  }
+  h4 {
+    @include textFormat ($weight: lighter, $l-spacing: .8px);
+    padding-top: 0;
+  }
+}
+
+
+
+
+
 .modal {
 
   display: none;
