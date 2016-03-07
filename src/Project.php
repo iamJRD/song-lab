@@ -94,7 +94,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO projects (title, description, genre, resources, lyrics, type) VALUES ('{$this->getTitle()}', '{$this->getDescription()}', '{$this->getGenre()}', '{$this->getResources()}', '{$this->getLyrics()}', '{$this->getType()}');");
+            $GLOBALS['DB']->exec("INSERT INTO projects (title, description, genre, resources, lyrics, type, user_id) VALUES ('{$this->getTitle()}', '{$this->getDescription()}', '{$this->getGenre()}', '{$this->getResources()}', '{$this->getLyrics()}', '{$this->getType()}', {$this->getUserId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -112,7 +112,8 @@
                 $resources = $project['resources'];
                 $lyrics = $project['lyrics'];
                 $type = $project['type'];
-                $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type);
+                $user_id = $project['user_id'];
+                $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
                 array_push($projects, $new_project);
             }
             return $projects;

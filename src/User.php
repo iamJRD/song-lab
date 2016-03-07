@@ -131,6 +131,26 @@
 
         }
 
+        function verifyLogin($username, $password)
+        {
+            $query = $GLOBALS['DB']->query("SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}'");
+            $login_match = $query->fetchAll(PDO::FETCH_ASSOC);
+            $found_match = null;
+
+            foreach($login_match as $match){
+                $id = $match['id'];
+                $first_name = $match['first_name'];
+                $last_name = $match['last_name'];
+                $email= $match['email'];
+                $username= $match['username'];
+                $bio= $match['bio'];
+                $photo= $match['photo'];
+                $password = $match['password'];
+                $found_match = User::find($id);
+            }
+            return $found_match;
+        }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM users;");
@@ -142,10 +162,16 @@
             $GLOBALS['DB']->exec("DELETE FROM collaborations WHERE user_id = {$this->getId()};");
         }
 
-        function update($new_username)
+        function update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password)
         {
-            $GLOBALS['DB']->exec("UPDATE users SET username = '{$new_username}' WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE users SET first_name = '{$new_first_name}', last_name = '{$new_last_name}', email = '{$new_email}', username = '{$new_username}', bio = '{$new_bio}', photo = '{$new_photo}', password = '{$new_password}' WHERE id = {$this->getId()};");
+            $this->setFirstName($new_first_name);
+            $this->setLastName($new_last_name);
+            $this->setEmail($new_email);
             $this->setUsername($new_username);
+            $this->setBio($new_bio);
+            $this->setPhoto($new_photo);
+            $this->setPassword($new_password);
         }
 
         static function find($search_id)
@@ -175,10 +201,31 @@
 
         function addProject($project)
        {
-           $GLOBALS['DB']->exec("INSERT INTO collaborations (user_id, project_id) VALUES ({$this->getId()}, {$project->getId()});");
+           $GLOBALS['DB']->exec("INSERT INTO collaborations (project_id, user_id) VALUES ({$project->getId()}, {$this->getId()});");
        }
 
        function getProjects()
+       {
+           $returned_projects = $GLOBALS['DB']->query("SELECT projects.* FROM users JOIN collaborations ON (collaborations.user_id = users.id) JOIN projects ON (projects.id = collaborations.project_id) WHERE users.id = {$this->getId()};");
+
+           $projects = array();
+           foreach($returned_projects as $project)
+           {
+               $id = $project['id'];
+               $title = $project['title'];
+               $description = $project['description'];
+               $genre = $project['genre'];
+               $resources = $project['resources'];
+               $lyrics = $project['lyrics'];
+               $type = $project['type'];
+               $user_id = $project['user_id'];
+               $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+               array_push($projects, $new_project);
+           }
+           return $projects;
+       }
+
+       function getOwnerProjects()
        {
            $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
 
@@ -192,6 +239,7 @@
                $lyrics = $project['lyrics'];
                $type = $project['type'];
                $user_id = $project['user_id'];
+               $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
                array_push($projects, $new_project);
             }

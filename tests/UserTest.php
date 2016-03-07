@@ -180,7 +180,7 @@
 
         }
 
-        function testsave()
+        function testSave()
         {
             //Arrange
             $id = 1;
@@ -201,7 +201,7 @@
             $this->assertEquals($test_user, $result[0]);
         }
 
-        function testgetAll()
+        function testGetAll()
         {
             //Arrange
             $id = 1;
@@ -233,7 +233,28 @@
             $this->assertEquals([$test_user, $test_user1], $result);
         }
 
-        function testdeleteAll()
+        function testVerifyLogin()
+        {
+            //Arrange
+            $id = 1;
+            $first_name = 'Sammy';
+            $last_name = 'Singsalot';
+            $email = 'sammysinger@gmail.com';
+            $username = 'sammysinger';
+            $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
+            $photo = '/../web/img/test_photo.jpg';
+            $password = "cool hat";
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
+            $test_user->save();
+
+            //Act
+            $result = $test_user->verifyLogin($username, $password);
+
+            //Assert
+            $this->assertEquals($test_user, $result);
+        }
+
+        function testDeleteAll()
         {
             //Arrange
             $id = 1;
@@ -266,7 +287,7 @@
             $this->assertEquals([], $result);
         }
 
-        function testdeleteUser()
+        function testDeleteUser()
         {
             //Arrange
             $id = 1;
@@ -312,13 +333,20 @@
             $password = 'password';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
+
             $new_username = 'singsongsammy';
+            $new_first_name = "sam";
+            $new_last_name = "singsSometimes";
+            $new_email = "samsings@gmail.com";
+            $new_bio = "Portland native with a voice like an angel. Looking for other creative types to collaborate with! Hoping to find a classical guitarist to JAM with.";
+            $new_photo = '/../web/img/test_photo.jpg';
+            $new_password = 'pssword';
 
             //Act
-            $test_user->update($new_username);
-
+            $test_user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
+            $result = [$test_user->getFirstName(), $test_user->getLastName(), $test_user->getEmail(), $test_user->getUserName(), $test_user->getBio(), $test_user->getPhoto(), $test_user->getPassword()];
             //Assert
-            $this->assertEquals('singsongsammy', $test_user->getUsername());
+            $this->assertEquals([$new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password], $result);
         }
 
         function testFind()
@@ -332,7 +360,8 @@
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
             $password = 'password';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);            $test_user->save();
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
+            $test_user->save();
 
             $id1 = 2;
             $first_name1 = 'Gerald';
@@ -362,7 +391,8 @@
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
             $password = 'password';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);              $test_user->save();
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
+            $test_user->save();
 
             $id1 = 2;
             $first_name1 = 'Gerald';
@@ -392,8 +422,8 @@
             $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
             $photo = '/../web/img/test_photo.jpg';
             $password = 'password';
-            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);             $test_user->save();
-var_dump($test_user);
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
+            $test_user->save();
 
             $id1 = 3;
             $title = 'Herding Cats';
@@ -405,7 +435,6 @@ var_dump($test_user);
             $user_id = $test_user->getId();
             $test_project = new Project($id1, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
-var_dump($test_project);
 
             //Act
             $test_user->AddProject($test_project);
@@ -414,7 +443,7 @@ var_dump($test_project);
             $this->assertEquals([$test_project], $test_user->getProjects());
         }
 
-        function testGetProjects()
+        function testGetOwnerProjects()
         {
             $id = 1;
             $first_name = 'Sammy';
