@@ -68,12 +68,18 @@ a {
     width: 100%;
     text-align: center;
     margin-top: 30px; }
+    @media screen and (max-width: 550px) {
+      .overlay ul {
+        right: 5%; } }
   .overlay li {
     padding: 5%;
     text-decoration: none;
     font-size: 60px;
     display: block;
     transition: 0.3s; }
+    @media screen and (max-width: 550px) {
+      .overlay li {
+        font-size: 30px; } }
     .overlay li a {
       color: white;
       transition: all 400ms linear; }
@@ -87,6 +93,9 @@ a {
     font-size: 60px !important; }
     .overlay .closebtn:hover {
       color: #99FFE6; }
+    @media screen and (max-width: 550px) {
+      .overlay .closebtn {
+        font-size: 40px !important; } }
 
 .header {
   display: flex;
@@ -98,7 +107,7 @@ a {
   background-size: cover;
   width: 100%;
   height: 70vh; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .header {
       height: 100%; } }
   .header .headerContent {
@@ -106,13 +115,13 @@ a {
     flex-direction: column;
     width: 68%;
     text-align: center; }
-    @media screen and (max-width: 620px) {
+    @media screen and (max-width: 550px) {
       .header .headerContent {
         width: 90%; } }
   .header .summary {
     color: #fff;
     margin-bottom: 3%; }
-    @media screen and (max-width: 620px) {
+    @media screen and (max-width: 550px) {
       .header .summary {
         font-size: .8em; } }
     .header .summary p:first-child {
@@ -293,6 +302,10 @@ a {
     height: 3px;
     width: 30px;
     background-color: white; }
+  @media screen and (max-width: 768px) {
+    .navIcon {
+      top: 10px;
+      left: 10px; } }
 
 .songLabWrapper {
   display: flex;
@@ -305,7 +318,7 @@ a {
   color: white;
   font-size: 100px;
   letter-spacing: 3px; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .songLabLogo h1 {
       font-size: 36px; } }
 
@@ -321,7 +334,7 @@ a {
   flex-direction: column;
   justify-content: center;
   padding-top: 5px; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .musicBars {
       width: 50px; } }
 
@@ -331,7 +344,7 @@ a {
   background: #99ccff;
   height: 15px;
   border-radius: 5px; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .bar {
       width: 40px;
       height: 8px;
@@ -339,19 +352,19 @@ a {
 
 .songLabLogo #bar1 {
   -webkit-animation: musicBars 1s ease-in-out backwards alternate-reverse infinite; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .songLabLogo #bar1 {
       -webkit-animation: none !important; } }
 
 .songLabLogo #bar2 {
   -webkit-animation: musicBars 1.2s .2s ease-in-out backwards alternate-reverse infinite; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .songLabLogo #bar2 {
       -webkit-animation: none !important; } }
 
 .songLabLogo #bar3 {
   -webkit-animation: musicBars 1.2s 1s ease-in-out backwards alternate-reverse infinite; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .songLabLogo #bar3 {
       -webkit-animation: none !important; } }
 
@@ -376,7 +389,7 @@ a {
   flex-direction: column;
   justify-content: center;
   padding-top: 5px; }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .navSubpage .musicBars {
       width: 50px; } }
 .navSubpage .bar {
@@ -386,7 +399,7 @@ a {
   height: 10px;
   border-radius: 5px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 550px) {
     .navSubpage .bar {
       width: 40px;
       height: 8px;
