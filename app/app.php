@@ -25,6 +25,7 @@
         return $app['twig']->render('index.html.twig', array('user' => $users));
     });
 
+    //new user
     $app->post("/user", function() use ($app) {
         $id = null;
         $first_name = $_POST['first_name'];
@@ -40,16 +41,19 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+    //projects list
     $app->get("/projects", function() use ($app){
         return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
     });
 
+    //search project page
     $app->post("/search", function() use ($app) {
         $keyword = $_POST['search_term'];
         $project_matches = Project::search($keyword);
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
     });
 
+    //create new project as owner
     $app->get("/user/{id}/create_project", function($id) use ($app){
         $user = User::find($id);
         return $app['twig']->render('create_project.html.twig', array('user' => $user));
@@ -59,6 +63,7 @@
         $user = User::find($id);
         $user_projects = $user->getProjects();
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+      });
 
     $app->post("/user", function() use ($app) {
         $users = User::getAll();
