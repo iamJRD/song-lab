@@ -71,34 +71,24 @@
       });
 
     $app->post("/sign_in", function() use ($app) {
-        $users = User::getAll();
+
         $inputted_username = $_POST['username'];
         $inputted_password = $_POST['password'];
-        $error = null;
+        $user =  User::verifyLogin($inputted_username, $inputted_password);
 
-        foreach($users as $user)
-        {
-            $username = $user->getUsername();
-            $password = $user->getPassword();
-            $id = $user->getId();
-
-            if($username == $inputted_username && $password == $inputted_password)
+            if($user != null && $user->getUsername() == $inputted_username && $user->getPassword() == $inputted_password)
             {
-                $found_user = User::findUsername($username);
+                echo "working";
+                $found_user = $user;
                 $user_projects = $found_user->getOwnerProjects();
                 return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
 
             } else {
                 $error = "The username and password do not match!";
-              //   echo '<script type="text/javascript">
-              //   $(document).ready(function() {
-              //   $("#myModal").modal("show");
-              // });
-              // </script>';
 
-                return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
+                return $app['twig']->render('index.html.twig', array('error' => $error));
             }
-        }
+
 
         // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
