@@ -487,17 +487,17 @@ a {
   will-change: bottom, opacity; }
 
 /* View Music Modal Styles */
-#modal4 .modal-footer {
+.modal4 .modal-footer {
   text-align: center; }
 
 /* Request to Collaborate Modal Styles */
-#modal3 {
+.modal3 {
   text-align: center; }
-  #modal3 textarea {
+  .modal3 textarea {
     padding: 1%;
     height: 100px;
     font-size: 14px; }
-    #modal3 textarea:focus {
+    .modal3 textarea:focus {
       outline: none; }
 
 form .musicType {
