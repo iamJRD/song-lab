@@ -1,0 +1,13 @@
+.navIcon {
+  @include size(40px 40px);
+  @include flexbox(flex, $justify: space-around, $align-items: center);
+  @include position(absolute, 35px null null 20px);
+  flex-wrap: wrap;
+  background-color: rgba($black, .5);
+  padding: .4em;
+  cursor: pointer;
+  .iconbar {
+    @include size(30px 3px);
+    background-color: white;
+  }
+}
