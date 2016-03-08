@@ -38,7 +38,7 @@
         @include textFormat(15px, $white, lighter, 1px);
         background: rgba(255,255,255,.1);
         border-bottom: none;
-        color: white;
+        border-radius: 2px;
         width: 30%;
         text-align: center;
       }

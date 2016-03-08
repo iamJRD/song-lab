@@ -21,3 +21,7 @@ a {
 p {
   @extend %headerFont;
 }
+
+.pageWrapper {
+  @include flexbox(flex, center, center, $direction: column);
+}
