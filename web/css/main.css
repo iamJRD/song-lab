@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .secondaryBlack, .secondaryWhite, .headerButtons, .profileInfo {
+p, .browseHeader .headerVidText h1, .secondaryBlack, .secondaryWhite, .headerButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -31,8 +31,18 @@ h2 {
   font-size: 1.5em;
   letter-spacing: 1.5px; }
 
+body::-webkit-scrollbar {
+  display: none; }
+
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: black; }
+
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
 
 /**
  * Basic typography style for copy text
@@ -86,6 +96,7 @@ a {
   background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
   background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
   background-size: cover;
+  width: 100%;
   height: 70vh; }
   @media screen and (max-width: 620px) {
     .header {
@@ -111,6 +122,64 @@ a {
       font-size: 1.6em;
       letter-spacing: 6px;
       font-weight: bold; }
+
+.browseHeader {
+  max-height: 50vh;
+  overflow: hidden; }
+  .browseHeader .headerVid {
+    object-fit: cover;
+    width: 100%;
+    min-height: 50vh; }
+  .browseHeader .video-overlay {
+    background-image: -webkit-linear-gradient(#b399ff, transparent);
+    background-image: linear-gradient(#b399ff, transparent);
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50vh; }
+  .browseHeader .headerVidText {
+    text-align: center;
+    width: 90%;
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0); }
+    .browseHeader .headerVidText h1 {
+      font-size: 90px;
+      font-weight: lighter;
+      letter-spacing: 1px;
+      margin-bottom: 0; }
+    .browseHeader .headerVidText p {
+      margin: 0 auto;
+      font-size: 25px; }
+    .browseHeader .headerVidText #browsePageSearch {
+      margin-top: 3%; }
+      .browseHeader .headerVidText #browsePageSearch input {
+        font-size: 15px;
+        color: #fff;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: none;
+        border-radius: 2px;
+        width: 30%;
+        text-align: center; }
+      .browseHeader .headerVidText #browsePageSearch .searchButton {
+        font-size: 1em;
+        color: #fff;
+        letter-spacing: 1px;
+        padding: 0.5em 1.5em;
+        border: 1px solid #fff;
+        background: transparent;
+        transition: all 500ms linear; }
+        .browseHeader .headerVidText #browsePageSearch .searchButton:hover {
+          color: #000;
+          background: #99FFE6; }
 
 .profileHeader {
   height: 60vh;
@@ -400,6 +469,11 @@ a {
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity; }
+
+/* View Music Modal Styles */
+/* Request to Collaborate Modal Styles */
+#modal3 {
+  text-align: center; }
 
 form .musicType {
   padding-top: 2em;
@@ -1101,5 +1175,47 @@ select {
   .profileInfo .userBio {
     font-size: 1.3em;
     letter-spacing: 1.5px; }
+
+.projectsWrapper {
+  border: 1px solid lightgray;
+  width: 90%;
+  padding: 2%; }
+  .projectsWrapper .open-project {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3%; }
+    .projectsWrapper .open-project .openProjectHeader {
+      display: flex;
+      align-items: center; }
+      .projectsWrapper .open-project .openProjectHeader img {
+        height: 80px;
+        width: 80px;
+        margin-right: 1%;
+        box-shadow: 1px 1px 3px gray;
+        border-radius: 50%; }
+      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
+        font-size: 30px;
+        margin: 0 auto; }
+      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h4 {
+        color: grey;
+        margin: 0 auto; }
+    .projectsWrapper .open-project .openProjectSummary p {
+      margin-top: 5px; }
+    .projectsWrapper .open-project .openProjectButtons {
+      display: flex;
+      justify-content: center; }
+      .projectsWrapper .open-project .openProjectButtons a {
+        text-align: center;
+        width: 50%;
+        margin: 1%;
+        padding: 0.5em 1em;
+        transition: all 300ms linear;
+        border: 1px solid gray; }
+        .projectsWrapper .open-project .openProjectButtons a:hover {
+          color: #000;
+          background: #99FFE6; }
+        .projectsWrapper .open-project .openProjectButtons a:nth-child(2):hover {
+          background: #99ccff; }
 
 /*# sourceMappingURL=main.css.map */

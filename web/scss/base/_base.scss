@@ -14,15 +14,25 @@ html, body {
   margin: 0px;
 }
 
+
 h2 {
   @include textFormat(1.5em, $l-spacing: 1.5px);
   @extend %uppercase;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 a {
   text-decoration: none;
+  color: black;
 }
 
 p {
   @extend %headerFont;
+}
+
+.pageWrapper {
+  @include flexbox(flex, center, center, $direction: column);
 }

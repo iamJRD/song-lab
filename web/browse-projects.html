@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/main.css" media="screen">
+    <meta name="viewport" content="width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+    <title>SongLab | Browse Open Projects</title>
+  </head>
+  <body>
+    <div class="pageWrapper">
+      <div class="navbar">
+      </div>
+
+      <div class="browseHeader">
+        <video class="headerVid" autoplay loop muted poster="assets/images/poster.jpg">
+          <source src="img/guitar-video.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay"></div>
+          <div class="headerVidText">
+            <h1>Browse Open Projects</h1>
+            <p>Search through songLab's archive of unfinished projects in need of artistic collaboration.</p>
+
+            <div class="searchbar" id="browsePageSearch">
+              <input type="text" name="name" value="">
+              <br>
+              <button class="searchButton" type="submit" name="button">SEARCH</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
+          <div class="open-project">
+            <div class="openProjectHeader">
+              <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+              <div class="titleAndAuthor">
+                <h3 class="projectTitle">Title</h3>
+                <h4 class="projectAuthor">By: Author Name</h4>
+              </div>
+            </div>
+
+            <div class="openProjectSummary">
+              <p class="projectSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+            <div class="openProjectButtons">
+              <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
+              <a class="modal-trigger" href="#modal3">REQUEST TO COLLABORATE</a>
+              <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <h1>Interested in working on this song?</h1>
+                  <p>Message the author with your ideas!</p>
+                  <form class="signInForm" action="browse-projects.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="Your Username" id="userName" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">SEND REQUEST</a>
+                </div>
+              </div>
+          </div> <!-- Open Project end -->
+
+
+    <!-- I appended a second open project here just so we can get an idea of looks, but the code below is the same as the open project code above -->
+
+          <div class="open-project">
+            <div class="openProjectHeader">
+              <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+              <div class="titleAndAuthor">
+                <h3 class="projectTitle">Title</h3>
+                <h4 class="projectAuthor">By: Author Name</h4>
+              </div>
+            </div>
+
+            <div class="openProjectSummary">
+              <p class="projectSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="openProjectButtons">
+              <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h2>Create Your Account</h2>
+                  <h4>Join SongLab to discover and create creative ideas.</h4>
+                  <form class="createAccountForm" action="index.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="Username" id="Username" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Password" id="password" type="password" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                    </div>
+                    <label for="question">What types of music will you be posting for collaborations?</label>
+                    <p class="musicType">
+                      <input type="checkbox" id="test1" />
+                      <label for="test1">Lyrics</label>
+                      <input type="checkbox" id="test2" />
+                      <label for="test2">Compositions</label>
+                      <input type="checkbox" id="test3" />
+                      <label for="test3">Bass Tracks</label>
+                      <input type="checkbox" id="test4" />
+                      <label for="test4">Flute</label>
+                    </p>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">Create Your Account</a>
+                </div>
+              </div>
+
+              <a class="modal-trigger" href="#modal3">REQUEST TO COLLABORATE</a>
+              <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <h1>Interested in working on this song?</h1>
+                  <p>Message the author with your ideas!</p>
+                  <form class="signInForm" action="browse-projects.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="Your Username" id="userName" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">SEND REQUEST</a>
+                </div>
+              </div>
+            </div> <!-- Project buttons end -->
+          </div> <!-- Open Project end -->
+
+        </div><!-- Projects wrapper end -->
+
+        <div class="footer">
+
+        </div>
+
+    </div> <!-- Page wrapper end -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+  </body>
+</html>
