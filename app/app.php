@@ -65,7 +65,7 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
       });
 
-    $app->post("/user", function() use ($app) {
+    $app->post("/user/sign_in", function() use ($app) {
         $users = User::getAll();
         $inputted_username = $_POST['username'];
         $inputted_password = $_POST['password'];
