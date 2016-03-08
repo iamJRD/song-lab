@@ -13,7 +13,6 @@ $(document).ready(function() {
     }
 
     else {
-        alert("passwords do not match!");
         $("#modal1").openModal();
         $(this).removeClass('.lean-overlay');
         return false;

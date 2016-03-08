@@ -22,7 +22,7 @@
         return $app['twig']->render('index.html.twig');
     });
 
-    $app->post("/sign_up", function() use ($app) {
+    $app->post("/user", function() use ($app) {
         $id = null;
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
