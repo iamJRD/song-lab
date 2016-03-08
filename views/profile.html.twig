@@ -5,6 +5,14 @@
     <title>profile</title>
   </head>
   <body>
-    Test
+    {{ user.getFirstName }}
+    {{ user.getLastName }}
+    {{ user.getBio }}
+    {{ user.getFirstName }}
+    {{ user.getFirstName }}
+    {{ user.getFirstName }}
+  {% for project in projects %}
+  {{ project.getTitle }}
+  {% endfor %}
   </body>
 </html>
