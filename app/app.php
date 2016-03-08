@@ -36,9 +36,24 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
-    $app->post("/user/{id}", function($id) use ($app) {
-        $user = User::find($id);
-        $user_projects = $user->getProjects();
+    $app->post("/sign_in", function() use ($app) {
+        $users = User::getAll();
+        $inputted_username = $_POST['username'];
+        $inputted_password = $_POST['password'];
+
+        foreach($users as $user)
+        {
+            $username = $user->getUsername();
+            $password = $user->getPassword();
+            $id = $user->getId();
+var_dump($user);
+            if($username == $inputted_username && $password == $inputted_password)
+            {
+                $found_user = User::find($id);
+                $found_user->getOwnerProjects();
+            }
+        }
+
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
