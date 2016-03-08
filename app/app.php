@@ -40,7 +40,6 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
-<<<<<<< HEAD
     $app->get("/projects", function() use ($app){
         return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
     });
@@ -60,7 +59,7 @@
         $user = User::find($id);
         $user_projects = $user->getProjects();
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
-=======
+
     $app->post("/user", function() use ($app) {
         $users = User::getAll();
         $inputted_username = $_POST['username'];
@@ -88,7 +87,6 @@
         }
 
         // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
->>>>>>> 5a3317b036fe7621022fa237adcb73157ac0f1b0
     });
 
     // Get page to edit a specific user
