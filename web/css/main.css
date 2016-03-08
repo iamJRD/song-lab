@@ -193,12 +193,13 @@ a {
 .profileHeader {
   height: 60vh;
   width: 100%;
-  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg-black.png");
-  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg-black.png");
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), black), url("../img/speaker.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), black), url("../img/speaker.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  background-size: cover; }
   @media screen and (max-width: 768px) {
     .profileHeader {
       height: 100%;
@@ -317,9 +318,10 @@ a {
   top: 40px;
   left: 45px;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: .4em;
-  cursor: pointer; }
+  cursor: pointer;
+  border-radius: 15%; }
   .navIcon .iconbar {
     height: 3px;
     width: 30px;
