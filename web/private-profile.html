@@ -117,8 +117,55 @@
           </div>
         </div>
       </div>
-      <div class="openCollabsList">
+      <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
+        <div class="open-project">
+          <div class="openProjectHeader">
+            <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+            <div class="titleAndAuthor">
+              <h3 class="projectTitle">Title</h3>
+              <h4 class="projectAuthor">By: Author Name</h4>
+            </div>
+          </div>
 
+          <div class="openProjectSummary">
+            <p class="projectSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+        <!-- Buttons and Modals for open project -->
+          <div class="openProjectButtons">
+            <a class="modal-trigger modal-close" href=".modal4">VIEW MUSIC</a>
+            <div id="" class="modal modal4">
+              <div class="modal-content">
+                <h2 class="projectTitle">Project Title</h2>
+                <h4 class="projectAuthor">By: Project Author</h4>
+                <p><span class="projectContent">Lyrics, composition, etc are appended here.</span></p>
+                <h3>Collaboration Wanted:</h3><p class="collaborationWanted"> Collaboration type wanted goes here.</p>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">CLOSE</a>
+              </div>
+            </div>
+
+            <a class="modal-trigger" href=".modal3">REQUEST TO COLLABORATE</a>
+            <div id="" class="modal modal3">
+              <div class="modal-content">
+                <h1>Interested in working on this song?</h1>
+                <p>Message the author with your ideas!</p>
+                <form action="browse-projects.html" method="post">
+                  <div class="input-field">
+                    <input placeholder="Your Username" id="userName" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">SEND REQUEST</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- Open Project end -->
       </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
