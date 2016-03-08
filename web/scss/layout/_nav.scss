@@ -1,4 +1,48 @@
 .navSubpage {
-  @include size(100% 8vh);
-  background: $black;
+  @include size(100% 10vh);
+  background: transparent;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba($black, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+  ul {
+    position: relative;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  li {
+    @extend %logoFont;
+    padding: 5%;
+    text-decoration: none;
+    font-size: 60px;
+    display: block;
+    transition: 0.3s;
+    a {
+      color: white;
+      transition: all 400ms linear;
+      &:hover {
+        color: $subColor2;
+      }
+    }
+  }
+  .closebtn {
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    font-size: 60px !important;
+    &:hover {
+      color: $subColor2;
+    }
+  }
 }

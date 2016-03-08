@@ -91,10 +91,11 @@
 
 .navSubpage {
   .songLabWrapper {
-    height: 8vh;
+    height: 10vh;
   }
   .songLabLogo h1 {
     font-size: 65px;
+    text-shadow: 1.5px 1.5px 1.5px rgba($black, 0.5);
   }
   .musicBars {
     display: flex;
@@ -113,6 +114,7 @@
     background: #99ccff;
     height: 10px;
     border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba($black, 0.5);
     @media screen and #{$mobile} {
       width: 40px;
       height: 8px;
