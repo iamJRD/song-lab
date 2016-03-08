@@ -1,0 +1,15 @@
+.aboutHeader {
+  @extend %headerFont;
+  @include flexbox(flex, center, center, $direction: column);
+  height: 50vh;
+  @include background-image(linear-gradient(rgba($black, 0.6), rgba($black,0)),url("#{$img-path}/aboutSongLab4.jpg"));
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  .aboutHeaderText {
+    h1 {
+      @extend %uppercase;
+      @include textFormat(100px, $white, lighter);
+    }
+  }
+}

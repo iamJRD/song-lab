@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .secondaryBlack, .secondaryWhite, .headerButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons, .viewAll {
+p, .browseHeader .headerVidText h1, .aboutHeader, .secondaryBlack, .secondaryWhite, .headerButtons, .openProjectButtons, .viewAll, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a, .searchButton {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -185,17 +185,6 @@ a {
           .browseHeader .headerVidText #browsePageSearch input {
             width: 60%;
             margin-top: 5%; } }
-      .browseHeader .headerVidText #browsePageSearch .searchButton {
-        font-size: 1em;
-        color: #fff;
-        letter-spacing: 1px;
-        padding: 0.5em 1.5em;
-        border: 1px solid #fff;
-        background: transparent;
-        transition: all 500ms linear; }
-        .browseHeader .headerVidText #browsePageSearch .searchButton:hover {
-          color: #000;
-          background: #99FFE6; }
 
 .profileHeader {
   height: 60vh;
@@ -206,6 +195,22 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column; }
+
+.aboutHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), transparent), url("../img/aboutSongLab4.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), transparent), url("../img/aboutSongLab4.jpg");
+  background-size: cover;
+  background-position: bottom;
+  width: 100%; }
+  .aboutHeader .aboutHeaderText h1 {
+    font-size: 100px;
+    color: #fff;
+    font-weight: lighter; }
 
 .confirmation {
   height: 100vh;
@@ -291,6 +296,52 @@ a {
   .modal-footer a:hover {
     background: #99FFE6;
     border: 1px solid transparent; }
+
+.searchButton {
+  font-size: 1em;
+  color: #fff;
+  letter-spacing: 1px;
+  padding: 0.5em 1.5em;
+  border: 1px solid #fff;
+  background: transparent;
+  transition: all 500ms linear; }
+  .searchButton:hover {
+    color: #000;
+    background: #99FFE6; }
+
+.openProjectButtons {
+  display: flex;
+  justify-content: center; }
+  .openProjectButtons a {
+    text-align: center;
+    width: 50%;
+    margin: 1%;
+    padding: 0.5em 1em;
+    transition: all 300ms linear;
+    border: 1px solid gray; }
+    .openProjectButtons a:hover {
+      color: #000;
+      background: #99FFE6; }
+    .openProjectButtons a:nth-child(2):hover {
+      background: #99ccff; }
+    @media screen and (max-width: 468px) {
+      .openProjectButtons a {
+        width: 100%; } }
+  @media screen and (max-width: 468px) {
+    .openProjectButtons {
+      flex-direction: column; } }
+
+.viewAll {
+  margin: 8% auto;
+  text-align: center; }
+  .viewAll a {
+    background: #B399FF;
+    opacity: .8;
+    text-align: center;
+    padding: 0.5em 2em;
+    transition: all 300ms linear; }
+    .viewAll a:hover {
+      background: #99ccff; }
 
 .navIcon {
   height: 40px;
@@ -1227,40 +1278,5 @@ select {
         margin: 0 auto; }
     .projectsWrapper .open-project .openProjectSummary p {
       margin-top: 5px; }
-    .projectsWrapper .open-project .openProjectButtons {
-      display: flex;
-      justify-content: center; }
-      .projectsWrapper .open-project .openProjectButtons a {
-        text-align: center;
-        width: 50%;
-        margin: 1%;
-        padding: 0.5em 1em;
-        transition: all 300ms linear;
-        border: 1px solid gray; }
-        .projectsWrapper .open-project .openProjectButtons a:hover {
-          color: #000;
-          background: #99FFE6; }
-        .projectsWrapper .open-project .openProjectButtons a:nth-child(2):hover {
-          background: #99ccff; }
-        @media screen and (max-width: 468px) {
-          .projectsWrapper .open-project .openProjectButtons a {
-            width: 100%; } }
-      @media screen and (max-width: 468px) {
-        .projectsWrapper .open-project .openProjectButtons {
-          flex-direction: column; } }
-
-.viewAll {
-  text-align: center; }
-  .viewAll a {
-    background: #B399FF;
-    opacity: .8;
-    text-align: center;
-    width: 50%;
-    margin: 1%;
-    padding: 0.5em 2em;
-    transition: all 300ms linear; }
-    .viewAll a:hover {
-      color: #000;
-      background: #99ccff; }
 
 /*# sourceMappingURL=main.css.map */
