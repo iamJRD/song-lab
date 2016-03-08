@@ -2,6 +2,15 @@
 // Buttons
 // ---------------------
 
+.secondaryBtn {
+  @extend %headerFont;
+  @extend %uppercase;
+  @include textFormat(1.2em, $black);
+  @include padding(.5em 2em);
+  @include margin(.5em);
+  border: 1px solid $black;
+}
+
 .headerButtons {
   @extend %headerFont;
   @include flexbox($justify: center);
@@ -47,5 +56,3 @@
     }
   }
 }
-
-// background-color:linear-gradient(to bottom right, $subColor2, $subColor1, $primary);
