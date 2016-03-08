@@ -25,6 +25,11 @@
         return $app['twig']->render('index.html.twig', array('user' => $users));
     });
 
+    // Get about page
+    $app->get("/about", function() use ($app) {
+        return $app['twig']->render('about.html.twig');
+    });
+
     // Create user
     $app->post("/user", function() use ($app) {
         $id = null;
@@ -38,7 +43,7 @@
         $user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
         $user_projects = $user->getProjects();
-        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
     // Get projects list
@@ -96,6 +101,11 @@
         // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
 
+
+
+
+
+
     // Get page to edit a specific user
     $app->get("/user/{id}/edit_profile", function($id) use ($app){
         $user = User::find($id);
@@ -115,6 +125,15 @@
         $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
+
+
+
+
+
+
+
+
+
 
 
     // Gets page where user can edit their project
