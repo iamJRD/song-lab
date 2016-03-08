@@ -84,19 +84,19 @@
                 <h2>Edit Your Profile</h2>
                 <form class="postMusicForm" action="/user/{{ user.getId }}/edit_profile" method="post">
                     <div class="input-field">
-                      <input placeholder="Edit Username" id="Username" type="text" class="validate">
+                      <input placeholder="Edit Username" id="Username" type="text" class="validate" value="{{ user.getUsername }}">
                     </div>
                     <div class="input-field">
-                      <input placeholder="Update Password" id="password" type="password" class="validate">
+                      <input placeholder="Update Password" id="password" type="password" class="validate" value="{{ user.getPassword }}">
                     </div>
                     <div class="input-field">
-                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                      <input placeholder="First Name" id="first_name" type="text" class="validate" value="{{ user.getFirstName }}">
                     </div>
                     <div class="input-field">
-                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                      <input placeholder="Last Name" id="last_name" type="text" class="validate" value="{{ user.getLastName }}">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"> {{ user.getBio }}</textarea>
                     </div>
                     <div class="file-field input-field">
                       <div class="btn">
