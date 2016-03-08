@@ -5,6 +5,11 @@
     <title></title>
   </head>
   <body>
+    <form action="/search" method="post">
+    <label for="search">Search projects</label>
+    <input id="Username" type="text" name="search_term" class="validate">
+    <button type="submit">Go</button>
+    </form>
     {% for project in projects %}
     <ul>
     <li>{{ project.getTitle }}</li>

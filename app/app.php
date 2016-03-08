@@ -41,6 +41,12 @@
         return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
     });
 
+    $app->post("/search", function() use ($app) {
+        $keyword = $_POST['search_term'];
+        $project_matches = Project::search($keyword);
+        return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
+    });
+
     $app->get("/user/{id}/create_project", function($id) use ($app){
         $user = User::find($id);
         return $app['twig']->render('create_project.html.twig', array('user' => $user));
