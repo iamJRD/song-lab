@@ -82,36 +82,35 @@
             <div id="editProfileModal" class="modal">
               <div class="modal-content">
                 <h2>Edit Your Profile</h2>
-                <form class="postMusicForm" action="index.html" method="post">
-                  <div class="input-field">
-                    <input placeholder="Edit Username" id="Username" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Update Password" id="password" type="password" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="First Name" id="first_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
-                  </div>
-                  <div class="file-field input-field">
-                    <div class="btn">
-                      <span>Profile Image</span>
-                      <input type="file" multiple>
+                <form class="postMusicForm" action="/user/{{ user.getId }}/edit_profile" method="post">
+                    <div class="input-field">
+                      <input placeholder="Edit Username" id="Username" type="text" class="validate">
                     </div>
-                    <div class="file-path-wrapper">
-                      <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
+                    <div class="input-field">
+                      <input placeholder="Update Password" id="password" type="password" class="validate">
                     </div>
-                  </div>
-
+                    <div class="input-field">
+                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                    </div>
+                    <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Profile Image</span>
+                        <input type="file" multiple>
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="button">Edit Profile</button>
+                    </div>
                 </form>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close" href="#">Edit Profile</a>
               </div>
             </div>
             <a class="secondaryWhite" href="#">Browse Open Collabs</a>
