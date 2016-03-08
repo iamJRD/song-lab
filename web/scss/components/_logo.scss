@@ -85,3 +85,48 @@
     width: 70px;
   }
 }
+
+// Logo Subpage
+// ------------------------
+
+.navSubpage {
+  .songLabWrapper {
+    border: 2px solid dodgerblue;
+    height: 10vh;
+  }
+  .songLabLogo h1 {
+    font-size: 65px;
+  }
+  .musicBars {
+    display: flex;
+    width: 100px;
+    padding-left: 5px;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 5px;
+    @media screen and #{$mobile} {
+      width: 50px;
+    }
+  }
+  .bar {
+    width: 80px;
+    margin: 5px;
+    background: #99ccff;
+    height: 10px;
+    border-radius: 5px;
+    @media screen and #{$mobile} {
+      width: 40px;
+      height: 8px;
+      margin: 2px;
+    }
+  }
+  .songLabLogo #bar1 {
+    -webkit-animation: none !important;
+  }
+  .songLabLogo #bar2 {
+    -webkit-animation: none !important;
+  }
+  .songLabLogo #bar3 {
+    -webkit-animation: none !important;
+  }
+}

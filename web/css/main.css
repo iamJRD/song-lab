@@ -30,6 +30,11 @@ a {
 /**
  * Basic typography style for copy text
  */
+.navSubpage {
+  height: 10vh;
+  width: 100%;
+  background: #000; }
+
 .header {
   display: flex;
   justify-content: center;
@@ -63,6 +68,12 @@ a {
       font-size: 1.6em;
       letter-spacing: 6px;
       font-weight: bold; }
+
+.profileHeader {
+  height: 60vh;
+  width: 100%;
+  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg.png");
+  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg.png"); }
 
 .headerButtons {
   display: flex;
@@ -174,6 +185,39 @@ a {
     background: #b399ff; }
   100% {
     width: 70px; } }
+.navSubpage .songLabWrapper {
+  border: 2px solid dodgerblue;
+  height: 10vh; }
+.navSubpage .songLabLogo h1 {
+  font-size: 65px; }
+.navSubpage .musicBars {
+  display: flex;
+  width: 100px;
+  padding-left: 5px;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5px; }
+  @media screen and (max-width: 620px) {
+    .navSubpage .musicBars {
+      width: 50px; } }
+.navSubpage .bar {
+  width: 80px;
+  margin: 5px;
+  background: #99ccff;
+  height: 10px;
+  border-radius: 5px; }
+  @media screen and (max-width: 620px) {
+    .navSubpage .bar {
+      width: 40px;
+      height: 8px;
+      margin: 2px; } }
+.navSubpage .songLabLogo #bar1 {
+  -webkit-animation: none !important; }
+.navSubpage .songLabLogo #bar2 {
+  -webkit-animation: none !important; }
+.navSubpage .songLabLogo #bar3 {
+  -webkit-animation: none !important; }
+
 .modal-content h2 {
   margin-bottom: 0; }
 .modal-content h4 {
