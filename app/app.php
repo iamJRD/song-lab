@@ -41,6 +41,7 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+    // Get page to edit a specific user
     $app->get("/user/{id}/edit_profile", function($id) use ($app){
         $user = User::find($id);
         return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
@@ -74,6 +75,22 @@
         $new_type = $_POST['new_type'];
         $user->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+    });
+
+    // Get page to delete specific user
+    // User is directed TO this page FROM edit page
+	$app->get("/user/{id}/delete", function($id) use ($app) {
+		$user = User::find($id);
+		return $app['twig']->render('delete_user.html.twig', array(
+			'user' => $user));
+	});
+
+    // Delete specific user
+    // User is sent to homepage after deletion
+	$app->delete("/user/{id}/delete", function($id) use ($app) {
+        $user = User::find($id);
+        $user->delete();
+        return $app['twig']->render('index.html.twig', array('users' => User::getAll()));
     });
 
     return $app;
