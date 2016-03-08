@@ -10,6 +10,19 @@
   </head>
   <body>
     <div class="pageWrapper">
+      <div class="navIcon" onclick="openNav()">
+          <div class="iconbar"></div>
+          <div class="iconbar"></div>
+          <div class="iconbar"></div>
+        </div>
+      <div id="mainNav" class="overlay">
+        <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Browse Projects</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
       <div class="header">
         <div class="headerContent">
           <div class="songLabWrapper">
@@ -73,7 +86,7 @@
                 <h1>SongLab</h1>
                 <form class="signInForm" action="index.html" method="post">
                   <div class="input-field">
-                    <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    <input placeholder="Username" id="username" type="text" class="validate">
                   </div>
                   <div class="input-field">
                     <input placeholder="Password" id="password" type="password" class="validate">
@@ -89,21 +102,11 @@
       </div>
 
       <div class="completedCollabs">
-
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-      </div>
-
+        <h2>completed collaboration grid goes here.</h2>
       </div>
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/css-scripts.js"></script>
     <script src="js/materialize.js"></script>
   </body>
 </html>

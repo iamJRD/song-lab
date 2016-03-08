@@ -2,10 +2,19 @@
 // Buttons
 // ---------------------
 
+.secondaryBlack {
+  @include secondaryBtn($black);
+}
+
+.secondaryWhite {
+  @include secondaryBtn($white);
+  background: transparent;
+}
+
 .headerButtons {
   @extend %headerFont;
-  @include flexbox($justify: space-between);
-  @include size(45% auto);
+  @include flexbox($justify: center);
+  @include size(100% auto);
   align-self: center;
   a {
     @extend %uppercase;
@@ -14,6 +23,9 @@
     border: 1px solid $white;
     background: transparent;
     transition: all 500ms linear;
+    &:first-child {
+      margin-right: 1em;
+    }
     &:hover {
       color: $black;
       background: $subColor2;
@@ -21,11 +33,19 @@
     &:nth-child(2):hover {
       background: $subColor1;
     }
+    @media screen and #{$tablet} {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+  }
+  @media screen and #{$tablet} {
+    @include flexbox ($direction: column);
   }
 }
 
 .modal-footer {
   a {
+    @include padding(.8em 2em);
     @extend %uppercase;
     @include textFormat(1.1em, $black);
     background: transparent;
@@ -37,5 +57,3 @@
     }
   }
 }
-
-// background-color:linear-gradient(to bottom right, $subColor2, $subColor1, $primary);

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Goodbye!</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{ user.getFirstName }}</h1>
+            <h5>Are you sure you want to delete your account?</h5>
+            <a href="/USER PROFILE PAGE"><button type="submit" name="button">I changed my mind, I want to stay!</button></a>
+            <hr>
+            <h5>Nope, there are greener pastures elsewhere.</h5>
+            <h6>We're sad to see you go, but come back anytime!</h6>
+            <br>
+            <div class="confirmation">
+                <form action='/user/{{ user.getId }}/delete' method="post">
+                    <input name="_method" type="hidden" value="delete">
+                    <button id="delete-user-btn" type="submit" name="action">Delete My Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
