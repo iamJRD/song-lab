@@ -1,0 +1,59 @@
+.browseHeader {
+  max-height: 50vh;
+  overflow: hidden;
+  .headerVid {
+    object-fit: cover;
+    width: 100%;
+    min-height: 50vh;
+  }
+  .video-overlay {
+    @include background-image(linear-gradient(rgba($primary, 1), rgba($black,0)));
+    opacity: 0.4;
+    position: absolute;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    height: 50vh;
+  }
+  .headerVidText {
+    text-align: center;
+    width: 90%;
+    position: absolute;
+    color: $white;
+    z-index: 1;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    h1 {
+      @extend %headerFont, %uppercase;
+      @include textFormat(90px, $weight: lighter, $l-spacing: 1px);
+      margin-bottom: 0;
+    }
+    p {
+      margin: 0 auto;
+      @include textFormat (25px);
+    }
+    #browsePageSearch {
+      margin-top: 3%;
+      input {
+        @include textFormat(15px, $white, lighter, 1px);
+        background: rgba(255,255,255,.1);
+        border-bottom: none;
+        color: white;
+        width: 30%;
+        text-align: center;
+      }
+      .searchButton {
+        @extend %uppercase;
+        @include textFormat(1em, $white, $l-spacing: 1px);
+        @include padding(.5em 1.5em);
+        border: 1px solid $white;
+        background: transparent;
+        transition: all 500ms linear;
+        &:hover {
+          color: $black;
+          background: $subColor2;
+        }
+      }
+    }
+  }
+}

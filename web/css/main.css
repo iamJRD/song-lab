@@ -7,10 +7,10 @@ html {
 .header .summary p:nth-child(2), .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .headerButtons {
+p, .browseHeader .headerVidText h1, .headerButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-.header .summary p:nth-child(2), .headerButtons a, .modal-footer a {
+.header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .headerButtons a, .modal-footer a {
   text-transform: uppercase; }
 
 *,
@@ -53,6 +53,64 @@ a {
       font-size: 1.6em;
       letter-spacing: 6px;
       font-weight: bold; }
+
+.browseHeader {
+  max-height: 50vh;
+  overflow: hidden; }
+  .browseHeader .headerVid {
+    object-fit: cover;
+    width: 100%;
+    min-height: 50vh; }
+  .browseHeader .video-overlay {
+    background-image: -webkit-linear-gradient(#b399ff, transparent);
+    background-image: linear-gradient(#b399ff, transparent);
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50vh; }
+  .browseHeader .headerVidText {
+    text-align: center;
+    width: 90%;
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0); }
+    .browseHeader .headerVidText h1 {
+      font-size: 90px;
+      font-weight: lighter;
+      letter-spacing: 1px;
+      margin-bottom: 0; }
+    .browseHeader .headerVidText p {
+      margin: 0 auto;
+      font-size: 25px; }
+    .browseHeader .headerVidText #browsePageSearch {
+      margin-top: 3%; }
+      .browseHeader .headerVidText #browsePageSearch input {
+        font-size: 15px;
+        color: #fff;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: none;
+        color: white;
+        width: 30%;
+        text-align: center; }
+      .browseHeader .headerVidText #browsePageSearch .searchButton {
+        font-size: 1em;
+        color: #fff;
+        letter-spacing: 1px;
+        padding: 0.5em 1.5em;
+        border: 1px solid #fff;
+        background: transparent;
+        transition: all 500ms linear; }
+        .browseHeader .headerVidText #browsePageSearch .searchButton:hover {
+          color: #000;
+          background: #99FFE6; }
 
 .headerButtons {
   display: flex;
