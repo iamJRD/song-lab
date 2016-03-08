@@ -115,16 +115,12 @@
     }
   }
   .bar {
-    width: 80px;
-    margin: 5px;
-    background: #99ccff;
-    height: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px rgba($black, 0.5);
-    @media screen and #{$mobile} {
-      width: 40px;
-      height: 8px;
-      margin: 2px;
+    @include logoBar(80px);
+    &:first-child {
+      @include logoBar(40px);
+    }
+    &:last-child {
+      @include logoBar(60px);
     }
   }
   .songLabLogo #bar1 {

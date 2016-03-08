@@ -434,6 +434,30 @@ a {
       width: 40px;
       height: 8px;
       margin: 2px; } }
+  .navSubpage .bar:first-child {
+    width: 40px;
+    margin: 5px;
+    background: #99ccff;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    @media screen and (max-width: 550px) {
+      .navSubpage .bar:first-child {
+        width: 40px;
+        height: 8px;
+        margin: 2px; } }
+  .navSubpage .bar:last-child {
+    width: 60px;
+    margin: 5px;
+    background: #99ccff;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    @media screen and (max-width: 550px) {
+      .navSubpage .bar:last-child {
+        width: 40px;
+        height: 8px;
+        margin: 2px; } }
 .navSubpage .songLabLogo #bar1 {
   -webkit-animation: none !important; }
 .navSubpage .songLabLogo #bar2 {
