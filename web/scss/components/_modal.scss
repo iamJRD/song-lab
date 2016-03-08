@@ -38,6 +38,7 @@
 
   .modal-content {
     padding: 24px;
+    @extend %headerFont;
   }
   .modal-close {
     cursor: pointer;
@@ -100,4 +101,12 @@
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity;
+}
+
+/* View Music Modal Styles */
+
+/* Request to Collaborate Modal Styles */
+
+#modal3 {
+  text-align: center;
 }

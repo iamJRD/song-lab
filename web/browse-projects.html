@@ -46,10 +46,29 @@
 
             <div class="openProjectButtons">
               <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
-              <a class="modal-trigger modal-close" href="#modal1">REQUEST TO COLLABORATE</a>
-            </div>
+              <a class="modal-trigger" href="#modal3">REQUEST TO COLLABORATE</a>
+              <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <h1>Interested in working on this song?</h1>
+                  <p>Message the author with your ideas!</p>
+                  <form class="signInForm" action="browse-projects.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="Your Username" id="userName" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">SEND REQUEST</a>
+                </div>
+              </div>
 
           </div> <!-- Open Project end -->
+
+
+    <!-- I appended a second open project here just so we can get an idea of looks, but the code below is the same as the open project code above -->
 
           <div class="open-project">
             <div class="openProjectHeader">
@@ -66,8 +85,63 @@
 
             <div class="openProjectButtons">
               <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
-              <a class="modal-trigger modal-close" href="#modal1">REQUEST TO COLLABORATE</a>
-            </div>
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h2>Create Your Account</h2>
+                  <h4>Join SongLab to discover and create creative ideas.</h4>
+                  <form class="createAccountForm" action="index.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="Username" id="Username" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Password" id="password" type="password" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                    </div>
+                    <label for="question">What types of music will you be posting for collaborations?</label>
+                    <p class="musicType">
+                      <input type="checkbox" id="test1" />
+                      <label for="test1">Lyrics</label>
+                      <input type="checkbox" id="test2" />
+                      <label for="test2">Compositions</label>
+                      <input type="checkbox" id="test3" />
+                      <label for="test3">Bass Tracks</label>
+                      <input type="checkbox" id="test4" />
+                      <label for="test4">Flute</label>
+                    </p>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">Create Your Account</a>
+                </div>
+              </div>
+
+              <a class="modal-trigger" href="#modal3">REQUEST TO COLLABORATE</a>
+              <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <h1>Interested in working on this song?</h1>
+                  <p>Message the author with your ideas!</p>
+                  <form class="signInForm" action="browse-projects.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="Your Username" id="userName" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">SEND REQUEST</a>
+                </div>
+              </div>
+            </div> <!-- Project buttons end -->
 
           </div> <!-- Open Project end -->
 
@@ -79,5 +153,7 @@
 
 
     </div> <!-- Page wrapper end -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
   </body>
 </html>

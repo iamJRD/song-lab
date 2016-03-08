@@ -7,7 +7,7 @@ html {
 .header .summary p:nth-child(2), .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .headerButtons, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
+p, .browseHeader .headerVidText h1, .headerButtons, .modal .modal-content, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .headerButtons a, .modal-footer a {
@@ -24,8 +24,12 @@ html, body {
   padding: 0px;
   margin: 0px; }
 
+body::-webkit-scrollbar {
+  display: none; }
+
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: black; }
 
 .pageWrapper {
   display: flex;
@@ -268,6 +272,11 @@ a {
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity; }
+
+/* View Music Modal Styles */
+/* Request to Collaborate Modal Styles */
+#modal3 {
+  text-align: center; }
 
 form .musicType {
   padding-top: 2em;
@@ -961,7 +970,8 @@ select {
         height: 80px;
         width: 80px;
         margin-right: 1%;
-        box-shadow: 1px 1px 3px gray; }
+        box-shadow: 1px 1px 3px gray;
+        border-radius: 50%; }
       .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
         font-size: 30px;
         margin: 0 auto; }
