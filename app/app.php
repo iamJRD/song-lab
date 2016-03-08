@@ -4,6 +4,7 @@
     require_once __DIR__."/../src/Project.php";
 
     $app = new Silex\Application();
+
     $server = 'mysql:host=localhost;dbname=songlab';
     $username = 'root';
     $password = 'root';
@@ -18,7 +19,8 @@
 
     // Get homepage
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('index.html.twig');
+        $users = User::getAll();
+        return $app['twig']->render('index.html.twig', array('user' => $users));
     });
 
     $app->post("/sign_up", function() use ($app) {
@@ -36,10 +38,33 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
-    $app->post("/user/{id}", function($id) use ($app) {
-        $user = User::find($id);
-        $user_projects = $user->getProjects();
-        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+    $app->post("/user", function() use ($app) {
+        $users = User::getAll();
+        $inputted_username = $_POST['username'];
+        $inputted_password = $_POST['password'];
+        $error = null;
+
+        foreach($users as $user)
+        {
+            $username = $user->getUsername();
+            $password = $user->getPassword();
+            $id = $user->getId();
+
+            if($username == $inputted_username && $password == $inputted_password)
+            {
+                $found_user = User::findUsername($username);
+                $user_projects = $found_user->getOwnerProjects();
+
+                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
+            } else {
+                echo '<script src="js/sign_in_verify.js"></script>';
+                $error = "The username and password do not match!";
+
+                // return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
+            }
+        }
+
+        // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
 
     // Get page to edit a specific user
@@ -57,7 +82,8 @@
         $new_username = $_POST['new_username'];
         $new_bio = $_POST['new_bio'];
         $new_photo = $_POST['new_photo'];
-        $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo);
+        $new_password = $_POST['new_password'];
+        $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
@@ -72,13 +98,14 @@
     // Edits project and returns user to their profile page
     $app->patch("/user/{id}/edit_project", function($id) use ($app){
         $user = User::find($id);
+        $project = $user->getProjects($user->getId());
         $new_title = $_POST['new_title'];
         $new_description = $_POST['new_description'];
         $new_genre = $_POST['new_genre'];
         $new_resources = $_POST['new_resources'];
         $new_lyrics = $_POST['new_lyrics'];
         $new_type = $_POST['new_type'];
-        $user->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
+        $project->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
