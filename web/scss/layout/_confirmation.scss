@@ -1,0 +1,16 @@
+.confirmation {
+  @include size(100% 100vh);
+  @include background-image(linear-gradient(rgba($black, 0.9), rgba($black,0.2)),url("#{$img-path}/wall-guitar.jpg"));
+  @include flexbox($justify: center);
+  background-size: cover;
+  .confirmationContent {
+    @extend %centeredText;
+    @include size(55% 40vh);
+    @include flexbox ($justify: flex-end, $direction: column, $align-items: center);
+    h1 {
+      @extend %logoFont;
+      @include textFormat(3em, $white, $l-height: 90px);
+      @include margin(1em);
+    }
+  }
+}

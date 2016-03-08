@@ -1,0 +1,53 @@
+.projectsWrapper {
+  border: 1px solid lightgray;
+  width: 90%;
+  padding: 2%;
+  .open-project {
+    @include flexbox(flex, center, $direction: column);
+    margin: 3%;
+    .openProjectHeader {
+      @include flexbox(flex, $align-items: center);
+      @extend %headerFont;
+      img {
+        @include size(80px 80px);
+        margin-right: 1%;
+        box-shadow: 1px 1px 3px gray;
+        border-radius: 50%;
+      }
+      .titleAndAuthor {
+        h3 {
+          @include textFormat(30px);
+          margin: 0 auto;
+        }
+        h4 {
+          @include textFormat($color: grey);
+          margin: 0 auto;
+        }
+      }
+    }
+    .openProjectSummary {
+      p {
+        margin-top: 5px;
+      }
+    }
+    .openProjectButtons {
+      @extend %headerFont;
+      @include flexbox(flex, center);
+      a {
+        text-align: center;
+        width: 50%;
+        margin: 1%;
+        @include padding(.5em 1em);
+        transition: all 300ms linear;
+        border: 1px solid gray;
+        &:hover {
+          color: $black;
+          background: $subColor2;
+        }
+        &:nth-child(2):hover {
+          background: $subColor1;
+        }
+      }
+    }
+  }
+}

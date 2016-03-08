@@ -4,14 +4,17 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-.header .summary p:nth-child(2), .songLabLogo h1 {
+.overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .headerButtons {
+p, .browseHeader .headerVidText h1, .secondaryBlack, .secondaryWhite, .headerButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-.header .summary p:nth-child(2), .headerButtons a, .modal-footer a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a {
   text-transform: uppercase; }
+
+.confirmation .confirmationContent, .profileInfo {
+  text-align: center; }
 
 *,
 *::before,
@@ -24,8 +27,22 @@ html, body {
   padding: 0px;
   margin: 0px; }
 
+h2 {
+  font-size: 1.5em;
+  letter-spacing: 1.5px; }
+
+body::-webkit-scrollbar {
+  display: none; }
+
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: black; }
+
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
 
 /**
  * Basic typography style for copy text
@@ -33,7 +50,43 @@ a {
 .navSubpage {
   height: 10vh;
   width: 100%;
-  background: #000; }
+  background: transparent; }
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s; }
+  .overlay ul {
+    position: relative;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px; }
+  .overlay li {
+    padding: 5%;
+    text-decoration: none;
+    font-size: 60px;
+    display: block;
+    transition: 0.3s; }
+    .overlay li a {
+      color: white;
+      transition: all 400ms linear; }
+      .overlay li a:hover {
+        color: #99FFE6; }
+  .overlay .closebtn {
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    font-size: 60px !important; }
+    .overlay .closebtn:hover {
+      color: #99FFE6; }
 
 .header {
   display: flex;
@@ -43,6 +96,7 @@ a {
   background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
   background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
   background-size: cover;
+  width: 100%;
   height: 70vh; }
   @media screen and (max-width: 620px) {
     .header {
@@ -69,11 +123,117 @@ a {
       letter-spacing: 6px;
       font-weight: bold; }
 
+.browseHeader {
+  max-height: 50vh;
+  overflow: hidden; }
+  .browseHeader .headerVid {
+    object-fit: cover;
+    width: 100%;
+    min-height: 50vh; }
+  .browseHeader .video-overlay {
+    background-image: -webkit-linear-gradient(#b399ff, transparent);
+    background-image: linear-gradient(#b399ff, transparent);
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50vh; }
+  .browseHeader .headerVidText {
+    text-align: center;
+    width: 90%;
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0); }
+    .browseHeader .headerVidText h1 {
+      font-size: 90px;
+      font-weight: lighter;
+      letter-spacing: 1px;
+      margin-bottom: 0; }
+    .browseHeader .headerVidText p {
+      margin: 0 auto;
+      font-size: 25px; }
+    .browseHeader .headerVidText #browsePageSearch {
+      margin-top: 3%; }
+      .browseHeader .headerVidText #browsePageSearch input {
+        font-size: 15px;
+        color: #fff;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: none;
+        border-radius: 2px;
+        width: 30%;
+        text-align: center; }
+      .browseHeader .headerVidText #browsePageSearch .searchButton {
+        font-size: 1em;
+        color: #fff;
+        letter-spacing: 1px;
+        padding: 0.5em 1.5em;
+        border: 1px solid #fff;
+        background: transparent;
+        transition: all 500ms linear; }
+        .browseHeader .headerVidText #browsePageSearch .searchButton:hover {
+          color: #000;
+          background: #99FFE6; }
+
 .profileHeader {
   height: 60vh;
   width: 100%;
-  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg.png");
-  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg.png"); }
+  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg-black.png");
+  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg-black.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.confirmation {
+  height: 100vh;
+  width: 100%;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../img/wall-guitar.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../img/wall-guitar.jpg");
+  display: flex;
+  justify-content: center;
+  background-size: cover; }
+  .confirmation .confirmationContent {
+    height: 40vh;
+    width: 55%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column; }
+    .confirmation .confirmationContent h1 {
+      font-size: 3em;
+      color: #fff;
+      line-height: 90px;
+      margin: 1em; }
+
+.secondaryBlack {
+  font-size: 1.2em;
+  color: #000;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #000;
+  transition: all 500ms linear; }
+  .secondaryBlack:hover {
+    color: #000;
+    background: #99FFE6; }
+
+.secondaryWhite {
+  font-size: 1.2em;
+  color: #fff;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #fff;
+  transition: all 500ms linear;
+  background: transparent; }
+  .secondaryWhite:hover {
+    color: #000;
+    background: #99FFE6; }
 
 .headerButtons {
   display: flex;
@@ -106,6 +266,7 @@ a {
       flex-direction: column; } }
 
 .modal-footer a {
+  padding: 0.8em 2em;
   font-size: 1.1em;
   color: #000;
   background: transparent;
@@ -114,6 +275,24 @@ a {
   .modal-footer a:hover {
     background: #99FFE6;
     border: 1px solid transparent; }
+
+.navIcon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  left: 45px;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: .4em;
+  cursor: pointer; }
+  .navIcon .iconbar {
+    height: 3px;
+    width: 30px;
+    background-color: white; }
 
 .songLabWrapper {
   display: flex;
@@ -186,10 +365,10 @@ a {
   100% {
     width: 70px; } }
 .navSubpage .songLabWrapper {
-  border: 2px solid dodgerblue;
   height: 10vh; }
 .navSubpage .songLabLogo h1 {
-  font-size: 65px; }
+  font-size: 65px;
+  text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5); }
 .navSubpage .musicBars {
   display: flex;
   width: 100px;
@@ -205,7 +384,8 @@ a {
   margin: 5px;
   background: #99ccff;
   height: 10px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
   @media screen and (max-width: 620px) {
     .navSubpage .bar {
       width: 40px;
@@ -289,6 +469,11 @@ a {
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity; }
+
+/* View Music Modal Styles */
+/* Request to Collaborate Modal Styles */
+#modal3 {
+  text-align: center; }
 
 form .musicType {
   padding-top: 2em;
@@ -965,5 +1150,72 @@ select {
   border: 1px solid #f2f2f2;
   border-radius: 2px;
   height: 3rem; }
+
+.profileInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+  max-width: 1000px;
+  padding: 5% auto 10%;
+  padding-bottom: 20px; }
+  .profileInfo img {
+    height: 180px;
+    width: 180px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 50%; }
+  .profileInfo .username {
+    font-size: 3em;
+    letter-spacing: 1.5px;
+    margin: 3% auto; }
+  .profileInfo .userMusicType {
+    margin: 0; }
+  .profileInfo .userBio {
+    font-size: 1.3em;
+    letter-spacing: 1.5px; }
+
+.projectsWrapper {
+  border: 1px solid lightgray;
+  width: 90%;
+  padding: 2%; }
+  .projectsWrapper .open-project {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3%; }
+    .projectsWrapper .open-project .openProjectHeader {
+      display: flex;
+      align-items: center; }
+      .projectsWrapper .open-project .openProjectHeader img {
+        height: 80px;
+        width: 80px;
+        margin-right: 1%;
+        box-shadow: 1px 1px 3px gray;
+        border-radius: 50%; }
+      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
+        font-size: 30px;
+        margin: 0 auto; }
+      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h4 {
+        color: grey;
+        margin: 0 auto; }
+    .projectsWrapper .open-project .openProjectSummary p {
+      margin-top: 5px; }
+    .projectsWrapper .open-project .openProjectButtons {
+      display: flex;
+      justify-content: center; }
+      .projectsWrapper .open-project .openProjectButtons a {
+        text-align: center;
+        width: 50%;
+        margin: 1%;
+        padding: 0.5em 1em;
+        transition: all 300ms linear;
+        border: 1px solid gray; }
+        .projectsWrapper .open-project .openProjectButtons a:hover {
+          color: #000;
+          background: #99FFE6; }
+        .projectsWrapper .open-project .openProjectButtons a:nth-child(2):hover {
+          background: #99ccff; }
 
 /*# sourceMappingURL=main.css.map */
