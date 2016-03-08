@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
     <script src="js/scripts.js"></script>
-
     <title>SongLab | Homepage</title>
   </head>
   <body>
@@ -77,8 +77,14 @@
             <div id="modal2" class="modal">
               <div class="modal-content">
                 <h1>SongLab</h1>
-                <form class="signInForm" action="/user/sign_in" method="post">
-
+                <form class="signInForm" action="/sign_in" method="post">
+                  {% if error is not empty %}
+                  <script type="text/javascript">
+                  $("#modal2").openModal();
+                  $(this).removeClass('.lean-overlay');
+                </script>
+                  {{ error }}
+                  {% endif %}
                   <div class="input-field">
                     <input placeholder="Username" id="username" name="username"
                     type="text" class="validate">
@@ -111,7 +117,5 @@
 
       </div>
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
   </body>
 </html>
