@@ -301,6 +301,7 @@ a {
     border: 1px solid transparent; }
 
 .navIcon {
+  z-index: 1;
   height: 40px;
   width: 40px;
   display: flex;
@@ -399,9 +400,10 @@ a {
     .navSubpage .songLabLogo h1 {
       font-size: 36px; } }
 .navSubpage .songLabLogo {
-  position: absolute;
-  top: -3%;
-  right: 0%; }
+  margin: 0;
+  width: 100%;
+  position: relative;
+  bottom: 40%; }
 .navSubpage .musicBars {
   display: flex;
   width: 100px;

@@ -98,7 +98,10 @@
     }
   }
   .songLabLogo {
-    @include position(absolute, -3% 0% null null);
+    margin: 0;
+    width: 100%;
+    position: relative;
+    bottom: 40%;
   }
   .musicBars {
     display: flex;
