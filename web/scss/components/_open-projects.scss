@@ -47,6 +47,12 @@
         &:nth-child(2):hover {
           background: $subColor1;
         }
+        @media screen and #{$brk-mobile} {
+          width: 100%;
+        }
+      }
+      @media screen and #{$brk-mobile} {
+        flex-direction: column;
       }
     }
   }
