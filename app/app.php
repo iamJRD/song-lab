@@ -4,6 +4,7 @@
     require_once __DIR__."/../src/Project.php";
 
     $app = new Silex\Application();
+
     $server = 'mysql:host=localhost;dbname=songlab';
     $username = 'root';
     $password = 'root';
@@ -28,7 +29,7 @@
         $bio = $_POST['bio'];
         $photo = $_POST['photo']; //null - upload on profile edit
         $password = $_POST['password']; //verify via JS
-        $user = new User($first_name, $last_name, $email, $username, $bio, $photo $password);
+        $user = new User($first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
         $user_projects = $user->getProjects();
 
@@ -54,7 +55,8 @@
         $new_username = $_POST['new_username'];
         $new_bio = $_POST['new_bio'];
         $new_photo = $_POST['new_photo'];
-        $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo);
+        $new_password = $_POST['new_password'];
+        $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
@@ -66,13 +68,14 @@
 
     $app->patch("/user/{id}/edit_project", function($id) use ($app){
         $user = User::find($id);
+        $project = $user->getProjects($user->getId());
         $new_title = $_POST['new_title'];
         $new_description = $_POST['new_description'];
         $new_genre = $_POST['new_genre'];
         $new_resources = $_POST['new_resources'];
         $new_lyrics = $_POST['new_lyrics'];
         $new_type = $_POST['new_type'];
-        $user->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
+        $project->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 

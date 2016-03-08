@@ -101,13 +101,11 @@
             return $this->password;
         }
 
-
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO users (first_name, last_name, email, username, bio, photo, password) VALUES (
                 '{$this->getFirstName()}', '{$this->getLastName()}', '{$this->getEmail()}', '{$this->getUsername()}', '{$this->getBio()}', '{$this->getPhoto()}', '{$this->getPassword()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
-
         }
 
         static function getAll()
@@ -227,8 +225,9 @@
 
        function getOwnerProjects()
        {
-           $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
+            $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
 		    $projects = array();
+
             foreach ($query as $project) {
                $id = $project['id'];
                $title = $project['title'];
@@ -239,7 +238,6 @@
                $type = $project['type'];
                $user_id = $project['user_id'];
                $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
-
 
                array_push($projects, $new_project);
             }
