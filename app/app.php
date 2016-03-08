@@ -106,11 +106,11 @@
 
 
 
-    // Get page to edit a specific user
-    $app->get("/user/{id}/edit_profile", function($id) use ($app){
-        $user = User::find($id);
-        return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
-    });
+    // // Get page to edit a specific user
+    // $app->get("/user/{id}/edit_profile", function($id) use ($app){
+    //     $user = User::find($id);
+    //     return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
+    // });
 
     // Edit a specific user and return their profile page
     $app->patch("/user/{id}/edit_profile", function($id) use ($app){
@@ -123,7 +123,7 @@
         $new_photo = $_POST['new_photo'];
         $new_password = $_POST['new_password'];
         $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
-        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
 
