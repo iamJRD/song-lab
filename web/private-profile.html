@@ -10,6 +10,19 @@
   </head>
   <body>
     <div class="pageWrapper">
+      <div class="navIcon" onclick="openNav()">
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+      </div>
+      <div id="mainNav" class="overlay">
+        <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="browse-projects.html">Browse Projects</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
       <div class="profileHeader">
       <nav class="navSubpage">
         <div class="songLabWrapper">
@@ -26,14 +39,13 @@
         </div>
       </nav>
         <div class="profileInfo">
+          <div class="personInfo">
           <img class="profileImage" src="img/profile.jpeg"></img>
-          <div class="profileName">
             <h1 class="username">Taylor Pokoj</h1>
-            <h2 class="userMusicType">Lyrics, Composer, Flutist</h2>
           </div>
           <p class="userBio">Kale chips knausgaard flexitarian, locavore kitsch fashion axe paleo narwhal affogato lomo. Paleo bushwick meggings flexitarian, hammock affogato butcher pickled. Cardigan keytar tilde, whatever man bun everyday carry mustache paleo distillery fingerstache wolf pabst migas cronut godard. Hello actually wolf iPhone tacos. Fashion axe occupy slow-carb you probably haven't heard of them sustainable flexitarian.</p>
           <div class="profileButtons">
-            <a class="secondaryBlack modal-trigger modal-close" href="#postMusicModal">Post Music</a>
+            <a class="secondaryWhite modal-trigger modal-close" href="#postMusicModal">Post Music</a>
             <div id="postMusicModal" class="modal">
               <div class="modal-content">
                 <h2>Post Music</h2>
@@ -65,7 +77,7 @@
                 <a class="modal-close" href="#">Post Your Song</a>
               </div>
             </div>
-            <a class="secondaryBlack modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
+            <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
             <div id="editProfileModal" class="modal">
               <div class="modal-content">
                 <h2>Edit Your Profile</h2>
@@ -102,7 +114,7 @@
                 <a class="modal-close" href="#">Edit Profile</a>
               </div>
             </div>
-            <a class="secondaryBlack" href="#">Browse Open Collabs</a>
+            <a class="secondaryWhite" href="#">Browse Open Collabs</a>
           </div>
         </div>
       </div>
@@ -111,6 +123,7 @@
       </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/css-scripts.js"></script>
     <script src="js/materialize.js"></script>
   </body>
 </html>
