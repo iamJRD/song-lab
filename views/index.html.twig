@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <script src="js/scripts.js"></script>
 
     <title>SongLab | Homepage</title>
   </head>
@@ -34,12 +35,21 @@
                 <div class="modal-content">
                   <h2>Create Your Account</h2>
                   <h4>Join SongLab to discover and create creative ideas.</h4>
-                  <form class="createAccountForm" action="index.html" method="post">
+                  <form class="createAccountForm" action="index.html" method="post"  script src="/js/scripts.js">
                     <div class="input-field">
-                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                      <div class="input-field">
+                        <input placeholder="Username" id="username" type="text" class="validate">
+                      </div>
+                      <input placeholder="First Name" id="first_name" type="text" class="validate" >
                     </div>
                     <div class="input-field">
                       <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Password" id="password1" type="password" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Verify Password" id="password2" type="password" class="validate">
                     </div>
                     <div class="input-field">
                       <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
