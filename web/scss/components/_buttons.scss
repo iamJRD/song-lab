@@ -2,6 +2,15 @@
 // Buttons
 // ---------------------
 
+.secondaryBlack {
+  @include secondaryBtn($black);
+}
+
+.secondaryWhite {
+  @include secondaryBtn($white);
+  background: transparent;
+}
+
 .headerButtons {
   @extend %headerFont;
   @include flexbox($justify: center);
@@ -36,6 +45,7 @@
 
 .modal-footer {
   a {
+    @include padding(.8em 2em);
     @extend %uppercase;
     @include textFormat(1.1em, $black);
     background: transparent;
@@ -47,5 +57,3 @@
     }
   }
 }
-
-// background-color:linear-gradient(to bottom right, $subColor2, $subColor1, $primary);

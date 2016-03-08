@@ -16,7 +16,8 @@
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
-// $app['debug'] = true;
+
+    // Get homepage
     $app->get("/", function() use ($app) {
         $users = User::getAll();
         return $app['twig']->render('index.html.twig', array('user' => $users));
@@ -66,11 +67,13 @@
         // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
 
+    // Get page to edit a specific user
     $app->get("/user/{id}/edit_profile", function($id) use ($app){
         $user = User::find($id);
         return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
     });
 
+    // Edit a specific user and return their profile page
     $app->patch("/user/{id}/edit_profile", function($id) use ($app){
         $user = User::find($id);
         $new_first_name = $_POST['new_first_name'];
@@ -84,12 +87,15 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+
+    // Gets page where user can edit their project
     $app->get("/user/{id}/edit_project", function($id) use ($app){
         $user = User::find($id);
         $project = $user->getProjects($user->getId());
         return $app['twig']->render('edit_project.html.twig', array('user' => $user));
     });
 
+    // Edits project and returns user to their profile page
     $app->patch("/user/{id}/edit_project", function($id) use ($app){
         $user = User::find($id);
         $project = $user->getProjects($user->getId());
@@ -101,6 +107,22 @@
         $new_type = $_POST['new_type'];
         $project->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+    });
+
+    // Get page to delete specific user
+    // User is directed TO this page FROM edit page
+	$app->get("/user/{id}/delete", function($id) use ($app) {
+		$user = User::find($id);
+		return $app['twig']->render('delete_user.html.twig', array(
+			'user' => $user));
+	});
+
+    // Delete specific user
+    // User is sent to homepage after deletion
+	$app->delete("/user/{id}/delete", function($id) use ($app) {
+        $user = User::find($id);
+        $user->delete();
+        return $app['twig']->render('index.html.twig', array('users' => User::getAll()));
     });
 
     return $app;
