@@ -53,6 +53,10 @@
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
     });
 
+    $app->get("/send_message", function() use ($app){
+
+        return $app['twig']->render('sent_message.html.twig', array('requests' => Request::getAll()));
+    });
     //create new project as owner
     $app->get("/user/{id}/create_project", function($id) use ($app){
         $user = User::find($id);

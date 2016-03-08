@@ -48,19 +48,19 @@
             </div>
 
             <div class="openProjectButtons">
-              <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
-              <a class="modal-trigger" href="#modal3">REQUEST TO COLLABORATE</a>
-              <div id="modal1" class="modal">
+              <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
+              <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
+              <div id="modal{{project.getId}}" class="modal">
                 <div class="modal-content">
                   <h1>{{project.getResources | raw}}</h1>
                   <p>{{ project.getLyrics}}</p>
                 </div>
               </div>
-              <div id="modal3" class="modal">
+              <div id="modal{{project.getId}}2" class="modal">
                 <div class="modal-content">
                   <h1>Interested in working on this song?</h1>
                   <p>Message the author with your ideas!</p>
-                  <form class="signInForm" action="browse-projects.html" method="post">
+                  <form class="signInForm" action="/sent_message" method="post">
                     <div class="input-field">
                       <input placeholder="Your Username" id="userName" type="text" class="validate">
                     </div>
@@ -70,7 +70,7 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  <a class="modal-close" href="#">SEND REQUEST</a>
+                  <button type="submit">SEND REQUEST</button>
                 </div>
               </div>
           </div>
