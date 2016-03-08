@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for project in projects %}
+    <ul>
+    <li>{{ project.getTitle }}</li>
+    <li>{{ project.getDescription }}</li>
+    <li>{{ project.getGenre}}</li>
+    <li>{{ project.getResources|raw }}</li>
+    <li>{{ project.getLyrics }}</li>
+    </ul>
+    {% endfor %}
+  </body>
+</html>

@@ -37,6 +37,15 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+    $app->get("/projects", function() use ($app){
+        return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
+    });
+
+    $app->get("/user/{id}/create_project", function($id) use ($app){
+        $user = User::find($id);
+        return $app['twig']->render('create_project.html.twig', array('user' => $user));
+    });
+
     $app->post("/user/{id}", function($id) use ($app) {
         $user = User::find($id);
         $user_projects = $user->getProjects();
