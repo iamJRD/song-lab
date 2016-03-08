@@ -16,6 +16,7 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
+    // Get homepage
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig');
     });
@@ -47,6 +48,7 @@
         return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
     });
 
+    // Edit a specific user and return their profile page
     $app->patch("/user/{id}/edit_profile", function($id) use ($app){
         $user = User::find($id);
         $new_first_name = $_POST['new_first_name'];
@@ -59,12 +61,15 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+
+    // Gets page where user can edit their project
     $app->get("/user/{id}/edit_project", function($id) use ($app){
         $user = User::find($id);
         $project = $user->getProjects($user->getId());
         return $app['twig']->render('edit_project.html.twig', array('user' => $user));
     });
 
+    // Edits project and returns user to their profile page
     $app->patch("/user/{id}/edit_project", function($id) use ($app){
         $user = User::find($id);
         $new_title = $_POST['new_title'];
