@@ -39,13 +39,23 @@ a {
   background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
   background-size: cover;
   height: 70vh; }
+  @media screen and (max-width: 620px) {
+    .header {
+      height: 100%; } }
   .header .headerContent {
     display: flex;
     flex-direction: column;
+    width: 68%;
     text-align: center; }
+    @media screen and (max-width: 620px) {
+      .header .headerContent {
+        width: 90%; } }
   .header .summary {
     color: #fff;
     margin-bottom: 3%; }
+    @media screen and (max-width: 620px) {
+      .header .summary {
+        font-size: .8em; } }
     .header .summary p:first-child {
       margin-top: 0px;
       font-size: 2.5em; }
@@ -56,9 +66,9 @@ a {
 
 .headerButtons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: auto;
-  width: 45%;
+  width: 100%;
   align-self: center; }
   .headerButtons a {
     font-size: 1.3em;
@@ -68,11 +78,21 @@ a {
     border: 1px solid #fff;
     background: transparent;
     transition: all 500ms linear; }
+    .headerButtons a:first-child {
+      margin-right: 1em; }
     .headerButtons a:hover {
       color: #000;
       background: #99FFE6; }
     .headerButtons a:nth-child(2):hover {
       background: #99ccff; }
+    @media screen and (max-width: 768px) {
+      .headerButtons a {
+        width: 100%;
+        margin-bottom: 1em; } }
+  @media screen and (max-width: 768px) {
+    .headerButtons {
+      display: flex;
+      flex-direction: column; } }
 
 .modal-footer a {
   font-size: 1.1em;
@@ -95,17 +115,25 @@ a {
   color: white;
   font-size: 100px;
   letter-spacing: 3px; }
+  @media screen and (max-width: 620px) {
+    .songLabLogo h1 {
+      font-size: 36px; } }
 
 .songLabLogo {
   display: flex;
-  width: 50%; }
+  justify-content: center;
+  width: 100%; }
 
 .musicBars {
   display: flex;
+  width: 100px;
   padding-left: 5px;
   flex-direction: column;
   justify-content: center;
   padding-top: 5px; }
+  @media screen and (max-width: 620px) {
+    .musicBars {
+      width: 50px; } }
 
 .bar {
   width: 80px;
@@ -113,15 +141,29 @@ a {
   background: #99ccff;
   height: 15px;
   border-radius: 5px; }
+  @media screen and (max-width: 620px) {
+    .bar {
+      width: 40px;
+      height: 8px;
+      margin: 2px; } }
 
 .songLabLogo #bar1 {
   -webkit-animation: musicBars 1s ease-in-out backwards alternate-reverse infinite; }
+  @media screen and (max-width: 620px) {
+    .songLabLogo #bar1 {
+      -webkit-animation: none !important; } }
 
 .songLabLogo #bar2 {
   -webkit-animation: musicBars 1.2s .2s ease-in-out backwards alternate-reverse infinite; }
+  @media screen and (max-width: 620px) {
+    .songLabLogo #bar2 {
+      -webkit-animation: none !important; } }
 
 .songLabLogo #bar3 {
   -webkit-animation: musicBars 1.2s 1s ease-in-out backwards alternate-reverse infinite; }
+  @media screen and (max-width: 620px) {
+    .songLabLogo #bar3 {
+      -webkit-animation: none !important; } }
 
 @-webkit-keyframes musicBars {
   0% {
