@@ -10,9 +10,6 @@ $primary: #B399FF;
 $subColor1:#99ccff;
 $subColor2:#99FFE6;
 
-// Media Queries
-$tablet: "(max-width: 768px)";
-$mobile: "(max-width: 620px)";
 
 // File Paths
 $img-path: "../img";
@@ -38,3 +35,13 @@ $radio-fill-color: $subColor2;
 $input-disabled-solid-color: white;
 $dropdown-item-height: 20px;
 $dropdown-hover-bg-color: black;
+
+
+// Media Queries - Home Page
+$tablet: "(max-width: 768px)";
+$mobile: "(max-width: 620px)";
+
+// Media Queries - Browse Page
+$brk-medium: "(max-width: 860px)";
+$brk-small: "(max-width: 670px)";
+$brk-mobile: "(max-width: 468px)";

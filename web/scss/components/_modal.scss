@@ -105,8 +105,22 @@
 
 /* View Music Modal Styles */
 
+#modal4 {
+  .modal-footer {
+    text-align: center;
+  }
+}
+
 /* Request to Collaborate Modal Styles */
 
 #modal3 {
   text-align: center;
+  textarea {
+    padding: 1%;
+    height: 100px;
+    font-size: 14px;
+    &:focus {
+      outline: none;
+    }
+  }
 }

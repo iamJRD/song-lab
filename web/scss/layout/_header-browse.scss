@@ -27,10 +27,22 @@
       @extend %headerFont, %uppercase;
       @include textFormat(90px, $weight: lighter, $l-spacing: 1px);
       margin-bottom: 0;
+      @media screen and #{$brk-medium} {
+        @include textFormat(70px);
+      }
+      @media screen and #{$brk-small} {
+        @include textFormat(50px);
+      }
     }
     p {
       margin: 0 auto;
-      @include textFormat (25px);
+      @include textFormat(25px);
+      @media screen and #{$brk-small} {
+        @include textFormat(20px);
+      }
+      @media screen and #{$brk-mobile} {
+        @include textFormat(16px);
+      }
     }
     #browsePageSearch {
       margin-top: 3%;
@@ -41,6 +53,10 @@
         border-radius: 2px;
         width: 30%;
         text-align: center;
+        @media screen and #{$brk-medium} {
+          width: 60%;
+          margin-top: 5%;
+        }
       }
       .searchButton {
         @extend %uppercase;

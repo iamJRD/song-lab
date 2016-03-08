@@ -154,9 +154,21 @@ a {
       font-weight: lighter;
       letter-spacing: 1px;
       margin-bottom: 0; }
+      @media screen and (max-width: 860px) {
+        .browseHeader .headerVidText h1 {
+          font-size: 70px; } }
+      @media screen and (max-width: 670px) {
+        .browseHeader .headerVidText h1 {
+          font-size: 50px; } }
     .browseHeader .headerVidText p {
       margin: 0 auto;
       font-size: 25px; }
+      @media screen and (max-width: 670px) {
+        .browseHeader .headerVidText p {
+          font-size: 20px; } }
+      @media screen and (max-width: 468px) {
+        .browseHeader .headerVidText p {
+          font-size: 16px; } }
     .browseHeader .headerVidText #browsePageSearch {
       margin-top: 3%; }
       .browseHeader .headerVidText #browsePageSearch input {
@@ -169,6 +181,10 @@ a {
         border-radius: 2px;
         width: 30%;
         text-align: center; }
+        @media screen and (max-width: 860px) {
+          .browseHeader .headerVidText #browsePageSearch input {
+            width: 60%;
+            margin-top: 5%; } }
       .browseHeader .headerVidText #browsePageSearch .searchButton {
         font-size: 1em;
         color: #fff;
@@ -471,9 +487,18 @@ a {
   will-change: bottom, opacity; }
 
 /* View Music Modal Styles */
+#modal4 .modal-footer {
+  text-align: center; }
+
 /* Request to Collaborate Modal Styles */
 #modal3 {
   text-align: center; }
+  #modal3 textarea {
+    padding: 1%;
+    height: 100px;
+    font-size: 14px; }
+    #modal3 textarea:focus {
+      outline: none; }
 
 form .musicType {
   padding-top: 2em;
@@ -1217,5 +1242,11 @@ select {
           background: #99FFE6; }
         .projectsWrapper .open-project .openProjectButtons a:nth-child(2):hover {
           background: #99ccff; }
+        @media screen and (max-width: 468px) {
+          .projectsWrapper .open-project .openProjectButtons a {
+            width: 100%; } }
+      @media screen and (max-width: 468px) {
+        .projectsWrapper .open-project .openProjectButtons {
+          flex-direction: column; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -54,8 +54,8 @@
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
     });
 
+    //send message feature - TBD initial routing
     $app->get("/send_message", function() use ($app){
-
         return $app['twig']->render('sent_message.html.twig', array('requests' => Request::getAll()));
     });
     //create new project as owner
@@ -64,21 +64,21 @@
         return $app['twig']->render('create_project.html.twig', array('user' => $user));
     });
 
+    //initial routing for returning to profile 
     $app->post("/user/{id}", function($id) use ($app) {
         $user = User::find($id);
         $user_projects = $user->getProjects();
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
       });
 
+    //sign in from index
     $app->post("/sign_in", function() use ($app) {
-
         $inputted_username = $_POST['username'];
         $inputted_password = $_POST['password'];
         $user =  User::verifyLogin($inputted_username, $inputted_password);
 
             if($user != null && $user->getUsername() == $inputted_username && $user->getPassword() == $inputted_password)
             {
-                echo "working";
                 $found_user = $user;
                 $user_projects = $found_user->getOwnerProjects();
                 return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
@@ -87,9 +87,6 @@
                 $error = "The username and password do not match!";
                 return $app['twig']->render('index.html.twig', array('error' => $error));
             }
-
-
-        // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
 
     // Get page to edit a specific user
