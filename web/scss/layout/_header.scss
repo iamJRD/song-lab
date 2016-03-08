@@ -7,13 +7,23 @@
   @include background-image(linear-gradient(rgba($primary, 0.5), rgba($black,0)),url("#{$img-path}/piano-hands.jpeg"));
   background-size: cover;
   height: 70vh;
+  @media screen and #{$mobile} {
+    height: 100%;
+  }
   .headerContent {
     @include flexbox($direction: column);
+    width: 68%;
     text-align: center;
+    @media screen and #{$mobile} {
+      width: 90%;
+    }
   }
   .summary {
     color: $white;
     margin-bottom: 3%;
+    @media screen and #{$mobile} {
+      font-size: .8em;
+    }
     p:first-child {
       margin-top: 0px;
       font-size: 2.5em;
