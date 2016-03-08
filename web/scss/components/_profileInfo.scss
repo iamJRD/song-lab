@@ -1,0 +1,23 @@
+.profileInfo {
+  @include flexbox($justify: space-around, $direction: column, $align-items: center);
+  @extend %centeredText;
+  @include size(70% 90%);
+  max-width: 1000px;
+  @extend %headerFont;
+  @include padding(5% auto);
+  img {
+    @include size(180px);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+    border-radius: 50%;
+  }
+  .username {
+    @include textFormat(3em, $l-spacing: 1.5px);
+    margin: 3% auto;
+  }
+  .userMusicType {
+    margin: 0;
+  }
+  .userBio {
+    @include textFormat(1.3em, $l-spacing: 1.5px);
+  }
+}

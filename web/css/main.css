@@ -4,14 +4,17 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-.header .summary p:nth-child(2), .songLabLogo h1 {
+.header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .headerButtons {
+p, .secondaryBlack, .secondaryWhite, .headerButtons, .profileInfo {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-.header .summary p:nth-child(2), .headerButtons a, .modal-footer a {
+h2, .header .summary p:nth-child(2), .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a {
   text-transform: uppercase; }
+
+.confirmation .confirmationContent, .profileInfo {
+  text-align: center; }
 
 *,
 *::before,
@@ -24,6 +27,10 @@ html, body {
   padding: 0px;
   margin: 0px; }
 
+h2 {
+  font-size: 1.5em;
+  letter-spacing: 1.5px; }
+
 a {
   text-decoration: none; }
 
@@ -31,7 +38,7 @@ a {
  * Basic typography style for copy text
  */
 .navSubpage {
-  height: 10vh;
+  height: 8vh;
   width: 100%;
   background: #000; }
 
@@ -73,7 +80,55 @@ a {
   height: 60vh;
   width: 100%;
   background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg.png");
-  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg.png"); }
+  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.confirmation {
+  height: 100vh;
+  width: 100%;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../img/wall-guitar.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../img/wall-guitar.jpg");
+  display: flex;
+  justify-content: center;
+  background-size: cover; }
+  .confirmation .confirmationContent {
+    height: 40vh;
+    width: 55%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column; }
+    .confirmation .confirmationContent h1 {
+      font-size: 3em;
+      color: #fff;
+      line-height: 90px;
+      margin: 1em; }
+
+.secondaryBlack {
+  font-size: 1.2em;
+  color: #000;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #000;
+  transition: all 500ms linear; }
+  .secondaryBlack:hover {
+    color: #000;
+    background: #99FFE6; }
+
+.secondaryWhite {
+  font-size: 1.2em;
+  color: #fff;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #fff;
+  transition: all 500ms linear;
+  background: transparent; }
+  .secondaryWhite:hover {
+    color: #000;
+    background: #99FFE6; }
 
 .headerButtons {
   display: flex;
@@ -106,6 +161,7 @@ a {
       flex-direction: column; } }
 
 .modal-footer a {
+  padding: 0.8em 2em;
   font-size: 1.1em;
   color: #000;
   background: transparent;
@@ -186,8 +242,7 @@ a {
   100% {
     width: 70px; } }
 .navSubpage .songLabWrapper {
-  border: 2px solid dodgerblue;
-  height: 10vh; }
+  height: 8vh; }
 .navSubpage .songLabLogo h1 {
   font-size: 65px; }
 .navSubpage .musicBars {
@@ -965,5 +1020,29 @@ select {
   border: 1px solid #f2f2f2;
   border-radius: 2px;
   height: 3rem; }
+
+.profileInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 90%;
+  width: 70%;
+  max-width: 1000px;
+  padding: 5% auto; }
+  .profileInfo img {
+    height: 180px;
+    width: 180px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 50%; }
+  .profileInfo .username {
+    font-size: 3em;
+    letter-spacing: 1.5px;
+    margin: 3% auto; }
+  .profileInfo .userMusicType {
+    margin: 0; }
+  .profileInfo .userBio {
+    font-size: 1.3em;
+    letter-spacing: 1.5px; }
 
 /*# sourceMappingURL=main.css.map */
