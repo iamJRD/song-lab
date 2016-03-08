@@ -9,6 +9,8 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
+    $app['debug']=true;
+
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
@@ -32,7 +34,6 @@
         $user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
         $user_projects = $user->getProjects();
-
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
