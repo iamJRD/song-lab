@@ -22,7 +22,8 @@
     // Get homepage
     $app->get("/", function() use ($app) {
         $users = User::getAll();
-        return $app['twig']->render('index.html.twig', array('user' => $users));
+        $error = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
     });
 
     //new user
@@ -69,7 +70,7 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
       });
 
-    $app->post("/user", function() use ($app) {
+    $app->post("/sign_in", function() use ($app) {
         $users = User::getAll();
         $inputted_username = $_POST['username'];
         $inputted_password = $_POST['password'];
@@ -85,13 +86,17 @@
             {
                 $found_user = User::findUsername($username);
                 $user_projects = $found_user->getOwnerProjects();
-
                 return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
-            } else {
-                echo '<script src="js/sign_in_verify.js"></script>';
-                $error = "The username and password do not match!";
 
-                // return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
+            } else {
+                $error = "The username and password do not match!";
+              //   echo '<script type="text/javascript">
+              //   $(document).ready(function() {
+              //   $("#myModal").modal("show");
+              // });
+              // </script>';
+
+                return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
             }
         }
 
