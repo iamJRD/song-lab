@@ -85,7 +85,6 @@
 
             } else {
                 $error = "The username and password do not match!";
-
                 return $app['twig']->render('index.html.twig', array('error' => $error));
             }
 
