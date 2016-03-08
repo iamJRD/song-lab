@@ -40,7 +40,8 @@
       </nav>
         <div class="profileInfo">
           <div class="personInfo">
-          <img class="profileImage" src="img/profile.jpeg"></img>
+              <!--May need to remove "" from twig for photo src-->
+          <img class="profileImage" src="{{ user.getPhoto }}"></img>
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
           <p class="userBio">{{ user.getBio }}</p>
@@ -50,7 +51,7 @@
               <div class="modal-content">
                 <h2>Post Music</h2>
                 <h4>Let other artists browse your jam, so together you can create magic.</h4>
-                <form class="postMusicForm" action="index.html" method="post">
+                <form class="postMusicForm" action="/user/{{ user.getId }}/create_project" method="post">
                   <div class="input-field">
                     <input placeholder="Song Title" id="title" type="text" class="validate">
                   </div>
@@ -71,10 +72,10 @@
                     <input type="checkbox" id="test4" />
                     <label for="test4">Flute</label>
                   </p>
+                  <div class="modal-footer">
+                      <button type="submit" name="button">Post Your Song</button>
+                  </div>
                 </form>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close" href="#">Post Your Song</a>
               </div>
             </div>
             <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
