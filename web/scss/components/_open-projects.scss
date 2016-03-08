@@ -57,3 +57,21 @@
     }
   }
 }
+
+.viewAll {
+  text-align: center;
+  @extend %headerFont;
+  a {
+    background: $primary;
+    opacity: .8;
+    text-align: center;
+    width: 50%;
+    margin: 1%;
+    @include padding(.5em 2em);
+    transition: all 300ms linear;
+    &:hover {
+      color: $black;
+      background: $subColor1;
+    }
+  }
+}
