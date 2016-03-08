@@ -2,13 +2,13 @@
 // Buttons
 // ---------------------
 
-.secondaryBtn {
-  @extend %headerFont;
-  @extend %uppercase;
-  @include textFormat(1.2em, $black);
-  @include padding(.5em 5%);
-  @include margin(.5em);
-  border: 1px solid $black;
+.secondaryBlack {
+  @include secondaryBtn($black);
+}
+
+.secondaryWhite {
+  @include secondaryBtn($white);
+  background: transparent;
 }
 
 .headerButtons {

@@ -1,5 +1,4 @@
 .profileHeader {
-  border: 2px solid green;
   @include size(100% 60vh);
   @include background-image(linear-gradient(rgba($primary, 0.5), rgba($black,0)),url("#{$img-path}/triangle-bg.png"));
   @include flexbox ($justify: center, $direction: column, $align-items: center);
