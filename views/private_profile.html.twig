@@ -83,6 +83,7 @@
               <div class="modal-content">
                 <h2>Edit Your Profile</h2>
                 <form class="postMusicForm" action="/user/{{ user.getId }}/edit_profile" method="post">
+                    <input name="_method" type="hidden" value="patch">
                     <div class="input-field">
                       <input placeholder="Edit Username" id="Username" type="text" class="validate" value="{{ user.getUsername }}">
                     </div>
