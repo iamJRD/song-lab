@@ -493,6 +493,12 @@ a {
 /* Request to Collaborate Modal Styles */
 #modal3 {
   text-align: center; }
+  #modal3 textarea {
+    padding: 1%;
+    height: 100px;
+    font-size: 14px; }
+    #modal3 textarea:focus {
+      outline: none; }
 
 form .musicType {
   padding-top: 2em;
