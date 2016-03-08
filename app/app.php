@@ -16,9 +16,10 @@
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
-
+// $app['debug'] = true;
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('index.html.twig');
+        $users = User::getAll();
+        return $app['twig']->render('index.html.twig', array('user' => $users));
     });
 
     $app->post("/sign_up", function() use ($app) {
@@ -36,25 +37,33 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
-    $app->post("/sign_in", function() use ($app) {
+    $app->get("/user", function() use ($app) {
         $users = User::getAll();
-        $inputted_username = $_POST['username'];
-        $inputted_password = $_POST['password'];
+        $inputted_username = $_GET['username'];
+        $inputted_password = $_GET['password'];
+        $error = null;
 
         foreach($users as $user)
         {
             $username = $user->getUsername();
             $password = $user->getPassword();
             $id = $user->getId();
-var_dump($user);
+
             if($username == $inputted_username && $password == $inputted_password)
             {
-                $found_user = User::find($id);
-                $found_user->getOwnerProjects();
+                $found_user = User::findUsername($username);
+                $user_projects = $found_user->getOwnerProjects();
+
+                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
+            } else {
+                echo '<script src="js/sign_in_verify.js"></script>';
+                $error = "The username and password do not match!";
+
+                return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
             }
         }
 
-        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+        // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
 
     $app->get("/user/{id}/edit_profile", function($id) use ($app){
