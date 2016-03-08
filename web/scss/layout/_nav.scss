@@ -19,6 +19,9 @@
     width: 100%;
     text-align: center;
     margin-top: 30px;
+    @media screen and #{$mobile} {
+      right: 5%;
+    }
   }
   li {
     @extend %logoFont;
@@ -27,6 +30,9 @@
     font-size: 60px;
     display: block;
     transition: 0.3s;
+    @media screen and #{$mobile} {
+      font-size: 30px;
+    }
     a {
       color: white;
       transition: all 400ms linear;
@@ -43,6 +49,9 @@
     font-size: 60px !important;
     &:hover {
       color: $subColor2;
+    }
+    @media screen and #{$mobile} {
+      font-size: 40px !important;
     }
   }
 }

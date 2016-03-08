@@ -90,12 +90,18 @@
 // ------------------------
 
 .navSubpage {
-  .songLabWrapper {
-    height: 10vh;
-  }
   .songLabLogo h1 {
     font-size: 65px;
     text-shadow: 1.5px 1.5px 1.5px rgba($black, 0.5);
+    @media screen and #{$mobile} {
+      font-size: 36px;
+    }
+  }
+  .songLabLogo {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    bottom: 40%;
   }
   .musicBars {
     display: flex;
