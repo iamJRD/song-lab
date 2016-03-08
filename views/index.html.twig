@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
     <script src="js/scripts.js"></script>
 
     <title>SongLab | Homepage</title>
@@ -35,24 +36,24 @@
                 <div class="modal-content">
                   <h2>Create Your Account</h2>
                   <h4>Join SongLab to discover and create creative ideas.</h4>
-                  <form class="createAccountForm" action="index.html" method="post"  script src="/js/scripts.js">
+                  <form class="createAccountForm" action="/user" method="post">
                     <div class="input-field">
                       <div class="input-field">
-                        <input placeholder="Username" id="username" type="text" class="validate">
+                        <input placeholder="Username" id="username" name="username" type="text" class="validate">
                       </div>
-                      <input placeholder="First Name" id="first_name" type="text" class="validate" >
+                      <input placeholder="First Name" id="first_name" name="first_name" type="text" class="validate" >
                     </div>
                     <div class="input-field">
-                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                      <input placeholder="Last Name" id="last_name" name="last_name" type="text" class="validate">
                     </div>
                     <div class="input-field">
-                      <input placeholder="Password" id="password1" type="password" class="validate">
+                      <input placeholder="Password" id="password1" name="password1" type="password" class="validate">
                     </div>
                     <div class="input-field">
                       <input placeholder="Verify Password" id="password2" type="password" class="validate">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                      <textarea placeholder="Bio" id="textarea1" type="text" name="bio" class="materialize-textarea"></textarea>
                     </div>
                     <label for="question">What types of music will you be posting for collaborations?</label>
                     <p class="musicType">
@@ -65,11 +66,12 @@
                       <input type="checkbox" id="test4" />
                       <label for="test4">Flute</label>
                     </p>
-                  </form>
+
                 </div>
                 <div class="modal-footer">
-                  <a class="modal-close" href="#">Create Your Account</a>
+                    <button type="submit">Create Your Account</button>
                 </div>
+                </form>
               </div>
             <a class="modal-trigger" href="#modal2">Sign In</a>
             <div id="modal2" class="modal">
@@ -89,6 +91,12 @@
                   </div>
                 </form>
               </div>
+<<<<<<< HEAD
+              <div class="modal-footer">
+                <button type="submit"><a class="modal-close" href="#">Sign In</a></button>
+              </div>
+=======
+>>>>>>> 5a3317b036fe7621022fa237adcb73157ac0f1b0
             </div>
           </div>
         </div>

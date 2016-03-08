@@ -10,6 +10,8 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
+    $app['debug']=true;
+
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
@@ -23,21 +25,42 @@
         return $app['twig']->render('index.html.twig', array('user' => $users));
     });
 
-    $app->post("/sign_up", function() use ($app) {
+    $app->post("/user", function() use ($app) {
+        $id = null;
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
-        $email = $_POST['email']; //null - editable in profile
+        $email = null; //null - editable in profile
         $username = $_POST['username'];
         $bio = $_POST['bio'];
-        $photo = $_POST['photo']; //null - upload on profile edit
-        $password = $_POST['password']; //verify via JS
-        $user = new User($first_name, $last_name, $email, $username, $bio, $photo, $password);
+        $photo = null; //null - upload on profile edit
+        $password = $_POST['password1'];
+        $user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
         $user_projects = $user->getProjects();
-
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+<<<<<<< HEAD
+    $app->get("/projects", function() use ($app){
+        return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
+    });
+
+    $app->post("/search", function() use ($app) {
+        $keyword = $_POST['search_term'];
+        $project_matches = Project::search($keyword);
+        return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
+    });
+
+    $app->get("/user/{id}/create_project", function($id) use ($app){
+        $user = User::find($id);
+        return $app['twig']->render('create_project.html.twig', array('user' => $user));
+    });
+
+    $app->post("/user/{id}", function($id) use ($app) {
+        $user = User::find($id);
+        $user_projects = $user->getProjects();
+        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+=======
     $app->post("/user", function() use ($app) {
         $users = User::getAll();
         $inputted_username = $_POST['username'];
@@ -65,6 +88,7 @@
         }
 
         // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
+>>>>>>> 5a3317b036fe7621022fa237adcb73157ac0f1b0
     });
 
     // Get page to edit a specific user
