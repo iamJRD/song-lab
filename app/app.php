@@ -28,7 +28,7 @@
         $bio = $_POST['bio'];
         $photo = $_POST['photo']; //null - upload on profile edit
         $password = $_POST['password']; //verify via JS
-        $user = new User($first_name, $last_name, $email, $username, $bio, $photo $password);
+        $user = new User($first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
         $user_projects = $user->getProjects();
 
