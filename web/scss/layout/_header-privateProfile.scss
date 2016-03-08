@@ -8,3 +8,14 @@
     min-height: 75vh;
   }
 }
+
+.publicProfHeader {
+  @include size(100% 60vh);
+  @include background-image(linear-gradient(rgba($black, 0.3), rgba($black,1)),url("#{$img-path}/speaker.jpg"));
+  @include flexbox ($justify: center, $direction: column, $align-items: center);
+  background-size: cover;
+  @media screen and #{$tablet} {
+    @include size(100% 100%);
+    min-height: 50vh;
+  }
+}
