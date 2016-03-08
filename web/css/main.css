@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .secondaryBlack, .secondaryWhite, .headerButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
+p, .browseHeader .headerVidText h1, .headerButtons, .secondaryBlack, .secondaryWhite, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -226,6 +226,36 @@ a {
       line-height: 90px;
       margin: 1em; }
 
+.headerButtons {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  align-self: center; }
+  .headerButtons a {
+    font-size: 1.3em;
+    color: #fff;
+    letter-spacing: 2px;
+    padding: 0.8em 2em;
+    border: 1px solid #fff;
+    background: transparent;
+    transition: all 500ms linear; }
+    .headerButtons a:first-child {
+      margin-right: 1em; }
+    .headerButtons a:hover {
+      color: #000;
+      background: #99FFE6; }
+    .headerButtons a:nth-child(2):hover {
+      background: #99ccff; }
+    @media screen and (max-width: 768px) {
+      .headerButtons a {
+        width: 100%;
+        margin-bottom: 1em; } }
+  @media screen and (max-width: 768px) {
+    .headerButtons {
+      display: flex;
+      flex-direction: column; } }
+
 .secondaryBlack {
   font-size: 1.2em;
   color: #000;
@@ -259,35 +289,11 @@ a {
       flex-direction: column;
       margin: 20px auto; } }
 
-.headerButtons {
-  display: flex;
-  justify-content: center;
-  height: auto;
-  width: 100%;
-  align-self: center; }
-  .headerButtons a {
-    font-size: 1.3em;
-    color: #fff;
-    letter-spacing: 2px;
-    padding: 0.8em 2em;
-    border: 1px solid #fff;
-    background: transparent;
-    transition: all 500ms linear; }
-    .headerButtons a:first-child {
-      margin-right: 1em; }
-    .headerButtons a:hover {
-      color: #000;
-      background: #99FFE6; }
-    .headerButtons a:nth-child(2):hover {
-      background: #99ccff; }
-    @media screen and (max-width: 768px) {
-      .headerButtons a {
-        width: 100%;
-        margin-bottom: 1em; } }
-  @media screen and (max-width: 768px) {
-    .headerButtons {
-      display: flex;
-      flex-direction: column; } }
+.btn {
+  color: #fff;
+  background: #B399FF;
+  padding-left: 2em;
+  padding-right: 2em; }
 
 .modal-footer a {
   padding: 0.8em 2em;
