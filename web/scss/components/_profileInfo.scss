@@ -1,11 +1,12 @@
 .profileInfo {
   @include flexbox($justify: space-around, $direction: column, $align-items: center);
   @extend %centeredText;
-  @include size(50% 90%);
+  @include size(70% 90%);
+  max-width: 1000px;
   @extend %headerFont;
   @include padding(5% auto);
   img {
-    @include size(200px);
+    @include size(180px);
     box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
     border-radius: 50%;
   }

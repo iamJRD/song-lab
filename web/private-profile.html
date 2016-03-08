@@ -31,9 +31,76 @@
           <h2 class="userMusicType">Lyrics, Composer, Flutist</h2>
           <p class="userBio">Kale chips knausgaard flexitarian, locavore kitsch fashion axe paleo narwhal affogato lomo. Paleo bushwick meggings flexitarian, hammock affogato butcher pickled. Cardigan keytar tilde, whatever man bun everyday carry mustache paleo distillery fingerstache wolf pabst migas cronut godard. Hello actually wolf iPhone tacos. Fashion axe occupy slow-carb you probably haven't heard of them sustainable flexitarian.</p>
           <div class="profileButtons">
-            <a class="secondaryBtn" href="#">Post Music</a>
+            <a class="secondaryBtn modal-trigger modal-close" href="#postMusicModal">Post Music</a>
+            <div id="postMusicModal" class="modal">
+              <div class="modal-content">
+                <h2>Post Music</h2>
+                <h4>Let other artists browse your jam, so together you can create magic.</h4>
+                <form class="postMusicForm" action="index.html" method="post">
+                  <div class="input-field">
+                    <input placeholder="Song Title" id="title" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Notes" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Lyrics" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                  </div>
+                  <label for="question">What type of music are you posting?</label>
+                  <p class="musicType">
+                    <input type="checkbox" id="test1" />
+                    <label for="test1">Lyrics</label>
+                    <input type="checkbox" id="test2" />
+                    <label for="test2">Composition</label>
+                    <input type="checkbox" id="test3" />
+                    <label for="test3">Bass Track</label>
+                    <input type="checkbox" id="test4" />
+                    <label for="test4">Flute</label>
+                  </p>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">Post Your Song</a>
+              </div>
+            </div>
+            <a class="secondaryBtn modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
+            <div id="editProfileModal" class="modal">
+              <div class="modal-content">
+                <h2>Edit Your Profile</h2>
+                <form class="postMusicForm" action="index.html" method="post">
+                  <div class="input-field">
+                    <input placeholder="Edit Username" id="Username" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <input placeholder="Update Password" id="password" type="password" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <input placeholder="First Name" id="first_name" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                  </div>
+                  <label for="question">What types of music will you be posting for collaborations?</label>
+                  <p class="musicType">
+                    <input type="checkbox" id="test1" />
+                    <label for="test1">Lyrics</label>
+                    <input type="checkbox" id="test2" />
+                    <label for="test2">Compositions</label>
+                    <input type="checkbox" id="test3" />
+                    <label for="test3">Bass Tracks</label>
+                    <input type="checkbox" id="test4" />
+                    <label for="test4">Flute</label>
+                  </p>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">Edit Profile</a>
+              </div>
+            </div>
             <a class="secondaryBtn" href="#">Browse Open Collabs</a>
-            <a class="secondaryBtn" href="#">Edit Profile</a>
           </div>
         </div>
       </div>

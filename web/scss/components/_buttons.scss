@@ -6,7 +6,7 @@
   @extend %headerFont;
   @extend %uppercase;
   @include textFormat(1.2em, $black);
-  @include padding(.5em 2em);
+  @include padding(.5em 5%);
   @include margin(.5em);
   border: 1px solid $black;
 }
@@ -45,6 +45,7 @@
 
 .modal-footer {
   a {
+    @include padding(.8em 2em);
     @extend %uppercase;
     @include textFormat(1.1em, $black);
     background: transparent;

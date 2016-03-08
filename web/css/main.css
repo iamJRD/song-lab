@@ -38,7 +38,7 @@ a {
  * Basic typography style for copy text
  */
 .navSubpage {
-  height: 10vh;
+  height: 8vh;
   width: 100%;
   background: #000; }
 
@@ -90,7 +90,7 @@ a {
 .secondaryBtn {
   font-size: 1.2em;
   color: #000;
-  padding: 0.5em 2em;
+  padding: 0.5em 5%;
   margin: 0.5em;
   border: 1px solid #000; }
 
@@ -125,6 +125,7 @@ a {
       flex-direction: column; } }
 
 .modal-footer a {
+  padding: 0.8em 2em;
   font-size: 1.1em;
   color: #000;
   background: transparent;
@@ -206,7 +207,7 @@ a {
     width: 70px; } }
 .navSubpage .songLabWrapper {
   border: 2px solid dodgerblue;
-  height: 10vh; }
+  height: 8vh; }
 .navSubpage .songLabLogo h1 {
   font-size: 65px; }
 .navSubpage .musicBars {
@@ -991,11 +992,12 @@ select {
   align-items: center;
   flex-direction: column;
   height: 90%;
-  width: 50%;
+  width: 70%;
+  max-width: 1000px;
   padding: 5% auto; }
   .profileInfo img {
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
     border-radius: 50%; }
   .profileInfo .username {
