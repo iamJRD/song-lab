@@ -37,10 +37,10 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
-    $app->get("/user", function() use ($app) {
+    $app->post("/user", function() use ($app) {
         $users = User::getAll();
-        $inputted_username = $_GET['username'];
-        $inputted_password = $_GET['password'];
+        $inputted_username = $_POST['username'];
+        $inputted_password = $_POST['password'];
         $error = null;
 
         foreach($users as $user)
@@ -59,7 +59,7 @@
                 echo '<script src="js/sign_in_verify.js"></script>';
                 $error = "The username and password do not match!";
 
-                return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
+                // return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
             }
         }
 
