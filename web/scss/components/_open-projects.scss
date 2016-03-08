@@ -1,4 +1,43 @@
 .projectsWrapper {
-  width: 80%;
+  margin-top: 4%;
+  width: 90%;
   border: 1px solid $primary;
+  padding: 2%;
+  .open-project {
+    @include flexbox(flex, center, $direction: column);
+    .openProjectHeader {
+      @include flexbox(flex, $align-items: center);
+      @extend %headerFont;
+      img {
+        @include size(80px 80px);
+        margin-right: 1%;
+      }
+      .titleAndAuthor {
+        h3 {
+          @include textFormat(30px);
+          margin: 0 auto;
+        }
+        h4 {
+          @include textFormat($color: grey);
+          margin: 0 auto;
+        }
+      }
+    }
+    .openProjectSummary {
+      p {
+        margin-top: 5px;
+      }
+    }
+    .openProjectButtons {
+      @extend %headerFont;
+      @include flexbox(flex, center);
+      border: 1px solid green;
+      a {
+        border: 1px solid blue;
+        text-align: center;
+        margin: 1%;
+        padding: .5em 2em;
+      }
+    }
+  }
 }

@@ -7,7 +7,7 @@ html {
 .header .summary p:nth-child(2), .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .headerButtons {
+p, .browseHeader .headerVidText h1, .headerButtons, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .headerButtons a, .modal-footer a {
@@ -946,7 +946,37 @@ select {
   height: 3rem; }
 
 .projectsWrapper {
-  width: 80%;
-  border: 1px solid #B399FF; }
+  margin-top: 4%;
+  width: 90%;
+  border: 1px solid #B399FF;
+  padding: 2%; }
+  .projectsWrapper .open-project {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .projectsWrapper .open-project .openProjectHeader {
+      display: flex;
+      align-items: center; }
+      .projectsWrapper .open-project .openProjectHeader img {
+        height: 80px;
+        width: 80px;
+        margin-right: 1%; }
+      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
+        font-size: 30px;
+        margin: 0 auto; }
+      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h4 {
+        color: grey;
+        margin: 0 auto; }
+    .projectsWrapper .open-project .openProjectSummary p {
+      margin-top: 5px; }
+    .projectsWrapper .open-project .openProjectButtons {
+      display: flex;
+      justify-content: center;
+      border: 1px solid green; }
+      .projectsWrapper .open-project .openProjectButtons a {
+        border: 1px solid blue;
+        text-align: center;
+        margin: 1%;
+        padding: .5em 2em; }
 
 /*# sourceMappingURL=main.css.map */
