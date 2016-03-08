@@ -27,9 +27,9 @@
       <div class="profileHeader">
         <div class="profileInfo">
           <img class="profileImage" src="img/profile.jpeg"></img>
-          <h1 class="username">Taylor Pokoj</h1>
+          <h1 class="username">{{ user.getFirstName }} {{ user.getLastName }}</h1>
           <h2 class="userMusicType">Lyrics, Composer, Flutist</h2>
-          <p class="userBio">Kale chips knausgaard flexitarian, locavore kitsch fashion axe paleo narwhal affogato lomo. Paleo bushwick meggings flexitarian, hammock affogato butcher pickled. Cardigan keytar tilde, whatever man bun everyday carry mustache paleo distillery fingerstache wolf pabst migas cronut godard. Hello actually wolf iPhone tacos. Fashion axe occupy slow-carb you probably haven't heard of them sustainable flexitarian.</p>
+          <p class="userBio">{{ user.getBio }}</p>
           <div class="profileButtons">
             <a class="secondaryBlack modal-trigger modal-close" href="#postMusicModal">Post Music</a>
             <div id="postMusicModal" class="modal">

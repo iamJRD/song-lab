@@ -134,6 +134,17 @@
             return $project;
         }
 
+        static function search($keyword)
+        {
+          $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE genre LIKE '%{$keyword}%' OR description LIKE '%{$keyword}%'");
+          $project_matches = $query->fetchAll(PDO::FETCH_ASSOC);
+          var_dump($project_matches);
+            // foreach($project_matches as $project){
+            //   array_push
+            // }
+            return $project;
+        }
+
         function delete()
         {
             $GLOBALS['DB']->exec("DELETE FROM projects WHERE id = {$this->getId()}");
