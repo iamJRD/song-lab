@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .secondaryBlack, .secondaryWhite, .headerButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
+p, .browseHeader .headerVidText h1, .headerButtons, .secondaryBlack, .secondaryWhite, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, .projectsWrapper .open-project .openProjectButtons {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .browseHeader .headerVidText #browsePageSearch .searchButton, .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -242,6 +242,7 @@ a {
       line-height: 90px;
       margin: 1em; }
 
+<<<<<<< HEAD
 .secondaryBlack {
   font-size: 1.2em;
   color: #000;
@@ -275,6 +276,8 @@ a {
       flex-direction: column;
       margin: 20px auto; } }
 
+=======
+>>>>>>> 37ea0f8b6cfc0b9b770d8c232ad91291042a94d8
 .headerButtons {
   display: flex;
   justify-content: center;
@@ -304,6 +307,45 @@ a {
     .headerButtons {
       display: flex;
       flex-direction: column; } }
+
+.secondaryBlack {
+  font-size: 1.2em;
+  color: #000;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #000;
+  transition: all 500ms linear; }
+  .secondaryBlack:hover {
+    color: #000;
+    background: #99FFE6; }
+  @media screen and (max-width: 768px) {
+    .secondaryBlack {
+      display: flex;
+      flex-direction: column;
+      margin: 20px auto; } }
+
+.secondaryWhite {
+  font-size: 1.2em;
+  color: #fff;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #fff;
+  transition: all 500ms linear;
+  background: transparent; }
+  .secondaryWhite:hover {
+    color: #000;
+    background: #99FFE6; }
+  @media screen and (max-width: 768px) {
+    .secondaryWhite {
+      display: flex;
+      flex-direction: column;
+      margin: 20px auto; } }
+
+.btn {
+  color: #fff;
+  background: #B399FF;
+  padding-left: 2em;
+  padding-right: 2em; }
 
 .modal-footer a {
   padding: 0.8em 2em;
