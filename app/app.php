@@ -21,14 +21,15 @@
     });
 
     $app->post("/sign_up", function() use ($app) {
+        $id = null;
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
-        $email = $_POST['email']; //null - editable in profile
+        $email = null; //null - editable in profile
         $username = $_POST['username'];
         $bio = $_POST['bio'];
-        $photo = $_POST['photo']; //null - upload on profile edit
-        $password = $_POST['password']; //verify via JS
-        $user = new User($first_name, $last_name, $email, $username, $bio, $photo, $password);
+        $photo = null; //null - upload on profile edit
+        $password = $_POST['password1'];
+        $user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
         $user_projects = $user->getProjects();
 

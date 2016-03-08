@@ -1,15 +1,18 @@
-$(document).ready(function (){
-    
-    var password1 = $(#password).val();
-    var password2 = $(#password).val();
+$(document).ready(function() {
+  $("form.createAccountForm").submit(function(event) {
+    var password1 = $("#password1").val();
+    var password2 = $("#password2").val();
 
-    if (var password1 == var password2)
+    if (password1 == password2)
     {
         return true;
     }
 
     else {
-        popup appears, passwords do not match
+        alert("passwords do not match!");
+      // ("form.createAccountForm").password1.focus();
         return false;
     }
+    event.preventDefault();
+  })
 });
