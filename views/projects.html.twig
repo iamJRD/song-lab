@@ -1,23 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="css/main.css" media="screen">
+    <meta name="viewport" content="width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+    <title>SongLab | Browse Open Projects</title>
   </head>
   <body>
-    <form action="/search" method="post">
-    <label for="search">Search projects</label>
-    <input id="Username" type="text" name="search_term" class="validate">
-    <button type="submit">Go</button>
-    </form>
-    {% for project in projects %}
-    <ul>
-    <li>{{ project.getTitle }}</li>
-    <li>{{ project.getDescription }}</li>
-    <li>{{ project.getGenre}}</li>
-    <li>{{ project.getResources|raw }}</li>
-    <li>{{ project.getLyrics }}</li>
-    </ul>
-    {% endfor %}
+    <div class="pageWrapper">
+      <div class="navbar">
+      </div>
+
+      <div class="browseHeader">
+        <video class="headerVid" autoplay loop muted poster="assets/images/poster.jpg">
+          <source src="img/guitar-video.mp4" type="video/mp4">
+          </video>
+          <div class="video-overlay"></div>
+          <div class="headerVidText">
+            <h1>Browse Open Projects</h1>
+            <p>Search through songLab's archive of unfinished projects in need of artistic collaboration.</p>
+
+            <div class="searchbar" id="browsePageSearch">
+              <form action="/search" method="post">
+              <input type="text" name="search_term" value="">
+              <br>
+              <button class="searchButton" type="submit" name="button">SEARCH</button>
+            </form>
+            </div>
+          </div>
+        </div>
+
+        {% for project in projects %}
+        <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
+          <div class="open-project">
+            <div class="openProjectHeader">
+              <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+              <div class="titleAndAuthor">
+                <h3 class="projectTitle">{{ project.getTitle}}</h3>
+                <h4 class="projectAuthor">By: Author Name</h4>
+              </div>
+            </div>
+
+            <div class="openProjectSummary">
+              <p class="projectSummary">{{ project.getDescription}}</p>
+            </div>
+
+            <div class="openProjectButtons">
+              <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
+              <a class="modal-trigger" href="#modal3">REQUEST TO COLLABORATE</a>
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h1>{{project.getResources | raw}}</h1>
+                  <p>{{ project.getLyrics}}</p>
+                </div>
+              </div>
+              <div id="modal3" class="modal">
+                <div class="modal-content">
+                  <h1>Interested in working on this song?</h1>
+                  <p>Message the author with your ideas!</p>
+                  <form class="signInForm" action="browse-projects.html" method="post">
+                    <div class="input-field">
+                      <input placeholder="Your Username" id="userName" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">SEND REQUEST</a>
+                </div>
+              </div>
+          </div>
+        </div> <!-- Open Project end -->
+      </div><!-- projects wrapper end -->
+      {% endfor %}
+        <div class="footer">
+
+        </div>
+
+    </div> <!-- Page wrapper end -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
   </body>
-</html>
+  </html>
