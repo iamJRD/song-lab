@@ -55,6 +55,10 @@
     &:hover {
       color: $subColor2;
     }
+    @media screen and #{$tablet} {
+      top: 5px;
+      left: 20px;
+    }
     @media screen and #{$mobile} {
       font-size: 40px !important;
     }

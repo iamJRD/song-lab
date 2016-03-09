@@ -96,6 +96,10 @@ a {
     font-size: 60px !important; }
     .overlay .closebtn:hover {
       color: #99FFE6; }
+    @media screen and (max-width: 768px) {
+      .overlay .closebtn {
+        top: 5px;
+        left: 20px; } }
     @media screen and (max-width: 620px) {
       .overlay .closebtn {
         font-size: 40px !important; } }
