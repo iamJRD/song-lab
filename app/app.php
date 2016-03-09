@@ -6,7 +6,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost:8889;dbname=songlab';
+    $server = 'mysql:host=localhost;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -33,7 +33,8 @@
     $app->get("/about", function() use ($app) {
         session_start();
         $user_id = $_SESSION['user_id'];
-        return $app['twig']->render('about.html.twig', array('user_id' => $user_id));
+        $error = "";
+        return $app['twig']->render('about.html.twig', array('user_id' => $user_id, 'error' => $error));
     });
 
     // Create user
