@@ -13,6 +13,16 @@
   }
 }
 
+.youHave {
+  h3 {
+    color: $darkgray;
+    @extend %headerFont;
+  }
+  .messageCount {
+    color: $subColor1;
+  }
+}
+
 .collabRequestWrapper {
   width: 80%;
   .collabRequest {

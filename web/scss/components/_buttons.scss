@@ -68,6 +68,8 @@
   }
 }
 
+// Browse page Buttons //
+
 .searchButton {
   @extend %uppercase;
   @include textFormat(1em, $white, $l-spacing: 1px);
@@ -123,6 +125,8 @@
   }
 }
 
+// Buttons on About page //
+
 .aboutButtons {
   margin: 5% auto;
   @extend %headerFont;
@@ -160,4 +164,24 @@
 
 .buttonList {
   width: 100%;
+}
+
+// Approve collab request button on inbox page //
+
+button {
+  align-self: center;
+  @extend %uppercase;
+  @extend %headerFont;
+  @include textFormat(1em, $darkgray, $l-spacing: 2px);
+  @include padding(.8em 2em);
+  border: 1px solid $darkgray;
+  background: transparent;
+  transition: all 300ms linear;
+  &:first-child {
+    margin-right: 1em;
+  }
+  &:hover {
+    color: $black;
+    background: $subColor1;
+  }
 }

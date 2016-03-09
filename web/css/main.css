@@ -7,10 +7,10 @@ html {
 .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader {
+p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
+h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a, button {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -295,6 +295,11 @@ a {
     color: #fff;
     font-weight: lighter; }
 
+.youHave h3 {
+  color: #4d4d4d; }
+.youHave .messageCount {
+  color: #99ccff; }
+
 .collabRequestWrapper {
   width: 80%; }
   .collabRequestWrapper .collabRequest {
@@ -491,6 +496,21 @@ a {
 
 .buttonList {
   width: 100%; }
+
+button {
+  align-self: center;
+  font-size: 1em;
+  color: #4d4d4d;
+  letter-spacing: 2px;
+  padding: 0.8em 2em;
+  border: 1px solid #4d4d4d;
+  background: transparent;
+  transition: all 300ms linear; }
+  button:first-child {
+    margin-right: 1em; }
+  button:hover {
+    color: #000;
+    background: #99ccff; }
 
 .navIcon {
   z-index: 1;
