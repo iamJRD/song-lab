@@ -10,7 +10,7 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    $app['debug']=true;
+    // $app['debug']=true;
 
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
