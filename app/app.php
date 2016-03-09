@@ -32,7 +32,8 @@
     // Get about page
     $app->get("/about", function() use ($app) {
         session_start();
-        return $app['twig']->render('about.html.twig');
+        $error = "";
+        return $app['twig']->render('about.html.twig', array('error' => $error));
     });
 
     // Create user

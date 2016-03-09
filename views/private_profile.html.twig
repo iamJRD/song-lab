@@ -45,7 +45,7 @@
           <div class="personInfo">
               <!--May need to remove "" from twig for photo src-->
         {% if user.getPhoto is null %}
-          <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
+          <img class="profileImage" src="img/headphones.jpg" alt="default-image" />
         {% else %}
           <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available"></img>
         {% endif %}
@@ -112,20 +112,11 @@
                       <input placeholder="Last Name" id="last_name" name="new_last_name" type="text" class="validate" value="{{ user.getLastName }}">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea"> {{ user.getBio }}</textarea>
+                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea">{{ user.getBio }}</textarea>
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Link to a photo" id="textarea1" name="new_photo" type="text" class="materialize-textarea"> {{ user.getPhoto }}</textarea>
+                      <input placeholder="Please enter a url to a photo here" id="textarea" name="new_photo" type="text" class="validate" value="{{ user.getPhoto }}">
                     </div>
-                    <!-- <div class="file-field input-field">
-                      <div class="btn">
-                        <span>Profile Image</span>
-                        <input type="file" name ="new_photo" multiple>
-                      </div>
-                      <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
-                      </div>
-                    </div> -->
                     <div class="modal-footer">
                         <button type="submit" name="button">Update</button>
                     </div>
