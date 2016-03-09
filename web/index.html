@@ -11,10 +11,10 @@
   <body>
     <div class="pageWrapper">
       <div class="navIcon" onclick="openNav()">
-          <div class="iconbar"></div>
-          <div class="iconbar"></div>
-          <div class="iconbar"></div>
-        </div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+      </div>
       <div id="mainNav" class="overlay">
         <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
@@ -63,6 +63,15 @@
                     <div class="input-field">
                       <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
                     </div>
+                    <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Profile Image</span>
+                        <input type="file" multiple>
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
+                      </div>
+                    </div>
                   </form>
                 </div>
                 <div class="modal-footer">
@@ -91,7 +100,48 @@
       </div>
 
       <div class="completedCollabs">
-        <h2>completed collaboration grid goes here.</h2>
+        <div class="col1">
+          <div class="galleryItem">
+            <img src="img/gallery-desert-long.jpg">
+          </div>
+          <div class="galleryItem bright">
+            <!-- <img src="img/gallery-bright-sq.jpg"> -->
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-hippie-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-collage-long.jpg">
+          </div>
+        </div>
+        <div class="col2">
+          <div class="galleryItem">
+            <img src="img/gallery-lights-sq.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-trippy-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-robot-sq.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-boat-long.jpg">
+          </div>
+        </div>
+        <div class="col3">
+          <div class="galleryItem">
+            <img src="img/gallery-girl-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-triangles-sq.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-sun-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-grafitti-long.jpg">
+          </div>
+        </div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

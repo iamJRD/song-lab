@@ -10,6 +10,20 @@
   </head>
   <body>
     <div class="pageWrapper">
+      <div class="navIcon" onclick="openNav()">
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+      </div>
+      <div id="mainNav" class="overlay">
+        <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects">Browse Projects</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div class="profileHeader">
       <nav class="navSubpage">
         <div class="songLabWrapper">
           <div class="songLabLogo">
@@ -24,19 +38,20 @@
           </div>
         </div>
       </nav>
-      <div class="profileHeader">
         <div class="profileInfo">
-          <img class="profileImage" src="img/profile.jpeg"></img>
-          <h1 class="username">Taylor Pokoj</h1>
-          <h2 class="userMusicType">Lyrics, Composer, Flutist</h2>
-          <p class="userBio">Kale chips knausgaard flexitarian, locavore kitsch fashion axe paleo narwhal affogato lomo. Paleo bushwick meggings flexitarian, hammock affogato butcher pickled. Cardigan keytar tilde, whatever man bun everyday carry mustache paleo distillery fingerstache wolf pabst migas cronut godard. Hello actually wolf iPhone tacos. Fashion axe occupy slow-carb you probably haven't heard of them sustainable flexitarian.</p>
+          <div class="personInfo">
+              <!--May need to remove "" from twig for photo src-->
+          <img class="profileImage" src="{{ user.getPhoto }}"></img>
+            <h1 class="username">{{ user.getUsername }}</h1>
+          </div>
+          <p class="userBio">{{ user.getBio }}</p>
           <div class="profileButtons">
-            <a class="secondaryBlack modal-trigger modal-close" href="#postMusicModal">Post Music</a>
+            <a class="secondaryWhite modal-trigger modal-close" href="#postMusicModal">Post Music</a>
             <div id="postMusicModal" class="modal">
               <div class="modal-content">
                 <h2>Post Music</h2>
                 <h4>Let other artists browse your jam, so together you can create magic.</h4>
-                <form class="postMusicForm" action="index.html" method="post">
+                <form class="postMusicForm" action="/user/{{ user.getId }}/create_project" method="post">
                   <div class="input-field">
                     <input placeholder="Song Title" id="title" type="text" class="validate">
                   </div>
@@ -57,61 +72,105 @@
                     <input type="checkbox" id="test4" />
                     <label for="test4">Flute</label>
                   </p>
+                  <div class="modal-footer">
+                      <button type="submit" name="button">Post Your Song</button>
+                  </div>
                 </form>
               </div>
-              <div class="modal-footer">
-                <a class="modal-close" href="#">Post Your Song</a>
-              </div>
             </div>
-
-            <!--This may have to be on a separate edit page (edit_profile.html.twig)-->
-            <a class="secondaryBlack modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
+            <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
             <div id="editProfileModal" class="modal">
               <div class="modal-content">
                 <h2>Edit Your Profile</h2>
-                <form class="postMusicForm" action="index.html" method="post">
-                  <div class="input-field">
-                    <input placeholder="Edit Username" id="Username" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Update Password" id="password" type="password" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="First Name" id="first_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
-                  </div>
-                  <label for="question">What types of music will you be posting for collaborations?</label>
-                  <p class="musicType">
-                    <input type="checkbox" id="test1" />
-                    <label for="test1">Lyrics</label>
-                    <input type="checkbox" id="test2" />
-                    <label for="test2">Compositions</label>
-                    <input type="checkbox" id="test3" />
-                    <label for="test3">Bass Tracks</label>
-                    <input type="checkbox" id="test4" />
-                    <label for="test4">Flute</label>
-                  </p>
+                <form class="postMusicForm" action="/user/{{ user.getId }}/edit_profile" method="post">
+                    <input name="_method" type="hidden" value="patch">
+                    <div class="input-field">
+                      <input placeholder="Edit Username" id="Username" name="new_username" type="text" class="validate" value="{{ user.getUsername }}">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Update Password" id="password" name="new_password" type="password" class="validate" value="{{ user.getPassword }}">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="First Name" id="first_name" name="new_first_name" type="text" class="validate" value="{{ user.getFirstName }}">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Last Name" id="last_name" name="new_last_name" type="text" class="validate" value="{{ user.getLastName }}">
+                    </div>
+                    <div class="input-field">
+                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea"> {{ user.getBio }}</textarea>
+                    </div>
+                    <div class="file-field input-field">
+                      <div class="btn">
+                        <span>Profile Image</span>
+                        <input type="file" name ="new_photo" multiple>
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="button">Edit Profile</button>
+                    </div>
                 </form>
               </div>
-              <div class="modal-footer">
-                  <!--The link below will take user to an actual edit_profile PAGE if we choose to do that. Otherwise this link may need to change-->
-                <a class="modal-close" href="/user/{{ user.getId }}/edit_profile">Edit Profile</a>
-              </div>
             </div>
-
-
-
-            <a class="secondaryBlack" href="#">Browse Open Collabs</a>
+            <a class="secondaryWhite" href="#">Browse Open Collabs</a>
           </div>
         </div>
       </div>
+      <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
+        <div class="open-project">
+          <div class="openProjectHeader">
+            <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+            <div class="titleAndAuthor">
+              <h3 class="projectTitle">Title</h3>
+              <h4 class="projectAuthor">By: Author Name</h4>
+            </div>
+          </div>
+
+          <div class="openProjectSummary">
+            <p class="projectSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+        <!-- Buttons and Modals for open project -->
+          <div class="openProjectButtons">
+            <a class="modal-trigger modal-close" href=".modal4">VIEW MUSIC</a>
+            <div id="" class="modal modal4">
+              <div class="modal-content">
+                <h2 class="projectTitle">Project Title</h2>
+                <h4 class="projectAuthor">By: Project Author</h4>
+                <p><span class="projectContent">Lyrics, composition, etc are appended here.</span></p>
+                <h3>Collaboration Wanted:</h3><p class="collaborationWanted"> Collaboration type wanted goes here.</p>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">CLOSE</a>
+              </div>
+            </div>
+
+            <a class="modal-trigger" href=".modal3">REQUEST TO COLLABORATE</a>
+            <div id="" class="modal modal3">
+              <div class="modal-content">
+                <h1>Interested in working on this song?</h1>
+                <p>Message the author with your ideas!</p>
+                <form action="browse-projects.html" method="post">
+                  <div class="input-field">
+                    <input placeholder="Your Username" id="userName" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">SEND REQUEST</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- Open Project end -->
+      </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/css-scripts.js"></script>
     <script src="js/materialize.js"></script>
   </body>
 </html>

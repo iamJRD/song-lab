@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .secondaryBlack, .secondaryWhite, .headerContent .headerButtons, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
+p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .secondaryBlack, .secondaryWhite, .headerContent .headerButtons a, .modal-footer a, .searchButton, .aboutButtons a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer a, .searchButton, .aboutButtons a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -50,7 +50,9 @@ a {
 .navSubpage {
   height: 10vh;
   width: 100%;
-  background: transparent; }
+  background: transparent;
+  position: absolute;
+  top: 2%; }
 
 .overlay {
   height: 100%;
@@ -68,12 +70,18 @@ a {
     width: 100%;
     text-align: center;
     margin-top: 30px; }
+    @media screen and (max-width: 620px) {
+      .overlay ul {
+        right: 5%; } }
   .overlay li {
     padding: 5%;
     text-decoration: none;
     font-size: 60px;
     display: block;
     transition: 0.3s; }
+    @media screen and (max-width: 620px) {
+      .overlay li {
+        font-size: 30px; } }
     .overlay li a {
       color: white;
       transition: all 400ms linear; }
@@ -87,6 +95,9 @@ a {
     font-size: 60px !important; }
     .overlay .closebtn:hover {
       color: #99FFE6; }
+    @media screen and (max-width: 620px) {
+      .overlay .closebtn {
+        font-size: 40px !important; } }
 
 .header {
   display: flex;
@@ -124,6 +135,7 @@ a {
       font-weight: bold; }
 
 .browseHeader {
+  border: 2px solid red;
   max-height: 50vh;
   overflow: hidden; }
   .browseHeader .headerVid {
@@ -145,7 +157,6 @@ a {
     width: 90%;
     position: absolute;
     color: #fff;
-    z-index: 1;
     top: 15%;
     left: 50%;
     transform: translate(-50%, 0); }
@@ -189,12 +200,34 @@ a {
 .profileHeader {
   height: 60vh;
   width: 100%;
-  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg-black.png");
-  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/triangle-bg-black.png");
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), black), url("../img/speaker.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), black), url("../img/speaker.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  background-size: cover; }
+  @media screen and (max-width: 768px) {
+    .profileHeader {
+      height: 100%;
+      width: 100%;
+      min-height: 75vh; } }
+
+.publicProfHeader {
+  height: 60vh;
+  width: 100%;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), black), url("../img/speaker.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), black), url("../img/speaker.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover; }
+  @media screen and (max-width: 768px) {
+    .publicProfHeader {
+      height: 100%;
+      width: 100%;
+      min-height: 50vh; } }
 
 .aboutHeader {
   display: flex;
@@ -245,29 +278,6 @@ a {
     .aboutContent .connect h2 {
       margin-top: 0; }
 
-.secondaryBlack {
-  font-size: 1.2em;
-  color: #000;
-  padding: 0.5em 5%;
-  margin: 0.5em;
-  border: 1px solid #000;
-  transition: all 500ms linear; }
-  .secondaryBlack:hover {
-    color: #000;
-    background: #99FFE6; }
-
-.secondaryWhite {
-  font-size: 1.2em;
-  color: #fff;
-  padding: 0.5em 5%;
-  margin: 0.5em;
-  border: 1px solid #fff;
-  transition: all 500ms linear;
-  background: transparent; }
-  .secondaryWhite:hover {
-    color: #000;
-    background: #99FFE6; }
-
 .headerContent .headerButtons {
   display: flex;
   justify-content: center;
@@ -297,6 +307,45 @@ a {
     .headerContent .headerButtons {
       display: flex;
       flex-direction: column; } }
+
+.secondaryBlack {
+  font-size: 1.2em;
+  color: #000;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #000;
+  transition: all 500ms linear; }
+  .secondaryBlack:hover {
+    color: #000;
+    background: #99FFE6; }
+  @media screen and (max-width: 768px) {
+    .secondaryBlack {
+      display: flex;
+      flex-direction: column;
+      margin: 20px auto; } }
+
+.secondaryWhite {
+  font-size: 1.2em;
+  color: #fff;
+  padding: 0.5em 5%;
+  margin: 0.5em;
+  border: 1px solid #fff;
+  transition: all 500ms linear;
+  background: transparent; }
+  .secondaryWhite:hover {
+    color: #000;
+    background: #99FFE6; }
+  @media screen and (max-width: 768px) {
+    .secondaryWhite {
+      display: flex;
+      flex-direction: column;
+      margin: 20px auto; } }
+
+.btn {
+  color: #fff;
+  background: #B399FF;
+  padding-left: 2em;
+  padding-right: 2em; }
 
 .modal-footer a {
   padding: 0.8em 2em;
@@ -387,6 +436,7 @@ a {
       flex-direction: column; } }
 
 .navIcon {
+  z-index: 1;
   height: 40px;
   width: 40px;
   display: flex;
@@ -396,13 +446,18 @@ a {
   top: 40px;
   left: 45px;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: .4em;
-  cursor: pointer; }
+  cursor: pointer;
+  border-radius: 15%; }
   .navIcon .iconbar {
     height: 3px;
     width: 30px;
     background-color: white; }
+  @media screen and (max-width: 768px) {
+    .navIcon {
+      top: 10px;
+      left: 10px; } }
 
 .songLabWrapper {
   display: flex;
@@ -474,11 +529,17 @@ a {
     background: #b399ff; }
   100% {
     width: 70px; } }
-.navSubpage .songLabWrapper {
-  height: 10vh; }
 .navSubpage .songLabLogo h1 {
   font-size: 65px;
   text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5); }
+  @media screen and (max-width: 620px) {
+    .navSubpage .songLabLogo h1 {
+      font-size: 36px; } }
+.navSubpage .songLabLogo {
+  margin: 0;
+  width: 100%;
+  position: relative;
+  bottom: 37%; }
 .navSubpage .musicBars {
   display: flex;
   width: 100px;
@@ -501,6 +562,30 @@ a {
       width: 40px;
       height: 8px;
       margin: 2px; } }
+  .navSubpage .bar:first-child {
+    width: 40px;
+    margin: 5px;
+    background: #99ccff;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    @media screen and (max-width: 620px) {
+      .navSubpage .bar:first-child {
+        width: 40px;
+        height: 8px;
+        margin: 2px; } }
+  .navSubpage .bar:last-child {
+    width: 60px;
+    margin: 5px;
+    background: #99ccff;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    @media screen and (max-width: 620px) {
+      .navSubpage .bar:last-child {
+        width: 40px;
+        height: 8px;
+        margin: 2px; } }
 .navSubpage .songLabLogo #bar1 {
   -webkit-animation: none !important; }
 .navSubpage .songLabLogo #bar2 {
@@ -1275,25 +1360,41 @@ select {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  height: 75%;
   width: 70%;
   max-width: 1000px;
-  padding: 5% auto 10%;
   padding-bottom: 20px; }
   .profileInfo img {
     height: 180px;
     width: 180px;
+    margin-top: 25px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
     border-radius: 50%; }
+    @media screen and (max-width: 768px) {
+      .profileInfo img {
+        height: 100px;
+        width: 100px; } }
   .profileInfo .username {
     font-size: 3em;
+    color: #fff;
     letter-spacing: 1.5px;
     margin: 3% auto; }
+    @media screen and (max-width: 768px) {
+      .profileInfo .username {
+        font-size: 2em; } }
   .profileInfo .userMusicType {
     margin: 0; }
   .profileInfo .userBio {
     font-size: 1.3em;
+    color: #fff;
     letter-spacing: 1.5px; }
+    @media screen and (max-width: 768px) {
+      .profileInfo .userBio {
+        font-size: 1.2em; } }
+  @media screen and (max-width: 768px) {
+    .profileInfo {
+      height: 90%;
+      width: 90%; } }
 
 .projectsWrapper {
   border: 1px solid lightgray;
@@ -1321,5 +1422,26 @@ select {
         margin: 0 auto; }
     .projectsWrapper .open-project .openProjectSummary p {
       margin-top: 5px; }
+
+.completedCollabs {
+  width: 100%;
+  display: flex; }
+  .completedCollabs .col1, .completedCollabs .col2, .completedCollabs .col3 {
+    display: flex;
+    flex-direction: column;
+    width: 33.3333%; }
+    .completedCollabs .col1 .galleryItem:nth-child(2), .completedCollabs .col2 .galleryItem:nth-child(2), .completedCollabs .col3 .galleryItem:nth-child(2) {
+      flex: 2; }
+    .completedCollabs .col1 .galleryItem img, .completedCollabs .col2 .galleryItem img, .completedCollabs .col3 .galleryItem img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      padding: 2px;
+      border: 1px solid cyan; }
+
+.bright {
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/gallery-bright-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/gallery-bright-sq.jpg");
+  background-size: cover; }
 
 /*# sourceMappingURL=main.css.map */
