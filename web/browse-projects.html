@@ -70,14 +70,27 @@
               <p class="projectSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
 
+          <!-- Buttons and Modals for open project -->
             <div class="openProjectButtons">
-              <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
+              <a class="modal-trigger modal-close" href="#modal4">VIEW MUSIC</a>
+              <div id="modal4" class="modal">
+                <div class="modal-content">
+                  <h2 class="projectTitle">Project Title</h2>
+                  <h4 class="projectAuthor">By: Project Author</h4>
+                  <p><span class="projectContent">Lyrics, composition, etc are appended here.</span></p>
+                  <h3>Collaboration Wanted:</h3><p class="collaborationWanted"> Collaboration type wanted goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <a class="modal-close" href="#">CLOSE</a>
+                </div>
+              </div>
+
               <a class="modal-trigger" href="#modal3">REQUEST TO COLLABORATE</a>
               <div id="modal3" class="modal">
                 <div class="modal-content">
                   <h1>Interested in working on this song?</h1>
                   <p>Message the author with your ideas!</p>
-                  <form class="signInForm" action="browse-projects.html" method="post">
+                  <form action="browse-projects.html" method="post">
                     <div class="input-field">
                       <input placeholder="Your Username" id="userName" type="text" class="validate">
                     </div>
@@ -109,42 +122,16 @@
             </div>
 
             <div class="openProjectButtons">
-              <a class="modal-trigger modal-close" href="#modal1">VIEW MUSIC</a>
-              <div id="modal1" class="modal">
+              <a class="modal-trigger modal-close" href="#modal4">VIEW MUSIC</a>
+              <div id="modal4" class="modal">
                 <div class="modal-content">
-                  <h2>Create Your Account</h2>
-                  <h4>Join SongLab to discover and create creative ideas.</h4>
-                  <form class="createAccountForm" action="index.html" method="post">
-                    <div class="input-field">
-                      <input placeholder="Username" id="Username" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="Password" id="password" type="password" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="First Name" id="first_name" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
-                    </div>
-                    <label for="question">What types of music will you be posting for collaborations?</label>
-                    <p class="musicType">
-                      <input type="checkbox" id="test1" />
-                      <label for="test1">Lyrics</label>
-                      <input type="checkbox" id="test2" />
-                      <label for="test2">Compositions</label>
-                      <input type="checkbox" id="test3" />
-                      <label for="test3">Bass Tracks</label>
-                      <input type="checkbox" id="test4" />
-                      <label for="test4">Flute</label>
-                    </p>
-                  </form>
+                  <h2 class="projectTitle">Project Title</h2>
+                  <h4 class="projectAuthor">By: Project Author</h4>
+                  <p><span class="projectContent">Lyrics, composition, etc are appended here.</span></p>
+                  <h3>Collaboration Wanted:</h3><p class="collaborationWanted"> Collaboration type wanted goes here.</p>
                 </div>
                 <div class="modal-footer">
-                  <a class="modal-close" href="#">Create Your Account</a>
+                  <a class="modal-close" href="#">CLOSE</a>
                 </div>
               </div>
 
@@ -153,7 +140,7 @@
                 <div class="modal-content">
                   <h1>Interested in working on this song?</h1>
                   <p>Message the author with your ideas!</p>
-                  <form class="signInForm" action="browse-projects.html" method="post">
+                  <form action="browse-projects.html" method="post">
                     <div class="input-field">
                       <input placeholder="Your Username" id="userName" type="text" class="validate">
                     </div>

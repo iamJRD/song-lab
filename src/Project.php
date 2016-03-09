@@ -138,11 +138,21 @@
         {
           $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE genre LIKE '%{$keyword}%' OR description LIKE '%{$keyword}%'");
           $project_matches = $query->fetchAll(PDO::FETCH_ASSOC);
-          var_dump($project_matches);
-            // foreach($project_matches as $project){
-            //   array_push
-            // }
-            return $project;
+          $projects = array();
+
+            foreach($project_matches as $project){
+              $id = $project['id'];
+              $title = $project['title'];
+              $description = $project['description'];
+              $genre = $project['genre'];
+              $resources = $project['resources'];
+              $lyrics = $project['lyrics'];
+              $type = $project['type'];
+              $user_id = $project['user_id'];
+              $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+              array_push($projects, $new_project);
+            }
+            return $projects;
         }
 
         function delete()
