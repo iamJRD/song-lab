@@ -257,8 +257,8 @@ a {
   justify-content: center;
   background-size: cover; }
   .confirmation .confirmationContent {
-    height: 40vh;
-    width: 55%;
+    height: 50vh;
+    width: 60%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
