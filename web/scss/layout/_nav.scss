@@ -13,7 +13,7 @@
   z-index: 1;
   left: 0;
   top: 0;
-  background-color: rgba($black, 0.9);
+  background-color: rgba($darkgray, .93);
   overflow-x: hidden;
   transition: 0.5s;
   ul {
@@ -21,13 +21,15 @@
     top: 20%;
     width: 100%;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
     @media screen and #{$mobile} {
       right: 5%;
     }
   }
   li {
-    @extend %logoFont;
+    @extend %headerFont;
+    @extend %uppercase;
+    letter-spacing: 2px;
     padding: 5%;
     text-decoration: none;
     font-size: 60px;
