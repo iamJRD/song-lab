@@ -1,5 +1,4 @@
 .browseHeader {
-  border: 2px solid red;
   max-height: 50vh;
   overflow: hidden;
   .headerVid {
@@ -8,7 +7,7 @@
     min-height: 50vh;
   }
   .video-overlay {
-    @include background-image(linear-gradient(rgba($primary, 1), rgba($black,0)));
+    @include background-image(linear-gradient(rgba($black, .8), rgba($black,0)));
     opacity: 0.4;
     position: absolute;
     top: 0; left: 0;

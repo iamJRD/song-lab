@@ -52,6 +52,13 @@
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+    // Get private user profile
+    $app->get("/user/{id}/profile", function($id) use ($app) {
+        $user = User::find($id);
+        $user_projects = $user->getProjects();
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+    });
+
     // Get projects list
     $app->get("/projects", function() use ($app){
         session_start();

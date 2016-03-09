@@ -2,6 +2,34 @@
 // Mixins
 // ---------------------------
 
+@mixin completedCollab ($image, $height, $names...) {
+  @each $name in $names {
+    ##{$name} {
+      @include flexbox($justify: flex-end, $direction: column);
+      @include background-image(linear-gradient(rgba($black, 0.4), rgba($black,0.4)),url($image));
+      background-size: cover;
+      background-position: center;
+      height: $height;
+      margin: 1px;
+      .galleryContent {
+        padding-left: 10%;
+        padding-bottom: 5%;
+        @extend %headerFont;
+        h2, h3 {
+          color: $white;
+        }
+        h2 {
+          @include textFormat(2.5em);
+          margin: 0;
+        }
+        h3 {
+          @include textFormat($l-spacing: 1.5px);
+        }
+      }
+    }
+  }
+}
+
 @mixin secondaryBtn ($color) {
   @extend %headerFont;
   @extend %uppercase;
@@ -16,7 +44,8 @@
   }
   @media screen and #{$tablet} {
     @include flexbox($direction: column);
-    margin: 20px auto;
+    margin: 5px auto;
+    width: 85%;
   }
 }
 

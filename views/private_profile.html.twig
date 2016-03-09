@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/main.css" media="screen">
+    <link rel="stylesheet" href="/css/main.css" media="screen">
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/js/css-scripts.js"></script>
+    <script src="/js/materialize.js"></script>
     <title>SongLab | Your Profile</title>
   </head>
   <body>
@@ -112,6 +114,8 @@
                         <button type="submit" name="button">Edit Profile</button>
                     </div>
                 </form>
+                <hr>
+                <a href="/user/{{ user.getId }}/delete"><button type="submit" name="button">Delete Profile?</button></a>
               </div>
             </div>
             <a class="secondaryWhite" href="#">Browse Open Collabs</a>
@@ -169,8 +173,5 @@
         </div> <!-- Open Project end -->
       </div>
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/css-scripts.js"></script>
-    <script src="js/materialize.js"></script>
   </body>
 </html>
