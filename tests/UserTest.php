@@ -6,6 +6,7 @@
 
     require_once "src/User.php";
     require_once "src/Project.php";
+    require_once "src/Message.php";
 
     $server = 'mysql:host=localhost;dbname=songlab_test';
     $username = 'root';
@@ -18,6 +19,7 @@
         {
             User::deleteAll();
             Project::deleteAll();
+            Message::deleteAll();
         }
 
         function testGetId()
@@ -473,6 +475,63 @@
 
             //Assert
             $this->assertEquals([$test_project, $test_project1], $test_user->getProjects());
+        }
+
+        function testAddMessage()
+        {
+            $id = 1;
+            $first_name = 'Sammy';
+            $last_name = 'Singsalot';
+            $email = 'sammysinger@gmail.com';
+            $username = 'sammysinger';
+            $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
+            $photo = '/../web/img/test_photo.jpg';
+            $password = 'password';
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
+            $test_user->save();
+
+            $id = null;
+            $message = "hi how are you";
+            $test_message = new Message($id, $message);
+            $test_message->save();
+
+            //Act
+            $test_user->addMessage($test_message);
+
+            //Assert
+            $this->assertEquals([$test_message], $test_user->getOwnerMessages());
+        }
+
+        function testGetOwnerMessages()
+        {
+            //Arrange
+            $id = 1;
+            $first_name = 'Sammy';
+            $last_name = 'Singsalot';
+            $email = 'sammysinger@gmail.com';
+            $username = 'sammysinger';
+            $bio = 'Portland native with a voice like an angel. Looking for other creative types to collaborate with!';
+            $photo = '/../web/img/test_photo.jpg';
+            $password = 'password';
+            $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
+            $test_user->save();
+
+            $id = null;
+            $message = "hi how are you";
+            $test_message = new Message($id, $message);
+            $test_message->save();
+            $test_user->addMessage($test_message);
+
+            $message2 = "want to contribute synth part";
+            $test_message2 = new Message($id, $message2);
+            $test_message2->save();
+            $test_user->addMessage($test_message2);
+
+            //Act
+            $result = $test_user->getOwnerMessages();
+
+            //Assert
+            $this->assertEquals([$test_message, $test_message2], $result);
         }
 
 

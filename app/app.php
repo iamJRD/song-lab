@@ -2,6 +2,7 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/User.php";
     require_once __DIR__."/../src/Project.php";
+    require_once __DIR__."/../src/Message.php";
 
     $app = new Silex\Application();
 
@@ -62,7 +63,15 @@
     // Get projects list
     $app->get("/projects", function() use ($app){
         session_start();
-        return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
+        $projects = Project::getAll();
+        $owners = array();
+        foreach ($projects as $project){
+        $owner = $project->getProjectOwner();
+        $owner_name = $owner->getUsername();
+        array_push($owners, $owner_name);
+        }
+        //needs work
+        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owners' => $owners));
     });
 
     // Search projects page
@@ -78,16 +87,39 @@
         session_start();
         $project_to_collaborate = Project::find($id);
         $project_owner = $project_to_collaborate->getProjectOwner();
-        //returning as array???
-        var_dump($project_owner);
+        $message = $_POST['message'];
+        $id = null;
+        $new_message = new Message($id, $message);
+        $new_message->save();
+        $project_owner->addMessage($new_message);
         return $app['twig']->render('sent_message.html.twig', array('owner' => $project_owner));
     });
 
-    //create new project as owner
-    $app->get("/user/{id}/create_project", function($id) use ($app){
+    // Get projects list
+    $app->get("/user/{id}/messages", function($id) use ($app){
+        $user = User::find($id);
+        $messages = $user->getOwnerMessages();
+        return $app['twig']->render('view_messages.html.twig', array('messages' => $messages));
+    });
+
+
+    $app->post("/user/{id}/create_project", function($id) use ($app){
+        echo ($id);
         session_start();
         $user = User::find($id);
-        return $app['twig']->render('create_project.html.twig', array('user' => $user));
+        $id = null;
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $genre = $_POST['genre'];
+        $resources = $_POST['resources'];
+        $lyrics = null; //fix this
+        $type = null;
+        $user_id = $user->getId();
+        $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+        var_dump($new_project);
+        $new_project->save();
+        //$user->getOwnerProjects()
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => Project::getAll()));
     });
 
     //initial routing for returning to profile
@@ -119,13 +151,6 @@
                 return $app['twig']->render('index.html.twig', array('error' => $error));
             }
     });
-
-    // MAY STILL NEED THIS CODE: WIP
-    // // Get page to edit a specific user
-    // $app->get("/user/{id}/edit_profile", function($id) use ($app){
-    //     $user = User::find($id);
-    //     return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
-    // });
 
     // Edit a specific user and return their profile page
     $app->patch("/user/{id}/edit_profile", function($id) use ($app){
