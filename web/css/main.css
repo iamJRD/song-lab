@@ -142,8 +142,8 @@ a {
     width: 100%;
     min-height: 50vh; }
   .browseHeader .video-overlay {
-    background-image: -webkit-linear-gradient(#b399ff, transparent);
-    background-image: linear-gradient(#b399ff, transparent);
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), transparent);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), transparent);
     opacity: 0.4;
     position: absolute;
     top: 0;
@@ -278,7 +278,7 @@ a {
       margin-top: 0; }
 
 .inboxHeader {
-  width: 100%;
+  width: 100vw;
   text-align: center;
   background-size: cover;
   background-position: bottom;
@@ -290,7 +290,7 @@ a {
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), transparent), url("../img/messages.jpg");
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), transparent), url("../img/messages.jpg"); }
   .inboxHeader h1 {
-    font-size: 80px;
+    font-size: 70px;
     color: #fff;
     font-weight: lighter; }
 

@@ -1,6 +1,6 @@
 .inboxHeader {
   @extend %headerFont;
-  width: 100%;
+  width: 100vw;
   text-align: center;
   background-size: cover;
   background-position: bottom;
@@ -9,6 +9,6 @@
   @include background-image(linear-gradient(rgba($black, 0.8), rgba($black,0)),url("#{$img-path}/messages.jpg"));
   h1 {
     @extend %uppercase;
-    @include textFormat(80px, $white, $weight: lighter);
+    @include textFormat(70px, $white, $weight: lighter);
   }
 }
