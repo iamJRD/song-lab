@@ -6,7 +6,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=songlab';
+    $server = 'mysql:host=localhost:8889;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -57,6 +57,17 @@
     $app->get("/user/{id}/profile", function($id) use ($app) {
         $user = User::find($id);
         $user_projects = $user->getProjects();
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+    });
+
+    //delete project from user profile page
+    $app->delete("/project/{id}/delete", function($id) use ($app) {
+        session_start();
+        $project = Project::find($id);
+        $project->delete();
+        $user = User::find($project->getUserId());
+
+        $user_projects = $user->getOwnerProjects();
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
@@ -116,10 +127,8 @@
         $type = null;
         $user_id = $user->getId();
         $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
-        var_dump($new_project);
         $new_project->save();
-        //$user->getOwnerProjects()
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => Project::getAll()));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects()));
     });
 
     // Initial routing for returning to profile

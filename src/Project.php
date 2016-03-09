@@ -121,6 +121,7 @@
 
         static function find($search_id)
         {
+          echo($search_id);
             $found_project = null;
             $returned_projects = Project::getAll();
 
@@ -131,7 +132,7 @@
                     $found_project = $project;
                 }
             }
-            return $project;
+            return $found_project;
         }
 
         static function search($keyword)
@@ -193,7 +194,6 @@
                  }
              return $found_match;
          }
-
 
         function addCollaborator($user)
         {
