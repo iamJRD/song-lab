@@ -15,7 +15,7 @@
   top: 0;
   background-color: rgba($darkgray, .93);
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 300ms;
   ul {
     position: relative;
     top: 20%;
@@ -54,6 +54,10 @@
     font-size: 60px !important;
     &:hover {
       color: $subColor2;
+    }
+    @media screen and #{$tablet} {
+      top: 5px;
+      left: 20px;
     }
     @media screen and #{$mobile} {
       font-size: 40px !important;

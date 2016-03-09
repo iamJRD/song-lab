@@ -18,6 +18,8 @@ html, body {
 h2 {
   @include textFormat(1.5em, $l-spacing: 1.5px);
   @extend %uppercase;
+  @extend %headerFont;
+  margin: 1em auto;
 }
 
 body::-webkit-scrollbar {
