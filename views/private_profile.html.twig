@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/main.css" media="screen">
+    <link rel="stylesheet" href="/css/main.css" media="screen">
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/js/css-scripts.js"></script>
+    <script src="/js/materialize.js"></script>
 
     <title>SongLab | Your Profile</title>
   </head>
@@ -53,13 +56,19 @@
                 <h4>Let other artists browse your jam, so together you can create magic.</h4>
                 <form class="postMusicForm" action="/user/{{ user.getId }}/create_project" method="post">
                   <div class="input-field">
-                    <input placeholder="Song Title" id="title" type="text" class="validate">
+                    <input placeholder="Song Title" id="title" name="title" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Notes" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                    <textarea placeholder="Notes" id="textarea1" name="description" type="text" class="materialize-textarea"></textarea>
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Lyrics" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                    <textarea placeholder="Genre" id="textarea1" type="text" name="genre" class="materialize-textarea"></textarea>
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Tracks" id="textarea1" type="text" name="resources" class="materialize-textarea"></textarea>
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Lyrics" id="textarea1" type="text" name="lyrics" class="materialize-textarea"></textarea>
                   </div>
                   <label for="question">What type of music are you posting?</label>
                   <p class="musicType">
@@ -118,59 +127,53 @@
           </div>
         </div>
       </div>
+      {% for project in projects %}
       <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
         <div class="open-project">
           <div class="openProjectHeader">
             <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
             <div class="titleAndAuthor">
-              <h3 class="projectTitle">Title</h3>
+              <h3 class="projectTitle">{{ project.getTitle}}</h3>
               <h4 class="projectAuthor">By: Author Name</h4>
             </div>
           </div>
 
           <div class="openProjectSummary">
-            <p class="projectSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="projectSummary">{{ project.getDescription}}</p>
           </div>
 
-        <!-- Buttons and Modals for open project -->
           <div class="openProjectButtons">
-            <a class="modal-trigger modal-close" href=".modal4">VIEW MUSIC</a>
-            <div id="" class="modal modal4">
+            <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
+            <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
+            <div id="modal{{project.getId}}" class="modal">
               <div class="modal-content">
-                <h2 class="projectTitle">Project Title</h2>
-                <h4 class="projectAuthor">By: Project Author</h4>
-                <p><span class="projectContent">Lyrics, composition, etc are appended here.</span></p>
-                <h3>Collaboration Wanted:</h3><p class="collaborationWanted"> Collaboration type wanted goes here.</p>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close" href="#">CLOSE</a>
+                <h1>{{project.getResources | raw}}</h1>
+                <p>{{ project.getLyrics}}</p>
               </div>
             </div>
-
-            <a class="modal-trigger" href=".modal3">REQUEST TO COLLABORATE</a>
-            <div id="" class="modal modal3">
+            <div id="modal{{project.getId}}2" class="modal">
               <div class="modal-content">
                 <h1>Interested in working on this song?</h1>
                 <p>Message the author with your ideas!</p>
-                <form action="browse-projects.html" method="post">
+                <form class="signInForm" action="project/{{project.getId}}/send_message" method="post">
+                  <input
                   <div class="input-field">
                     <input placeholder="Your Username" id="userName" type="text" class="validate">
                   </div>
                   <div class="input-field">
                     <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
                   </div>
-                </form>
-              </div>
               <div class="modal-footer">
-                <a class="modal-close" href="#">SEND REQUEST</a>
+                <button type="submit">SEND REQUEST</button>
               </div>
+                  </form>
             </div>
-          </div>
-        </div> <!-- Open Project end -->
-      </div>
+        </div>
+      </div> <!-- Open Project end -->
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/css-scripts.js"></script>
-    <script src="js/materialize.js"></script>
+    </div><!-- projects wrapper end -->
+    {% endfor %}
+
+
   </body>
 </html>

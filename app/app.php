@@ -70,9 +70,22 @@
     });
 
     //create new project as owner
-    $app->get("/user/{id}/create_project", function($id) use ($app){
+    $app->post("/user/{id}/create_project", function($id) use ($app){
+        echo ($id);
         $user = User::find($id);
-        return $app['twig']->render('create_project.html.twig', array('user' => $user));
+        $id = null;
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $genre = $_POST['genre'];
+        $resources = $_POST['resources'];
+        $lyrics = null; //fix this
+        $type = null;
+        $user_id = $user->getId();
+        $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+        var_dump($new_project);
+        $new_project->save();
+        //$user->getOwnerProjects()
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => Project::getAll()));
     });
 
     //initial routing for returning to profile
