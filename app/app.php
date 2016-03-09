@@ -22,7 +22,8 @@
     // Get homepage
     $app->get("/", function() use ($app) {
         $users = User::getAll();
-        return $app['twig']->render('index.html.twig', array('user' => $users));
+        $error = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
     });
 
     // Get about page
@@ -58,47 +59,43 @@
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
     });
 
-    // Create new project as user
+
+    //send message feature - TBD initial routing
+    $app->get("/send_message", function() use ($app){
+        return $app['twig']->render('sent_message.html.twig', array('requests' => Request::getAll()));
+    });
+
+    //create new project as owner
     $app->get("/user/{id}/create_project", function($id) use ($app){
         $user = User::find($id);
         return $app['twig']->render('create_project.html.twig', array('user' => $user));
     });
 
-    // Display newly created project on user page
+
+    //initial routing for returning to profile
     $app->post("/user/{id}", function($id) use ($app) {
         $user = User::find($id);
         $user_projects = $user->getProjects();
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
       });
 
-    //
-    $app->post("/user", function() use ($app) {
-        $users = User::getAll();
+
+    //sign in from index
+    $app->post("/sign_in", function() use ($app) {
         $inputted_username = $_POST['username'];
         $inputted_password = $_POST['password'];
-        $error = null;
+        $user =  User::verifyLogin($inputted_username, $inputted_password);
 
-        foreach($users as $user)
-        {
-            $username = $user->getUsername();
-            $password = $user->getPassword();
-            $id = $user->getId();
-
-            if($username == $inputted_username && $password == $inputted_password)
+            if($user != null && $user->getUsername() == $inputted_username && $user->getPassword() == $inputted_password)
             {
-                $found_user = User::findUsername($username);
+                $found_user = $user;
                 $user_projects = $found_user->getOwnerProjects();
-
                 return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
+
             } else {
-                echo '<script src="js/sign_in_verify.js"></script>';
                 $error = "The username and password do not match!";
-
-                // return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
+                return $app['twig']->render('index.html.twig', array('error' => $error));
             }
-        }
-
-        // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
 
     // MAY STILL NEED THIS CODE: WIP

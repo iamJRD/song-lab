@@ -129,7 +129,7 @@
 
         }
 
-        function verifyLogin($username, $password)
+        static function verifyLogin($username, $password)
         {
             $query = $GLOBALS['DB']->query("SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}'");
             $login_match = $query->fetchAll(PDO::FETCH_ASSOC);
