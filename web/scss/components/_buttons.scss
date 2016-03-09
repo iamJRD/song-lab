@@ -2,14 +2,6 @@
 // Buttons
 // ---------------------
 
-.secondaryBlack {
-  @include secondaryBtn($black);
-}
-
-.secondaryWhite {
-  @include secondaryBtn($white);
-  background: transparent;
-}
 
 .headerButtons {
   @extend %headerFont;
@@ -41,6 +33,23 @@
   @media screen and #{$tablet} {
     @include flexbox ($direction: column);
   }
+}
+
+.secondaryBlack {
+  @include secondaryBtn($black);
+}
+
+.secondaryWhite {
+  @include secondaryBtn($white);
+  background: transparent;
+}
+
+// This class is specific to the file input field, and needs to stay btn exactly.
+.btn {
+  color: $white;
+  background: $primary;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .modal-footer {

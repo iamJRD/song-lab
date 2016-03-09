@@ -55,18 +55,6 @@
                     <div class="input-field">
                       <textarea placeholder="Bio" id="textarea1" type="text" name="bio" class="materialize-textarea"></textarea>
                     </div>
-                    <label for="question">What types of music will you be posting for collaborations?</label>
-                    <p class="musicType">
-                      <input type="checkbox" id="test1" />
-                      <label for="test1">Lyrics</label>
-                      <input type="checkbox" id="test2" />
-                      <label for="test2">Compositions</label>
-                      <input type="checkbox" id="test3" />
-                      <label for="test3">Bass Tracks</label>
-                      <input type="checkbox" id="test4" />
-                      <label for="test4">Flute</label>
-                    </p>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit">Create Your Account</button>
@@ -77,6 +65,7 @@
             <div id="modal2" class="modal">
               <div class="modal-content">
                 <h1>SongLab</h1>
+
                 <form class="signInForm" action="/sign_in" method="post">
                   {% if error is not empty %}
                   <script type="text/javascript">
@@ -85,6 +74,7 @@
                 </script>
                   {{ error }}
                   {% endif %}
+
                   <div class="input-field">
                     <input placeholder="Username" id="username" name="username"
                     type="text" class="validate">

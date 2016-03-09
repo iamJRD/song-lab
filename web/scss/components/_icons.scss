@@ -1,4 +1,5 @@
 .navIcon {
+  z-index: 1;
   @include size(40px 40px);
   @include flexbox(flex, $justify: space-around, $align-items: center);
   @include position(absolute, 40px null null 45px);
@@ -9,5 +10,9 @@
   .iconbar {
     @include size(30px 3px);
     background-color: white;
+  }
+  @media screen and #{$tablet} {
+    top: 10px;
+    left: 10px;
   }
 }
