@@ -50,7 +50,7 @@
           <p class="userBio">Kale chips knausgaard flexitarian, locavore kitsch fashion axe paleo narwhal affogato lomo. Paleo bushwick meggings flexitarian, hammock affogato butcher pickled. Cardigan keytar tilde, whatever man bun everyday carry mustache paleo distillery fingerstache wolf pabst migas cronut godard. Hello actually wolf iPhone tacos. Fashion axe occupy slow-carb you probably haven't heard of them sustainable flexitarian.</p>
           <div class="profileButtons">
             <a class="secondaryWhite modal-trigger modal-close" href="#postMusicModal">Post Music</a>
-            <div id="postMusicModal" class="modal">
+            <div id="postMusicModal" class="modal modalLong">
               <div class="modal-content">
                 <h2>Post Music</h2>
                 <h4>Let other artists browse your jam, so together you can create magic.</h4>
@@ -83,7 +83,7 @@
             </div>
             <a class="secondaryWhite" href="messages.html">View Collaboration Requests</a>
             <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
-            <div id="editProfileModal" class="modal">
+            <div id="editProfileModal" class="modal modalLong">
               <div class="modal-content">
                 <h2>Edit Your Profile</h2>
                 <form class="postMusicForm" action="index.html" method="post">
@@ -93,11 +93,13 @@
                   <div class="input-field">
                     <input placeholder="Update Password" id="password" type="password" class="validate">
                   </div>
-                  <div class="input-field">
-                    <input placeholder="First Name" id="first_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                  <div class="firstLastFields">
+                    <div class="input-field">
+                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
                   </div>
                   <div class="input-field">
                     <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
@@ -115,8 +117,9 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <a class="modal-close" href="#">Edit Profile</a>
+                <button class="modal-close" href="#">Edit Profile</button>
               </div>
+              <button class="delete" type="button" name="button">Delete Profile</button>
             </div>
             <a class="secondaryWhite browse" href="browse-projects.html">Browse Open Collaborations</a>
           </div>
