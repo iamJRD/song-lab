@@ -176,6 +176,25 @@
             $GLOBALS['DB']->exec("DELETE FROM projects");
         }
 
+        function getProjectOwner()
+        {
+               $returned_owners = $GLOBALS['DB']->query("SELECT * FROM users WHERE id = {$this->getUserId()}");
+               $owners = array();
+               foreach($returned_owners as $owner) {
+                     $id = $owner['id'];
+                     $first_name = $owner['first_name'];
+                     $last_name = $owner['last_name'];
+                     $email= $owner['email'];
+                     $username= $owner['username'];
+                     $bio= $owner['bio'];
+                     $photo= $owner['photo'];
+                     $password = $owner['password'];
+                     $found_match = User::find($id);
+                 }
+             return $found_match;
+           }
+
+
         function addCollaborator($user)
         {
             $GLOBALS['DB']->exec("INSERT INTO collaborations (project_id, user_id) VALUES ({$this->getId()}, {$user->getId()});");
