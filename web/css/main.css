@@ -204,6 +204,16 @@ a {
             width: 60%;
             margin-top: 5%; } }
 
+.footer {
+  margin-top: 4%;
+  width: 65%;
+  text-align: center; }
+
+.footer a {
+  color: #66b3ff; }
+  .footer a:first-child {
+    color: #8d66ff; }
+
 .profileHeader {
   min-height: 750px;
   height: 60vh;
@@ -1500,7 +1510,6 @@ select {
       width: 90%; } }
 
 .projectsWrapper {
-  border: 1px solid lightgray;
   width: 90%;
   padding: 2%; }
   .projectsWrapper h4 {
