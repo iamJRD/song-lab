@@ -164,7 +164,9 @@
 	$app->delete("/user/{id}/delete", function($id) use ($app) {
         $user = User::find($id);
         $user->delete();
-        return $app['twig']->render('index.html.twig', array('users' => User::getAll()));
+        $user = User::getAll();
+        $error = "";
+        return $app['twig']->render('index.html.twig', array('users' => $user, 'error' => $error));
     });
 
     return $app;
