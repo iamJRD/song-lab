@@ -7,7 +7,7 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-h2, p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent {
+h2, p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
@@ -1461,7 +1461,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-bright-sq.jpg");
   background-size: cover;
   background-position: center;
-  height: 400px; }
+  height: 400px;
+  margin: 1px; }
   #bright .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1481,7 +1482,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-desert-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 300px; }
+  height: 300px;
+  margin: 1px; }
   #desert .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1501,7 +1503,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-hippie-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 300px; }
+  height: 300px;
+  margin: 1px; }
   #hippie .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1521,7 +1524,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-collage-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 300px; }
+  height: 300px;
+  margin: 1px; }
   #collage .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1541,7 +1545,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-lights-sq.jpg");
   background-size: cover;
   background-position: center;
-  height: 400px; }
+  height: 400px;
+  margin: 1px; }
   #lights .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1561,7 +1566,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-trippy-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 300px; }
+  height: 300px;
+  margin: 1px; }
   #trippy .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1581,7 +1587,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-robot-sq.jpg");
   background-size: cover;
   background-position: center;
-  height: 450px; }
+  height: 450px;
+  margin: 1px; }
   #robot .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1601,7 +1608,8 @@ select {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-boat-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 250px; }
+  height: 250px;
+  margin: 1px; }
   #boat .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
@@ -1613,84 +1621,88 @@ select {
     #boat .galleryContent h3 {
       letter-spacing: 1.5px; }
 
-#lights {
+#girl {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-lights-sq.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-lights-sq.jpg");
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-girl-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-girl-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 400px; }
-  #lights .galleryContent {
+  height: 300px;
+  margin: 1px; }
+  #girl .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
-    #lights .galleryContent h2, #lights .galleryContent h3 {
+    #girl .galleryContent h2, #girl .galleryContent h3 {
       color: #fff; }
-    #lights .galleryContent h2 {
+    #girl .galleryContent h2 {
       font-size: 2.5em;
       margin: 0; }
-    #lights .galleryContent h3 {
+    #girl .galleryContent h3 {
       letter-spacing: 1.5px; }
 
-#trippy {
+#triangles {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-trippy-long.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-trippy-long.jpg");
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-triangles-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-triangles-sq.jpg");
   background-size: cover;
   background-position: center;
-  height: 300px; }
-  #trippy .galleryContent {
+  height: 400px;
+  margin: 1px; }
+  #triangles .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
-    #trippy .galleryContent h2, #trippy .galleryContent h3 {
+    #triangles .galleryContent h2, #triangles .galleryContent h3 {
       color: #fff; }
-    #trippy .galleryContent h2 {
+    #triangles .galleryContent h2 {
       font-size: 2.5em;
       margin: 0; }
-    #trippy .galleryContent h3 {
+    #triangles .galleryContent h3 {
       letter-spacing: 1.5px; }
 
-#robot {
+#sun {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-robot-sq.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-robot-sq.jpg");
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-sun-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-sun-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 450px; }
-  #robot .galleryContent {
+  height: 300px;
+  margin: 1px; }
+  #sun .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
-    #robot .galleryContent h2, #robot .galleryContent h3 {
+    #sun .galleryContent h2, #sun .galleryContent h3 {
       color: #fff; }
-    #robot .galleryContent h2 {
+    #sun .galleryContent h2 {
       font-size: 2.5em;
       margin: 0; }
-    #robot .galleryContent h3 {
+    #sun .galleryContent h3 {
       letter-spacing: 1.5px; }
 
-#boat {
+#grafitti {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-boat-long.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-boat-long.jpg");
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-grafitti-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-grafitti-long.jpg");
   background-size: cover;
   background-position: center;
-  height: 250px; }
-  #boat .galleryContent {
+  height: 300px;
+  margin: 1px; }
+  #grafitti .galleryContent {
     padding-left: 10%;
     padding-bottom: 5%; }
-    #boat .galleryContent h2, #boat .galleryContent h3 {
+    #grafitti .galleryContent h2, #grafitti .galleryContent h3 {
       color: #fff; }
-    #boat .galleryContent h2 {
+    #grafitti .galleryContent h2 {
       font-size: 2.5em;
       margin: 0; }
-    #boat .galleryContent h3 {
+    #grafitti .galleryContent h3 {
       letter-spacing: 1.5px; }
 
 /*# sourceMappingURL=main.css.map */
