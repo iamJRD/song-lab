@@ -312,13 +312,33 @@
             $password = 'password';
             $test_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
             $test_user->save();
-            $new_username = 'singsongsammy';
+
+            $new_first_name = 'Michael';
+            $new_last_name = 'Scott';
+            $new_email = 'paperlover@hotmail.com';
+            $new_username = 'dunderdude';
+            $new_bio = 'I just want to jam with Jim and Stanley. They always hold band practice without me and keep changing the location so I cannot find them.';
+            $new_photo = '/../web/img/test_photo.jpg';
+            $new_password = 'istilllovejan';
+            $test_user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
 
             //Act
-            $test_user->update($new_username);
+            $result1 = $test_user->getFirstName();
+            $result2 = $test_user->getLastName();
+            $result3 = $test_user->getEmail();
+            $result4 = $test_user->getUsername();
+            $result5 = $test_user->getBio();
+            $result6 = $test_user->getPhoto();
+            $result7 = $test_user->getPassword();
 
             //Assert
-            $this->assertEquals('singsongsammy', $test_user->getUsername());
+            $this->assertEquals($new_first_name, $result1);
+            $this->assertEquals($new_last_name, $result2);
+            $this->assertEquals($new_email, $result3);
+            $this->assertEquals($new_username, $result4);
+            $this->assertEquals($new_bio, $result5);
+            $this->assertEquals($new_photo, $result6);
+            $this->assertEquals($new_password, $result7);
         }
 
         function testFind()
