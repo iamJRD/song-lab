@@ -10,7 +10,7 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    // $app['debug']=true;
+    $app['debug']=true;
 
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
@@ -43,6 +43,13 @@
         $password = $_POST['password1'];
         $user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
+        $user_projects = $user->getProjects();
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+    });
+
+    // Get private user profile
+    $app->get("/user/{id}/profile", function($id) use ($app) {
+        $user = User::find($id);
         $user_projects = $user->getProjects();
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
