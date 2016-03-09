@@ -7,7 +7,7 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
+h2, p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
@@ -29,7 +29,8 @@ html, body {
 
 h2 {
   font-size: 1.5em;
-  letter-spacing: 1.5px; }
+  letter-spacing: 1.5px;
+  margin: 1em auto; }
 
 body::-webkit-scrollbar {
   display: none; }
@@ -341,6 +342,9 @@ a {
       margin: 20px auto; } }
 
 .profileButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%; }
 
 .btn {
