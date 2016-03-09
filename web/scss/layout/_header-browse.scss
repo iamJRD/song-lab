@@ -1,6 +1,11 @@
 .browseHeader {
   max-height: 50vh;
   overflow: hidden;
+  @media screen and #{$brk-smallHeight} {
+    .navSubpage{
+      display: none;
+    }
+  }
   .headerVid {
     object-fit: cover;
     width: 100%;
@@ -23,6 +28,12 @@
     top: 15%;
     left: 50%;
     transform: translate(-50%, 0);
+    @media screen and #{$brk-mediumHeight} {
+      top: 13%;
+    }
+    @media screen and #{$brk-smallHeight} {
+      top: 7%;
+    }
     h1 {
       @extend %headerFont, %uppercase;
       @include textFormat(90px, $weight: lighter, $l-spacing: 1px);
@@ -33,6 +44,12 @@
       @media screen and #{$brk-small} {
         @include textFormat(50px);
       }
+      @media screen and #{$brk-mediumHeight} {
+        @include textFormat(60px);
+      }
+      @media screen and #{$brk-mobileHeight} {
+        @include textFormat(40px);
+      }
     }
     p {
       margin: 0 auto;
@@ -42,6 +59,12 @@
       }
       @media screen and #{$brk-mobile} {
         @include textFormat(16px);
+      }
+      @media screen and #{$brk-mediumHeight} {
+        @include textFormat(18px);
+      }
+      @media screen and #{$brk-mobileHeight} {
+        display: none;
       }
     }
     #browsePageSearch {
@@ -55,7 +78,10 @@
         text-align: center;
         @media screen and #{$brk-medium} {
           width: 60%;
-          margin-top: 5%;
+          margin-top: 2%;
+        }
+        @media screen and #{$brk-mobileHeight} {
+          height: 4vh;
         }
       }
     }

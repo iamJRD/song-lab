@@ -145,6 +145,9 @@ a {
 .browseHeader {
   max-height: 50vh;
   overflow: hidden; }
+  @media screen and (max-height: 850px) {
+    .browseHeader .navSubpage {
+      display: none; } }
   .browseHeader .headerVid {
     object-fit: cover;
     width: 100%;
@@ -167,6 +170,12 @@ a {
     top: 15%;
     left: 50%;
     transform: translate(-50%, 0); }
+    @media screen and (max-height: 1050px) {
+      .browseHeader .headerVidText {
+        top: 13%; } }
+    @media screen and (max-height: 850px) {
+      .browseHeader .headerVidText {
+        top: 7%; } }
     .browseHeader .headerVidText h1 {
       font-size: 90px;
       font-weight: lighter;
@@ -178,6 +187,12 @@ a {
       @media screen and (max-width: 670px) {
         .browseHeader .headerVidText h1 {
           font-size: 50px; } }
+      @media screen and (max-height: 1050px) {
+        .browseHeader .headerVidText h1 {
+          font-size: 60px; } }
+      @media screen and (max-height: 660px) {
+        .browseHeader .headerVidText h1 {
+          font-size: 40px; } }
     .browseHeader .headerVidText p {
       margin: 0 auto;
       font-size: 25px; }
@@ -187,6 +202,12 @@ a {
       @media screen and (max-width: 468px) {
         .browseHeader .headerVidText p {
           font-size: 16px; } }
+      @media screen and (max-height: 1050px) {
+        .browseHeader .headerVidText p {
+          font-size: 18px; } }
+      @media screen and (max-height: 660px) {
+        .browseHeader .headerVidText p {
+          display: none; } }
     .browseHeader .headerVidText #browsePageSearch {
       margin-top: 3%; }
       .browseHeader .headerVidText #browsePageSearch input {
@@ -202,7 +223,10 @@ a {
         @media screen and (max-width: 860px) {
           .browseHeader .headerVidText #browsePageSearch input {
             width: 60%;
-            margin-top: 5%; } }
+            margin-top: 2%; } }
+        @media screen and (max-height: 660px) {
+          .browseHeader .headerVidText #browsePageSearch input {
+            height: 4vh; } }
 
 .footer {
   margin-top: 4%;
