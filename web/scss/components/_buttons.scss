@@ -3,7 +3,7 @@
 // ---------------------
 
 
-.headerButtons {
+.headerContent .headerButtons {
   @extend %headerFont;
   @include flexbox($justify: center);
   @include size(100% auto);
@@ -64,5 +64,93 @@
       background: $subColor2;
       border: 1px solid transparent;
     }
+  }
+}
+
+.searchButton {
+  @extend %uppercase;
+  @include textFormat(1em, $white, $l-spacing: 1px);
+  @include padding(.5em 1.5em);
+  border: 1px solid $white;
+  background: transparent;
+  transition: all 500ms linear;
+  &:hover {
+    color: $black;
+    background: $subColor2;
+  }
+}
+
+.openProjectButtons {
+  @extend %headerFont;
+  @include flexbox(flex, center);
+  a {
+    text-align: center;
+    width: 50%;
+    margin: 1%;
+    @include padding(.5em 1em);
+    transition: all 300ms linear;
+    border: 1px solid gray;
+    &:hover {
+      color: $black;
+      background: $subColor2;
+    }
+    &:nth-child(2):hover {
+      background: $subColor1;
+    }
+    @media screen and #{$brk-mobile} {
+      width: 100%;
+    }
+  }
+  @media screen and #{$brk-mobile} {
+    flex-direction: column;
+  }
+}
+
+.viewAll {
+  margin: 8% auto;
+  text-align: center;
+  @extend %headerFont;
+  a {
+    background: $primary;
+    opacity: .8;
+    text-align: center;
+    @include padding(.5em 2em);
+    transition: all 300ms linear;
+    &:hover {
+      background: $subColor1;
+    }
+  }
+}
+
+.aboutButtons {
+  margin: 5% auto;
+  @extend %headerFont;
+  @include flexbox($justify: center);
+  @include size(100% auto);
+  align-self: center;
+  a {
+    @extend %uppercase;
+    @include textFormat(1.3em, $darkgray, $l-spacing: 2px);
+    @include padding(.8em 2em);
+    border: 1px solid $darkgray;
+    background: transparent;
+    transition: all 500ms linear;
+    &:first-child {
+      margin-right: 1em;
+    }
+    &:hover {
+      color: $black;
+      background: $subColor2;
+    }
+    &:nth-child(2):hover {
+      background: $subColor1;
+    }
+    @media screen and #{$tablet} {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+  }
+  @media screen and #{$tablet} {
+    @include flexbox ($direction: column);
   }
 }

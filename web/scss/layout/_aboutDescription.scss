@@ -1,0 +1,20 @@
+.aboutContent {
+  width: 90%;
+  h2 {
+    color: $darkgray;
+    @extend %headerFont;
+  }
+  #aboutLogo {
+    h1 {
+      color: $darkgray;
+    }
+  }
+  .connect {
+    text-align: center;
+    @extend %headerFont;
+    color: $darkgray;
+    h2 {
+      margin-top: 0;
+    }
+  }
+}
