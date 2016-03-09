@@ -244,5 +244,26 @@
             return $projects;
        }
 
+       function addMessage($message) {
+           $GLOBALS['DB']->exec("INSERT INTO messages_user (message_id, user_id) VALUES ({$message->getId()}, {$this->getId()});");
+       }
+
+       function getOwnerMessages() {
+           $returned_messages = $GLOBALS['DB']->query("SELECT messages.* FROM users
+               JOIN messages_user ON (messages_user.user_id = users.id)
+               JOIN messages ON (messages.id = messages_user.message_id)
+               WHERE users.id = {$this->getId()};");
+
+           $messages = array();
+           foreach($returned_messages as $message)
+           {
+               $id = $message['id'];
+               $user_message = $message['message'];
+               $new_message = new Message($id, $user_message);
+               array_push($messages, $new_message);
+           }
+           return $messages;
+       }
+
     }
 ?>
