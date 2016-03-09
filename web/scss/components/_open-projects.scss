@@ -2,6 +2,17 @@
   border: 1px solid lightgray;
   width: 90%;
   padding: 2%;
+  h4 {
+    @extend %headerFont;
+    @include textFormat($color: gray);
+    text-align: center;
+  }
+  .create {
+    color: $primary;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   .open-project {
     @include flexbox(flex, center, $direction: column);
     margin: 3%;
