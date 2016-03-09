@@ -5,7 +5,7 @@
   background-size: cover;
   .confirmationContent {
     @extend %centeredText;
-    @include size(55% 40vh);
+    @include size(60% 50vh);
     @include flexbox ($justify: flex-end, $direction: column, $align-items: center);
     h1 {
       @extend %logoFont;
