@@ -43,9 +43,60 @@
             <div class="bar" id="bar3"></div>
           </div>
         </div>
+
         <div class="connect">
           <h2>Connect. Collaborate. Create.</h2>
         </div>
+
+        <div class="aboutButtons">
+          <div class="headerButtons">
+            <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h2>Create Your Account</h2>
+                <h4>Join SongLab to discover and create creative ideas.</h4>
+                <form class="createAccountForm" action="index.html" method="post">
+                  <div class="input-field">
+                    <input placeholder="Username" id="Username" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <input placeholder="Password" id="password" type="password" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <input placeholder="First Name" id="first_name" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">Create Your Account</a>
+              </div>
+            </div>
+            <a class="modal-trigger" href="#modal2">Sign In</a>
+            <div id="modal2" class="modal">
+              <div class="modal-content">
+                <h1>SongLab</h1>
+                <form class="signInForm" action="index.html" method="post">
+                  <div class="input-field">
+                    <input placeholder="Username" id="username" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <input placeholder="Password" id="password" type="password" class="validate">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="private-profile.html">Sign In</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>

@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .secondaryBlack, .secondaryWhite, .headerButtons, .openProjectButtons, .viewAll, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
+p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .secondaryBlack, .secondaryWhite, .headerContent .headerButtons, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .secondaryBlack, .secondaryWhite, .headerButtons a, .modal-footer a, .searchButton {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .secondaryBlack, .secondaryWhite, .headerContent .headerButtons a, .modal-footer a, .searchButton, .aboutButtons a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -243,8 +243,7 @@ a {
     text-align: center;
     color: #4d4d4d; }
     .aboutContent .connect h2 {
-      margin-top: 0;
-      margin-right: 35px; }
+      margin-top: 0; }
 
 .secondaryBlack {
   font-size: 1.2em;
@@ -269,13 +268,13 @@ a {
     color: #000;
     background: #99FFE6; }
 
-.headerButtons {
+.headerContent .headerButtons {
   display: flex;
   justify-content: center;
   height: auto;
   width: 100%;
   align-self: center; }
-  .headerButtons a {
+  .headerContent .headerButtons a {
     font-size: 1.3em;
     color: #fff;
     letter-spacing: 2px;
@@ -283,19 +282,19 @@ a {
     border: 1px solid #fff;
     background: transparent;
     transition: all 500ms linear; }
-    .headerButtons a:first-child {
+    .headerContent .headerButtons a:first-child {
       margin-right: 1em; }
-    .headerButtons a:hover {
+    .headerContent .headerButtons a:hover {
       color: #000;
       background: #99FFE6; }
-    .headerButtons a:nth-child(2):hover {
+    .headerContent .headerButtons a:nth-child(2):hover {
       background: #99ccff; }
     @media screen and (max-width: 768px) {
-      .headerButtons a {
+      .headerContent .headerButtons a {
         width: 100%;
         margin-bottom: 1em; } }
   @media screen and (max-width: 768px) {
-    .headerButtons {
+    .headerContent .headerButtons {
       display: flex;
       flex-direction: column; } }
 
@@ -355,6 +354,37 @@ a {
     transition: all 300ms linear; }
     .viewAll a:hover {
       background: #99ccff; }
+
+.aboutButtons {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  align-self: center; }
+  .aboutButtons a {
+    font-size: 1.3em;
+    color: #4d4d4d;
+    letter-spacing: 2px;
+    padding: 0.8em 2em;
+    border: 1px solid #4d4d4d;
+    background: transparent;
+    transition: all 500ms linear; }
+    .aboutButtons a:first-child {
+      margin-right: 1em; }
+    .aboutButtons a:hover {
+      color: #000;
+      background: #99FFE6; }
+    .aboutButtons a:nth-child(2):hover {
+      background: #99ccff; }
+    @media screen and (max-width: 768px) {
+      .aboutButtons a {
+        width: 100%;
+        margin-bottom: 1em; } }
+  @media screen and (max-width: 768px) {
+    .aboutButtons {
+      display: flex;
+      flex-direction: column; } }
 
 .navIcon {
   height: 40px;

@@ -11,7 +11,7 @@
   background: transparent;
 }
 
-.headerButtons {
+.headerContent .headerButtons {
   @extend %headerFont;
   @include flexbox($justify: center);
   @include size(100% auto);
@@ -110,5 +110,38 @@
     &:hover {
       background: $subColor1;
     }
+  }
+}
+
+.aboutButtons {
+  margin-top: 5%;
+  @extend %headerFont;
+  @include flexbox($justify: center);
+  @include size(100% auto);
+  align-self: center;
+  a {
+    @extend %uppercase;
+    @include textFormat(1.3em, $darkgray, $l-spacing: 2px);
+    @include padding(.8em 2em);
+    border: 1px solid $darkgray;
+    background: transparent;
+    transition: all 500ms linear;
+    &:first-child {
+      margin-right: 1em;
+    }
+    &:hover {
+      color: $black;
+      background: $subColor2;
+    }
+    &:nth-child(2):hover {
+      background: $subColor1;
+    }
+    @media screen and #{$tablet} {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+  }
+  @media screen and #{$tablet} {
+    @include flexbox ($direction: column);
   }
 }
