@@ -55,8 +55,12 @@
     });
 
     //send message feature - TBD initial routing
-    $app->get("/send_message", function() use ($app){
-        return $app['twig']->render('sent_message.html.twig', array('requests' => Request::getAll()));
+    $app->post("/project/{id}/send_message", function($id) use ($app){
+        $project_to_collaborate = Project::find($id);
+        $project_owner = $project_to_collaborate->getProjectOwner();
+        //returning as array???
+        var_dump($project_owner);
+        return $app['twig']->render('sent_message.html.twig', array('owner' => $project_owner));
     });
     //create new project as owner
     $app->get("/user/{id}/create_project", function($id) use ($app){
@@ -64,7 +68,7 @@
         return $app['twig']->render('create_project.html.twig', array('user' => $user));
     });
 
-    //initial routing for returning to profile 
+    //initial routing for returning to profile
     $app->post("/user/{id}", function($id) use ($app) {
         $user = User::find($id);
         $user_projects = $user->getProjects();
