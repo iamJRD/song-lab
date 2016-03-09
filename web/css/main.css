@@ -64,7 +64,7 @@ a {
   top: 0;
   background-color: rgba(0, 0, 0, 0.9);
   overflow-x: hidden;
-  transition: 0.5s; }
+  transition: 300ms; }
   .overlay ul {
     position: relative;
     top: 20%;
