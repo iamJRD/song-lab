@@ -7,7 +7,7 @@ html {
 .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
+h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .aboutButtons a, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a, button {
@@ -248,6 +248,7 @@ a {
       min-height: 45vh; } }
 
 .aboutHeader {
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,10 +259,12 @@ a {
   background-size: cover;
   background-position: bottom;
   width: 100%; }
-  .aboutHeader .aboutHeaderText h1 {
-    font-size: 100px;
-    color: #fff;
-    font-weight: lighter; }
+  .aboutHeader .aboutHeaderText {
+    width: 90%; }
+    .aboutHeader .aboutHeaderText h1 {
+      font-size: 100px;
+      color: #fff;
+      font-weight: lighter; }
 
 .confirmation {
   height: 100vh;
@@ -490,34 +493,32 @@ a {
       background: #99ccff; }
 
 .aboutButtons {
-  margin: 5% auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: auto;
   width: 100%;
   align-self: center; }
   .aboutButtons a {
-    font-size: 1.3em;
+    max-width: 48%;
+    text-align: center;
+    font-size: 1.2em;
     color: #4d4d4d;
-    letter-spacing: 2px;
-    padding: 0.8em 2em;
+    padding: 0.5em 5%;
+    margin: 0.5em;
     border: 1px solid #4d4d4d;
-    background: transparent;
     transition: all 500ms linear; }
-    .aboutButtons a:first-child {
-      margin-right: 1em; }
     .aboutButtons a:hover {
       color: #000;
       background: #99FFE6; }
-    .aboutButtons a:nth-child(2):hover {
-      background: #99ccff; }
     @media screen and (max-width: 768px) {
       .aboutButtons a {
-        width: 100%;
-        margin-bottom: 1em; } }
-  @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        margin: 5px auto;
+        width: 85%; } }
+  @media screen and (max-width: 468px) {
     .aboutButtons {
-      display: flex;
       flex-direction: column; } }
 
 .buttonList {
