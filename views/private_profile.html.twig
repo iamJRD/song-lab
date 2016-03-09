@@ -167,24 +167,6 @@
                 <p>{{ project.getLyrics}}</p>
               </div>
             </div>
-            <div id="modal{{project.getId}}2" class="modal">
-              <div class="modal-content">
-                <h1>Interested in working on this song?</h1>
-                <p>Message the author with your ideas!</p>
-                <form class="signInForm" action="project/{{project.getId}}/send_message" method="post">
-                  <input
-                  <div class="input-field">
-                    <input placeholder="Your Username" id="userName" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <textarea placeholder="Send me a message!" id="message" name="message" type="text" class="validate"></textarea>
-                  </div>
-              <div class="modal-footer">
-                <button type="submit">SEND REQUEST</button>
-              </div>
-                  </form>
-            </div>
-        </div>
       </div> <!-- Open Project end -->
     </div>
 

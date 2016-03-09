@@ -5,7 +5,7 @@
         private $message;
         private $sender;
 
-    function __construct($id = null, $message, $sender = null)
+    function __construct($id = null, $message, $sender)
     {
         $this->id = $id;
         $this->message = $message;
@@ -51,11 +51,10 @@
 
         foreach($returned_messages as $message)
         {
-            echo "hi";
             $id = $message['id'];
-            $message = $message['message'];
-            $sender = $sender['sender'];
-            $new_message = new Message($id, $message, $sender);
+            $user_message = $message['message'];
+            $sender = $message['sender'];
+            $new_message = new Message($id, $user_message, $sender);
             array_push($messages, $new_message);
         }
         return $messages;
@@ -96,7 +95,6 @@
         $users = array();
         foreach($returned_users as $user)
         {
-            $id = $user['id'];
             $id = $user['id'];
             $first_name = $user['first_name'];
             $last_name = $user['last_name'];

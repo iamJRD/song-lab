@@ -55,9 +55,10 @@
 
     // Get private user profile
     $app->get("/user/{id}/profile", function($id) use ($app) {
+        session_start();
         $user = User::find($id);
         $user_projects = $user->getProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'current_user' => $user));
     });
 
     //delete project from user profile page
@@ -104,7 +105,6 @@
         $id = null;
         $message = $_POST['message'];
         $sender = $_POST['sender'];
-        echo $sender;
         $new_message = new Message($id, $message, $sender);
         $new_message->save();
         $project_owner->addMessage($new_message);
@@ -121,7 +121,10 @@
 
     $app->post("/message/{id}/approve", function($id) use ($app){
           //add user to project as collaborator
+          echo $id;
           $message_to_delete = Message::find($id);
+          var_dump($message_to_delete);
+          $user = $message_to_delete->getMessageUser();
           $message_to_delete->delete();
 
           $user = User::find($id);
@@ -171,7 +174,7 @@
                 session_start();
                 $_SESSION['user_id'] = $user->getId();
                 $session_status = $_SESSION['user_id'];
-                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
+                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects, 'current_user' => $found_user));
 
             } else {
                 $error = "The username and password do not match!";
