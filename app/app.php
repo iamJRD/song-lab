@@ -65,11 +65,11 @@
     });
 
     //initial routing for returning to profile
-    // $app->post("/user/{id}", function($id) use ($app) {
-    //     $user = User::find($id);
-    //     $user_projects = $user->getProjects();
-    //     return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
-    //   });
+    $app->post("/user/{id}", function($id) use ($app) {
+        $user = User::find($id);
+        $user_projects = $user->getProjects();
+        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+      });
 
     //sign in from index
     $app->post("/sign_in", function() use ($app) {
