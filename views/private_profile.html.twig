@@ -48,6 +48,8 @@
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
           <p class="userBio">{{ user.getBio }}</p>
+          <!-- WIP LINK! -->
+          <a href="/user/{{user.getId}}/messages">Get Messages</a>
           <div class="profileButtons">
             <a class="secondaryWhite modal-trigger modal-close" href="#postMusicModal">Post Music</a>
             <div id="postMusicModal" class="modal">
@@ -161,7 +163,7 @@
                     <input placeholder="Your Username" id="userName" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                    <textarea placeholder="Send me a message!" id="message" name="message" type="text" class="validate"></textarea>
                   </div>
               <div class="modal-footer">
                 <button type="submit">SEND REQUEST</button>

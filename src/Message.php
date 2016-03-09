@@ -52,6 +52,8 @@
         $GLOBALS['DB']->exec("DELETE FROM messages");
     }
 
+
+
     // function getMessages()
     // {
     //     $returned_users = $GLOBALS['DB']->query("SELECT users.* FROM users JOIN messages_users ON (messages_users.project_id = users.id) JOIN users ON (messages.id = messages_users.message_id) WHERE users.id = {$this->getId()};");

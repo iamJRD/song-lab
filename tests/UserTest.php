@@ -509,7 +509,6 @@
 
             //Act
             $result = $test_user->getOwnerMessages();
-            var_dump($result);
 
             //Assert
             $this->assertEquals([$test_message, $test_message2], $result);

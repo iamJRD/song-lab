@@ -2,6 +2,7 @@
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/User.php";
     require_once __DIR__."/../src/Project.php";
+    require_once __DIR__."/../src/Message.php";
 
     $app = new Silex\Application();
 
@@ -64,9 +65,19 @@
     $app->post("/project/{id}/send_message", function($id) use ($app){
         $project_to_collaborate = Project::find($id);
         $project_owner = $project_to_collaborate->getProjectOwner();
-        //returning as array???
-        var_dump($project_owner);
+        $message = $_POST['message'];
+        $id = null;
+        $new_message = new Message($id, $message);
+        $new_message->save();
+        $project_owner->addMessage($new_message);
         return $app['twig']->render('sent_message.html.twig', array('owner' => $project_owner));
+    });
+
+    // Get projects list
+    $app->get("/user/{id}/messages", function($id) use ($app){
+        $user = User::find($id);
+        $messages = $user->getOwnerMessages();
+        return $app['twig']->render('view_messages.html.twig', array('messages' => $messages));
     });
 
     //create new project as owner
