@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader {
+p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -293,6 +293,42 @@ a {
     font-size: 70px;
     color: #fff;
     font-weight: lighter; }
+
+.collabRequestWrapper {
+  width: 80%; }
+  .collabRequestWrapper .collabRequest {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    color: black;
+    padding: 2%; }
+    .collabRequestWrapper .collabRequest .requestHeader {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center; }
+      .collabRequestWrapper .collabRequest .requestHeader i {
+        font-size: 30px;
+        color: #99ccff;
+        margin-right: 1%; }
+      .collabRequestWrapper .collabRequest .requestHeader h3 {
+        margin: 0;
+        color: gray; }
+    .collabRequestWrapper .collabRequest button {
+      align-self: center;
+      font-size: 1em;
+      color: #4d4d4d;
+      letter-spacing: 2px;
+      padding: 0.8em 2em;
+      border: 1px solid #4d4d4d;
+      background: transparent;
+      transition: all 300ms linear; }
+      .collabRequestWrapper .collabRequest button:first-child {
+        margin-right: 1em; }
+      .collabRequestWrapper .collabRequest button:hover {
+        color: #000;
+        background: #99ccff; }
 
 .headerContent .headerButtons {
   display: flex;
