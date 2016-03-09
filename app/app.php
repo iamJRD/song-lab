@@ -70,8 +70,7 @@
         $user = User::find($id);
         return $app['twig']->render('create_project.html.twig', array('user' => $user));
     });
-
-
+    
     //initial routing for returning to profile
     $app->post("/user/{id}", function($id) use ($app) {
         $user = User::find($id);
