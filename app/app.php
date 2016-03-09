@@ -47,6 +47,13 @@
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
+    // Get private user profile
+    $app->get("/user/{id}/profile", function($id) use ($app) {
+        $user = User::find($id);
+        $user_projects = $user->getProjects();
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+    });
+
     // Get projects list
     $app->get("/projects", function() use ($app){
         return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
@@ -157,7 +164,9 @@
 	$app->delete("/user/{id}/delete", function($id) use ($app) {
         $user = User::find($id);
         $user->delete();
-        return $app['twig']->render('index.html.twig', array('users' => User::getAll()));
+        $user = User::getAll();
+        $error = "";
+        return $app['twig']->render('index.html.twig', array('users' => $user, 'error' => $error));
     });
 
     return $app;
