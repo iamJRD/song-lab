@@ -7,10 +7,10 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader {
+p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -276,6 +276,23 @@ a {
     color: #4d4d4d; }
     .aboutContent .connect h2 {
       margin-top: 0; }
+
+.inboxHeader {
+  width: 100%;
+  text-align: center;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), transparent), url("../img/messages.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), transparent), url("../img/messages.jpg"); }
+  .inboxHeader h1 {
+    font-size: 80px;
+    color: #fff;
+    font-weight: lighter; }
 
 .headerContent .headerButtons {
   display: flex;

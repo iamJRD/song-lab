@@ -1,0 +1,14 @@
+.inboxHeader {
+  @extend %headerFont;
+  width: 100%;
+  text-align: center;
+  background-size: cover;
+  background-position: bottom;
+  @include flexbox(flex, center, center, $direction: column);
+  height: 50vh;
+  @include background-image(linear-gradient(rgba($black, 0.8), rgba($black,0)),url("#{$img-path}/messages.jpg"));
+  h1 {
+    @extend %uppercase;
+    @include textFormat(80px, $white, $weight: lighter);
+  }
+}
