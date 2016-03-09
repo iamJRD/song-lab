@@ -1,12 +1,12 @@
-# _songLab_
+# songLab
 
-#### _Upload your unfinished music project and find other artists to help bring your song to life._
+#### Upload your unfinished music project and find other artists to help bring your song to life.
 
 #### By: _**Jared Beckler, Torrence Stratton, Jessica Fix, Brooke Hurford, Taylor Pokoj**_
 
 ## Description
 
-_SongLab is a music collaboration website where users can browse and upload musical projects in need of creative collaboration. Users make profiles to keep track of their uploaded projects, to summarize their musical involvement, and to message other users with collaboration requests._
+SongLab is a music collaboration website where users can browse and upload musical projects in need of creative collaboration. Users make profiles to keep track of their uploaded projects, to summarize their musical involvement, and to message other users with collaboration requests.
 
 ## Setup/Installation Requirements
 
