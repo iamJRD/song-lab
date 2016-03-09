@@ -6,56 +6,77 @@
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/css-scripts.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/scripts.js"></script>
     <title>SongLab | Homepage</title>
   </head>
   <body>
-    <div class="pageWrapper">
-      <div class="header">
-        <div class="headerContent">
-          <div class="songLabWrapper">
-            <div class="songLabLogo">
-              <div class="logoText">
-                <h1>songLab</h1>
-              </div>
-              <div class="musicBars">
-                <div class="bar" id="bar1"></div>
-                <div class="bar" id="bar2"></div>
-                <div class="bar" id="bar3"></div>
+      <div class="pageWrapper">
+        <div class="navIcon" onclick="openNav()">
+          <div class="iconbar"></div>
+          <div class="iconbar"></div>
+          <div class="iconbar"></div>
+        </div>
+        <div id="mainNav" class="overlay">
+          <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="browse-projects.html">Browse Projects</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="header">
+          <div class="headerContent">
+            <div class="songLabWrapper">
+              <div class="songLabLogo">
+                <div class="logoText">
+                  <h1>songLab</h1>
+                </div>
+                <div class="musicBars">
+                  <div class="bar" id="bar1"></div>
+                  <div class="bar" id="bar2"></div>
+                  <div class="bar" id="bar3"></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="summary">
-            <p>Upload your project and find other artists to help bring your song to life.</p>
-            <p>Connect. Collaborate. Create.</p>
-          </div>
-          <div class="headerButtons">
-            <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
-              <div id="modal1" class="modal">
-                <div class="modal-content">
-                  <h2>Create Your Account</h2>
-                  <h4>Join SongLab to discover and create creative ideas.</h4>
-                  <form class="createAccountForm" action="/user" method="post">
-                    <div class="input-field">
+            <div class="summary">
+              <p>Upload your project and find other artists to help bring your song to life.</p>
+              <p>Connect. Collaborate. Create.</p>
+            </div>
+            <div class="headerButtons">
+              <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h2>Create Your Account</h2>
+                    <h4>Join SongLab to discover and create creative ideas.</h4>
+                    <form class="createAccountForm" action="index.html" method="post">
                       <div class="input-field">
-                        <input placeholder="Username" id="username" name="username" type="text" class="validate">
+                        <input placeholder="Username" id="Username" type="text" class="validate">
                       </div>
-                      <input placeholder="First Name" id="first_name" name="first_name" type="text" class="validate" >
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="Last Name" id="last_name" name="last_name" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="Password" id="password1" name="password1" type="password" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="Verify Password" id="password2" type="password" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" type="text" name="bio" class="materialize-textarea"></textarea>
-                    </div>
-                </div>
+                      <div class="input-field">
+                        <input placeholder="Password" id="password" type="password" class="validate">
+                      </div>
+                      <div class="input-field">
+                        <input placeholder="First Name" id="first_name" type="text" class="validate">
+                      </div>
+                      <div class="input-field">
+                        <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                      </div>
+                      <div class="input-field">
+                        <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
+                      </div>
+                      <div class="file-field input-field">
+                        <div class="btn">
+                          <span>Profile Image</span>
+                          <input type="file" multiple>
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 <div class="modal-footer">
                     <button type="submit">Create Your Account</button>
                 </div>
@@ -93,18 +114,48 @@
       </div>
 
       <div class="completedCollabs">
-
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+        <div class="col1">
+          <div class="galleryItem">
+            <img src="img/gallery-desert-long.jpg">
+          </div>
+          <div class="galleryItem bright">
+            <!-- <img src="img/gallery-bright-sq.jpg"> -->
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-hippie-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-collage-long.jpg">
+          </div>
         </div>
-        <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <div class="col2">
+          <div class="galleryItem">
+            <img src="img/gallery-lights-sq.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-trippy-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-robot-sq.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-boat-long.jpg">
+          </div>
         </div>
-      </div>
-
+        <div class="col3">
+          <div class="galleryItem">
+            <img src="img/gallery-girl-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-triangles-sq.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-sun-long.jpg">
+          </div>
+          <div class="galleryItem">
+            <img src="img/gallery-grafitti-long.jpg">
+          </div>
+        </div>
       </div>
     </div>
   </body>
