@@ -5,7 +5,7 @@
         private $message;
         private $sender;
 
-    function __construct($id = null, $message, $sender)
+    function __construct($id = null, $message, $sender = null)
     {
         $this->id = $id;
         $this->message = $message;

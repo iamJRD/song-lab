@@ -104,6 +104,7 @@
         $id = null;
         $message = $_POST['message'];
         $sender = $_POST['sender'];
+        echo $sender;
         $new_message = new Message($id, $message, $sender);
         $new_message->save();
         $project_owner->addMessage($new_message);
@@ -114,7 +115,8 @@
     $app->get("/user/{id}/messages", function($id) use ($app){
         $user = User::find($id);
         $messages = $user->getOwnerMessages();
-        return $app['twig']->render('view_messages.html.twig', array('messages' => $messages));
+        $message_num = count($messages);
+        return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num));
     });
 
     $app->post("/message/{id}/approve", function($id) use ($app){
