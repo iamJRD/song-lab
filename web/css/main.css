@@ -10,7 +10,7 @@ html {
 p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
   font-family: 'Open Sans Condensed', sans-serif; }
 
-h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer a, .searchButton, .aboutButtons a {
+h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
   text-transform: uppercase; }
 
 .confirmation .confirmationContent, .profileInfo {
@@ -135,7 +135,6 @@ a {
       font-weight: bold; }
 
 .browseHeader {
-  border: 2px solid red;
   max-height: 50vh;
   overflow: hidden; }
   .browseHeader .headerVid {
@@ -347,14 +346,15 @@ a {
   padding-left: 2em;
   padding-right: 2em; }
 
-.modal-footer a {
+.modal-footer button {
   padding: 0.8em 2em;
   font-size: 1.1em;
   color: #000;
   background: transparent;
-  border: 1px solid #000;
+  border: 1px solid #000 !important;
+  color: black !important;
   transition: background 200ms linear; }
-  .modal-footer a:hover {
+  .modal-footer button:hover {
     background: #99FFE6;
     border: 1px solid transparent; }
 
@@ -434,6 +434,9 @@ a {
     .aboutButtons {
       display: flex;
       flex-direction: column; } }
+
+.buttonList {
+  width: 100%; }
 
 .navIcon {
   z-index: 1;

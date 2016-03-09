@@ -53,12 +53,13 @@
 }
 
 .modal-footer {
-  a {
+  button {
     @include padding(.8em 2em);
     @extend %uppercase;
     @include textFormat(1.1em, $black);
     background: transparent;
-    border: 1px solid $black;
+    border: 1px solid $black !important;
+    color: black !important;
     transition: background 200ms linear;
     &:hover {
       background: $subColor2;
@@ -153,4 +154,10 @@
   @media screen and #{$tablet} {
     @include flexbox ($direction: column);
   }
+}
+
+// Buttons on Login Confirmation page //
+
+.buttonList {
+  width: 100%;
 }
