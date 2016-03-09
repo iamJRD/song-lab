@@ -85,24 +85,24 @@
                 <form class="postMusicForm" action="/user/{{ user.getId }}/edit_profile" method="post">
                     <input name="_method" type="hidden" value="patch">
                     <div class="input-field">
-                      <input placeholder="Edit Username" id="Username" type="text" class="validate" value="{{ user.getUsername }}">
+                      <input placeholder="Edit Username" id="Username" name="new_username" type="text" class="validate" value="{{ user.getUsername }}">
                     </div>
                     <div class="input-field">
-                      <input placeholder="Update Password" id="password" type="password" class="validate" value="{{ user.getPassword }}">
+                      <input placeholder="Update Password" id="password" name="new_password" type="password" class="validate" value="{{ user.getPassword }}">
                     </div>
                     <div class="input-field">
-                      <input placeholder="First Name" id="first_name" type="text" class="validate" value="{{ user.getFirstName }}">
+                      <input placeholder="First Name" id="first_name" name="new_first_name" type="text" class="validate" value="{{ user.getFirstName }}">
                     </div>
                     <div class="input-field">
-                      <input placeholder="Last Name" id="last_name" type="text" class="validate" value="{{ user.getLastName }}">
+                      <input placeholder="Last Name" id="last_name" name="new_last_name" type="text" class="validate" value="{{ user.getLastName }}">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"> {{ user.getBio }}</textarea>
+                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea"> {{ user.getBio }}</textarea>
                     </div>
                     <div class="file-field input-field">
                       <div class="btn">
                         <span>Profile Image</span>
-                        <input type="file" multiple>
+                        <input type="file" name ="new_photo" multiple>
                       </div>
                       <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">

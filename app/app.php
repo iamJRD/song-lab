@@ -101,11 +101,7 @@
         // return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'error' => $error));
     });
 
-
-
-
-
-
+    // MAY STILL NEED THIS CODE: WIP
     // // Get page to edit a specific user
     // $app->get("/user/{id}/edit_profile", function($id) use ($app){
     //     $user = User::find($id);
@@ -117,23 +113,14 @@
         $user = User::find($id);
         $new_first_name = $_POST['new_first_name'];
         $new_last_name = $_POST['new_last_name'];
-        $new_email = $_POST['new_email'];
+        $new_email = null;
         $new_username = $_POST['new_username'];
         $new_bio = $_POST['new_bio'];
         $new_photo = $_POST['new_photo'];
         $new_password = $_POST['new_password'];
         $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects()));
     });
-
-
-
-
-
-
-
-
-
 
 
     // Gets page where user can edit their project
