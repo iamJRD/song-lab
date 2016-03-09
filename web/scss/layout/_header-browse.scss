@@ -1,4 +1,5 @@
 .browseHeader {
+  border: 2px solid red;
   max-height: 50vh;
   overflow: hidden;
   .headerVid {
@@ -19,7 +20,7 @@
     width: 90%;
     position: absolute;
     color: $white;
-    z-index: 1;
+    // z-index: 1;
     top: 15%;
     left: 50%;
     transform: translate(-50%, 0);

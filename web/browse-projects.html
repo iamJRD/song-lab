@@ -10,10 +10,36 @@
   </head>
   <body>
     <div class="pageWrapper">
-      <div class="navbar">
+      <div class="navIcon" onclick="openNav()">
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
       </div>
-
+      <div id="mainNav" class="overlay">
+        <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="browse-projects.html">Browse Projects</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
       <div class="browseHeader">
+      <nav class="navSubpage">
+        <div class="songLabWrapper">
+          <div class="songLabLogo">
+            <div class="logoText">
+              <h1>songLab</h1>
+            </div>
+            <div class="musicBars">
+              <div class="bar" id="bar1"></div>
+              <div class="bar" id="bar2"></div>
+              <div class="bar" id="bar3"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
         <video class="headerVid" autoplay loop muted poster="assets/images/poster.jpg">
           <source src="img/guitar-video.mp4" type="video/mp4">
           </video>
@@ -151,6 +177,7 @@
 
     </div> <!-- Page wrapper end -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/css-scripts.js"></script>
     <script src="js/materialize.js"></script>
   </body>
 </html>

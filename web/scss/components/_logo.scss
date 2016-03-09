@@ -3,11 +3,8 @@
 // ------------------------
 
 .songLabWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-  width: 100%;
+  @include flexbox($justify: center, $align-items: center);
+  @include size(100% 20vh);
 }
 .songLabLogo h1 {
   @extend %logoFont;

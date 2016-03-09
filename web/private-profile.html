@@ -145,17 +145,14 @@
               </div>
             </div>
 
-            <a class="modal-trigger" href=".modal3">REQUEST TO COLLABORATE</a>
-            <div id="" class="modal modal3">
+            <a class="modal-trigger" href=".modal3">DELETE SONG</a>
+            <div id="#deleteSongModal" class="modal modal3">
               <div class="modal-content">
-                <h1>Interested in working on this song?</h1>
-                <p>Message the author with your ideas!</p>
+                <h1>This will delete your song from your profile, and from the open projects page.</h1>
                 <form action="browse-projects.html" method="post">
+                  <label for="delete">Type DELETE to confirm.</label>
                   <div class="input-field">
-                    <input placeholder="Your Username" id="userName" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                    <input id="delete" type="text" class="validate">
                   </div>
                 </form>
               </div>

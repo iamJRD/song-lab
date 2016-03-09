@@ -50,7 +50,9 @@ a {
 .navSubpage {
   height: 10vh;
   width: 100%;
-  background: transparent; }
+  background: transparent;
+  position: absolute;
+  top: 2%; }
 
 .overlay {
   height: 100%;
@@ -133,6 +135,7 @@ a {
       font-weight: bold; }
 
 .browseHeader {
+  border: 2px solid red;
   max-height: 50vh;
   overflow: hidden; }
   .browseHeader .headerVid {
@@ -154,7 +157,6 @@ a {
     width: 90%;
     position: absolute;
     color: #fff;
-    z-index: 1;
     top: 15%;
     left: 50%;
     transform: translate(-50%, 0); }
@@ -1321,13 +1323,21 @@ select {
   width: 100%;
   display: flex; }
   .completedCollabs .col1, .completedCollabs .col2, .completedCollabs .col3 {
-    flex: 1;
-    width: 33.3333%;
-    overflow: hidden; }
+    display: flex;
+    flex-direction: column;
+    width: 33.3333%; }
+    .completedCollabs .col1 .galleryItem:nth-child(2), .completedCollabs .col2 .galleryItem:nth-child(2), .completedCollabs .col3 .galleryItem:nth-child(2) {
+      flex: 2; }
     .completedCollabs .col1 .galleryItem img, .completedCollabs .col2 .galleryItem img, .completedCollabs .col3 .galleryItem img {
       width: 100%;
       object-fit: cover;
       display: block;
-      padding: 2px; }
+      padding: 2px;
+      border: 1px solid cyan; }
+
+.bright {
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/gallery-bright-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/gallery-bright-sq.jpg");
+  background-size: cover; }
 
 /*# sourceMappingURL=main.css.map */
