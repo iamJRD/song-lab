@@ -1,25 +1,38 @@
 .completedCollabs {
   width: 100%;
   @include flexbox();
+  @media screen and #{$tablet} {
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   .col1, .col2, .col3 {
     @include flexbox($direction: column);
     width: 33.3333%;
-    .galleryItem {
+    .galleryItem { // This is to make all columns the same height.
       &:nth-child(2) {
         flex: 2;
       }
     }
-    .galleryItem img {
+    @media screen and #{$tablet} {
       width: 100%;
-      object-fit:cover;
-      display: block;
-      padding: 2px;
-      border: 1px solid cyan;
     }
   }
 }
 
-.bright {
-  @include background-image(linear-gradient(rgba($black, 0.5), rgba($black,0.5)),url("#{$img-path}/gallery-bright-sq.jpg"));
-  background-size: cover;
-}
+// Gallery Column 1
+@include completedCollab("#{$img-path}/gallery-bright-sq.jpg", 400px, bright);
+@include completedCollab("#{$img-path}/gallery-desert-long.jpg", 300px, desert);
+@include completedCollab("#{$img-path}/gallery-hippie-long.jpg", 300px, hippie);
+@include completedCollab("#{$img-path}/gallery-collage-long.jpg", 300px, collage);
+
+// Gallery Column 2
+@include completedCollab("#{$img-path}/gallery-lights-sq.jpg", 400px, lights);
+@include completedCollab("#{$img-path}/gallery-trippy-long.jpg", 300px, trippy);
+@include completedCollab("#{$img-path}/gallery-robot-sq.jpg", 450px, robot);
+@include completedCollab("#{$img-path}/gallery-boat-long.jpg", 250px, boat);
+
+// Gallery Column 3
+@include completedCollab("#{$img-path}/gallery-girl-long.jpg", 300px, girl);
+@include completedCollab("#{$img-path}/gallery-triangles-sq.jpg", 400px, triangles);
+@include completedCollab("#{$img-path}/gallery-sun-long.jpg", 300px, sun);
+@include completedCollab("#{$img-path}/gallery-grafitti-long.jpg", 300px, grafitti);

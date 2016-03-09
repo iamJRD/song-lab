@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/main.css" media="screen">
+    <link rel="stylesheet" href="/css/main.css" media="screen">
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/js/css-scripts.js"></script>
+    <script src="/js/materialize.js"></script>
     <title>SongLab | Your Profile</title>
   </head>
   <body>
@@ -41,7 +43,11 @@
         <div class="profileInfo">
           <div class="personInfo">
               <!--May need to remove "" from twig for photo src-->
+        {% if user.getPhoto is null %}
+          <img class="profileImage" src="/img/headphones.jpg" alt="silhouette" />
+        {% else %}
           <img class="profileImage" src="{{ user.getPhoto }}"></img>
+        {% endif %}
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
           <p class="userBio">{{ user.getBio }}</p>
@@ -99,7 +105,10 @@
                     <div class="input-field">
                       <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea"> {{ user.getBio }}</textarea>
                     </div>
-                    <div class="file-field input-field">
+                    <div class="input-field">
+                      <textarea placeholder="Link to a photo" id="textarea1" name="new_photo" type="text" class="materialize-textarea"> {{ user.getPhoto }}</textarea>
+                    </div>
+                    <!-- <div class="file-field input-field">
                       <div class="btn">
                         <span>Profile Image</span>
                         <input type="file" name ="new_photo" multiple>
@@ -107,11 +116,13 @@
                       <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
                       </div>
-                    </div>
+                    </div> -->
                     <div class="modal-footer">
-                        <button type="submit" name="button">Edit Profile</button>
+                        <button type="submit" name="button">Update</button>
                     </div>
                 </form>
+                <hr>
+                <a href="/user/{{ user.getId }}/delete"><button type="submit" name="button">Delete Profile?</button></a>
               </div>
             </div>
             <a class="secondaryWhite" href="#">Browse Open Collabs</a>
@@ -169,8 +180,5 @@
         </div> <!-- Open Project end -->
       </div>
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/css-scripts.js"></script>
-    <script src="js/materialize.js"></script>
   </body>
 </html>
