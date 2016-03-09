@@ -16,7 +16,8 @@
   }
   @media screen and #{$tablet} {
     @include flexbox($direction: column);
-    margin: 20px auto;
+    margin: 5px auto;
+    width: 85%;
   }
 }
 

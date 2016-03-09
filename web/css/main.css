@@ -198,6 +198,7 @@ a {
             margin-top: 5%; } }
 
 .profileHeader {
+  min-height: 750px;
   height: 60vh;
   width: 100%;
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.3), black), url("../img/speaker.jpg");
@@ -211,7 +212,7 @@ a {
     .profileHeader {
       height: 100%;
       width: 100%;
-      min-height: 75vh; } }
+      min-height: 80vh; } }
 
 .publicProfHeader {
   height: 60vh;
@@ -227,7 +228,7 @@ a {
     .publicProfHeader {
       height: 100%;
       width: 100%;
-      min-height: 50vh; } }
+      min-height: 45vh; } }
 
 .aboutHeader {
   display: flex;
@@ -322,7 +323,8 @@ a {
     .secondaryBlack {
       display: flex;
       flex-direction: column;
-      margin: 20px auto; } }
+      margin: 5px auto;
+      width: 85%; } }
 
 .secondaryWhite {
   font-size: 1.2em;
@@ -339,7 +341,8 @@ a {
     .secondaryWhite {
       display: flex;
       flex-direction: column;
-      margin: 20px auto; } }
+      margin: 5px auto;
+      width: 85%; } }
 
 .profileButtons {
   display: flex;
@@ -1379,11 +1382,8 @@ select {
     @media screen and (max-width: 768px) {
       .profileInfo img {
         height: 100px;
-        width: 100px; } }
-  .profileInfo h4 {
-    padding: 0;
-    margin: 0;
-    color: #fff; }
+        width: 100px;
+        margin-top: 100px; } }
   .profileInfo h1 {
     font-size: 3em;
     color: #fff;
@@ -1392,6 +1392,10 @@ select {
     @media screen and (max-width: 768px) {
       .profileInfo h1 {
         font-size: 2em; } }
+  .profileInfo h4 {
+    padding: 0;
+    margin: 0;
+    color: #fff; }
   .profileInfo .userMusicType {
     margin: 0; }
   .profileInfo .userBio {

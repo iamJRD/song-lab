@@ -12,12 +12,8 @@
     border-radius: 50%;
     @media screen and #{$tablet} {
       @include size(100px);
+      margin-top: 100px;
     }
-  }
-  h4 {
-    padding: 0;
-    margin: 0;
-    color: $white;
   }
   h1 {
     @include textFormat(3em, $white, $l-spacing: 1.5px);
@@ -25,6 +21,11 @@
     @media screen and #{$tablet} {
       @include textFormat(2em);
     }
+  }
+  h4 {
+    padding: 0;
+    margin: 0;
+    color: $white;
   }
   .userMusicType {
     margin: 0;
