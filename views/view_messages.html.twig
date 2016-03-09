@@ -21,10 +21,13 @@
                   <div id="mainNav" class="overlay">
                     <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
                     <ul>
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="browse-projects.html">Browse Projects</a></li>
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="">My Account</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/projects">Browse Projects</a></li>
+                        <li><a href="/about">About</a></li>
+                        {% if user_id is not null %}
+                            <li><a href="/user/{{ user_id }}">My Account</a></li>
+                            <li><a href="/log_out">Log Out</a></li>
+                        {% endif %}
                     </ul>
                   </div>
                   <nav class="navSubpage">

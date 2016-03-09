@@ -13,33 +13,36 @@
       <title>SongLab | Homepage</title>
   </head>
   <body>
-    <div class="pageWrapper">
-      <div class="navIcon" onclick="openNav()">
-        <div class="iconbar"></div>
-        <div class="iconbar"></div>
-        <div class="iconbar"></div>
-      </div>
-      <div id="mainNav" class="overlay">
-        <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/projects">Browse Projects</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="">My Account</a></li>
-          <li><a href="">Log Out</a></li>
-        </ul>
-      </div>
-      <div class="header">
-        <div class="headerContent">
-          <div class="songLabWrapper">
-            <div class="songLabLogo">
-              <div class="logoText">
-                <h1>songLab</h1>
-              </div>
-              <div class="musicBars">
-                <div class="bar" id="bar1"></div>
-                <div class="bar" id="bar2"></div>
-                <div class="bar" id="bar3"></div>
+      <div class="pageWrapper">
+        <div class="navIcon" onclick="openNav()">
+          <div class="iconbar"></div>
+          <div class="iconbar"></div>
+          <div class="iconbar"></div>
+        </div>
+        <div id="mainNav" class="overlay">
+          <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/projects">Browse Projects</a></li>
+            <li><a href="/about">About</a></li>
+            {% if user_id is not null %}
+                <li><a href="/user/{{ user_id }}">My Account</a></li>
+                <li><a href="/log_out">Log Out</a></li>
+            {% endif %}
+          </ul>
+        </div>
+        <div class="header">
+          <div class="headerContent">
+            <div class="songLabWrapper">
+              <div class="songLabLogo">
+                <div class="logoText">
+                  <h1>songLab</h1>
+                </div>
+                <div class="musicBars">
+                  <div class="bar" id="bar1"></div>
+                  <div class="bar" id="bar2"></div>
+                  <div class="bar" id="bar3"></div>
+                </div>
               </div>
             </div>
           </div>
