@@ -87,26 +87,29 @@
     }
 
 
-    // function getMessages()
-    // {
-    //     $returned_users = $GLOBALS['DB']->query("SELECT users.* FROM users JOIN messages_users ON (messages_users.project_id = users.id) JOIN users ON (messages.id = messages_users.message_id) WHERE users.id = {$this->getId()};");
-    //
-    //     $users = array();
-    //     foreach($returned_users as $user)
-    //     {
-    //         $id = $user['id'];
-    //         $first_name = $user['first_name'];
-    //         $last_name = $user['last_name'];
-    //         $email = $user['email'];
-    //         $username = $user['username'];
-    //         $bio = $user['bio'];
-    //         $photo = $user['photo'];
-    //         $password = $user['password'];
-    //         $new_user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
-    //         array_push($users, $new_user);
-    //     }
-    //     return $users;
-    // }
+    function getMessageUser() {
+        $returned_messages = $GLOBALS['DB']->query("SELECT users.* FROM messages
+            JOIN messages_user ON (messages_user.message_id = messages.id)
+            JOIN messages ON (users.id = messages_user.user_id)
+            WHERE messages.id = {$this->getId()};");
+
+        $users = array();
+        foreach($returned_users as $user)
+        {
+            $id = $user['id'];
+            $id = $user['id'];
+            $first_name = $user['first_name'];
+            $last_name = $user['last_name'];
+            $email= $user['email'];
+            $username= $user['username'];
+            $bio= $user['bio'];
+            $photo= $user['photo'];
+            $password = $user['password'];
+            $found_match = User::find($id);
+            array_push($users, $found_user);
+        }
+        return $users;
+    }
 
 }
  ?>

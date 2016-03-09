@@ -124,9 +124,10 @@
           $message_to_delete = Message::find($id);
           $message_to_delete->delete();
 
-          // $user = User::find($id);
-          // $messages = $user->getOwnerMessages();
-          return $app['twig']->render('view_messages.html.twig', array('messages' => $messages));
+          $user = User::find($id);
+          $messages = $user->getOwnerMessages();
+          $message_num = count($messages);
+          return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num));
         });
 
     // Create a user project on private profile
