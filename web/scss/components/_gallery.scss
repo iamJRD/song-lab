@@ -1,0 +1,25 @@
+.completedCollabs {
+  width: 100%;
+  @include flexbox();
+  .col1, .col2, .col3 {
+    @include flexbox($direction: column);
+    width: 33.3333%;
+    .galleryItem {
+      &:nth-child(2) {
+        flex: 2;
+      }
+    }
+    .galleryItem img {
+      width: 100%;
+      object-fit:cover;
+      display: block;
+      padding: 2px;
+      border: 1px solid cyan;
+    }
+  }
+}
+
+.bright {
+  @include background-image(linear-gradient(rgba($black, 0.5), rgba($black,0.5)),url("#{$img-path}/gallery-bright-sq.jpg"));
+  background-size: cover;
+}

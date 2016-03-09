@@ -4,9 +4,10 @@
   @include flexbox(flex, $justify: space-around, $align-items: center);
   @include position(absolute, 40px null null 45px);
   flex-wrap: wrap;
-  background-color: rgba($black, .5);
+  background-color: rgba($black, .3);
   padding: .4em;
   cursor: pointer;
+  border-radius: 15%;
   .iconbar {
     @include size(30px 3px);
     background-color: white;

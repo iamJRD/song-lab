@@ -3,11 +3,8 @@
 // ------------------------
 
 .songLabWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-  width: 100%;
+  @include flexbox($justify: center, $align-items: center);
+  @include size(100% 20vh);
 }
 .songLabLogo h1 {
   @extend %logoFont;
@@ -101,7 +98,7 @@
     margin: 0;
     width: 100%;
     position: relative;
-    bottom: 40%;
+    bottom: 37%;
   }
   .musicBars {
     display: flex;
@@ -115,16 +112,12 @@
     }
   }
   .bar {
-    width: 80px;
-    margin: 5px;
-    background: #99ccff;
-    height: 10px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px rgba($black, 0.5);
-    @media screen and #{$mobile} {
-      width: 40px;
-      height: 8px;
-      margin: 2px;
+    @include logoBar(80px);
+    &:first-child {
+      @include logoBar(40px);
+    }
+    &:last-child {
+      @include logoBar(60px);
     }
   }
   .songLabLogo #bar1 {

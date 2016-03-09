@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/main.css" media="screen">
+    <meta name="viewport" content="width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
+    <title>Musician Profile | SongLab</title>
+  </head>
+  <body>
+    <div class="pageWrapper">
+      <div class="navIcon" onclick="openNav()">
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+      </div>
+      <div id="mainNav" class="overlay">
+        <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="browse-projects.html">Browse Projects</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="publicProfHeader">
+        <nav class="navSubpage">
+          <div class="songLabWrapper">
+            <div class="songLabLogo">
+              <div class="logoText">
+                <h1>songLab</h1>
+              </div>
+              <div class="musicBars">
+                <div class="bar" id="bar1"></div>
+                <div class="bar" id="bar2"></div>
+                <div class="bar" id="bar3"></div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="profileInfo">
+          <div class="personInfo">
+          <img class="profileImage" src="img/profile.jpeg"></img>
+            <h1 class="username">Taylor Pokoj</h1>
+          </div>
+          <p class="userBio">Kale chips knausgaard flexitarian, locavore kitsch fashion axe paleo narwhal affogato lomo. Paleo bushwick meggings flexitarian, hammock affogato butcher pickled. Cardigan keytar tilde, whatever man bun everyday carry mustache paleo distillery fingerstache wolf pabst migas cronut godard. Hello actually wolf iPhone tacos. Fashion axe occupy slow-carb you probably haven't heard of them sustainable flexitarian.</p>
+
+        </div>
+      </div>
+      <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
+        <div class="open-project">
+          <div class="openProjectHeader">
+            <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+            <div class="titleAndAuthor">
+              <h3 class="projectTitle">Title</h3>
+              <h4 class="projectAuthor">By: Author Name</h4>
+            </div>
+          </div>
+
+          <div class="openProjectSummary">
+            <p class="projectSummary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+        <!-- Buttons and Modals for open project -->
+          <div class="openProjectButtons">
+            <a class="modal-trigger modal-close" href=".modal4">VIEW MUSIC</a>
+            <div id="" class="modal modal4">
+              <div class="modal-content">
+                <h2 class="projectTitle">Project Title</h2>
+                <h4 class="projectAuthor">By: Project Author</h4>
+                <p><span class="projectContent">Lyrics, composition, etc are appended here.</span></p>
+                <h3>Collaboration Wanted:</h3><p class="collaborationWanted"> Collaboration type wanted goes here.</p>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">CLOSE</a>
+              </div>
+            </div>
+
+            <a class="modal-trigger" href=".modal3">REQUEST TO COLLABORATE</a>
+            <div id="" class="modal modal3">
+              <div class="modal-content">
+                <h1>Interested in working on this song?</h1>
+                <p>Message the author with your ideas!</p>
+                <form action="browse-projects.html" method="post">
+                  <div class="input-field">
+                    <input placeholder="Your Username" id="userName" type="text" class="validate">
+                  </div>
+                  <div class="input-field">
+                    <textarea placeholder="Send me a message!" id="message" type="text" class="validate"></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a class="modal-close" href="#">SEND REQUEST</a>
+              </div>
+            </div>
+          </div>
+        </div> <!-- Open Project end -->
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/css-scripts.js"></script>
+    <script src="js/materialize.js"></script>
+  </body>
+</html>

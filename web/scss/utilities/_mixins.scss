@@ -20,6 +20,20 @@
   }
 }
 
+@mixin logoBar ($width) {
+  width: $width;
+  margin: 5px;
+  background: #99ccff;
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba($black, 0.5);
+  @media screen and #{$mobile} {
+    width: 40px;
+    height: 8px;
+    margin: 2px;
+  }
+}
+
 @mixin textFormat ($size: null, $color: null, $weight: null, $l-spacing: null, $l-height: null) {
   font-size: $size;
   color: $color;
