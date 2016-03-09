@@ -43,7 +43,13 @@
         <div class="profileInfo">
           <div class="personInfo">
               <!--May need to remove "" from twig for photo src-->
+        {% if user.getPhoto is null %}
+
+             <img class="profileImage" src="/img/headphones.jpg" alt="silhouette" />
+
+        {% else %}
           <img class="profileImage" src="{{ user.getPhoto }}"></img>
+        {% endif %}
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
           <p class="userBio">{{ user.getBio }}</p>
@@ -101,7 +107,10 @@
                     <div class="input-field">
                       <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea"> {{ user.getBio }}</textarea>
                     </div>
-                    <div class="file-field input-field">
+                    <div class="input-field">
+                      <textarea placeholder="Link to a photo" id="textarea1" name="new_photo" type="text" class="materialize-textarea"> {{ user.getPhoto }}</textarea>
+                    </div>
+                    <!-- <div class="file-field input-field">
                       <div class="btn">
                         <span>Profile Image</span>
                         <input type="file" name ="new_photo" multiple>
@@ -109,9 +118,9 @@
                       <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" placeholder="Upload .png or .jpg">
                       </div>
-                    </div>
+                    </div> -->
                     <div class="modal-footer">
-                        <button type="submit" name="button">Edit Profile</button>
+                        <button type="submit" name="button">Update</button>
                     </div>
                 </form>
                 <hr>
