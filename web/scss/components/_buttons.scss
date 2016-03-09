@@ -44,6 +44,10 @@
   background: transparent;
 }
 
+.profileButtons {
+  width: 100%;
+}
+
 // This class is specific to the file input field, and needs to stay btn exactly.
 .btn {
   color: $white;
@@ -53,7 +57,8 @@
 }
 
 .modal-footer {
-  a {
+  button {
+    @extend %headerFont;
     @include padding(.8em 2em);
     @extend %uppercase;
     @include textFormat(1.1em, $black);
