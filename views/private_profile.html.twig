@@ -45,9 +45,9 @@
           <div class="personInfo">
               <!--May need to remove "" from twig for photo src-->
         {% if user.getPhoto is null %}
-          <img class="profileImage" src="/img/headphones.jpg" alt="silhouette" />
+          <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
         {% else %}
-          <img class="profileImage" src="{{ user.getPhoto }}"></img>
+          <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available"></img>
         {% endif %}
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
