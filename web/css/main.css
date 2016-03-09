@@ -109,13 +109,15 @@ a {
   background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
   background-size: cover;
   width: 100%;
-  height: 70vh; }
+  height: 70vh;
+  min-height: 750px; }
   @media screen and (max-width: 620px) {
     .header {
       height: 100%; } }
   .header .headerContent {
     display: flex;
     flex-direction: column;
+    min-height: 450px;
     width: 68%;
     text-align: center; }
     @media screen and (max-width: 620px) {
@@ -473,7 +475,8 @@ a {
   justify-content: center;
   align-items: center;
   height: 20vh;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 10px; }
 
 .songLabLogo h1 {
   color: white;
@@ -481,7 +484,7 @@ a {
   letter-spacing: 3px; }
   @media screen and (max-width: 620px) {
     .songLabLogo h1 {
-      font-size: 36px; } }
+      font-size: 50px; } }
 
 .songLabLogo {
   display: flex;
@@ -509,7 +512,11 @@ a {
     .bar {
       width: 40px;
       height: 8px;
-      margin: 2px; } }
+      margin: 2px; }
+      .bar:first-child {
+        width: 20px; }
+      .bar:last-child {
+        width: 30px; } }
 
 .songLabLogo #bar1 {
   -webkit-animation: musicBars 1s ease-in-out backwards alternate-reverse infinite; }
@@ -1440,18 +1447,19 @@ select {
 .completedCollabs {
   width: 100%;
   display: flex; }
+  @media screen and (max-width: 768px) {
+    .completedCollabs {
+      flex-direction: column;
+      flex-wrap: wrap; } }
   .completedCollabs .col1, .completedCollabs .col2, .completedCollabs .col3 {
     display: flex;
     flex-direction: column;
     width: 33.3333%; }
     .completedCollabs .col1 .galleryItem:nth-child(2), .completedCollabs .col2 .galleryItem:nth-child(2), .completedCollabs .col3 .galleryItem:nth-child(2) {
       flex: 2; }
-    .completedCollabs .col1 .galleryItem img, .completedCollabs .col2 .galleryItem img, .completedCollabs .col3 .galleryItem img {
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      padding: 2px;
-      border: 1px solid cyan; }
+    @media screen and (max-width: 768px) {
+      .completedCollabs .col1, .completedCollabs .col2, .completedCollabs .col3 {
+        width: 100%; } }
 
 #bright {
   display: flex;
