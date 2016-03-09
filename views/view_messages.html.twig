@@ -1,15 +1,67 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Goodbye!</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Messages</h1>
-            {% for message in messages %}
-            {{ message.getMessage }}
-            {% endfor %}
-        </div>
-    </body>
-</html>
+            <html>
+              <head>
+                <link rel="stylesheet" href="/css/main.css" media="screen">
+                <meta name="viewport" content="width=device-width">
+                <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+                <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+                <script src="/js/css-scripts.js"></script>
+                <script src="/js/materialize.js"></script>
+                <title>SongLab | Inbox</title>
+              </head>
+              <body>
+                <div class="pageWrapper">
+                  <div class="navIcon" onclick="openNav()">
+                    <div class="iconbar"></div>
+                    <div class="iconbar"></div>
+                    <div class="iconbar"></div>
+                  </div>
+                  <div id="mainNav" class="overlay">
+                    <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+                    <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="browse-projects.html">Browse Projects</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="">My Account</a></li>
+                    </ul>
+                  </div>
+                  <nav class="navSubpage">
+                    <div class="songLabWrapper">
+                      <div class="songLabLogo">
+                        <div class="logoText">
+                          <h1>songLab</h1>
+                        </div>
+                        <div class="musicBars">
+                          <div class="bar" id="bar1"></div>
+                          <div class="bar" id="bar2"></div>
+                          <div class="bar" id="bar3"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                  <div class="inboxHeader">
+                    <h1>Your Collab Requests</h1>
+                  </div>
+                  <div class="youHave">
+                    <h3>You have <span class="messageCount">one</span> message(s).</h3> <!-- I added this so there would be something on the page if there were no messages, but we don't have to keep it if it's too difficult to code a counter -->
+                  </div>
+                          {% for message in messages %}
+                  <div class="collabRequestWrapper">
+                    <div class="collabRequest">
+                      <div class="requestHeader">
+                        <i class="fa fa-envelope-o"></i>
+
+                        <h3>Message from <span class='Username'>Username</span></h3>
+                      </div>
+                      <p class="message">{{ message.getMessage }}</p>
+
+                      <button type="submit" name="button">APPROVE REQUEST</button>
+
+                    </div>
+                  </div>
+                      {% endfor %}
+                </div>
+              </body>
+            </html>

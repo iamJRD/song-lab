@@ -245,7 +245,6 @@
        }
 
        function addMessage($message) {
-           var_dump($message);
            $GLOBALS['DB']->exec("INSERT INTO messages_user (message_id, user_id) VALUES ({$message->getId()}, {$this->getId()});");
        }
 

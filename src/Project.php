@@ -192,7 +192,7 @@
                      $found_match = User::find($id);
                  }
              return $found_match;
-           }
+         }
 
 
         function addCollaborator($user)

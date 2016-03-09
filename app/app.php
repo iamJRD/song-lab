@@ -50,7 +50,15 @@
 
     // Get projects list
     $app->get("/projects", function() use ($app){
-        return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
+        $projects = Project::getAll();
+        $owners = array();
+        foreach ($projects as $project){
+        $owner = $project->getProjectOwner();
+        $owner_name = $owner->getUsername();
+        array_push($owners, $owner_name);
+        }
+        //needs work
+        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owners' => $owners));
     });
 
     // Search projects page
