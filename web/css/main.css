@@ -433,6 +433,22 @@ a {
     background: #99FFE6;
     border: 1px solid transparent; }
 
+.delete {
+  border: none;
+  color: tomato;
+  padding-left: 15px;
+  transition: all 150ms linear; }
+  .delete:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    text-decoration: underline;
+    color: tomato; }
+  .delete:focus {
+    background-color: transparent;
+    border: none;
+    color: tomato;
+    padding-left: 15px; }
+
 .searchButton {
   font-size: 1em;
   color: #fff;

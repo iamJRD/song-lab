@@ -76,6 +76,25 @@
   }
 }
 
+.delete {
+  border: none;
+  color: tomato;
+  padding-left: 15px;
+  transition: all 150ms linear;
+  &:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    text-decoration: underline;
+    color: tomato;
+  }
+  &:focus {
+    background-color: transparent;
+    border: none;
+    color: tomato;
+    padding-left: 15px;
+  }
+}
+
 // Browse page Buttons //
 
 .searchButton {
