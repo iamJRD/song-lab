@@ -114,7 +114,7 @@
 }
 
 .aboutButtons {
-  margin-top: 5%;
+  margin: 5% auto;
   @extend %headerFont;
   @include flexbox($justify: center);
   @include size(100% auto);
