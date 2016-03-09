@@ -32,7 +32,8 @@
     // Get about page
     $app->get("/about", function() use ($app) {
         session_start();
-        return $app['twig']->render('about.html.twig');
+        $error = "";
+        return $app['twig']->render('about.html.twig', array('error' => $error));
     });
 
     // Create user
@@ -82,7 +83,7 @@
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
     });
 
-    //send message feature - TBD initial routing
+    // Send message feature - TBD initial routing
     $app->post("/project/{id}/send_message", function($id) use ($app){
         session_start();
         $project_to_collaborate = Project::find($id);
@@ -102,7 +103,7 @@
         return $app['twig']->render('view_messages.html.twig', array('messages' => $messages));
     });
 
-
+    // Create a user project on private profile
     $app->post("/user/{id}/create_project", function($id) use ($app){
         echo ($id);
         session_start();
@@ -122,7 +123,7 @@
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => Project::getAll()));
     });
 
-    //initial routing for returning to profile
+    // Initial routing for returning to profile
     $app->post("/user/{id}", function($id) use ($app) {
         session_start();
         $user = User::find($id);
@@ -131,7 +132,7 @@
       });
 
 
-    //sign in from index
+    // Sign in from index
     $app->post("/sign_in", function() use ($app) {
         $inputted_username = $_POST['username'];
         $inputted_password = $_POST['password'];
@@ -167,8 +168,7 @@
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects()));
     });
 
-
-    // Gets page where user can edit their project
+    // Get page where user can edit their project
     $app->get("/user/{id}/edit_project", function($id) use ($app){
         session_start();
         $user = User::find($id);
@@ -176,7 +176,7 @@
         return $app['twig']->render('edit_project.html.twig', array('user' => $user));
     });
 
-    // Edits project and returns user to their profile page
+    // Edit project and returns user to their profile page
     $app->patch("/user/{id}/edit_project", function($id) use ($app){
         session_start();
         $user = User::find($id);
@@ -191,8 +191,7 @@
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
-    // Get page to delete specific user
-    // User is directed TO this page FROM edit page
+    // Get page (from edit modal) to delete specific user
 	$app->get("/user/{id}/delete", function($id) use ($app) {
         session_start();
 		$user = User::find($id);
@@ -200,8 +199,7 @@
 			'user' => $user));
 	});
 
-    // Delete specific user
-    // User is sent to homepage after deletion
+    // Delete specific user; homepage rendered
 	$app->delete("/user/{id}/delete", function($id) use ($app) {
         session_start();
         $_SESSION['user_id'] = null;
@@ -212,8 +210,7 @@
         return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'session' => $session_status));
     });
 
-    // User Logs out of their session
-    // Returns to homepage
+    // User Logs out of their session; homepage rendered
     $app->get("/log_out", function() use ($app) {
         session_start();
         $_SESSION['user_id'] = null;
