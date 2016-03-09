@@ -22,9 +22,10 @@
     // Get homepage
     $app->get("/", function() use ($app) {
         session_start();
+        $session_status = $_SESSION['user_id'];
         $users = User::getAll();
         $error = "";
-        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'session' => $session_status));
     });
 
     // Get about page
@@ -110,6 +111,7 @@
                 $user_projects = $found_user->getOwnerProjects();
                 session_start();
                 $_SESSION['user_id'] = $user->getId();
+                $session_status = $_SESSION['user_id'];
                 return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects));
 
             } else {
@@ -177,11 +179,23 @@
     // User is sent to homepage after deletion
 	$app->delete("/user/{id}/delete", function($id) use ($app) {
         session_start();
+        $_SESSION['user_id'] = null;
+        $session_status = $_SESSION['user_id'];
         $user = User::find($id);
         $user->delete();
-        $user = User::getAll();
         $error = "";
-        return $app['twig']->render('index.html.twig', array('users' => $user, 'error' => $error));
+        return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'session' => $session_status));
+    });
+
+    // User Logs out of their session
+    // Returns to homepage
+    $app->get("/log_out", function() use ($app) {
+        session_start();
+        $_SESSION['user_id'] = null;
+        $session_status = $_SESSION['user_id'];
+        $users = User::getAll();
+        $error = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'session' => $session_status));
     });
 
     return $app;
