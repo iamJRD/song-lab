@@ -7,7 +7,7 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-h2, p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader {
+h2, p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
@@ -1453,9 +1453,44 @@ select {
       padding: 2px;
       border: 1px solid cyan; }
 
-.bright {
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/gallery-bright-sq.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/gallery-bright-sq.jpg");
-  background-size: cover; }
+#bright {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-bright-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-bright-sq.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px; }
+  #bright .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #bright .galleryContent h2, #bright .galleryContent h3 {
+      color: #fff; }
+    #bright .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #bright .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#desert {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-desert-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-desert-long.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px; }
+  #desert .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #desert .galleryContent h2, #desert .galleryContent h3 {
+      color: #fff; }
+    #desert .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #desert .galleryContent h3 {
+      letter-spacing: 1.5px; }
 
 /*# sourceMappingURL=main.css.map */
