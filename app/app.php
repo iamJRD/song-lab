@@ -26,7 +26,12 @@
         return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error));
     });
 
-    //new user
+    // Get about page
+    $app->get("/about", function() use ($app) {
+        return $app['twig']->render('about.html.twig');
+    });
+
+    // Create user
     $app->post("/user", function() use ($app) {
         $id = null;
         $first_name = $_POST['first_name'];
@@ -39,37 +44,40 @@
         $user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
         $user->save();
         $user_projects = $user->getProjects();
-        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects));
     });
 
-    //projects list
+    // Get projects list
     $app->get("/projects", function() use ($app){
         return $app['twig']->render('projects.html.twig', array('projects' => Project::getAll()));
     });
 
-    //search project page
+    // Search projects page
     $app->post("/search", function() use ($app) {
         $keyword = $_POST['search_term'];
         $project_matches = Project::search($keyword);
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
     });
 
+
     //send message feature - TBD initial routing
     $app->get("/send_message", function() use ($app){
         return $app['twig']->render('sent_message.html.twig', array('requests' => Request::getAll()));
     });
+
     //create new project as owner
     $app->get("/user/{id}/create_project", function($id) use ($app){
         $user = User::find($id);
         return $app['twig']->render('create_project.html.twig', array('user' => $user));
     });
-
+    
     //initial routing for returning to profile
     $app->post("/user/{id}", function($id) use ($app) {
         $user = User::find($id);
         $user_projects = $user->getProjects();
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
       });
+
 
     //sign in from index
     $app->post("/sign_in", function() use ($app) {
@@ -89,24 +97,25 @@
             }
     });
 
-    // Get page to edit a specific user
-    $app->get("/user/{id}/edit_profile", function($id) use ($app){
-        $user = User::find($id);
-        return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
-    });
+    // MAY STILL NEED THIS CODE: WIP
+    // // Get page to edit a specific user
+    // $app->get("/user/{id}/edit_profile", function($id) use ($app){
+    //     $user = User::find($id);
+    //     return $app['twig']->render('edit_profile.html.twig', array('user' => $user));
+    // });
 
     // Edit a specific user and return their profile page
     $app->patch("/user/{id}/edit_profile", function($id) use ($app){
         $user = User::find($id);
         $new_first_name = $_POST['new_first_name'];
         $new_last_name = $_POST['new_last_name'];
-        $new_email = $_POST['new_email'];
+        $new_email = null;
         $new_username = $_POST['new_username'];
         $new_bio = $_POST['new_bio'];
         $new_photo = $_POST['new_photo'];
         $new_password = $_POST['new_password'];
         $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
-        return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects()));
     });
 
 
