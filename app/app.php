@@ -74,6 +74,7 @@
     // Get projects list
     $app->get("/projects", function() use ($app){
         session_start();
+        $user = User::find($_SESSION['user_id']);
         $projects = Project::getAll();
         $owners = array();
         foreach ($projects as $project){
@@ -82,40 +83,52 @@
         array_push($owners, $owner_name);
         }
         //needs work
-        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owners' => $owners));
+        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owners' => $owners, 'current_user' => $user));
     });
 
     // Search projects page
     $app->post("/search", function() use ($app) {
         session_start();
+        $username = user::find($id);
         $keyword = $_POST['search_term'];
         $project_matches = Project::search($keyword);
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches));
     });
+
 
     // Send message feature - TBD initial routing
     $app->post("/project/{id}/send_message", function($id) use ($app){
         session_start();
         $project_to_collaborate = Project::find($id);
         $project_owner = $project_to_collaborate->getProjectOwner();
-        $message = $_POST['message'];
         $id = null;
-        $new_message = new Message($id, $message);
+        $message = $_POST['message'];
+        $sender = $_POST['sender'];
+        $new_message = new Message($id, $message, $sender);
         $new_message->save();
         $project_owner->addMessage($new_message);
         return $app['twig']->render('sent_message.html.twig', array('owner' => $project_owner));
     });
 
-    // Get projects list
+    // Get messages
     $app->get("/user/{id}/messages", function($id) use ($app){
         $user = User::find($id);
         $messages = $user->getOwnerMessages();
         return $app['twig']->render('view_messages.html.twig', array('messages' => $messages));
     });
 
+    $app->post("/message/{id}/approve", function($id) use ($app){
+          //add user to project as collaborator
+          $message_to_delete = Message::find($id);
+          $message_to_delete->delete();
+
+          // $user = User::find($id);
+          // $messages = $user->getOwnerMessages();
+          return $app['twig']->render('view_messages.html.twig', array('messages' => $messages));
+        });
+
     // Create a user project on private profile
     $app->post("/user/{id}/create_project", function($id) use ($app){
-        echo ($id);
         session_start();
         $user = User::find($id);
         $id = null;
@@ -128,7 +141,9 @@
         $user_id = $user->getId();
         $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
         $new_project->save();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects()));
+        $projects = $user->getOwnerProjects();
+        var_dump($projects);
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $projects));
     });
 
     // Initial routing for returning to profile
@@ -187,7 +202,6 @@
     // Edit project and returns user to their profile page
     $app->patch("/user/{id}/edit_project", function($id) use ($app){
         session_start();
-        $user = User::find($id);
         $project = $user->getProjects($user->getId());
         $new_title = $_POST['new_title'];
         $new_description = $_POST['new_description'];

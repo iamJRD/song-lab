@@ -138,6 +138,7 @@
           </div>
         </div>
       </div>
+      {% if projects is not empty %}
       {% for project in projects %}
       <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
         <div class="open-project">
@@ -189,6 +190,9 @@
 
     </div><!-- projects wrapper end -->
     {% endfor %}
+    {% else %}
+    <p>No current projects</p>
+    {% endif %}
 
   </body>
 </html>

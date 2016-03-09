@@ -121,7 +121,6 @@
 
         static function find($search_id)
         {
-          echo($search_id);
             $found_project = null;
             $returned_projects = Project::getAll();
 

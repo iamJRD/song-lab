@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Goodbye!</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Message sent to {{owner.getUsername}}!</h1>
+  <head>
+    <link rel="stylesheet" href="/css/main.css" media="screen">
+    <meta name="viewport" content="width=device-width">
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
 
+    <title>Message Sent | SongLab</title>
+  </head>
+  <body>
+    <div class="pageWrapper">
+      <nav class="navSubpage">
+        <div class="songLabWrapper">
+          <div class="songLabLogo">
+            <div class="logoText">
+              <h1>songLab</h1>
+            </div>
+            <div class="musicBars">
+              <div class="bar" id="bar1"></div>
+              <div class="bar" id="bar2"></div>
+              <div class="bar" id="bar3"></div>
+            </div>
+          </div>
         </div>
-    </body>
+      </nav>
+      <div class="confirmation">
+        <div class="confirmationContent">
+          <h1>Your collaboration request has been sent to {{owner.getUsername}}!</h1>
+          <div class="buttonList">
+            <button class="secondaryWhite" type="button" name="button" href="/projects">Browse Other Open Projects</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+  </body>
 </html>

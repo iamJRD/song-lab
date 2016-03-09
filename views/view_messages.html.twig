@@ -53,12 +53,12 @@
                       <div class="requestHeader">
                         <i class="fa fa-envelope-o"></i>
 
-                        <h3>Message from <span class='Username'>Username</span></h3>
+                        <h3>Message from <span class='Username'>{{message.getSender()}}</span></h3>
                       </div>
                       <p class="message">{{ message.getMessage }}</p>
-
+                      <form action="/message/{message.getId}/approve" method="post">
                       <button type="submit" name="button">APPROVE REQUEST</button>
-
+                      </form>
                     </div>
                   </div>
                       {% endfor %}

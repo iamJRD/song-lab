@@ -3,16 +3,23 @@
     {
         private $id;
         private $message;
+        private $sender;
 
-    function __construct($id = null, $message)
+    function __construct($id = null, $message, $sender)
     {
         $this->id = $id;
         $this->message = $message;
+        $this->sender = $sender;
     }
 
     function setMessage($new_message)
     {
         $this->message = $new_message;
+    }
+
+    function setSender($new_sender)
+    {
+        $this->sender = $new_sender;
     }
 
     function getId()
@@ -25,9 +32,15 @@
         return $this->message;
     }
 
+    function getSender()
+    {
+        return $this->sender;
+    }
+
+
     function save()
     {
-        $GLOBALS['DB']->exec("INSERT INTO messages (message) VALUES ('{$this->getMessage()}');");
+        $GLOBALS['DB']->exec("INSERT INTO messages (message, sender) VALUES ('{$this->getMessage()}', '{$this->getSender()}');");
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
@@ -41,7 +54,8 @@
             echo "hi";
             $id = $message['id'];
             $message = $message['message'];
-            $new_message = new Message($id, $message);
+            $sender = $sender['sender'];
+            $new_message = new Message($id, $message, $sender);
             array_push($messages, $new_message);
         }
         return $messages;
@@ -52,6 +66,25 @@
         $GLOBALS['DB']->exec("DELETE FROM messages");
     }
 
+    static function find($search_id)
+    {
+        $found_message = null;
+        $returned_messages = Message::getAll();
+
+        foreach($returned_messages as $message){
+            $message_id = $message->getId();
+            if ($message_id == $search_id)
+            {
+                $found_message = $message;
+            }
+        }
+        return $found_message;
+    }
+
+    function delete()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM messages WHERE id = {$this->getId()}");
+    }
 
 
     // function getMessages()
