@@ -19,27 +19,20 @@
   }
 }
 
+// Gallery Column 1
 @include completedCollab("#{$img-path}/gallery-bright-sq.jpg", 400px, bright);
 @include completedCollab("#{$img-path}/gallery-desert-long.jpg", 300px, desert);
+@include completedCollab("#{$img-path}/gallery-hippie-long.jpg", 300px, hippie);
+@include completedCollab("#{$img-path}/gallery-collage-long.jpg", 300px, collage);
 
-// #bright {
-//   @include flexbox($justify: flex-end, $direction: column);
-//   @include background-image(linear-gradient(rgba($black, 0.4), rgba($black,0.4)),url("#{$img-path}/gallery-bright-sq.jpg"));
-//   background-size: cover;
-//   background-position: center;
-//   .galleryContent {
-//     padding-left: 10%;
-//     padding-bottom: 5%;
-//     @extend %headerFont;
-//     h2, h3 {
-//       color: $white;
-//     }
-//     h2 {
-//       @include textFormat(2.5em);
-//       margin: 0;
-//     }
-//     h3 {
-//       @include textFormat($l-spacing: 1.5px);
-//     }
-//   }
-// }
+// Gallery Column 2
+@include completedCollab("#{$img-path}/gallery-lights-sq.jpg", 400px, lights);
+@include completedCollab("#{$img-path}/gallery-trippy-long.jpg", 300px, trippy);
+@include completedCollab("#{$img-path}/gallery-robot-sq.jpg", 450px, robot);
+@include completedCollab("#{$img-path}/gallery-boat-long.jpg", 250px, boat);
+
+// Gallery Column 3
+@include completedCollab("#{$img-path}/gallery-lights-sq.jpg", 400px, lights);
+@include completedCollab("#{$img-path}/gallery-trippy-long.jpg", 300px, trippy);
+@include completedCollab("#{$img-path}/gallery-robot-sq.jpg", 450px, robot);
+@include completedCollab("#{$img-path}/gallery-boat-long.jpg", 250px, boat);

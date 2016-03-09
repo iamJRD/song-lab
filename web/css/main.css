@@ -7,7 +7,7 @@ html {
 .overlay li, .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-h2, p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent {
+h2, p, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .modal .modal-content, .profileInfo, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a {
@@ -1491,6 +1491,206 @@ select {
       font-size: 2.5em;
       margin: 0; }
     #desert .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#hippie {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-hippie-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-hippie-long.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px; }
+  #hippie .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #hippie .galleryContent h2, #hippie .galleryContent h3 {
+      color: #fff; }
+    #hippie .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #hippie .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#collage {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-collage-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-collage-long.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px; }
+  #collage .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #collage .galleryContent h2, #collage .galleryContent h3 {
+      color: #fff; }
+    #collage .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #collage .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#lights {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-lights-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-lights-sq.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px; }
+  #lights .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #lights .galleryContent h2, #lights .galleryContent h3 {
+      color: #fff; }
+    #lights .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #lights .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#trippy {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-trippy-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-trippy-long.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px; }
+  #trippy .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #trippy .galleryContent h2, #trippy .galleryContent h3 {
+      color: #fff; }
+    #trippy .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #trippy .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#robot {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-robot-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-robot-sq.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px; }
+  #robot .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #robot .galleryContent h2, #robot .galleryContent h3 {
+      color: #fff; }
+    #robot .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #robot .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#boat {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-boat-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-boat-long.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 250px; }
+  #boat .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #boat .galleryContent h2, #boat .galleryContent h3 {
+      color: #fff; }
+    #boat .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #boat .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#lights {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-lights-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-lights-sq.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px; }
+  #lights .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #lights .galleryContent h2, #lights .galleryContent h3 {
+      color: #fff; }
+    #lights .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #lights .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#trippy {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-trippy-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-trippy-long.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px; }
+  #trippy .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #trippy .galleryContent h2, #trippy .galleryContent h3 {
+      color: #fff; }
+    #trippy .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #trippy .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#robot {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-robot-sq.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-robot-sq.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 450px; }
+  #robot .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #robot .galleryContent h2, #robot .galleryContent h3 {
+      color: #fff; }
+    #robot .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #robot .galleryContent h3 {
+      letter-spacing: 1.5px; }
+
+#boat {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-boat-long.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/gallery-boat-long.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 250px; }
+  #boat .galleryContent {
+    padding-left: 10%;
+    padding-bottom: 5%; }
+    #boat .galleryContent h2, #boat .galleryContent h3 {
+      color: #fff; }
+    #boat .galleryContent h2 {
+      font-size: 2.5em;
+      margin: 0; }
+    #boat .galleryContent h3 {
       letter-spacing: 1.5px; }
 
 /*# sourceMappingURL=main.css.map */
