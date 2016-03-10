@@ -188,10 +188,11 @@
     // Initial routing for returning to profile
     $app->get("/user/{id}", function($id) use ($app) {
         session_start();
+        $embed = "";
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
         $user_projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $embed, 'user_id' => $user_id));
       });
 
 
