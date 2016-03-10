@@ -7,13 +7,13 @@ html {
 .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .aboutButtons a, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
+h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .aboutButtons a, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, .noProjects h1, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a, button {
   text-transform: uppercase; }
 
-.confirmation .confirmationContent, .profileInfo {
+.confirmation .confirmationContent, .profileInfo, .noProjects {
   text-align: center; }
 
 *,
@@ -38,6 +38,20 @@ body::-webkit-scrollbar {
 a {
   text-decoration: none;
   color: black; }
+
+.postMusicLink {
+  border: none;
+  color: #99ccff;
+  transition: all 150ms linear; }
+  .postMusicLink:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    text-decoration: underline;
+    color: #B399FF; }
+  .postMusicLink:focus {
+    background-color: transparent;
+    border: none;
+    color: #B399FF; }
 
 .pageWrapper {
   display: flex;
@@ -485,8 +499,7 @@ a {
   .delete:focus {
     background-color: transparent;
     border: none;
-    color: tomato;
-    padding-left: 15px; }
+    color: tomato; }
 
 .searchButton {
   font-size: 1em;
@@ -1630,14 +1643,27 @@ select {
         margin-right: 1%;
         box-shadow: 1px 1px 3px gray;
         border-radius: 50%; }
-      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
-        font-size: 30px;
-        margin: 0 auto; }
-      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h4 {
-        color: grey;
-        margin: 0 auto; }
+      .projectsWrapper .open-project .openProjectHeader .titleAndAuthor {
+        margin-left: 15px; }
+        .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
+          font-size: 30px;
+          margin: 0 auto; }
+        .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h4 {
+          color: grey;
+          text-align: left;
+          margin: 0 auto; }
     .projectsWrapper .open-project .openProjectSummary p {
       margin-top: 5px; }
+
+.noProjects {
+  margin: 5em; }
+  .noProjects h1 {
+    font-size: 40px;
+    margin: 0;
+    color: #4d4d4d; }
+  .noProjects i {
+    color: #99ccff;
+    font-size: 55px; }
 
 .completedCollabs {
   width: 100%;

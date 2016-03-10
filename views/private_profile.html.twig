@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/js/css-scripts.js"></script>
     <script src="/js/materialize.js"></script>
@@ -181,7 +182,11 @@
     </div><!-- projects wrapper end -->
     {% endfor %}
     {% else %}
-    <p>No current projects</p>
+    <div class="noProjects">
+      <i class="fa fa-frown-o"></i>
+      <h1>No projects yet!</h1>
+      <button href="#postMusicModal" class="postMusicLink modal-trigger modal-close">Post a Song</button>
+    </div>
     {% endif %}
 
   </body>
