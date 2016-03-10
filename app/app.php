@@ -23,6 +23,7 @@
     // Load site upon arrival
     $app->get("/", function() use ($app) {
         session_start();
+        $user_id = null;
         $_SESSION['user_id'] = null;
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
@@ -90,7 +91,7 @@
         session_start();
         $user = User::find($_SESSION['user_id']);
         $projects = Project::getAll();
-        // $owners = array();
+
         foreach ($projects as $project){
         $owner = $project->getProjectOwner();
         $owner_name = $owner->getUsername();
@@ -120,7 +121,8 @@
         $id = null;
         $message = $_POST['message'];
         $sender = $_POST['sender'];
-        $new_message = new Message($id, $message, $sender);
+        $project_id = $project_to_collaborate->getId();
+        $new_message = new Message($id, $message, $sender, $project_id);
         $new_message->save();
         $project_owner->addMessage($new_message);
         return $app['twig']->render('sent_message.html.twig', array('owner' => $project_owner, 'user_id' => $user_id));
@@ -142,7 +144,14 @@
           //add user to project as collaborator
           $message_to_delete = Message::find($id);
           $user = $message_to_delete->getMessageUser();
+          $project = Project::find($message_to_delete->getProjectId());
+          $sender_name = $message_to_delete->getSender();
+          $sender = User::findUsername($sender_name);
+          $project->addCollaborator($sender);
+          var_dump($project->getCollaborators());
           $message_to_delete->delete();
+
+
 
           $messages = $user->getOwnerMessages();
 

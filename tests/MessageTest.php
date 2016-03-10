@@ -27,7 +27,8 @@
             $id = null;
             $message = "hi how are you";
             $sender = "torrence";
-            $test_message = new Message($id, $message, $sender);
+            $project_id = null;
+            $test_message = new Message($id, $message, $sender, $project_id);
 
             // Act
             $result = $test_message->getId();
@@ -42,7 +43,8 @@
             $id = null;
             $message = "hi how are you";
             $sender = "torrence";
-            $test_message = new Message($id, $message, $sender);
+            $project_id = 2;
+            $test_message = new Message($id, $message, $sender, $project_id);
 
             // Act
             $result = $test_message->getMessage();
@@ -51,13 +53,30 @@
             $this->assertEquals($message, $result);
         }
 
+        function testProjectId()
+        {
+            // Arrange
+            $id = null;
+            $message = "hi how are you";
+            $sender = "torrence";
+            $project_id = 2;
+            $test_message = new Message($id, $message, $sender, $project_id);
+
+            // Act
+            $result = $test_message->getProjectId();
+
+            // Assert
+            $this->assertEquals($project_id, $result);
+        }
+
         function testSave()
         {
             // Arrange
             $id = null;
             $message = "hi how are you";
             $sender = "torrence";
-            $test_message = new Message($id, $message, $sender);
+            $project_id = 3;
+            $test_message = new Message($id, $message, $sender, $project_id);
 
             // Act
             $test_message->save();
@@ -73,11 +92,13 @@
             $id = null;
             $message = "hi how are you";
             $sender = "torrence";
-            $test_message = new Message($id, $message, $sender);
+            $project_id = 2;
+            $test_message = new Message($id, $message, $sender, $project_id);
 
             $message2 = "Would like to add bass";
             $sender2 = "jared";
-            $test_message2 = new Message($id, $message2, $sender2);
+            $project_id2 = 3;
+            $test_message2 = new Message($id, $message2, $sender2, $project_id2);
 
 
             // Act

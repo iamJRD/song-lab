@@ -200,7 +200,7 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $user_id = null;
+            $user_id = 2;
             $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             // Act
@@ -221,7 +221,7 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $user_id = null;
+            $user_id = 3;
             $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
 
             $title2 = "Dream Song";
@@ -230,12 +230,14 @@
             $resources2 = "http://fakeembedcode.com";
             $lyrics2 = "";
             $type2 = "Lyrics";
-            $test_project2 = new Project($id, $title2, $description2, $genre2, $resources2, $lyrics2, $type2, $user_id);
+            $user_id2 = 4;
+            $test_project2 = new Project($id, $title2, $description2, $genre2, $resources2, $lyrics2, $type2, $user_id2);
 
             // Act
             $test_project->save();
             $test_project2->save();
             $result = Project::getAll();
+            var_dump($result);
 
             // Assert
             $this->assertEquals([$test_project, $test_project2], $result);
@@ -251,7 +253,7 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $user_id = null;
+            $user_id = 3;
             $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
 
@@ -272,7 +274,7 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $user_id = null;
+            $user_id = 4;
             $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
 
@@ -364,7 +366,7 @@
             $resources = "http://fakeembedcode.com";
             $lyrics = "";
             $type = "Lyrics";
-            $user_id = null;
+            $user_id = 4;
             $test_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
             $test_project->save();
 
