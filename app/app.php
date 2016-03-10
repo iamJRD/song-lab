@@ -33,7 +33,8 @@
     $app->get("/about", function() use ($app) {
         session_start();
         $user_id = $_SESSION['user_id'];
-        return $app['twig']->render('about.html.twig', array('user_id' => $user_id));
+        $error = null;
+        return $app['twig']->render('about.html.twig', array('user_id' => $user_id, 'error' => $error));
     });
 
     // Create user
@@ -60,7 +61,7 @@
         session_start();
         $user = User::find($id);
         $user_projects = $user->getProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'current_user' => $user));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
     });
 
     //delete project from user profile page
@@ -121,11 +122,12 @@
         $user = User::find($id);
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
-        return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num));
+        return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num, 'user_id' => $user_id));
 
     });
 
     $app->post("/message/{id}/approve", function($id) use ($app){
+          session_start();
           //add user to project as collaborator
           $message_to_delete = Message::find($id);
           $user = $message_to_delete->getMessageUser();
@@ -134,7 +136,7 @@
           $messages = $user->getOwnerMessages();
 
           $message_num = count($messages);
-          return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num));
+          return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num, 'user_id' => $_SESSION['user_id']));
         });
 
     // Create a user project on private profile
@@ -231,24 +233,24 @@
     });
 
     // Get page (from edit modal) to delete specific user
-	$app->get("/user/{id}/delete", function($id) use ($app) {
-        session_start();
-        $user_id = $_SESSION['user_id'];
-		$user = User::find($id);
-		return $app['twig']->render('delete_user.html.twig', array(
-			'user' => $user, 'user_id' => $user_id));
-	});
+  	$app->get("/user/{id}/delete", function($id) use ($app) {
+          session_start();
+          $user_id = $_SESSION['user_id'];
+  		$user = User::find($id);
+  		return $app['twig']->render('delete_user.html.twig', array(
+  			'user' => $user, 'user_id' => $user_id));
+  	});
 
     // Delete specific user; homepage rendered
-	$app->delete("/user/{id}/delete", function($id) use ($app) {
-        session_start();
-        $_SESSION['user_id'] = null;
-        $user_id = $_SESSION['user_id'];
-        $user = User::find($id);
-        $user->delete();
-        $error = "";
-        return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'session' => $user_id));
-    });
+  	$app->delete("/user/{id}/delete", function($id) use ($app) {
+          session_start();
+          $_SESSION['user_id'] = null;
+          $user_id = $_SESSION['user_id'];
+          $user = User::find($id);
+          $user->delete();
+          $error = "";
+          return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'session' => $user_id));
+      });
 
     // User Logs out of their session; homepage rendered
     $app->get("/log_out", function() use ($app) {
