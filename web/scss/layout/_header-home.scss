@@ -4,7 +4,7 @@
 
 .header {
   @include flexbox ($justify: center, $direction: column, $align-items: center);
-  @include background-image(linear-gradient(rgba($primary, 0.5), rgba($black,0)),url("#{$img-path}/piano-hands.jpeg"));
+  @include background-image(linear-gradient(rgba(darken($primary, 50%), 0.2), rgba($black,0)),url("#{$img-path}/piano-hands.jpeg"));
   background-size: cover;
   width: 100%;
   height: 70vh;

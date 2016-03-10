@@ -198,8 +198,8 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
-  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
+  background-image: -webkit-linear-gradient(rgba(39, 0, 153, 0.2), transparent), url("../img/piano-hands.jpeg");
+  background-image: linear-gradient(rgba(39, 0, 153, 0.2), transparent), url("../img/piano-hands.jpeg");
   background-size: cover;
   width: 100%;
   height: 70vh;
