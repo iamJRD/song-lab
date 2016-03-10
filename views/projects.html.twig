@@ -21,7 +21,7 @@
         <div id="mainNav" class="overlay">
           <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a href="/projects">Browse Projects</a></li>
             <li><a href="/about">About</a></li>
             {% if user_id is not null %}
@@ -69,13 +69,14 @@
           {% for project in projects %}
           <div class="open-project"><!-- Each new uploaded project (class open-project) should append within this wrapper -->
             <div class="openProjectHeader">
-              <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+              {% if owner_photo is empty %}
+                <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
+              {% else %}
+                <img class="profileImage" src="{{ owner_photo }}" alt="Image not available">
+              {% endif %}
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
-                {% for owner in owners %}
                 <h4 class="projectAuthor">{{ owner }}</h4>
-                {% endfor %}
-
               </div>
             </div>
 

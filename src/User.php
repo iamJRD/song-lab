@@ -225,7 +225,7 @@
 
        function getOwnerProjects()
        {
-            $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
+            $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()} ORDER BY id DESC;");
 		    $projects = array();
 
             foreach ($query as $project) {
