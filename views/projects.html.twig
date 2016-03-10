@@ -48,7 +48,7 @@
         </nav>
 
 
-          <video class="headerVid" autoplay loop muted poster="assets/images/poster.jpg">
+          <video class="headerVid" id="headerVid" muted="true" autoplay="true" loop="true">
             <source src="img/guitar-video.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
@@ -76,7 +76,13 @@
               {% endif %}
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
-                <h4 class="projectAuthor">{{ owner }}</h4>
+                {% set owners = project.getProjectOwner %}
+                <h4 class="projectAuthor">{{ owners.getUsername}}</h4>
+
+                {% set collaborators = project.getCollaborators %}
+                {% for collaborator in collaborators %}
+                <h4 class="projectCollaborator"><i>{{ collaborator.getUsername }}</i></h4>
+                {% endfor %}
               </div>
             </div>
 

@@ -492,7 +492,9 @@
 
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "torrence";
+            $project_id = 2;
+            $test_message = new Message($id, $message, $sender, $project_id);
             $test_message->save();
 
             //Act
@@ -518,12 +520,16 @@
 
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "molly";
+            $project_id = 3;
+            $test_message = new Message($id, $message, $sender, $project_id);
             $test_message->save();
             $test_user->addMessage($test_message);
 
             $message2 = "want to contribute synth part";
-            $test_message2 = new Message($id, $message2);
+            $sender2 = "jared";
+            $project_id2 = 3;
+            $test_message2 = new Message($id, $message2, $sender2, $project_id2);
             $test_message2->save();
             $test_user->addMessage($test_message2);
 

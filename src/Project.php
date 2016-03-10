@@ -104,7 +104,7 @@
             $projects = array();
 
             foreach($returned_projects as $project)
-            {
+            {  
                 $id = $project['id'];
                 $title = $project['title'];
                 $description = $project['description'];
