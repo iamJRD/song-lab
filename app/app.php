@@ -23,7 +23,6 @@
     // Load site upon arrival
     $app->get("/", function() use ($app) {
         session_start();
-        $user_id = null;
         $_SESSION['user_id'] = null;
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();

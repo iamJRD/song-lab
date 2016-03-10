@@ -16,7 +16,7 @@
     @include flexbox(flex, center, $direction: column);
     margin: 3%;
     .openProjectHeader {
-      @include flexbox(flex, $align-items: center);
+      @include flexbox(flex, $align-items: flex-start);
       @extend %headerFont;
       img {
         @include size(80px 80px);
@@ -35,11 +35,11 @@
           text-align: left;
           margin: 0 auto;
         }
-      }
-    }
-    .openProjectSummary {
-      p {
-        margin-top: 5px;
+        .openProjectSummary {
+          p {
+            margin-top: 5px;
+          }
+        }
       }
     }
   }

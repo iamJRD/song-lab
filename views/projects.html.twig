@@ -83,12 +83,12 @@
                 {% for collaborator in collaborators %}
                 <h4 class="projectCollaborator"><i>{{ collaborator.getUsername }}</i></h4>
                 {% endfor %}
+                <div class="openProjectSummary">
+                  <p class="projectSummary">{{ project.getDescription}}</p>
+                </div>
               </div>
             </div>
 
-            <div class="openProjectSummary">
-              <p class="projectSummary">{{ project.getDescription}}</p>
-            </div>
 
             <div class="openProjectButtons">
               <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>

@@ -1709,7 +1709,7 @@ select {
     margin: 3%; }
     .projectsWrapper .open-project .openProjectHeader {
       display: flex;
-      align-items: center; }
+      align-items: flex-start; }
       .projectsWrapper .open-project .openProjectHeader img {
         height: 80px;
         width: 80px;
@@ -1725,8 +1725,8 @@ select {
           color: grey;
           text-align: left;
           margin: 0 auto; }
-    .projectsWrapper .open-project .openProjectSummary p {
-      margin-top: 5px; }
+        .projectsWrapper .open-project .openProjectHeader .titleAndAuthor .openProjectSummary p {
+          margin-top: 5px; }
 
 .noProjects {
   margin: 5em; }

@@ -146,12 +146,12 @@
             <div class="titleAndAuthor">
               <h3 class="projectTitle">{{ project.getTitle}}</h3>
               <h4 class="projectAuthor">By: {{ user.getUsername }}</h4>
+              <div class="openProjectSummary">
+                <p class="projectSummary">{{ project.getDescription}}</p>
+              </div>
             </div>
           </div>
 
-          <div class="openProjectSummary">
-            <p class="projectSummary">{{ project.getDescription}}</p>
-          </div>
 
           <div class="openProjectButtons">
             <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>

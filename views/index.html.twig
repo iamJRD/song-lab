@@ -51,6 +51,7 @@
             <p>Upload your project and find other artists to help bring your song to life.</p>
             <p>Connect. Collaborate. Create.</p>
           </div>
+          {% if user_id is null %}
           <div class="headerButtons">
             <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
               <div id="modal1" class="modal modalLong">
@@ -110,6 +111,7 @@
               </div>
             </div>
           </div>
+          {% endif %}
         </div>
       </div>
 
