@@ -56,8 +56,6 @@
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
           <p class="userBio">{{ user.getBio }}</p>
-          <!-- WIP LINK! -->
-          <a href="/user/{{user.getId}}/messages">Get Messages</a>
           <div class="profileButtons">
             <a class="secondaryWhite modal-trigger modal-close" href="#postMusicModal">Post Music</a>
             <div id="postMusicModal" class="modal">
@@ -87,16 +85,18 @@
                     <input type="checkbox" id="test2" />
                     <label for="test2">Composition</label>
                     <input type="checkbox" id="test3" />
-                    <label for="test3">Bass Track</label>
+                    <label for="test3">Instrumental</label>
                     <input type="checkbox" id="test4" />
-                    <label for="test4">Flute</label>
+                    <label for="test4">Other</label>
                   </p>
-                  <div class="modal-footer">
-                      <button type="submit" name="button">Post Your Song</button>
-                  </div>
-                </form>
-              </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="button">Post Your Song</button>
+                </div>
+              </form>
             </div>
+            <!-- WIP LINK! -->
+            <a class="secondaryWhite" href="/user/{{user.getId}}/messages">View Collaboration Requests</a>
             <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
             <div id="editProfileModal" class="modal">
               <div class="modal-content">
