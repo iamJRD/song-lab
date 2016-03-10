@@ -21,7 +21,7 @@
       <div id="mainNav" class="overlay">
         <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a href="/projects">Browse Projects</a></li>
             <li><a href="/about">About</a></li>
             {% if user_id is not null %}
@@ -47,7 +47,6 @@
       </nav>
         <div class="profileInfo">
           <div class="personInfo">
-
         {% if user.getPhoto is empty %}
           <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
         {% else %}
@@ -162,7 +161,7 @@
             <div id="modal{{project.getId}}" class="modal">
               <div class="modal-content">
                 <h1>{{project.getResources | raw}}</h1>
-                <p>{{ project.getLyrics}}</p>
+                <p>{{ project.getLyrics }}</p>
               </div>
             </div>
       </div> <!-- Open Project end -->

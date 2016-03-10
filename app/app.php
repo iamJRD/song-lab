@@ -6,7 +6,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=songlab';
+    $server = 'mysql:host=localhost:8889;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -20,8 +20,18 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
-    // Get homepage
+    // Load site upon arrival
     $app->get("/", function() use ($app) {
+        session_start();
+        $_SESSION['user_id'] = null;
+        $user_id = $_SESSION['user_id'];
+        $users = User::getAll();
+        $error = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
+    });
+
+    // Go to homepage from menu
+    $app->get("/home", function() use ($app) {
         session_start();
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
