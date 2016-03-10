@@ -473,7 +473,6 @@ a {
 .delete {
   border: none;
   color: tomato;
-  padding-left: 15px;
   transition: all 150ms linear; }
   .delete:hover {
     transform: scale(1.1);
@@ -1362,10 +1361,11 @@ form p:last-child {
 
 .select-wrapper {
   position: relative; }
-  .select-wrapper input.select-dropdown {
+  .select-wrapper option .select-dropdown {
     position: relative;
     cursor: pointer;
-    background-color: transparent;
+    color: #444;
+    background-color: #fff;
     border: none;
     border-bottom: 1px solid #000;
     outline: none;

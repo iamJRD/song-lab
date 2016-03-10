@@ -72,10 +72,10 @@
                     <textarea placeholder="Notes" id="textarea1" name="description" type="text" class="materialize-textarea"></textarea>
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Genre" id="textarea1" type="text" name="genre" class="materialize-textarea"></textarea>
+                    <input placeholder="Genre" id="textarea1" type="text" name="genre" class="materialize-textarea"></input>
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Tracks" id="textarea1" type="text" name="resources" class="materialize-textarea"></textarea>
+                    <textarea placeholder="Soundcloud Embed Code" id="textarea1" type="text" name="resources" class="materialize-textarea"></textarea>
                   </div>
                   <div class="input-field">
                     <textarea placeholder="Lyrics" id="textarea1" type="text" name="lyrics" class="materialize-textarea"></textarea>
@@ -125,8 +125,7 @@
                         <button type="submit" name="button">Update</button>
                     </div>
                 </form>
-                <hr>
-                <a href="/user/{{ user.getId }}/delete"><button type="submit" name="button">Delete Profile?</button></a>
+                <a href="/user/{{ user.getId }}/delete"><button type="submit" name="button" class="delete">Delete Profile</button></a>
               </div>
             </div>
             <a class="secondaryWhite" href="#">Browse Open Collabs</a>

@@ -473,11 +473,11 @@ form p:last-child {
 .select-wrapper {
   position: relative;
 
-  input.select-dropdown {
+  option .select-dropdown {
     position: relative;
     cursor: pointer;
-    // color: #444;
-    background-color: transparent;
+    color: #444;
+    background-color: $white;
     border: none;
     border-bottom: 1px solid $input-border-color;
     outline: none;
