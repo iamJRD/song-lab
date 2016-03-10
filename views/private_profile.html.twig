@@ -47,11 +47,11 @@
       </nav>
         <div class="profileInfo">
           <div class="personInfo">
-              <!--May need to remove "" from twig for photo src-->
-        {% if user.getPhoto is null %}
-          <img class="profileImage" src="img/headphones.jpg" alt="default-image" />
+
+        {% if user.getPhoto is empty %}
+          <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
         {% else %}
-          <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available"></img>
+          <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available">
         {% endif %}
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
@@ -137,7 +137,11 @@
       <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
         <div class="open-project">
           <div class="openProjectHeader">
-            <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+            {% if user.getPhoto is empty %}
+              <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
+            {% else %}
+              <img class="profileImage" src="{{ user.getPhoto }}" alt="Profile image of project owner">
+            {% endif %}
             <div class="titleAndAuthor">
               <h3 class="projectTitle">{{ project.getTitle}}</h3>
               <h4 class="projectAuthor">{{ user.getUsername }}</h4>
@@ -165,10 +169,10 @@
     </div>
 
     </div><!-- projects wrapper end -->
-    {% endfor %}
-    {% else %}
-    <p>No current projects</p>
-    {% endif %}
+      {% endfor %}
+      {% else %}
+      <p>No current projects</p>
+      {% endif %}
 
   </body>
 </html>
