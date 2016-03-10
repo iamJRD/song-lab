@@ -194,7 +194,7 @@
     $app->patch("/user/{id}/edit_profile", function($id) use ($app){
         session_start();
         $user_id = $_SESSION['user_id'];
-        $user = User::find($id);
+        $user = User::find($user_id);
         $new_first_name = $_POST['new_first_name'];
         $new_last_name = $_POST['new_last_name'];
         $new_email = null;

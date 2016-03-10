@@ -23,8 +23,10 @@
           <li><a href="/">Home</a></li>
           <li><a href="/projects">Browse Projects</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="">My Account</a></li>
-          <li><a href="">Log Out</a></li>
+          {% if user_id is not null %}
+          <li><a href="/user/{{ user_id }}">My Account</a></li>
+          <li><a href="/log_out">Log Out</a></li>
+          {% endif %}
         </ul>
       </div>
 
