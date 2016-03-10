@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/main.css" media="screen">
+    <link rel="stylesheet" href="/css/main.css" media="screen">
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/css-scripts.js"></script>
+    <script src="/js/materialize.js"></script>
+    <script src="/js/css-scripts.js"></script>
     <title>SongLab | About songLab</title>
   </head>
   <body>
@@ -16,13 +16,13 @@
           <div class="iconbar"></div>
           <div class="iconbar"></div>
           <div class="iconbar"></div>
-        </div>
+      </div>
       <div id="mainNav" class="overlay">
         <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="browse-projects.html">Browse Projects</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="">My Account</a></li>
           <li><a href="">Log Out</a></li>
         </ul>
@@ -56,58 +56,66 @@
           <h2>Connect. Collaborate. Create.</h2>
         </div>
 
-        <div class="aboutButtons">
-            <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
+        <div class="headerButtons">
+          <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
             <div id="modal1" class="modal">
               <div class="modal-content">
                 <h2>Create Your Account</h2>
                 <h4>Join SongLab to discover and create creative ideas.</h4>
-                <form class="createAccountForm" action="index.html" method="post">
+                <form class="createAccountForm" action="/user" method="post">
                   <div class="input-field">
-                    <input placeholder="Username" id="Username" type="text" class="validate">
+                    <input placeholder="Username" id="Username" name="username" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <input placeholder="Password" id="password" type="password" class="validate">
+                    <input placeholder="Password" id="password" name="password1" type="password" class="validate">
                   </div>
                   <div class="input-field">
-                    <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    <input placeholder="Verify Password" id="password" name="password2" type="password" class="validate">
                   </div>
                   <div class="input-field">
-                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    <input placeholder="First Name" id="first_name" name="first_name" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button class="modal-close" href="#">Create Your Account</button>
-              </div>
-            </div>
-            <a class="modal-trigger" href="#modal2">Sign In</a>
-            <div id="modal2" class="modal">
-              <div class="modal-content">
-                <h1>SongLab</h1>
-                <form class="signInForm" action="index.html" method="post">
-                  <div class="input-field">
-                    <input placeholder="Username" id="username" type="text" class="validate">
+                    <input placeholder="Last Name" id="last_name" name="last_name" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <input placeholder="Password" id="password" type="password" class="validate">
+                    <textarea placeholder="Bio" id="textarea1" name="bio" type="text" class="materialize-textarea"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="submit" class="modal-close">Create Your Account</button>
                   </div>
                 </form>
               </div>
-              <div class="modal-footer">
-                <a class="modal-close" href="private-profile.html">Sign In</a>
-              </div>
             </div>
+          <a class="modal-trigger" href="#modal2">Sign In</a>
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h1>SongLab</h1>
+              <form class="signInForm" action="/sign_in" method="post">
+                {% if error is not empty %}
+                        <script type="text/javascript">
+                        $("#modal2").openModal();
+                        $(this).removeClass('.lean-overlay');
+                      </script>
+                        {{ error }}
+                        {% endif %}
+                <div class="input-field">
+                  <input placeholder="Username" id="username" type="text" class="validate">
+                </div>
+                <div class="input-field">
+                  <input placeholder="Password" id="password" type="password" class="validate">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="modal-close" name="button">Sign In</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+
       </div>
-      <div class="footer">
-        <hr>
-        <p>SongLab was created at <a target="_blank" href="http://www.epicodus.com">Epicodus</a> by <a target="_blank" href="https://github.com/jaredbeckler">Jared Beckler</a>, <a target="_blank" href="https://github.com/mostfamiliar">Torrence Stratton</a>, <a target="_blank" href="https://github.com/jcfix">Jessica Fix</a>, <a target="_blank" href="https://github.com/brookehurford">Brooke Hurford</a>, and <a target="_blank" href="https://github.com/pokojt">Taylor Pokoj</a>.</p>
-        <p>SongLab &copy; 2016 | All Rights Reserved</p>
-      </div>
+
     </div>
+
   </body>
 </html>

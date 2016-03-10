@@ -1,3 +1,19 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+
+
+.footer {
+  margin-top: 4%;
+  width: 65%;
+  text-align: center;
+}
+
+// About Page footer
+
+.footer a {
+  color: darken($subColor1, 10%);
+  &:first-child {
+    color: darken($primary, 10%);
+  }
+}

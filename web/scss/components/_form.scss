@@ -10,6 +10,18 @@ form {
   }
 }
 
+.firstLastFields {
+  display: flex;
+  justify: space-between;
+  width: 100%;
+  .input-field {
+    flex:1;
+    &:first-child {
+      margin-right: 5px;
+    }
+  }
+}
+
 
 // MATERIALIZE FORM SASS
 //============================
@@ -79,6 +91,10 @@ textarea.materialize-textarea {
   box-sizing: content-box;
   transition: all .3s;
 
+  @media screen and #{$mobile} {
+    font-size: .8rem;
+  }
+
 
   // Disabled input style
   &:disabled, &[readonly="readonly"] {
@@ -139,7 +155,10 @@ textarea.materialize-textarea {
 // Styling for input field wrapper
 .input-field {
   position: relative;
-  margin-top: 1rem;
+  margin-top: .5rem;
+  @media screen and #{$mobile} {
+    margin-top: 0;
+  }
 
   label {
     color: $input-border-color;
@@ -172,14 +191,14 @@ textarea.materialize-textarea {
   }
   .prefix ~ textarea { padding-top: .8rem; }
   .prefix ~ label { margin-left: 3rem; }
-  //
-  // @media #{$medium-and-down} {
+
+  // @media #{$tablet} {
   //   .prefix ~ input {
   //     width: 86%;
   //     width: calc(100% - 3rem);
   //   }
   // }
-  // @media #{$small-and-down} {
+  // @media #{$mobile} {
   //   .prefix ~ input {
   //     width: 80%;
   //     width: calc(100% - 3rem);
@@ -229,12 +248,18 @@ textarea {
    width: 100%;
    height: 3rem;
    background-color: transparent;
+   @media screen and #{$mobile} {
+     height: 1rem;
+   }
 
   &.materialize-textarea {
     overflow-y: hidden; /* prevents scroll bar flash */
     padding: 1.6rem 0; /* prevents text jump on Enter keypress */
     resize: none;
     min-height: 3rem;
+    @media screen and #{$mobile} {
+      padding: 1rem 0;
+    }
   }
 }
 
@@ -543,6 +568,9 @@ select:disabled {
 **********************/
 .file-field {
   position: relative;
+  @media screen and #{$mobile} {
+    display: none;
+  }
 
   .file-path-wrapper {
     overflow: hidden;

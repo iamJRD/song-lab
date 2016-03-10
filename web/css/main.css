@@ -8,7 +8,7 @@ html {
   font-family: 'Fjalla One', sans-serif; }
 
 
-h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
+h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .aboutButtons a, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a, button {
@@ -77,7 +77,7 @@ a {
         right: 5%; } }
   .overlay li {
     letter-spacing: 2px;
-    padding: 5%;
+    padding: 1%;
     text-decoration: none;
     font-size: 60px;
     display: block;
@@ -146,6 +146,9 @@ a {
 .browseHeader {
   max-height: 50vh;
   overflow: hidden; }
+  @media screen and (max-height: 850px) {
+    .browseHeader .navSubpage {
+      display: none; } }
   .browseHeader .headerVid {
     object-fit: cover;
     width: 100%;
@@ -168,6 +171,12 @@ a {
     top: 15%;
     left: 50%;
     transform: translate(-50%, 0); }
+    @media screen and (max-height: 1050px) {
+      .browseHeader .headerVidText {
+        top: 13%; } }
+    @media screen and (max-height: 850px) {
+      .browseHeader .headerVidText {
+        top: 7%; } }
     .browseHeader .headerVidText h1 {
       font-size: 90px;
       font-weight: lighter;
@@ -179,6 +188,12 @@ a {
       @media screen and (max-width: 670px) {
         .browseHeader .headerVidText h1 {
           font-size: 50px; } }
+      @media screen and (max-height: 1050px) {
+        .browseHeader .headerVidText h1 {
+          font-size: 60px; } }
+      @media screen and (max-height: 660px) {
+        .browseHeader .headerVidText h1 {
+          font-size: 40px; } }
     .browseHeader .headerVidText p {
       margin: 0 auto;
       font-size: 25px; }
@@ -188,6 +203,12 @@ a {
       @media screen and (max-width: 468px) {
         .browseHeader .headerVidText p {
           font-size: 16px; } }
+      @media screen and (max-height: 1050px) {
+        .browseHeader .headerVidText p {
+          font-size: 18px; } }
+      @media screen and (max-height: 660px) {
+        .browseHeader .headerVidText p {
+          display: none; } }
     .browseHeader .headerVidText #browsePageSearch {
       margin-top: 3%; }
       .browseHeader .headerVidText #browsePageSearch input {
@@ -203,7 +224,20 @@ a {
         @media screen and (max-width: 860px) {
           .browseHeader .headerVidText #browsePageSearch input {
             width: 60%;
-            margin-top: 5%; } }
+            margin-top: 2%; } }
+        @media screen and (max-height: 660px) {
+          .browseHeader .headerVidText #browsePageSearch input {
+            height: 4vh; } }
+
+.footer {
+  margin-top: 4%;
+  width: 65%;
+  text-align: center; }
+
+.footer a {
+  color: #66b3ff; }
+  .footer a:first-child {
+    color: #8d66ff; }
 
 .profileHeader {
   min-height: 750px;
@@ -239,6 +273,7 @@ a {
       min-height: 45vh; } }
 
 .aboutHeader {
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,10 +284,12 @@ a {
   background-size: cover;
   background-position: bottom;
   width: 100%; }
-  .aboutHeader .aboutHeaderText h1 {
-    font-size: 100px;
-    color: #fff;
-    font-weight: lighter; }
+  .aboutHeader .aboutHeaderText {
+    width: 90%; }
+    .aboutHeader .aboutHeaderText h1 {
+      font-size: 100px;
+      color: #fff;
+      font-weight: lighter; }
 
 .confirmation {
   height: 100vh;
@@ -434,6 +471,22 @@ a {
     background: #99FFE6;
     border: 1px solid transparent; }
 
+.delete {
+  border: none;
+  color: tomato;
+  padding-left: 15px;
+  transition: all 150ms linear; }
+  .delete:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    text-decoration: underline;
+    color: tomato; }
+  .delete:focus {
+    background-color: transparent;
+    border: none;
+    color: tomato;
+    padding-left: 15px; }
+
 .searchButton {
   font-size: 1em;
   color: #fff;
@@ -481,34 +534,32 @@ a {
       background: #99ccff; }
 
 .aboutButtons {
-  margin: 5% auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: auto;
   width: 100%;
   align-self: center; }
   .aboutButtons a {
-    font-size: 1.3em;
+    max-width: 48%;
+    text-align: center;
+    font-size: 1.2em;
     color: #4d4d4d;
-    letter-spacing: 2px;
-    padding: 0.8em 2em;
+    padding: 0.5em 5%;
+    margin: 0.5em;
     border: 1px solid #4d4d4d;
-    background: transparent;
     transition: all 500ms linear; }
-    .aboutButtons a:first-child {
-      margin-right: 1em; }
     .aboutButtons a:hover {
       color: #000;
       background: #99FFE6; }
-    .aboutButtons a:nth-child(2):hover {
-      background: #99ccff; }
     @media screen and (max-width: 768px) {
       .aboutButtons a {
-        width: 100%;
-        margin-bottom: 1em; } }
-  @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        margin: 5px auto;
+        width: 85%; } }
+  @media screen and (max-width: 468px) {
     .aboutButtons {
-      display: flex;
       flex-direction: column; } }
 
 .buttonList {
@@ -692,12 +743,8 @@ button {
 .navSubpage .songLabLogo #bar3 {
   -webkit-animation: none !important; }
 
-.modal-content h2 {
-  margin-bottom: 0; }
-.modal-content h4 {
-  font-weight: lighter;
-  letter-spacing: 0.8px;
-  padding-top: 0; }
+.modalLong {
+  min-height: 680px; }
 
 .modal {
   display: none;
@@ -712,18 +759,40 @@ button {
   overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity; }
+  @media (max-width: 768px) {
+    .modal {
+      width: 97%; } }
   .modal h1, .modal h2, .modal h3, .modal h4 {
     margin-top: 0; }
   .modal .modal-content {
     padding: 24px; }
+    @media screen and (max-width: 620px) {
+      .modal .modal-content {
+        padding: 12px; } }
+    .modal .modal-content h2 {
+      margin-bottom: 25px; }
+      @media screen and (max-width: 620px) {
+        .modal .modal-content h2 {
+          font-size: 16px;
+          margin-bottom: 10px; } }
+    .modal .modal-content h4 {
+      font-weight: lighter;
+      letter-spacing: 0.8px;
+      padding-top: 0; }
+      @media screen and (max-width: 620px) {
+        .modal .modal-content h4 {
+          margin-bottom: 0; } }
   .modal .modal-close {
     cursor: pointer; }
   .modal .modal-footer {
     border-radius: 0 0 2px 2px;
     background-color: #fafafa;
-    padding: 3em 6px 5em 6px;
+    padding: 1em 6px 5em 6px;
     height: 56px;
     width: 100%; }
+    @media screen and (max-width: 620px) {
+      .modal .modal-footer {
+        padding: 0; } }
     .modal .modal-footer .btn, .modal .modal-footer .btn-flat {
       float: right;
       margin: 6px 0; }
@@ -783,6 +852,15 @@ form .musicType {
   display: flex;
   justify-content: space-around; }
 
+.firstLastFields {
+  display: flex;
+  justify: space-between;
+  width: 100%; }
+  .firstLastFields .input-field {
+    flex: 1; }
+    .firstLastFields .input-field:first-child {
+      margin-right: 5px; }
+
 /* Remove Focus Boxes */
 select:focus {
   outline: 1px solid white; }
@@ -837,6 +915,20 @@ textarea.materialize-textarea {
   box-shadow: none;
   box-sizing: content-box;
   transition: all .3s; }
+  @media screen and (max-width: 620px) {
+    input:not([type]),
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=url],
+    input[type=time],
+    input[type=date],
+    input[type=datetime-local],
+    input[type=tel],
+    input[type=number],
+    input[type=search],
+    textarea.materialize-textarea {
+      font-size: .8rem; } }
   input:not([type]):disabled, input:not([type])[readonly="readonly"],
   input[type=text]:disabled,
   input[type=text][readonly="readonly"],
@@ -1036,7 +1128,10 @@ textarea.materialize-textarea {
 
 .input-field {
   position: relative;
-  margin-top: 1rem; }
+  margin-top: .5rem; }
+  @media screen and (max-width: 620px) {
+    .input-field {
+      margin-top: 0; } }
   .input-field label {
     color: #000;
     position: absolute;
@@ -1092,6 +1187,9 @@ textarea {
   width: 100%;
   height: 3rem;
   background-color: transparent; }
+  @media screen and (max-width: 620px) {
+    textarea {
+      height: 1rem; } }
   textarea.materialize-textarea {
     overflow-y: hidden;
     /* prevents scroll bar flash */
@@ -1099,6 +1197,9 @@ textarea {
     /* prevents text jump on Enter keypress */
     resize: none;
     min-height: 3rem; }
+    @media screen and (max-width: 620px) {
+      textarea.materialize-textarea {
+        padding: 1rem 0; } }
 
 .hiddendiv {
   display: none;
@@ -1338,6 +1439,9 @@ select:disabled {
 **********************/
 .file-field {
   position: relative; }
+  @media screen and (max-width: 620px) {
+    .file-field {
+      display: none; } }
   .file-field .file-path-wrapper {
     overflow: hidden;
     padding-left: 10px; }
@@ -1501,7 +1605,6 @@ select {
       width: 90%; } }
 
 .projectsWrapper {
-  border: 1px solid lightgray;
   width: 90%;
   padding: 2%; }
   .projectsWrapper h4 {

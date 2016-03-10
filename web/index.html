@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/css-scripts.js"></script>
+    <script src="js/materialize.js"></script>
     <title>SongLab | Homepage</title>
   </head>
   <body>
@@ -45,7 +47,7 @@
           </div>
           <div class="headerButtons">
             <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
-              <div id="modal1" class="modal">
+              <div id="modal1" class="modal modalLong">
                 <div class="modal-content">
                   <h2>Create Your Account</h2>
                   <h4>Join SongLab to discover and create creative ideas.</h4>
@@ -56,11 +58,13 @@
                     <div class="input-field">
                       <input placeholder="Password" id="password" type="password" class="validate">
                     </div>
-                    <div class="input-field">
-                      <input placeholder="First Name" id="first_name" type="text" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    <div class="firstLastFields">
+                      <div class="input-field">
+                        <input placeholder="First Name" id="first_name" type="text" class="validate">
+                      </div>
+                      <div class="input-field">
+                        <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                      </div>
                     </div>
                     <div class="input-field">
                       <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
@@ -157,7 +161,7 @@
         <div class="col3">
           <div id="girl" class="galleryItem">
             <div class="galleryContent">
-              <h2>?</h2>
+              <h2>SOMBRA</h2>
               <h3>By: Jessica &amp; Taylor</h3>
             </div>
           </div>
@@ -181,9 +185,10 @@
           </div>
         </div>
       </div>
+      <div class="footer">
+        <hr>
+        <p>SongLab &copy; 2016 | All Rights Reserved</p>
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/css-scripts.js"></script>
-    <script src="js/materialize.js"></script>
   </body>
 </html>

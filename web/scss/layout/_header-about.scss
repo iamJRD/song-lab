@@ -1,4 +1,5 @@
 .aboutHeader {
+  text-align: center;
   @extend %headerFont;
   @include flexbox(flex, center, center, $direction: column);
   height: 50vh;
@@ -7,6 +8,7 @@
   background-position: bottom;
   width: 100%;
   .aboutHeaderText {
+    width: 90%;
     h1 {
       @extend %uppercase;
       @include textFormat(100px, $white, lighter);
