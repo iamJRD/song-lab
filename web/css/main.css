@@ -39,6 +39,10 @@ a {
   text-decoration: none;
   color: black; }
 
+.errorMessage {
+  text-align: center;
+  color: tomato; }
+
 .postMusicLink {
   border: none;
   color: #99ccff;

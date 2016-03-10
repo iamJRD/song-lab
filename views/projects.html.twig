@@ -85,17 +85,18 @@
 
             <div class="openProjectButtons">
               <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
-              <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
               <div id="modal{{project.getId}}" class="modal">
                 <div class="modal-content">
                   <h1>{{project.getResources | raw}}</h1>
                   <p>{{ project.getLyrics}}</p>
                 </div>
               </div>
+              <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
               <div id="modal{{project.getId}}2" class="modal">
                 <div class="modal-content">
                   <h1>Interested in working on this song?</h1>
                   <p>Message the author with your ideas!</p>
+                </div>
                   <form class="signInForm" action="project/{{project.getId}}/send_message" method="post">
                     <div class="input-field">
                       <input placeholder="From: {{current_user.getUsername}}" value="{{current_user.getUsername}}" id="userName" name="sender" type="text" class="validate">
@@ -103,19 +104,19 @@
                     <div class="input-field">
                       <textarea placeholder="Send a message!" id="message" name="message" type="text" class="validate"></textarea>
                     </div>
-                <div class="modal-footer">
-                  <button type="submit">SEND REQUEST</button>
-                </div>
-                    </form>
-              </div>
+                    <div class="modal-footer">
+                      <button type="submit">SEND REQUEST</button>
+                    </div>
+                  </form>
+            </div>
           </div>
         </div> <!-- Open Project end -->
-      </div><!-- projects wrapper end -->
-      {% endfor %}
-        <div class="footer">
-
-        </div>
-
+        {% endfor %}
+      </div> <!-- projects wrapper end -->
+      <div class="footer">
+        <hr>
+        <p>SongLab &copy; 2016 | All Rights Reserved</p>
+      </div>
     </div> <!-- Page wrapper end -->
   </body>
-  </html>
+</html>
