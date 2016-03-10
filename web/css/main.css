@@ -13,7 +13,7 @@ h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent
 h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a, button {
   text-transform: uppercase; }
 
-.confirmation .confirmationContent, .profileInfo, .noProjects {
+.confirmation .confirmationContent, .modal h1, .modal h2, .modal h3, .modal h4, .profileInfo, .noProjects {
   text-align: center; }
 
 *,
@@ -920,8 +920,9 @@ button {
   will-change: bottom, opacity; }
 
 /* View Music Modal Styles */
-.modal4 .modal-footer {
-  text-align: center; }
+.modal .projectTitle {
+  font-size: 2em;
+  margin-bottom: 20px; }
 
 /* Request to Collaborate Modal Styles */
 .modal3 {

@@ -76,7 +76,7 @@
               {% endif %}
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
-                <h4 class="projectAuthor">{{ owner }}</h4>
+                <h4 class="projectAuthor">By: {{ owner }}</h4>
               </div>
             </div>
 
@@ -87,6 +87,10 @@
             <div class="openProjectButtons">
               <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
               <div id="modal{{project.getId}}" class="modal">
+                <div class="modal-content">
+                  <h3 class="projectTitle">{{ project.getTitle }}</h3>
+                  <h4 class="projectAuthor">By: {{ owner }}</h4>
+                </div>
                 <div class="modal-content">
                   <h1>{{project.getResources | raw}}</h1>
                   <p>{{ project.getLyrics}}</p>

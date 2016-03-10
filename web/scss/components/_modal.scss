@@ -21,6 +21,7 @@
 
   h1,h2,h3,h4 {
     margin-top: 0;
+    @extend %centeredText;
   }
 
   .modal-content {
@@ -112,10 +113,10 @@
 }
 
 /* View Music Modal Styles */
-
-.modal4 {
-  .modal-footer {
-    text-align: center;
+.modal {
+  .projectTitle {
+    @include textFormat(2em);
+    margin-bottom: 20px;
   }
 }
 
