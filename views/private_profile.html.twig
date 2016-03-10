@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/js/css-scripts.js"></script>
     <script src="/js/materialize.js"></script>
@@ -21,7 +22,7 @@
       <div id="mainNav" class="overlay">
         <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a href="/projects">Browse Projects</a></li>
             <li><a href="/about">About</a></li>
             {% if user_id is not null %}
@@ -47,17 +48,14 @@
       </nav>
         <div class="profileInfo">
           <div class="personInfo">
-              <!--May need to remove "" from twig for photo src-->
-        {% if user.getPhoto is null %}
-          <img class="profileImage" src="img/headphones.jpg" alt="default-image" />
+        {% if user.getPhoto is empty %}
+          <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
         {% else %}
-          <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available"></img>
+          <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available">
         {% endif %}
             <h1 class="username">{{ user.getUsername }}</h1>
           </div>
           <p class="userBio">{{ user.getBio }}</p>
-          <!-- WIP LINK! -->
-          <a href="/user/{{user.getId}}/messages">Get Messages</a>
           <div class="profileButtons">
             <a class="secondaryWhite modal-trigger modal-close" href="#postMusicModal">Post Music</a>
             <div id="postMusicModal" class="modal">
@@ -69,16 +67,16 @@
                     <input placeholder="Song Title" id="title" name="title" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Notes" id="textarea1" name="description" type="text" class="materialize-textarea"></textarea>
+                    <textarea placeholder="Notes" id="title" name="description" type="text" class="validate materialize-textarea"></textarea>
                   </div>
                   <div class="input-field">
-                    <input placeholder="Genre" id="textarea1" type="text" name="genre" class="materialize-textarea"></input>
+                    <input placeholder="Genre" id="title" name="genre" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Soundcloud Embed Code" id="textarea1" type="text" name="resources" class="materialize-textarea"></textarea>
+                    <textarea placeholder="Soundcloud Embed Code" id="textarea1" type="text" name="resources" class="materialize-textarea validate"></textarea>
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Lyrics" id="textarea1" type="text" name="lyrics" class="materialize-textarea"></textarea>
+                    <textarea placeholder="Lyrics" id="textarea1" type="text" name="lyrics" class="materialize-textarea validate"></textarea>
                   </div>
                   <label for="question">What type of music are you posting?</label>
                   <p class="musicType">
@@ -87,16 +85,18 @@
                     <input type="checkbox" id="test2" />
                     <label for="test2">Composition</label>
                     <input type="checkbox" id="test3" />
-                    <label for="test3">Bass Track</label>
+                    <label for="test3">Instrumental</label>
                     <input type="checkbox" id="test4" />
-                    <label for="test4">Flute</label>
+                    <label for="test4">Other</label>
                   </p>
-                  <div class="modal-footer">
-                      <button type="submit" name="button">Post Your Song</button>
-                  </div>
-                </form>
-              </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="button">Post Your Song</button>
+                </div>
+              </form>
             </div>
+            <!-- WIP LINK! -->
+            <a class="secondaryWhite" href="/user/{{user.getId}}/messages">View Collaboration Requests</a>
             <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
             <div id="editProfileModal" class="modal">
               <div class="modal-content">
@@ -116,7 +116,7 @@
                       <input placeholder="Last Name" id="last_name" name="new_last_name" type="text" class="validate" value="{{ user.getLastName }}">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea">{{ user.getBio }}</textarea>
+                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea validate">{{ user.getBio }}</textarea>
                     </div>
                     <div class="input-field">
                       <input placeholder="Please enter a url to a photo here" id="textarea" name="new_photo" type="text" class="validate" value="{{ user.getPhoto }}">
@@ -133,18 +133,19 @@
         </div>
       </div>
       {% if projects is not empty %}
+      <h2>Your Open Projects</h2>
       {% for project in projects %}
       <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
         <div class="open-project">
           <div class="openProjectHeader">
-            <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+            {% if user.getPhoto is empty %}
+              <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
+            {% else %}
+              <img class="profileImage" src="{{ user.getPhoto }}" alt="Profile image of project owner">
+            {% endif %}
             <div class="titleAndAuthor">
               <h3 class="projectTitle">{{ project.getTitle}}</h3>
-              <h4 class="projectAuthor">{{ user.getUsername }}</h4>
-              <form action="/project/{{project.getId}}/delete" method="post">
-                 <input name="_method" type="hidden" value="delete">
-                <button type="submit">Delete</button>
-              </form>
+              <h4 class="projectAuthor">By: {{ user.getUsername }}</h4>
             </div>
           </div>
 
@@ -154,11 +155,29 @@
 
           <div class="openProjectButtons">
             <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
-            <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
+
+            <a class="modal-trigger" href=".modal3">DELETE SONG</a>
+            <div id="#deleteSongModal" class="modal modal3">
+              <div class="modal-content">
+                <h1>This will delete your song from your profile, and from the open projects page.</h1>
+                <form action="browse-projects.html" method="post">
+                  <label for="delete">Type DELETE to confirm.</label>
+                  <div class="input-field">
+                    <input id="delete" type="text" class="validate">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <form action="/project/{{project.getId}}/delete" method="post">
+                   <input name="_method" type="hidden" value="delete">
+                  <button type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
             <div id="modal{{project.getId}}" class="modal">
               <div class="modal-content">
                 <h1>{{project.getResources | raw}}</h1>
-                <p>{{ project.getLyrics}}</p>
+                <p>{{ project.getLyrics }}</p>
               </div>
             </div>
       </div> <!-- Open Project end -->
@@ -167,8 +186,15 @@
     </div><!-- projects wrapper end -->
     {% endfor %}
     {% else %}
-    <p>No current projects</p>
+    <div class="noProjects">
+      <i class="fa fa-frown-o"></i>
+      <h1>No projects yet!</h1>
+      <button href="#postMusicModal" class="postMusicLink modal-trigger modal-close">Post a Song</button>
+    </div>
     {% endif %}
-
+    <div class="footer">
+      <hr>
+      <p>SongLab &copy; 2016 | All Rights Reserved</p>
+    </div>
   </body>
 </html>

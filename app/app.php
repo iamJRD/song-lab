@@ -20,10 +20,24 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
-    // Get homepage
+    // Load site upon arrival
     $app->get("/", function() use ($app) {
         session_start();
+<<<<<<< HEAD
         $user_id = null;
+=======
+        $_SESSION['user_id'] = null;
+        $user_id = $_SESSION['user_id'];
+        $users = User::getAll();
+        $error = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
+    });
+
+    // Go to homepage from menu
+    $app->get("/home", function() use ($app) {
+        session_start();
+        $user_id = $_SESSION['user_id'];
+>>>>>>> master
         $users = User::getAll();
         $error = "";
         return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
@@ -80,14 +94,14 @@
         session_start();
         $user = User::find($_SESSION['user_id']);
         $projects = Project::getAll();
-        // $owners = array();
-        // foreach ($projects as $project){
-        // $owner = $project->getProjectOwner();
-        // $owner_name = $owner->getUsername();
-        //
-        // }
 
-        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
+        foreach ($projects as $project){
+        $owner = $project->getProjectOwner();
+        $owner_name = $owner->getUsername();
+        $owner_photo = $owner->getPhoto();
+        // array_push($owners, $owner_name);
+        }
+        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
 
     });
 
@@ -172,7 +186,7 @@
         session_start();
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
-        $user_projects = $user->getProjects();
+        $user_projects = $user->getOwnerProjects();
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id));
       });
 

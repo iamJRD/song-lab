@@ -20,11 +20,13 @@
       <div id="mainNav" class="overlay">
         <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="browse-projects.html">Browse Projects</a></li>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/projects">Browse Projects</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="">My Account</a></li>
-          <li><a href="">Log Out</a></li>
+          {% if user_id is not null %}
+              <li><a href="/user/{{ user_id }}">My Account</a></li>
+              <li><a href="/log_out">Log Out</a></li>
+          {% endif %}
         </ul>
       </div>
 
@@ -35,11 +37,13 @@
       </div>
 
       <div class="aboutContent">
-        <h2>What is songLab?</h2>
-        <p><b>SongLab</b> is a music collaboration website where users can browse and upload musical projects in need of creative collaboration.
-        </p>
-        <p>Dreamt up by two cross-country friends who wanted to create music together, songLab allows </p>
-        <p> Are you a great lyricist but can&#39;t write music? A composer that can&#39;t do words? Do you have a song that needs percussion, or a recording that needs mixing? Upload your project to SongLab and find artists to help bring your song to life.</p>
+        <div class="topContent flow-text">
+          <h2>What is songLab?</h2>
+          <p><b>SongLab</b> is a music collaboration website where users can browse and upload musical projects in need of creative collaboration.
+          </p>
+          <p>Dreamt up by two cross-country friends who wanted to create music together, songLab allows </p>
+          <p> Are you a great lyricist but can&#39;t write music? A composer that can&#39;t do words? Do you have a song that needs percussion, or a recording that needs mixing? Upload your project to SongLab and find artists to help bring your song to life.</p>
+        </div>
 
         <div class="songLabLogo" id="aboutLogo">
           <div class="logoText">
@@ -58,7 +62,7 @@
 
         <div class="aboutButtons">
           <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
-            <div id="modal1" class="modal">
+            <div id="modal1" class="modal modalLong">
               <div class="modal-content">
                 <h2>Create Your Account</h2>
                 <h4>Join SongLab to discover and create creative ideas.</h4>
@@ -91,14 +95,14 @@
           <div id="modal2" class="modal">
             <div class="modal-content">
               <h1>SongLab</h1>
-              <form class="signInForm" action="/sign_in" method="post">
+              <form class="signInForm" action="/sign-in" method="post">
                 {% if error is not empty %}
-                        <script type="text/javascript">
-                        $("#modal2").openModal();
-                        $(this).removeClass('.lean-overlay');
-                      </script>
-                        {{ error }}
-                        {% endif %}
+                <script type="text/javascript">
+                  $("#modal2").openModal();
+                  $(this).removeClass('.lean-overlay');
+                </script>
+                <p class="errorMessage">{{ error }}</p>
+                {% endif %}
                 <div class="input-field">
                   <input placeholder="Username" id="username" type="text" class="validate">
                 </div>
@@ -113,6 +117,11 @@
           </div>
         </div>
 
+      </div>
+      <div class="footer">
+        <hr>
+        <p>SongLab was created at <a target="_blank" href="http://www.epicodus.com">Epicodus</a> by <a target="_blank" href="https://github.com/jaredbeckler">Jared Beckler</a>, <a target="_blank" href="https://github.com/mostfamiliar">Torrence Stratton</a>, <a target="_blank" href="https://github.com/jcfix">Jessica Fix</a>, <a target="_blank" href="https://github.com/brookehurford">Brooke Hurford</a>, and <a target="_blank" href="https://github.com/pokojt">Taylor Pokoj</a>.</p>
+        <p>SongLab &copy; 2016 | All Rights Reserved</p>
       </div>
 
     </div>

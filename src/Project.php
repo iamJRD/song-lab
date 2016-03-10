@@ -100,7 +100,7 @@
 
         static function getAll()
         {
-            $returned_projects = $GLOBALS['DB']->query("SELECT * FROM projects");
+            $returned_projects = $GLOBALS['DB']->query("SELECT * FROM projects ORDER BY id DESC");
             $projects = array();
 
             foreach($returned_projects as $project)
