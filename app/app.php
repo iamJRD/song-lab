@@ -80,13 +80,13 @@
         session_start();
         $user = User::find($_SESSION['user_id']);
         $projects = Project::getAll();
-        $owners = array();
+        // $owners = array();
         foreach ($projects as $project){
         $owner = $project->getProjectOwner();
         $owner_name = $owner->getUsername();
-        array_push($owners, $owner_name);
+        // array_push($owners, $owner_name);
         }
-        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owners' => $owners, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
+        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
 
     });
 
@@ -163,7 +163,7 @@
         session_start();
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
-        $user_projects = $user->getProjects();
+        $user_projects = $user->getOwnerProjects();
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id));
       });
 
@@ -194,7 +194,7 @@
     $app->patch("/user/{id}/edit_profile", function($id) use ($app){
         session_start();
         $user_id = $_SESSION['user_id'];
-        $user = User::find($user_id);
+        $user = User::find($id);
         $new_first_name = $_POST['new_first_name'];
         $new_last_name = $_POST['new_last_name'];
         $new_email = null;

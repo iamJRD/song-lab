@@ -226,7 +226,7 @@
        function getOwnerProjects()
        {
             $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()};");
-		    $projects = array();
+		        $projects = array();
 
             foreach ($query as $project) {
                $id = $project['id'];
