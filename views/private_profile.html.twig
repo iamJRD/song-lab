@@ -103,7 +103,7 @@
               </form>
             </div>
             <!-- WIP LINK! -->
-            <a class="secondaryWhite" href="/user/{{user.getId}}/messages">View Collaboration Requests<div class="notification">3</div></a>
+            <a class="secondaryWhite" href="/user/{{user.getId}}/messages">View Collaboration Requests<div class="notification">{{collab_requests}}</div></a>
             <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
             <div id="editProfileModal" class="modal">
               <div class="modal-content">
@@ -139,8 +139,11 @@
           </div>
         </div>
       </div>
+      {% set position = projects|length %}
       {% if projects is not empty %}
       <h2>Your Open Projects</h2>
+
+
       {% for project in projects %}
       <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
         <div class="open-project">
@@ -187,9 +190,7 @@
             </div>
             <div id="modal{{project.getId}}" class="modal">
               <div class="modal-content">
-                {% if embed is not empty %}
-                <h1><a href="{{embed}}" class="sc-player minimal"></a></h1>
-                {% endif %}
+                <h1><a href="{{project.getResources}}" class="sc-player minimal"></a></h1>
                 <p>{{ project.getLyrics }}</p>
               </div>
             </div>

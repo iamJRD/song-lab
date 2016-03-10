@@ -6,7 +6,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=songlab';
+    $server = 'mysql:host=localhost:8889;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -82,9 +82,10 @@
         $project = Project::find($id);
         $project->delete();
         $user = User::find($project->getUserId());
-
+        $messages = $user->getOwnerMessages();
+        $message_num = count($messages);
         $user_projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $_SESSION['user_id']));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'collab_requests' => $message_num, 'user_id' => $_SESSION['user_id']));
     });
 
     // Get projects list
@@ -156,6 +157,7 @@
           $sender_name = $message_to_delete->getSender();
           $sender = User::findUsername($sender_name);
           $project->addCollaborator($sender);
+          var_dump($project->getCollaborators());
           $message_to_delete->delete();
 
           $messages = $user->getOwnerMessages();
@@ -167,7 +169,6 @@
     // Create a user project on private profile
     $app->post("/user/{id}/create_project", function($id) use ($app){
         session_start();
-        $_SESSION['resources'] = null;
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
         $id = null;
@@ -181,8 +182,11 @@
         $user_id = $user->getId(); //delete????
         $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
         $new_project->save();
+
         $projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $projects, 'embed' => $_GET['resources'], 'user_id' => $user_id));
+        $messages = $user->getOwnerMessages();
+        $message_num = count($messages);
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $projects, 'user_id' => $user_id, 'collab_requests' => $message_num));
     });
 
     // Initial routing for returning to profile
@@ -191,7 +195,9 @@
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
         $user_projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
+        $messages = $user->getOwnerMessages();
+        $message_num = count($messages);
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id, 'collab_requests' => $message_num));
       });
 
 
@@ -209,7 +215,9 @@
                 $_SESSION['user_id'] = $user->getId();
                 $user_id = $_SESSION['user_id'];
                 $session_status = $_SESSION['user_id'];
-                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
+                $messages = $found_user->getOwnerMessages();
+                $message_num = count($messages);
+                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id, 'collab_requests' => $message_num));
             } else {
                 session_start();
                 $error = "The username and password do not match!";
