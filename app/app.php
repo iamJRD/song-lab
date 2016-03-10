@@ -121,14 +121,12 @@
 
     $app->post("/message/{id}/approve", function($id) use ($app){
           //add user to project as collaborator
-          echo $id;
           $message_to_delete = Message::find($id);
-          var_dump($message_to_delete);
           $user = $message_to_delete->getMessageUser();
           $message_to_delete->delete();
 
-          $user = User::find($id);
           $messages = $user->getOwnerMessages();
+
           $message_num = count($messages);
           return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num));
         });
