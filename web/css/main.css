@@ -401,6 +401,7 @@ a {
 .aboutContent {
   width: 90%; }
   .aboutContent h2 {
+    font-size: 28px;
     color: #4d4d4d; }
   .aboutContent p {
     font-size: 19px; }
