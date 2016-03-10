@@ -1,3 +1,21 @@
+div {
+  .notification {
+    @include size(30px);
+    @include textFormat($color: $white, $weight: bold);
+    background-color: tomato;
+    border-radius: 50%;
+    position: relative;
+    top: -20px;
+    left: 265px;
+    margin: -30px;
+    @media screen and #{$tablet} {
+      top: -5%;
+      left: 400px;
+      margin: -12px;
+    }
+  }
+}
+
 .inboxHeader {
   @extend %headerFont;
   width: 100vw;
