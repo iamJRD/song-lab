@@ -26,7 +26,8 @@
             // Arrange
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "torrence";
+            $test_message = new Message($id, $message, $sender);
 
             // Act
             $result = $test_message->getId();
@@ -40,7 +41,8 @@
             // Arrange
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "torrence";
+            $test_message = new Message($id, $message, $sender);
 
             // Act
             $result = $test_message->getMessage();
@@ -54,7 +56,8 @@
             // Arrange
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "torrence";
+            $test_message = new Message($id, $message, $sender);
 
             // Act
             $test_message->save();
@@ -69,10 +72,12 @@
             // Arrange
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "torrence";
+            $test_message = new Message($id, $message, $sender);
 
             $message2 = "Would like to add bass";
-            $test_message2 = new Message($id, $message2);
+            $sender2 = "jared";
+            $test_message2 = new Message($id, $message2, $sender2);
 
 
             // Act

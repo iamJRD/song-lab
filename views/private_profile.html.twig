@@ -126,13 +126,14 @@
                     </div>
                 </form>
                 <hr>
-                <a href="/user/{{ user.getId }}/delete"><button type="submit" name="button">Delete Profile?</button></a>
+                <a href="/project/{{ user.getId }}/delete"><button type="submit" name="button">Delete Profile?</button></a>
               </div>
             </div>
-            <a class="secondaryWhite" href="#">Browse Open Collabs</a>
+            <a class="secondaryWhite" href="/projects">Browse Open Collabs</a>
           </div>
         </div>
       </div>
+      {% if projects is not empty %}
       {% for project in projects %}
       <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
         <div class="open-project">
@@ -140,7 +141,11 @@
             <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
             <div class="titleAndAuthor">
               <h3 class="projectTitle">{{ project.getTitle}}</h3>
-              <h4 class="projectAuthor">By: Author Name</h4>
+              <h4 class="projectAuthor">{{ user.getUsername }}</h4>
+              <form action="/project/{{project.getId}}/delete" method="post">
+                 <input name="_method" type="hidden" value="delete">
+                <button type="submit">Delete</button>
+              </form>
             </div>
           </div>
 
@@ -157,29 +162,14 @@
                 <p>{{ project.getLyrics}}</p>
               </div>
             </div>
-            <div id="modal{{project.getId}}2" class="modal">
-              <div class="modal-content">
-                <h1>Interested in working on this song?</h1>
-                <p>Message the author with your ideas!</p>
-                <form class="signInForm" action="project/{{project.getId}}/send_message" method="post">
-                  <input
-                  <div class="input-field">
-                    <input placeholder="Your Username" id="userName" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <textarea placeholder="Send me a message!" id="message" name="message" type="text" class="validate"></textarea>
-                  </div>
-              <div class="modal-footer">
-                <button type="submit">SEND REQUEST</button>
-              </div>
-                  </form>
-            </div>
-        </div>
       </div> <!-- Open Project end -->
     </div>
 
     </div><!-- projects wrapper end -->
     {% endfor %}
+    {% else %}
+    <p>No current projects</p>
+    {% endif %}
 
   </body>
 </html>

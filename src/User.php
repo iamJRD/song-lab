@@ -259,7 +259,8 @@
            {
                $id = $message['id'];
                $user_message = $message['message'];
-               $new_message = new Message($id, $user_message);
+               $sender = $message['sender'];
+               $new_message = new Message($id, $user_message, $sender);
                array_push($messages, $new_message);
            }
            return $messages;
