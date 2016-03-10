@@ -170,11 +170,11 @@
           <div class="openProjectButtons">
             <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
 
-            <a class="modal-trigger" href=".modal3">DELETE SONG</a>
-            <div id="#deleteSongModal" class="modal modal3">
+            <a class="modal-trigger" href=".modal{{project.getId}}">DELETE SONG</a>
+            <div id="#deleteSongModal" class="modal modal{{project.getId}}">
               <div class="modal-content">
                 <h1>This will delete your song from your profile, and from the open projects page.</h1>
-                <form action="browse-projects.html" method="post">
+                <form action="/project/{{project.getId}}/delete" method="post">
                   <label for="delete">Type DELETE to confirm.</label>
                   <div class="input-field">
                     <input id="delete" type="text" class="validate">

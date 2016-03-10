@@ -77,9 +77,10 @@
 
     //delete project from user profile page
     $app->delete("/project/{id}/delete", function($id) use ($app) {
-
         session_start();
+        echo $id;
         $project = Project::find($id);
+        var_dump($project);
         $project->delete();
         $user = User::find($project->getUserId());
         $messages = $user->getOwnerMessages();
