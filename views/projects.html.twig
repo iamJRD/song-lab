@@ -103,22 +103,23 @@
                 </div>
               </div>
               <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
-              <div id="modal{{project.getId}}2" class="modal">
+              <div id="modal{{project.getId}}2" class="modal modal3">
                 <div class="modal-content">
                   <h1>Interested in working on this song?</h1>
                   <p>Message the author with your ideas!</p>
-                </div>
+                <!-- </div> -->
                   <form class="signInForm" action="project/{{project.getId}}/send_message" method="post">
                     <div class="input-field">
                       <input placeholder="From: {{current_user.getUsername}}" value="{{current_user.getUsername}}" id="userName" name="sender" type="text" class="validate">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Send a message!" id="message" name="message" type="text" class="validate"></textarea>
+                      <textarea placeholder="Send a message!" id="message" name="message" type="text" class="materialize-textarea validate"></textarea>
+                    </div>
                     </div>
                     <div class="modal-footer">
                       <button type="submit">SEND REQUEST</button>
                     </div>
-                  </form>
+                  </form>    
             </div>
           </div>
         </div> <!-- Open Project end -->
