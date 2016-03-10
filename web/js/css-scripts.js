@@ -6,3 +6,7 @@ $(document).ready(function(){
     document.getElementById("mainNav").style.width = "0%";
   })
 })
+
+$(document).ready(function() {
+  $('select').material_select();
+});
