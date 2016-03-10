@@ -493,7 +493,7 @@
             $id = null;
             $message = "hi how are you";
             $sender = "torrence";
-            $project_id = null;
+            $project_id = 2;
             $test_message = new Message($id, $message, $sender, $project_id);
             $test_message->save();
 
@@ -521,14 +521,15 @@
             $id = null;
             $message = "hi how are you";
             $sender = "molly";
-            $project_id = null;
+            $project_id = 3;
             $test_message = new Message($id, $message, $sender, $project_id);
             $test_message->save();
             $test_user->addMessage($test_message);
 
             $message2 = "want to contribute synth part";
             $sender2 = "jared";
-            $test_message2 = new Message($id, $message2, $sender2, $project_id);
+            $project_id2 = 3;
+            $test_message2 = new Message($id, $message2, $sender2, $project_id2);
             $test_message2->save();
             $test_user->addMessage($test_message2);
 
