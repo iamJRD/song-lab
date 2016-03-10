@@ -23,9 +23,7 @@
     // Load site upon arrival
     $app->get("/", function() use ($app) {
         session_start();
-<<<<<<< HEAD
         $user_id = null;
-=======
         $_SESSION['user_id'] = null;
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
@@ -37,7 +35,6 @@
     $app->get("/home", function() use ($app) {
         session_start();
         $user_id = $_SESSION['user_id'];
->>>>>>> master
         $users = User::getAll();
         $error = "";
         return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
