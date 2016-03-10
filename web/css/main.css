@@ -13,7 +13,7 @@ h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent
 h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a, button {
   text-transform: uppercase; }
 
-.confirmation .confirmationContent, .profileInfo, .noProjects {
+.confirmation .confirmationContent, .modal h1, .modal h2, .modal h3, .modal h4, .profileInfo, .noProjects {
   text-align: center; }
 
 *,
@@ -42,6 +42,10 @@ a {
 .errorMessage {
   text-align: center;
   color: tomato; }
+
+.projectAuthor {
+  color: #99ccff !important;
+  font-size: 19px; }
 
 .postMusicLink {
   border: none;
@@ -237,8 +241,7 @@ a {
     width: 100%;
     min-height: 50vh; }
   .browseHeader .video-overlay {
-    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.8), transparent);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), transparent);
+    z-index: -1;
     opacity: 0.4;
     position: absolute;
     top: 0;
@@ -590,7 +593,7 @@ a {
   justify-content: center; }
   .openProjectButtons a {
     text-align: center;
-    width: 50%;
+    width: 39%;
     margin: 1%;
     padding: 0.5em 1em;
     transition: all 300ms linear;
@@ -766,31 +769,31 @@ button {
   100% {
     width: 70px; } }
 .navSubpage .songLabLogo h1 {
-  font-size: 65px;
+  font-size: 45px;
   text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5); }
   @media screen and (max-width: 620px) {
     .navSubpage .songLabLogo h1 {
       font-size: 36px; } }
 .navSubpage .songLabLogo {
   margin: 0;
-  width: 100%;
+  width: 400px;
   position: relative;
   bottom: 37%; }
 .navSubpage .musicBars {
   display: flex;
-  width: 100px;
+  width: 80px;
   padding-left: 5px;
   flex-direction: column;
   justify-content: center;
-  padding-top: 5px; }
+  padding-bottom: 5px; }
   @media screen and (max-width: 620px) {
     .navSubpage .musicBars {
       width: 50px; } }
 .navSubpage .bar {
-  width: 80px;
-  margin: 5px;
+  width: 50px;
+  margin: 3px;
   background: #99ccff;
-  height: 10px;
+  height: 8px;
   border-radius: 5px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
   @media screen and (max-width: 620px) {
@@ -799,10 +802,10 @@ button {
       height: 8px;
       margin: 2px; } }
   .navSubpage .bar:first-child {
-    width: 40px;
-    margin: 5px;
+    width: 30px;
+    margin: 3px;
     background: #99ccff;
-    height: 10px;
+    height: 8px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
     @media screen and (max-width: 620px) {
@@ -811,10 +814,10 @@ button {
         height: 8px;
         margin: 2px; } }
   .navSubpage .bar:last-child {
-    width: 60px;
-    margin: 5px;
+    width: 40px;
+    margin: 3px;
     background: #99ccff;
-    height: 10px;
+    height: 8px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
     @media screen and (max-width: 620px) {
@@ -920,8 +923,9 @@ button {
   will-change: bottom, opacity; }
 
 /* View Music Modal Styles */
-.modal4 .modal-footer {
-  text-align: center; }
+.modal .projectTitle {
+  font-size: 2em;
+  margin-bottom: 20px; }
 
 /* Request to Collaborate Modal Styles */
 .modal3 {
@@ -1708,7 +1712,7 @@ select {
     margin: 3%; }
     .projectsWrapper .open-project .openProjectHeader {
       display: flex;
-      align-items: center; }
+      align-items: flex-start; }
       .projectsWrapper .open-project .openProjectHeader img {
         height: 80px;
         width: 80px;
@@ -1724,8 +1728,9 @@ select {
           color: grey;
           text-align: left;
           margin: 0 auto; }
-    .projectsWrapper .open-project .openProjectSummary p {
-      margin-top: 5px; }
+        .projectsWrapper .open-project .openProjectHeader .titleAndAuthor .openProjectSummary p {
+          margin-top: 5px;
+          width: 88%; }
 
 .noProjects {
   margin: 5em; }

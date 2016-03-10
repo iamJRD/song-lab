@@ -5,11 +5,31 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="/js/css-scripts.js"></script>
+    <script src="/js/materialize.js"></script>
 
     <title>Message Sent | SongLab</title>
   </head>
   <body>
     <div class="pageWrapper">
+      <div class="navIcon" onclick="openNav()">
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+      </div>
+      <div id="mainNav" class="overlay">
+        <a href="javascriptvoid:0" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/projects">Browse Projects</a></li>
+            <li><a href="/about">About</a></li>
+            {% if user_id is not null %}
+                <li><a href="/user/{{ user_id }}">My Account</a></li>
+                <li><a href="/log_out">Log Out</a></li>
+            {% endif %}
+        </ul>
+      </div>
       <nav class="navSubpage">
         <div class="songLabWrapper">
           <div class="songLabLogo">
@@ -28,7 +48,7 @@
         <div class="confirmationContent">
           <h1>Your collaboration request has been sent to {{owner.getUsername}}!</h1>
           <div class="buttonList">
-            <button class="secondaryWhite" type="button" name="button" href="/projects">Browse Other Open Projects</button>
+            <a class="secondaryWhite" type="button" name="button" href="/projects">Browse Other Open Projects</a>
           </div>
         </div>
       </div>

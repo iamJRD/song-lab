@@ -7,7 +7,7 @@
     require_once "src/User.php";
     require_once "src/Message.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=songlab_test';
+    $server = 'mysql:host=localhost;dbname=songlab_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);

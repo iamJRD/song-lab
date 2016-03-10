@@ -12,7 +12,7 @@
     min-height: 50vh;
   }
   .video-overlay {
-    @include background-image(linear-gradient(rgba($black, .8), rgba($black,0)));
+    z-index: -1;
     opacity: 0.4;
     position: absolute;
     top: 0; left: 0;

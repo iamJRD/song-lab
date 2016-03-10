@@ -77,39 +77,44 @@
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
                 {% set owners = project.getProjectOwner %}
-                <h4 class="projectAuthor">{{ owners.getUsername}}</h4>
+                <h4 class="projectAuthor">By: {{ owners.getUsername}}</h4>
 
                 {% set collaborators = project.getCollaborators %}
                 {% for collaborator in collaborators %}
-                <h4 class="projectCollaborator"><i>{{ collaborator.getUsername }}</i></h4>
+                <h4 class="projectCollaborator">Collaborators: {{ collaborator.getUsername }}</h4>
                 {% endfor %}
+                <div class="openProjectSummary">
+                  <p class="projectSummary">{{ project.getDescription}}</p>
+                </div>
               </div>
             </div>
 
-            <div class="openProjectSummary">
-              <p class="projectSummary">{{ project.getDescription}}</p>
-            </div>
 
             <div class="openProjectButtons">
               <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
               <div id="modal{{project.getId}}" class="modal">
+                <div class="modal-content">
+                  <h3 class="projectTitle">{{ project.getTitle }}</h3>
+                  <h4 class="projectAuthor">By: {{ owner }}</h4>
+                </div>
                 <div class="modal-content">
                   <h1>{{project.getResources | raw}}</h1>
                   <p>{{ project.getLyrics}}</p>
                 </div>
               </div>
               <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
-              <div id="modal{{project.getId}}2" class="modal">
+              <div id="modal{{project.getId}}2" class="modal modal3">
                 <div class="modal-content">
                   <h1>Interested in working on this song?</h1>
                   <p>Message the author with your ideas!</p>
-                </div>
+                <!-- </div> -->
                   <form class="signInForm" action="project/{{project.getId}}/send_message" method="post">
                     <div class="input-field">
                       <input placeholder="From: {{current_user.getUsername}}" value="{{current_user.getUsername}}" id="userName" name="sender" type="text" class="validate">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Send a message!" id="message" name="message" type="text" class="validate"></textarea>
+                      <textarea placeholder="Send a message!" id="message" name="message" type="text" class="materialize-textarea validate"></textarea>
+                    </div>
                     </div>
                     <div class="modal-footer">
                       <button type="submit">SEND REQUEST</button>
