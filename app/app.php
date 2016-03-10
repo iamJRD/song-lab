@@ -65,7 +65,7 @@
             $username = $_POST['username'];
             $bio = $_POST['bio'];
             $escaped_bio = addslashes($bio);
-            $photo = null; //null - upload on profile edit
+            $photo = "/img/headphones.jpg";
             $password = $_POST['password1'];
             $user = new User($id, $escaped_first_name, $escaped_last_name, $email, $username, $escaped_bio, $photo, $password);
             $user->save();
