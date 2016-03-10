@@ -68,7 +68,11 @@
         <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
           <div class="open-project">
             <div class="openProjectHeader">
-              <img class="profileImage" src="http://fillmurray.com/100/100" alt="Profile image of project user">
+              {% if owner_photo is empty %}
+                <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
+              {% else %}
+                <img class="profileImage" src="{{ owner_photo }}" alt="Image not available">
+              {% endif %}
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
                 <h4 class="projectAuthor">{{ owner }}</h4>

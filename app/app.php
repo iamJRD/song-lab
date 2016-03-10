@@ -84,9 +84,10 @@
         foreach ($projects as $project){
         $owner = $project->getProjectOwner();
         $owner_name = $owner->getUsername();
+        $owner_photo = $owner->getPhoto();
         // array_push($owners, $owner_name);
         }
-        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
+        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
 
     });
 
