@@ -7,7 +7,6 @@ html {
 .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-
 h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .aboutButtons a, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
   font-family: 'Open Sans Condensed', sans-serif; }
 
@@ -340,6 +339,9 @@ a {
     font-size: 70px;
     color: #fff;
     font-weight: lighter; }
+    @media screen and (max-width: 620px) {
+      .inboxHeader h1 {
+        font-size: 50px; } }
 
 .youHave h3 {
   color: #4d4d4d; }
