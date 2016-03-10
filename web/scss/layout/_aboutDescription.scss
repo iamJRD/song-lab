@@ -4,6 +4,9 @@
     color: $darkgray;
     @extend %headerFont;
   }
+  p {
+    font-size: 19px;
+  }
   #aboutLogo {
     h1 {
       color: $darkgray;

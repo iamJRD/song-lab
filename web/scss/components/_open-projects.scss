@@ -25,12 +25,14 @@
         border-radius: 50%;
       }
       .titleAndAuthor {
+        margin-left: 15px;
         h3 {
           @include textFormat(30px);
           margin: 0 auto;
         }
         h4 {
           @include textFormat($color: grey);
+          text-align: left;
           margin: 0 auto;
         }
       }
@@ -40,5 +42,20 @@
         margin-top: 5px;
       }
     }
+  }
+}
+
+.noProjects {
+  @extend %centeredText;
+  margin: 5em;
+  h1 {
+    @extend %headerFont;
+    font-size: 40px;
+    margin: 0;
+    color: $darkgray;
+  }
+  i {
+    color: $subColor1;
+    font-size: 55px;
   }
 }
