@@ -48,7 +48,7 @@
                     <h1>Your Collab Requests</h1>
                   </div>
                   <div class="youHave">
-                    <h3>You have <span class="messageCount">one</span> message(s).</h3> <!-- I added this so there would be something on the page if there were no messages, but we don't have to keep it if it's too difficult to code a counter -->
+                    <h3>You have <span class="messageCount">{{count}}</span> message(s).</h3> <!-- I added this so there would be something on the page if there were no messages, but we don't have to keep it if it's too difficult to code a counter -->
                   </div>
                           {% for message in messages %}
                   <div class="collabRequestWrapper">
@@ -56,12 +56,12 @@
                       <div class="requestHeader">
                         <i class="fa fa-envelope-o"></i>
 
-                        <h3>Message from <span class='Username'>Username</span></h3>
+                        <h3>Message from <span class='Username'>{{message.getSender()}}</span></h3>
                       </div>
                       <p class="message">{{ message.getMessage }}</p>
-
+                      <form action="/message/{{message.getId}}/approve" method="post">
                       <button type="submit" name="button">APPROVE REQUEST</button>
-
+                      </form>
                     </div>
                   </div>
                       {% endfor %}

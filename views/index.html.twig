@@ -25,10 +25,12 @@
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Browse Projects</a></li>
             <li><a href="/about">About</a></li>
+
             {% if user_id is not null %}
                 <li><a href="/user/{{ user_id }}">My Account</a></li>
                 <li><a href="/log_out">Log Out</a></li>
             {% endif %}
+
           </ul>
         </div>
         <div class="header">
@@ -95,10 +97,10 @@
                           {{ error }}
                           {% endif %}
                   <div class="input-field">
-                    <input placeholder="Username" id="username" type="text" class="validate">
+                    <input placeholder="Username" id="username" name="username" type="text" class="validate">
                   </div>
                   <div class="input-field">
-                    <input placeholder="Password" id="password" type="password" class="validate">
+                    <input placeholder="Password" id="password" name="password" type="password" class="validate">
                   </div>
                   <div class="modal-footer">
                       <button type="submit" class="modal-close" name="button">Sign In</button>

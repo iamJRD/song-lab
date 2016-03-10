@@ -58,7 +58,7 @@
 
         <div class="aboutButtons">
             <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
-            <div id="modal1" class="modal">
+            <div id="modal1" class="modal modalLong">
               <div class="modal-content">
                 <h2>Create Your Account</h2>
                 <h4>Join SongLab to discover and create creative ideas.</h4>
@@ -69,11 +69,13 @@
                   <div class="input-field">
                     <input placeholder="Password" id="password" type="password" class="validate">
                   </div>
-                  <div class="input-field">
-                    <input placeholder="First Name" id="first_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                  <div class="firstLastFields">
+                    <div class="input-field">
+                      <input placeholder="First Name" id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                    </div>
                   </div>
                   <div class="input-field">
                     <textarea placeholder="Bio" id="textarea1" type="text" class="materialize-textarea"></textarea>
@@ -81,7 +83,7 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <button class="modal-close" href="#">Create Your Account</button>
+                <button type="submit" class="modal-close" href="#">Create Your Account</button>
               </div>
             </div>
             <a class="modal-trigger" href="#modal2">Sign In</a>
@@ -98,7 +100,7 @@
                 </form>
               </div>
               <div class="modal-footer">
-                <a class="modal-close" href="private-profile.html">Sign In</a>
+                <button type="submit" class="modal-close" name="button">Sign In</button>
               </div>
             </div>
         </div>

@@ -131,7 +131,7 @@
                     $found_project = $project;
                 }
             }
-            return $project;
+            return $found_project;
         }
 
         static function search($keyword)
@@ -193,7 +193,6 @@
                  }
              return $found_match;
          }
-
 
         function addCollaborator($user)
         {
