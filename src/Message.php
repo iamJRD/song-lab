@@ -5,11 +5,12 @@
         private $message;
         private $sender;
 
-    function __construct($id = null, $message, $sender)
+    function __construct($id = null, $message, $sender, $project_id)
     {
         $this->id = $id;
         $this->message = $message;
         $this->sender = $sender;
+        $this->project_id = $project_id;
     }
 
     function setMessage($new_message)
@@ -37,10 +38,15 @@
         return $this->sender;
     }
 
+    function getProjectId()
+    {
+        return $this->project_id;
+    }
+
 
     function save()
     {
-        $GLOBALS['DB']->exec("INSERT INTO messages (message, sender) VALUES ('{$this->getMessage()}', '{$this->getSender()}');");
+        $GLOBALS['DB']->exec("INSERT INTO messages (message, sender, project_id) VALUES ('{$this->getMessage()}', '{$this->getSender()}', {$this->getProjectId()});");
         $this->id = $GLOBALS['DB']->lastInsertId();
     }
 
@@ -54,7 +60,8 @@
             $id = $message['id'];
             $user_message = $message['message'];
             $sender = $message['sender'];
-            $new_message = new Message($id, $user_message, $sender);
+            $project_id = $message['project_id'];
+            $new_message = new Message($id, $user_message, $sender, $project_id);
             array_push($messages, $new_message);
         }
         return $messages;

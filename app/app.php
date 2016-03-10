@@ -6,7 +6,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=songlab';
+    $server = 'mysql:host=localhost:8889;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -23,7 +23,7 @@
     // Get homepage
     $app->get("/", function() use ($app) {
         session_start();
-        $user_id = $_SESSION['user_id'];
+        $user_id = null;
         $users = User::getAll();
         $error = "";
         return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
@@ -109,7 +109,8 @@
         $id = null;
         $message = $_POST['message'];
         $sender = $_POST['sender'];
-        $new_message = new Message($id, $message, $sender);
+        $project_id = $project_to_collaborate->getId();
+        $new_message = new Message($id, $message, $sender, $project_id);
         $new_message->save();
         $project_owner->addMessage($new_message);
         return $app['twig']->render('sent_message.html.twig', array('owner' => $project_owner, 'user_id' => $user_id));
@@ -131,7 +132,13 @@
           //add user to project as collaborator
           $message_to_delete = Message::find($id);
           $user = $message_to_delete->getMessageUser();
+          $project = Project::find($message_to_delete->getProjectId());
+          $sender = $message_to_delete->getSender();
+          $project->addCollaborator($sender);
+          var_dump($project->getCollaborators());
           $message_to_delete->delete();
+
+
 
           $messages = $user->getOwnerMessages();
 

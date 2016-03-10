@@ -260,7 +260,8 @@
                $id = $message['id'];
                $user_message = $message['message'];
                $sender = $message['sender'];
-               $new_message = new Message($id, $user_message, $sender);
+               $project_id = $message['project_id'];
+               $new_message = new Message($id, $user_message, $sender, $project_id);
                array_push($messages, $new_message);
            }
            return $messages;
