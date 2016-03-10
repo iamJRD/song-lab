@@ -415,12 +415,19 @@ a {
 div .notification {
   height: 30px;
   width: 30px;
-  background-color: tomato;
   color: #fff;
+  font-weight: bold;
+  background-color: tomato;
   border-radius: 50%;
   position: relative;
-  top: -50px;
-  left: 235px; }
+  top: -20px;
+  left: 265px;
+  margin: -30px; }
+  @media screen and (max-width: 768px) {
+    div .notification {
+      top: -5%;
+      left: 400px;
+      margin: -12px; } }
 
 .inboxHeader {
   width: 100vw;
