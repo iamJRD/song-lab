@@ -147,7 +147,6 @@
           $sender_name = $message_to_delete->getSender();
           $sender = User::findUsername($sender_name);
           $project->addCollaborator($sender);
-          var_dump($project->getCollaborators());
           $message_to_delete->delete();
 
 

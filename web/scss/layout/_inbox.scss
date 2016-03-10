@@ -1,3 +1,15 @@
+div {
+  .notification {
+    @include size(30px);
+    background-color: tomato;
+    color: $white;
+    border-radius: 50%;
+    position: relative;
+    top: -50px;
+    left: 235px;
+  }
+}
+
 .inboxHeader {
   @extend %headerFont;
   width: 100vw;

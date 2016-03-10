@@ -412,6 +412,16 @@ a {
     .aboutContent .connect h2 {
       margin-top: 0; }
 
+div .notification {
+  height: 30px;
+  width: 30px;
+  background-color: tomato;
+  color: #fff;
+  border-radius: 50%;
+  position: relative;
+  top: -50px;
+  left: 235px; }
+
 .inboxHeader {
   width: 100vw;
   text-align: center;
@@ -1776,7 +1786,11 @@ select {
       color: #fff; }
     #bright .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #bright .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #bright .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1797,7 +1811,11 @@ select {
       color: #fff; }
     #desert .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #desert .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #desert .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1818,7 +1836,11 @@ select {
       color: #fff; }
     #hippie .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #hippie .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #hippie .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1839,7 +1861,11 @@ select {
       color: #fff; }
     #collage .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #collage .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #collage .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1860,7 +1886,11 @@ select {
       color: #fff; }
     #lights .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #lights .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #lights .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1881,7 +1911,11 @@ select {
       color: #fff; }
     #trippy .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #trippy .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #trippy .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1902,7 +1936,11 @@ select {
       color: #fff; }
     #robot .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #robot .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #robot .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1923,7 +1961,11 @@ select {
       color: #fff; }
     #boat .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #boat .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #boat .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1944,7 +1986,11 @@ select {
       color: #fff; }
     #girl .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #girl .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #girl .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1965,7 +2011,11 @@ select {
       color: #fff; }
     #triangles .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #triangles .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #triangles .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -1986,7 +2036,11 @@ select {
       color: #fff; }
     #sun .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #sun .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #sun .galleryContent h3 {
       letter-spacing: 1.5px; }
 
@@ -2007,7 +2061,11 @@ select {
       color: #fff; }
     #grafitti .galleryContent h2 {
       font-size: 2.5em;
-      margin: 0; }
+      margin: 0;
+      border-bottom: 2px solid transparent;
+      width: 40%; }
+      #grafitti .galleryContent h2:hover {
+        border-bottom: 2px solid #fff; }
     #grafitti .galleryContent h3 {
       letter-spacing: 1.5px; }
 
