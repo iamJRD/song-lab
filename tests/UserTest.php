@@ -8,7 +8,7 @@
     require_once "src/Project.php";
     require_once "src/Message.php";
 
-    $server = 'mysql:host=localhost;dbname=songlab_test';
+    $server = 'mysql:host=localhost:8889;dbname=songlab_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -492,7 +492,9 @@
 
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "torrence";
+            $project_id = null;
+            $test_message = new Message($id, $message, $sender, $project_id);
             $test_message->save();
 
             //Act
@@ -518,12 +520,15 @@
 
             $id = null;
             $message = "hi how are you";
-            $test_message = new Message($id, $message);
+            $sender = "molly";
+            $project_id = null;
+            $test_message = new Message($id, $message, $sender, $project_id);
             $test_message->save();
             $test_user->addMessage($test_message);
 
             $message2 = "want to contribute synth part";
-            $test_message2 = new Message($id, $message2);
+            $sender2 = "jared";
+            $test_message2 = new Message($id, $message2, $sender2, $project_id);
             $test_message2->save();
             $test_user->addMessage($test_message2);
 

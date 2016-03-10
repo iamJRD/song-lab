@@ -4,6 +4,7 @@
         private $id;
         private $message;
         private $sender;
+        private $project_id;
 
     function __construct($id = null, $message, $sender, $project_id)
     {
@@ -21,6 +22,11 @@
     function setSender($new_sender)
     {
         $this->sender = $new_sender;
+    }
+
+    function setProjectId($new_project_id)
+    {
+        $this->project_id = $new_project_id;
     }
 
     function getId()
