@@ -10,6 +10,9 @@
   h1 {
     @extend %uppercase;
     @include textFormat(70px, $white, $weight: lighter);
+    @media screen and #{$mobile} {
+      @include textFormat(50px);
+    }
   }
 }
 
