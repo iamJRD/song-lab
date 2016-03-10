@@ -95,36 +95,38 @@
 
 .navSubpage {
   .songLabLogo h1 {
-    font-size: 65px;
+    font-size: 45px;
     text-shadow: 1.5px 1.5px 1.5px rgba($black, 0.5);
     @media screen and #{$mobile} {
       font-size: 36px;
     }
   }
   .songLabLogo {
+    // border: 2px solid red;
     margin: 0;
-    width: 100%;
+    width: 400px;
     position: relative;
     bottom: 37%;
   }
   .musicBars {
+    // border: 2px solid blue;
     display: flex;
-    width: 100px;
+    width: 80px;
     padding-left: 5px;
     flex-direction: column;
     justify-content: center;
-    padding-top: 5px;
+    padding-bottom: 5px;
     @media screen and #{$mobile} {
       width: 50px;
     }
   }
   .bar {
-    @include logoBar(80px);
+    @include logoBar(50px);
     &:first-child {
-      @include logoBar(40px);
+      @include logoBar(30px);
     }
     &:last-child {
-      @include logoBar(60px);
+      @include logoBar(40px);
     }
   }
   .songLabLogo #bar1 {
