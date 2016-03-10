@@ -64,7 +64,7 @@
                 <h4>Let other artists browse your jam, so together you can create magic.</h4>
                 <form class="postMusicForm" action="/user/{{ user.getId }}/create_project" method="post">
                   <div class="input-field">
-                    <input placeholder="Song Title" id="title" name="title" type="text" class="validate" pattern="[a-zA-Z0-9]{0,255}" title="Include only letters and/or numbers.">
+                    <input placeholder="Song Title" id="title" name="title" type="text" class="validate" pattern="[a-zA-Z0-9 ]{0,255}" title="Include only letters and/or numbers.">
                   </div>
                   <div class="input-field">
                     <textarea placeholder="Notes" id="title" name="description" type="text" class="validate materialize-textarea" pattern="[a-zA-Z0-9!@#$%^*_|?.']" title="Include only letters, numbers, and the following characters: !@#$%^*_|?.'"></textarea>

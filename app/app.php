@@ -96,7 +96,6 @@
         $project = Project::find($id);
         $project->delete();
         $user = User::find($project->getUserId());
-
         $user_projects = $user->getOwnerProjects();
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $_SESSION['user_id']));
     });
@@ -108,10 +107,9 @@
         $projects = Project::getAll();
 
         foreach ($projects as $project){
-        $owner = $project->getProjectOwner();
-        $owner_name = $owner->getUsername();
-        $owner_photo = $owner->getPhoto();
-        // array_push($owners, $owner_name);
+            $owner = $project->getProjectOwner();
+            $owner_name = $owner->getUsername();
+            $owner_photo = $owner->getPhoto();
         }
         return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
 
