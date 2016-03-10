@@ -77,11 +77,11 @@
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
                 {% set owners = project.getProjectOwner %}
-                <h4 class="projectAuthor">{{ owners.getUsername}}</h4>
+                <h4 class="projectAuthor">By: {{ owners.getUsername}}</h4>
 
                 {% set collaborators = project.getCollaborators %}
                 {% for collaborator in collaborators %}
-                <h4 class="projectCollaborator"><i>{{ collaborator.getUsername }}</i></h4>
+                <h4 class="projectCollaborator">Collaborators: {{ collaborator.getUsername }}</h4>
                 {% endfor %}
                 <div class="openProjectSummary">
                   <p class="projectSummary">{{ project.getDescription}}</p>
@@ -119,7 +119,7 @@
                     <div class="modal-footer">
                       <button type="submit">SEND REQUEST</button>
                     </div>
-                  </form>    
+                  </form>
             </div>
           </div>
         </div> <!-- Open Project end -->
