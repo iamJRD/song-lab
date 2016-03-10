@@ -6,9 +6,15 @@
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/player/sc-player-minimal.css" type="text/css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/js/css-scripts.js"></script>
     <script src="/js/materialize.js"></script>
+    <script type="text/javascript" src="/js/soundcloud.player.api.js"></script>
+    <script type="text/javascript" src="/js/sc-player.js"></script>
+
+
+
 
     <title>SongLab | Your Profile</title>
   </head>
@@ -48,6 +54,7 @@
       </nav>
         <div class="profileInfo">
           <div class="personInfo">
+
         {% if user.getPhoto is empty %}
           <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
         {% else %}
@@ -80,13 +87,13 @@
                   </div>
                   <label for="question">What type of music are you posting?</label>
                   <p class="musicType">
-                    <input type="checkbox" id="test1" />
+                    <input type="checkbox" id="test1" name="type"/>
                     <label for="test1">Lyrics</label>
-                    <input type="checkbox" id="test2" />
+                    <input type="checkbox" id="test2" name="type"/>
                     <label for="test2">Composition</label>
-                    <input type="checkbox" id="test3" />
+                    <input type="checkbox" id="test3" name="type"/>
                     <label for="test3">Instrumental</label>
-                    <input type="checkbox" id="test4" />
+                    <input type="checkbox" id="test4" name="type" />
                     <label for="test4">Other</label>
                   </p>
                 </div>
@@ -176,7 +183,9 @@
             </div>
             <div id="modal{{project.getId}}" class="modal">
               <div class="modal-content">
-                <h1>{{project.getResources | raw}}</h1>
+                {% if embed is not empty %}
+                <h1><a href="{{embed}}" class="sc-player minimal"></a></h1>
+                {% endif %}
                 <p>{{ project.getLyrics }}</p>
               </div>
             </div>

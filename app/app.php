@@ -23,9 +23,7 @@
     // Load site upon arrival
     $app->get("/", function() use ($app) {
         session_start();
-<<<<<<< HEAD
-        $user_id = null;
-=======
+        $_SESSION['resources'] = null;
         $_SESSION['user_id'] = null;
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
@@ -37,7 +35,6 @@
     $app->get("/home", function() use ($app) {
         session_start();
         $user_id = $_SESSION['user_id'];
->>>>>>> master
         $users = User::getAll();
         $error = "";
         return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
@@ -67,7 +64,7 @@
         session_start();
         $_SESSION['user_id'] = $user->getId();
         $user_id = $_SESSION['user_id'];
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
     });
 
     // Get private user profile
@@ -75,18 +72,19 @@
         session_start();
         $user = User::find($id);
         $user_projects = $user->getProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'current_user' => $user, 'embed' => $_SESSION['resources'], 'user_id' => $_SESSION['user_id']));
     });
 
     //delete project from user profile page
     $app->delete("/project/{id}/delete", function($id) use ($app) {
+
         session_start();
         $project = Project::find($id);
         $project->delete();
         $user = User::find($project->getUserId());
 
         $user_projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $_SESSION['user_id']));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $_SESSION['user_id']));
     });
 
     // Get projects list
@@ -109,9 +107,16 @@
     $app->post("/search", function() use ($app) {
         session_start();
         $user_id = $_SESSION['user_id'];
+        $user = User::find($_SESSION['user_id']);
         $keyword = $_POST['search_term'];
         $project_matches = Project::search($keyword);
-        return $app['twig']->render('projects.html.twig', array('projects' => $project_matches, 'user_id' => $user_id));
+        foreach ($project_matches as $project){
+        $owner = $project->getProjectOwner();
+        $owner_name = $owner->getUsername();
+        $owner_photo = $owner->getPhoto();
+        // array_push($owners, $owner_name);
+        }
+        return $app['twig']->render('projects.html.twig', array('projects' => $project_matches, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $user_id));
     });
 
 
@@ -154,8 +159,6 @@
           var_dump($project->getCollaborators());
           $message_to_delete->delete();
 
-
-
           $messages = $user->getOwnerMessages();
 
           $message_num = count($messages);
@@ -165,6 +168,7 @@
     // Create a user project on private profile
     $app->post("/user/{id}/create_project", function($id) use ($app){
         session_start();
+        $_SESSION['resources'] = null;
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
         $id = null;
@@ -172,13 +176,14 @@
         $description = $_POST['description'];
         $genre = $_POST['genre'];
         $resources = $_POST['resources'];
-        $lyrics = null; //fix this
-        $type = null;
+        $_GET['resources'] = $resources;
+        $lyrics = $_POST['lyrics'];
+        $type = $_POST['type'];
         $user_id = $user->getId(); //delete????
         $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
         $new_project->save();
         $projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $projects, 'user_id' => $user_id));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $projects, 'embed' => $_GET['resources'], 'user_id' => $user_id));
     });
 
     // Initial routing for returning to profile
@@ -187,7 +192,7 @@
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
         $user_projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
       });
 
 
@@ -205,7 +210,7 @@
                 $_SESSION['user_id'] = $user->getId();
                 $user_id = $_SESSION['user_id'];
                 $session_status = $_SESSION['user_id'];
-                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects, 'user_id' => $user_id));
+                return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
             } else {
                 session_start();
                 $error = "The username and password do not match!";
@@ -226,7 +231,7 @@
         $new_photo = $_POST['new_photo'];
         $new_password = $_POST['new_password'];
         $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'user_id' => $user_id));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
     });
 
     // Get page where user can edit their project

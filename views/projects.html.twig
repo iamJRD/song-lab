@@ -57,9 +57,12 @@
               <p>Search through songLab's archive of unfinished projects in need of artistic collaboration.</p>
 
               <div class="searchbar" id="browsePageSearch">
-                <input type="text" name="name" value="">
-                <br>
-                <button class="searchButton" type="submit" name="button">SEARCH</button>
+
+                <form action="/search" method="post">
+                  <input type="text" name="search_term" value="">
+                  <br>
+                  <button type="submit">Search</button>
+                </form>
               </div>
             </div>
           </div>
@@ -72,7 +75,7 @@
               {% if owner_photo is empty %}
                 <img class="profileImage" src="/img/headphones.jpg" alt="default-image" />
               {% else %}
-                <img class="profileImage" src="{{ owner_photo }}" alt="Image not available">
+                <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available">
               {% endif %}
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
