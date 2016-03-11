@@ -117,9 +117,7 @@
             $owner = $project->getProjectOwner();
             $owner_name = $owner->getUsername();
             $owner_photo = $owner->getPhoto();
-            $resources = $project->getResources();
         }
-        var_dump($resources);
         return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'user_id' => $_SESSION['user_id']));
 
     });
@@ -131,6 +129,12 @@
         $user = User::find($_SESSION['user_id']);
         $keyword = $_POST['search_term'];
         $project_matches = Project::search($keyword);
+        $owner = "";
+        $owner_name = "";
+        $owner_photo = "";
+
+
+
         foreach ($project_matches as $project){
         $owner = $project->getProjectOwner();
         $owner_name = $owner->getUsername();

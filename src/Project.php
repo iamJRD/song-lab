@@ -136,7 +136,7 @@
 
         static function search($keyword)
         {
-          $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE genre LIKE '%{$keyword}%' OR description LIKE '%{$keyword}%'");
+          $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE genre LIKE '%{$keyword}%' OR description LIKE '%{$keyword}%' OR title LIKE '%{$keyword}%'");
           $project_matches = $query->fetchAll(PDO::FETCH_ASSOC);
           $projects = array();
 

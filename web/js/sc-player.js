@@ -341,6 +341,11 @@
 
         $player.trigger('onPlayerTrackSwitch.scPlayer', [track]);
       },
+
+      download = function(track) {
+        var url = track.permalink_url;
+        $('.sc-download', $player).html('<a href="' + url + '" />');
+      },
       play = function(track) {
         var url = track.permalink_url;
         if(currentUrl === url){

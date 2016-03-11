@@ -81,8 +81,9 @@
             <div class="open-project"><!-- Each new uploaded project (class open-project) should append within this wrapper -->
               <div class="openProjectHeader">
                 {% set owner = project.getProjectOwner %}
+                {% if owner is not empty %}
                   <img class="profileImage" src="{{ owner.getPhoto }}" alt="Image not available">
-
+                {% endif %}
                 <div class="titleAndAuthor">
                   <h3 class="projectTitle">{{ project.getTitle }}</h3>
                   {% set owners = project.getProjectOwner %}
