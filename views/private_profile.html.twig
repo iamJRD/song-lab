@@ -72,19 +72,19 @@
                 <h4>Let other artists browse your jam, so together you can create magic.</h4>
                 <form class="postMusicForm" action="/user/{{ user.getId }}/create_project" method="post">
                   <div class="input-field">
-                    <input placeholder="Song Title" id="title" name="title" type="text" class="validate">
+                    <input placeholder="Song Title" id="title" name="title" type="text" class="validate" pattern="[a-zA-Z0-9 ]{0,255}" title="Include only letters and/or numbers.">
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Notes" id="title" name="description" type="text" class="validate materialize-textarea"></textarea>
+                    <textarea placeholder="Notes" id="title" name="description" type="text" class="validate materialize-textarea" pattern="[a-zA-Z0-9!@#$%^*_|?.']" title="Include only letters, numbers, and the following characters: !@#$%^*_|?.'"></textarea>
                   </div>
                   <div class="input-field">
-                    <input placeholder="Genre" id="title" name="genre" type="text" class="validate">
+                    <input placeholder="Genre" id="title" name="genre" type="text" class="validate" pattern="[a-zA-Z0-9]{0,255}" title="Include only letters and/or numbers.">
                   </div>
                   <div class="input-field">
                     <textarea placeholder="Soundcloud Embed Code" id="textarea1" type="text" name="resources" class="materialize-textarea validate"></textarea>
                   </div>
                   <div class="input-field">
-                    <textarea placeholder="Lyrics" id="textarea1" type="text" name="lyrics" class="materialize-textarea validate"></textarea>
+                    <textarea placeholder="Lyrics" id="textarea1" type="text" name="lyrics" class="materialize-textarea validate" pattern="[a-zA-Z0-9!@#$%^*_|?.']" title="Include only letters, numbers, and the following characters: !@#$%^*_|?.'"></textarea>
                   </div>
                   <label for="question">What type of music are you posting?</label>
                   <p class="musicType">
@@ -112,19 +112,19 @@
                 <form class="postMusicForm" action="/user/{{ user.getId }}/edit_profile" method="post">
                     <input name="_method" type="hidden" value="patch">
                     <div class="input-field">
-                      <input placeholder="Edit Username" id="Username" name="new_username" type="text" class="validate" value="{{ user.getUsername }}">
+                      <input placeholder="Edit Username" id="Username" name="new_username" type="text" class="validate" value="{{ user.getUsername }}" pattern="[a-zA-Z0-9]{6,25}" title="Required length: 6-25 characters. Include only letters and/or numbers.">
                     </div>
                     <div class="input-field">
-                      <input placeholder="Update Password" id="password" name="new_password" type="password" class="validate" value="{{ user.getPassword }}">
+                      <input placeholder="Update Password" id="password" name="new_password" type="password" class="validate" value="{{ user.getPassword }}" pattern="[a-zA-Z0-9]{6,25}" title="Required length: 6-25 characters. Include only letters and/or numbers.">
                     </div>
                     <div class="input-field">
-                      <input placeholder="First Name" id="first_name" name="new_first_name" type="text" class="validate" value="{{ user.getFirstName }}">
+                      <input placeholder="First Name" id="first_name" name="new_first_name" type="text" class="validate" value="{{ user.getFirstName }}" pattern="[a-zA-Z0-9']{0,50}" title="Required length: 0-50 characters. Include only letters and/or numbers.">
                     </div>
                     <div class="input-field">
-                      <input placeholder="Last Name" id="last_name" name="new_last_name" type="text" class="validate" value="{{ user.getLastName }}">
+                      <input placeholder="Last Name" id="last_name" name="new_last_name" type="text" class="validate" value="{{ user.getLastName }}" pattern="[a-zA-Z0-9']{0,50}" title="Required length: 0-50 characters. Include only letters and/or numbers.">
                     </div>
                     <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea validate">{{ user.getBio }}</textarea>
+                      <textarea placeholder="Bio" id="textarea1" name="new_bio" type="text" class="materialize-textarea validate" pattern="[a-zA-Z0-9!@#$%^*_|?.']" title="Include only letters, numbers and the following characters: !@#$%^*_|?.'">{{ user.getBio }}</textarea>
                     </div>
                     <div class="input-field">
                       <input placeholder="Please enter a url to a photo here" id="textarea" name="new_photo" type="text" class="validate" value="{{ user.getPhoto }}">

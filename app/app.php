@@ -28,7 +28,8 @@
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
         $error = "";
-        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
+        $error2 = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
     });
 
     // Go to homepage from menu
@@ -37,7 +38,8 @@
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
         $error = "";
-        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
+        $error2 = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
     });
 
     // Get about page
@@ -50,21 +52,35 @@
 
     // Create user
     $app->post("/user", function() use ($app) {
-        $id = null;
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $email = null; //null - editable in profile
-        $username = $_POST['username'];
-        $bio = $_POST['bio'];
-        $photo = null; //null - upload on profile edit
-        $password = $_POST['password1'];
-        $user = new User($id, $first_name, $last_name, $email, $username, $bio, $photo, $password);
-        $user->save();
-        $user_projects = $user->getProjects();
-        session_start();
-        $_SESSION['user_id'] = $user->getId();
-        $user_id = $_SESSION['user_id'];
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
+        $password1 = $_POST['password1'];
+        $password2 = $_POST['password2'];
+
+        if($password1 == $password2)
+        {
+            $id = null;
+            $first_name = $_POST['first_name'];
+            $escaped_first_name = addslashes($first_name);
+            $last_name = $_POST['last_name'];
+            $escaped_last_name = addslashes($last_name);
+            $email = null; //null - editable in profile
+            $username = $_POST['username'];
+            $bio = $_POST['bio'];
+            $escaped_bio = addslashes($bio);
+            $photo = "/img/headphones.jpg";
+            $password = $_POST['password1'];
+            $user = new User($id, $escaped_first_name, $escaped_last_name, $email, $username, $escaped_bio, $photo, $password);
+            $user->save();
+            $user_projects = $user->getProjects();
+            session_start();
+            $_SESSION['user_id'] = $user->getId();
+            $user_id = $_SESSION['user_id'];
+            return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id));
+        } else {
+            session_start();
+            $error2 = "Your entered passwords do not match!";
+            $error = "";
+            return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
+        }
     });
 
     // Get private user profile
@@ -82,7 +98,6 @@
         $project = Project::find($id);
         $project->delete();
         $user = User::find($project->getUserId());
-
         $user_projects = $user->getOwnerProjects();
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $_SESSION['user_id']));
     });
@@ -94,10 +109,9 @@
         $projects = Project::getAll();
 
         foreach ($projects as $project){
-        $owner = $project->getProjectOwner();
-        $owner_name = $owner->getUsername();
-        $owner_photo = $owner->getPhoto();
-        // array_push($owners, $owner_name);
+            $owner = $project->getProjectOwner();
+            $owner_name = $owner->getUsername();
+            $owner_photo = $owner->getPhoto();
         }
         return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
 
@@ -128,9 +142,10 @@
         $project_owner = $project_to_collaborate->getProjectOwner();
         $id = null;
         $message = $_POST['message'];
+        $escaped_message = addslashes($message);
         $sender = $_POST['sender'];
         $project_id = $project_to_collaborate->getId();
-        $new_message = new Message($id, $message, $sender, $project_id);
+        $new_message = new Message($id, $escaped_message, $sender, $project_id);
         $new_message->save();
         $project_owner->addMessage($new_message);
         return $app['twig']->render('sent_message.html.twig', array('owner' => $project_owner, 'user_id' => $user_id));
@@ -172,14 +187,23 @@
         $user = User::find($id);
         $id = null;
         $title = $_POST['title'];
+        $escaped_title = addslashes($title);
         $description = $_POST['description'];
+        $escaped_description = addslashes($description);
         $genre = $_POST['genre'];
+        $escaped_genre = addslashes($genre);
         $resources = $_POST['resources'];
+<<<<<<< HEAD
         $_GET['resources'] = $resources;
         $lyrics = $_POST['lyrics'];
         $type = $_POST['type'];
+=======
+        $lyrics = $_POST['lyrics'];
+        $escaped_lyrics = addslashes($lyrics);
+        $type = null;
+>>>>>>> 4065626e5428546ac8ec14610ef6e967eac1a90f
         $user_id = $user->getId(); //delete????
-        $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+        $new_project = new Project($id, $escaped_title, $escaped_description, $escaped_genre, $resources, $escaped_lyrics, $type, $user_id);
         $new_project->save();
         $projects = $user->getOwnerProjects();
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $projects, 'embed' => $_GET['resources'], 'user_id' => $user_id));
@@ -212,8 +236,9 @@
                 return $app['twig']->render('private_profile.html.twig', array('user' => $found_user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
             } else {
                 session_start();
-                $error = "The username and password do not match!";
-                return $app['twig']->render('index.html.twig', array('error' => $error, 'user_id' => $user_id));
+                $error = "You entered invalid username/password info! Try again!";
+                $error2 = "";
+                return $app['twig']->render('index.html.twig', array('error' => $error, 'error2' => $error2, 'user_id' => $user_id));
             }
     });
 
@@ -223,14 +248,22 @@
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
         $new_first_name = $_POST['new_first_name'];
+        $escaped_new_first_name = addslashes($new_first_name);
         $new_last_name = $_POST['new_last_name'];
+        $escaped_new_last_name = addslashes($new_last_name);
         $new_email = null;
         $new_username = $_POST['new_username'];
         $new_bio = $_POST['new_bio'];
+        $escaped_new_bio = addslashes($new_bio);
         $new_photo = $_POST['new_photo'];
         $new_password = $_POST['new_password'];
+<<<<<<< HEAD
         $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
+=======
+        $user->update($escaped_new_first_name, $escaped_new_last_name, $new_email, $new_username, $escaped_new_bio, $new_photo, $new_password);
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'user_id' => $user_id));
+>>>>>>> 4065626e5428546ac8ec14610ef6e967eac1a90f
     });
 
     // Get page where user can edit their project
@@ -250,12 +283,16 @@
 
         $project = $user->getProjects($user->getId());
         $new_title = $_POST['new_title'];
+        $escaped_new_title = addslashes($new_title);
         $new_description = $_POST['new_description'];
+        $escaped_new_description = addslashes($new_description);
         $new_genre = $_POST['new_genre'];
+        $escaped_new_genre = addslashes($genre);
         $new_resources = $_POST['new_resources'];
         $new_lyrics = $_POST['new_lyrics'];
+        $escaped_new_lyrics = addslashes($new_lyrics);
         $new_type = $_POST['new_type'];
-        $project->update($new_title, $new_description, $new_genre, $new_resources, $new_lyrics, $new_type);
+        $project->update($escaped_new_title, $escaped_new_description, $escaped_new_genre, $new_resources, $escaped_new_lyrics, $new_type);
         return $app['twig']->render('profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id));
     });
 
@@ -276,7 +313,8 @@
           $user = User::find($id);
           $user->delete();
           $error = "";
-          return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'session' => $user_id));
+          $error2 = "";
+          return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
       });
 
     // User Logs out of their session; homepage rendered
@@ -287,7 +325,8 @@
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
         $error = "";
-        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'user_id' => $user_id));
+        $error2 = "";
+        return $app['twig']->render('index.html.twig', array('user' => $users, 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
     });
 
     return $app;
