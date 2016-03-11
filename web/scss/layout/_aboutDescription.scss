@@ -1,6 +1,7 @@
 .aboutContent {
   width: 90%;
   h2 {
+    font-size: 28px;
     color: $darkgray;
     @extend %headerFont;
   }
