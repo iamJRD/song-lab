@@ -60,62 +60,64 @@
           <h2>Connect. Collaborate. Create.</h2>
         </div>
 
-        <div class="aboutButtons">
-          <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
-            <div id="modal1" class="modal modalLong">
-              <div class="modal-content">
-                <h2>Create Your Account</h2>
-                <h4>Join SongLab to discover and create creative ideas.</h4>
-                <form class="createAccountForm" action="/user" method="post">
-                  <div class="input-field">
-                    <input placeholder="Username" id="Username" name="username" type="text" class="validate">
+        {% if user_id is null %}
+            <div class="aboutButtons">
+              <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
+                <div id="modal1" class="modal modalLong">
+                  <div class="modal-content">
+                    <h2>Create Your Account</h2>
+                    <h4>Join SongLab to discover and create creative ideas.</h4>
+                    <form class="createAccountForm" action="/user" method="post">
+                      <div class="input-field">
+                        <input placeholder="Username" id="Username" name="username" type="text" class="validate" pattern="[a-zA-Z0-9]{6,25}">
+                      </div>
+                      <div class="input-field">
+                        <input placeholder="Password" id="password" name="password1" type="password" class="validate" pattern="[a-zA-Z0-9]{6,25}">
+                      </div>
+                      <div class="input-field">
+                        <input placeholder="Verify Password" id="password" name="password2" type="password" class="validate" pattern="[a-zA-Z0-9]{6,25}">
+                      </div>
+                      <div class="input-field">
+                        <input placeholder="First Name" id="first_name" name="first_name" type="text" class="validate" pattern="[a-zA-Z0-9']{0,25}">
+                      </div>
+                      <div class="input-field">
+                        <input placeholder="Last Name" id="last_name" name="last_name" type="text" class="validate" pattern="[a-zA-Z0-9']{0,25}">
+                      </div>
+                      <div class="input-field">
+                        <textarea placeholder="Bio" id="textarea1" name="bio" type="text" class="materialize-textarea" pattern="[a-zA-Z0-9!@#$%^*_|?.']"></textarea>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="submit" class="modal-close">Create Your Account</button>
+                      </div>
+                    </form>
                   </div>
-                  <div class="input-field">
-                    <input placeholder="Password" id="password" name="password1" type="password" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Verify Password" id="password" name="password2" type="password" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="First Name" id="first_name" name="first_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Last Name" id="last_name" name="last_name" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <textarea placeholder="Bio" id="textarea1" name="bio" type="text" class="materialize-textarea"></textarea>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="submit" class="modal-close">Create Your Account</button>
-                  </div>
-                </form>
+                </div>
+              <a class="modal-trigger" href="#modal2">Sign In</a>
+              <div id="modal2" class="modal">
+                <div class="modal-content">
+                  <h1>SongLab</h1>
+                  <form class="signInForm" action="/sign_in" method="post">
+                    {% if error is not empty %}
+                    <script type="text/javascript">
+                      $("#modal2").openModal();
+                      $(this).removeClass('.lean-overlay');
+                    </script>
+                    <p class="errorMessage">{{ error }}</p>
+                    {% endif %}
+                    <div class="input-field">
+                      <input placeholder="Username" id="username" type="text" class="validate" pattern="[a-zA-Z0-9]{6,25}">
+                    </div>
+                    <div class="input-field">
+                      <input placeholder="Password" id="password" type="password" class="validate" pattern="[a-zA-Z0-9]{6,25}">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="modal-close" name="button">Sign In</button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-          <a class="modal-trigger" href="#modal2">Sign In</a>
-          <div id="modal2" class="modal">
-            <div class="modal-content">
-              <h1>SongLab</h1>
-              <form class="signInForm" action="/sign-in" method="post">
-                {% if error is not empty %}
-                <script type="text/javascript">
-                  $("#modal2").openModal();
-                  $(this).removeClass('.lean-overlay');
-                </script>
-                <p class="errorMessage">{{ error }}</p>
-                {% endif %}
-                <div class="input-field">
-                  <input placeholder="Username" id="username" type="text" class="validate">
-                </div>
-                <div class="input-field">
-                  <input placeholder="Password" id="password" type="password" class="validate">
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="modal-close" name="button">Sign In</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+        {% endif %}
 
       </div>
       <div class="footer">
