@@ -342,10 +342,6 @@
         $player.trigger('onPlayerTrackSwitch.scPlayer', [track]);
       },
 
-      download = function(track) {
-        var url = track.permalink_url;
-        $('.sc-download', $player).html('<a href="' + url + '" />');
-      },
       play = function(track) {
         var url = track.permalink_url;
         if(currentUrl === url){
@@ -508,6 +504,7 @@
         $player
           .find('.sc-controls')
             .append('<a href="#play" class="sc-play">Play</a> <a href="#pause" class="sc-pause hidden">Pause</a>')
+            // .append('<a href="' + track.permalink_url + '">Download</a>')
           .end()
           .append('<a href="#info" class="sc-info-toggle">Info</a>')
           .append('<div class="sc-scrubber"></div>')
