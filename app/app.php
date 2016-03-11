@@ -6,12 +6,10 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=songlab';
+    $server = 'mysql:host=localhost:8889;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
-
-    $app['debug']=true;
 
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
@@ -111,14 +109,13 @@
     $app->get("/projects", function() use ($app){
         session_start();
         $user = User::find($_SESSION['user_id']);
-        $projects = Project::getAll();
 
+        $projects = Project::getAll();
         foreach ($projects as $project){
             $owner = $project->getProjectOwner();
             $owner_name = $owner->getUsername();
             $owner_photo = $owner->getPhoto();
         }
-
         return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
     });
 
@@ -129,6 +126,10 @@
         $user = User::find($_SESSION['user_id']);
         $keyword = $_POST['search_term'];
         $project_matches = Project::search($keyword);
+
+        $owner = "";
+        $owner_name = "";
+        $owner_photo = "";
 
         foreach ($project_matches as $project){
             $owner = $project->getProjectOwner();
