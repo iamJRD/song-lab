@@ -3,6 +3,13 @@
 //============================
 
 form {
+  h3 {
+    font-weight: lighter;
+  }
+}
+
+
+form {
   .musicType {
     padding-top: 2em;
     display: flex;
@@ -38,6 +45,7 @@ button:focus {
 label {
   font-size: $label-font-size;
   color: $black;
+  text-align: center;
 }
 
 /***************************

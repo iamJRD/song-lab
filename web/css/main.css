@@ -892,6 +892,7 @@ button {
   .modal .modal-close {
     cursor: pointer; }
   .modal .modal-footer {
+    text-align: center;
     border-radius: 0 0 2px 2px;
     background-color: #fafafa;
     padding: 1em 6px 5em 6px;
@@ -955,6 +956,9 @@ button {
     .modal3 textarea:focus {
       outline: none; }
 
+form h3 {
+  font-weight: lighter; }
+
 form .musicType {
   padding-top: 2em;
   display: flex;
@@ -979,7 +983,8 @@ button:focus {
 
 label {
   font-size: 20px;
-  color: #000; }
+  color: #000;
+  text-align: center; }
 
 /***************************
    Text Inputs + Textarea
@@ -1738,7 +1743,8 @@ select {
         box-shadow: 1px 1px 3px gray;
         border-radius: 50%; }
       .projectsWrapper .open-project .openProjectHeader .titleAndAuthor {
-        margin-left: 15px; }
+        margin-left: 15px;
+        width: 100%; }
         .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
           font-size: 30px;
           margin: 0 auto; }
