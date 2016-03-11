@@ -60,7 +60,7 @@
         {% else %}
           <img class="profileImage" src="{{ user.getPhoto }}" alt="Image not available">
         {% endif %}
-            <h1 class="username">{{ user.getUsername }}</h1>
+            <h1 class="username">Hey, {{ user.getFirstName }} {{ user.getLastName }}!</h1>
           </div>
           <p class="userBio">{{ user.getBio }}</p>
           <div class="profileButtons">

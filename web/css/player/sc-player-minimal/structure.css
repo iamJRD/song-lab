@@ -119,7 +119,7 @@
   position: absolute;
   float: left;
   width: 92%;
-  height: 100%;
+  height: 60%;
   left: 45px;
   overflow: auto;
 }
@@ -133,9 +133,13 @@
   list-style: none;
 }
 
-/*.sc-trackslist a {
-  border: 1px solid red;
-}*/
+.sc-trackslist a {
+  border: none !important;
+}
+
+.sc-trackslist a:hover {
+  background-color: transparent;
+}
 
 /* Track info*/
 

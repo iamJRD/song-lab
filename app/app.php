@@ -177,7 +177,7 @@
         $resources = $_POST['resources'];
         $_GET['resources'] = $resources;
         $lyrics = $_POST['lyrics'];
-        $type = $_POST['type'];
+        $type = null;
         $user_id = $user->getId(); //delete????
         $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
         $new_project->save();
