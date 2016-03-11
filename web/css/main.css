@@ -1738,7 +1738,8 @@ select {
         box-shadow: 1px 1px 3px gray;
         border-radius: 50%; }
       .projectsWrapper .open-project .openProjectHeader .titleAndAuthor {
-        margin-left: 15px; }
+        margin-left: 15px;
+        width: 100%; }
         .projectsWrapper .open-project .openProjectHeader .titleAndAuthor h3 {
           font-size: 30px;
           margin: 0 auto; }
