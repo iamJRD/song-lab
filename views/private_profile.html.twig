@@ -104,7 +104,7 @@
               </form>
             </div>
             <!-- WIP LINK! -->
-            <a class="secondaryWhite" href="/user/{{user.getId}}/messages">View Collaboration Requests<div class="notification">3</div></a>
+            <a class="secondaryWhite" href="/user/{{user.getId}}/messages">View Collaboration Requests<div class="notification">{{collab_requests}}</div></a>
             <a class="secondaryWhite modal-trigger modal-close" href="#editProfileModal">Edit Profile</a>
             <div id="editProfileModal" class="modal">
               <div class="modal-content">
@@ -140,8 +140,11 @@
           </div>
         </div>
       </div>
+      {% set position = projects|length %}
       {% if projects is not empty %}
       <h2>Your Open Projects</h2>
+
+
       {% for project in projects %}
       <div class="projectsWrapper"> <!-- Each new uploaded project (class open-project) should append within this wrapper -->
         <div class="open-project">
@@ -168,11 +171,11 @@
           <div class="openProjectButtons">
             <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
 
-            <a class="modal-trigger" href=".modal3">DELETE SONG</a>
-            <div id="#deleteSongModal" class="modal modal3">
+            <a class="modal-trigger" href=".modal{{project.getId}}">DELETE SONG</a>
+            <div id="#deleteSongModal" class="modal modal{{project.getId}}">
               <div class="modal-content">
                 <h1>This will delete your song from your profile, and from the open projects page.</h1>
-                <form action="browse-projects.html" method="post">
+                <form action="/project/{{project.getId}}/delete" method="post">
                   <label for="delete">Type DELETE to confirm.</label>
                   <div class="input-field">
                     <input id="delete" type="text" class="validate">
@@ -188,9 +191,7 @@
             </div>
             <div id="modal{{project.getId}}" class="modal">
               <div class="modal-content">
-                {% if embed is not empty %}
-                <h1><a href="{{embed}}" class="sc-player minimal"></a></h1>
-                {% endif %}
+                <h1><a href="{{project.getResources}}" class="sc-player minimal"></a></h1>
                 <p>{{ project.getLyrics }}</p>
               </div>
             </div>

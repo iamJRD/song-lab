@@ -104,7 +104,7 @@
             $projects = array();
 
             foreach($returned_projects as $project)
-            {  
+            {
                 $id = $project['id'];
                 $title = $project['title'];
                 $description = $project['description'];
@@ -157,6 +157,7 @@
 
         function delete()
         {
+            echo($this->getId());
             $GLOBALS['DB']->exec("DELETE FROM projects WHERE id = {$this->getId()}");
         }
 

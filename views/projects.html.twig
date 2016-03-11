@@ -48,10 +48,11 @@
           </div>
         </nav>
 
-
-          <video class="headerVid" id="headerVid" muted="true" autoplay="true" loop="true">
-            <source src="img/guitar-video.mp4" type="video/mp4">
+          <span class="guitarVideo">
+            <video class="headerVid" id="headerVid" muted="true" autoplay="autoplay" loop="loop">
+              <source src="img/guitar-video.mp4" type="video/mp4">
             </video>
+          </span>
             <div class="video-overlay"></div>
             <div class="headerVidText">
               <h1>Browse Open Projects</h1>
@@ -69,12 +70,14 @@
           </div>
 
         <div class="projectsWrapper">
+
           <h4><em>Want to upload a project of your own? <a class="create" href="/home">Create a profile</a> to start collaborating!</em></h4>
           {% for project in projects %}
           <div class="open-project"><!-- Each new uploaded project (class open-project) should append within this wrapper -->
             <div class="openProjectHeader">
               {% set owner = project.getProjectOwner %}
                 <img class="profileImage" src="{{ owner.getPhoto }}" alt="Image not available">
+
               <div class="titleAndAuthor">
                 <h3 class="projectTitle">{{ project.getTitle }}</h3>
                 {% set owners = project.getProjectOwner %}
@@ -99,7 +102,7 @@
                   <h4 class="projectAuthor">By: {{ owner }}</h4>
                 </div>
                 <div class="modal-content">
-                  <h1>{{project.getResources | raw}}</h1>
+                    <h1><a href="{{project.getResources}}" class="sc-player minimal"></a></h1>
                   <p>{{ project.getLyrics}}</p>
                 </div>
               </div>
