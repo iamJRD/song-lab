@@ -24,21 +24,20 @@
           </div>
         </div>
       </nav>
+
       <div class="confirmation">
         <div class="confirmationContent">
-          <h1>{{ user.getFirstName }}, are you sure you want to delete your SongLab account?</h1>
+          <h1>Are you sure you want to delete your SongLab account?</h1>
           <div class="buttonList">
             <a href="/user/{{ user.getId }}/profile"><button class="secondaryWhite" type="button" name="button">No, Do not delete it. Please forgive me.</button></a>
-
-            <div class="confirmation">
-                <form action='/user/{{ user.getId }}/delete' method="post">
-                    <input name="_method" type="hidden" value="delete">
-                    <button class="secondaryWhite" type="button" name="button">Yes, Delete my account forever.</button>
-                </form>
-            </div>
+            <form action='/user/{{ user.getId }}/delete' method="post">
+                <input name="_method" type="hidden" value="delete">
+                <button class="secondaryWhite" type="button" name="button">Yes, Delete my account forever.</button>
+            </form>
           </div>
         </div>
       </div>
+
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
