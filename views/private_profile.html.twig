@@ -157,6 +157,7 @@
             <div class="titleAndAuthor">
               <h3 class="projectTitle">{{ project.getTitle}}</h3>
               <h4 class="projectAuthor">By: {{ user.getUsername }}</h4>
+
               {% set collaborators = project.getCollaborators %}
               {% for collaborator in collaborators %}
               <h4 class="projectCollaborator">Collaborators: {{ collaborator.getUsername }}</h4>
