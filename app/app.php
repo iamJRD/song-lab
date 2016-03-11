@@ -71,10 +71,12 @@
             $user = new User($id, $escaped_first_name, $escaped_last_name, $email, $username, $escaped_bio, $photo, $password);
             $user->save();
             $user_projects = $user->getProjects();
+            $messages = $user->getOwnerMessages();
+            $message_num = count($messages);
             session_start();
             $_SESSION['user_id'] = $user->getId();
             $user_id = $_SESSION['user_id'];
-            return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id));
+            return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'user_id' => $user_id, 'collab_requests' => $message_num));
         } else {
             session_start();
             $error2 = "Your entered passwords do not match!";
@@ -88,7 +90,9 @@
         session_start();
         $user = User::find($id);
         $user_projects = $user->getProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'current_user' => $user, 'embed' => $_SESSION['resources'], 'user_id' => $_SESSION['user_id']));
+        $messages = $user->getOwnerMessages();
+        $message_num = count($messages);
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'current_user' => $user, 'embed' => $_SESSION['resources'], 'user_id' => $_SESSION['user_id'], 'collab_requests' => $message_num));
     });
 
     //delete project from user profile page
@@ -102,9 +106,9 @@
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
         $user_projects = $user->getOwnerProjects();
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'collab_requests' => $message_num, 'user_id' => $_SESSION['user_id']));
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'collab_requests' => $message_num, 'user_id' => $_SESSION['user_id'], 'collab_requests' => $message_num));
     });
-
+// NEEDS WORK ON DISPLAYING ALL PROJECTS!
     // Get projects list
     $app->get("/projects", function() use ($app){
         session_start();
@@ -113,6 +117,7 @@
 
         foreach ($projects as $project){
             $owner = $project->getProjectOwner();
+            var_dump($owner);
             $owner_name = $owner->getUsername();
             $owner_photo = $owner->getPhoto();
         }
@@ -174,9 +179,7 @@
           $sender_name = $message_to_delete->getSender();
           $sender = User::findUsername($sender_name);
           $project->addCollaborator($sender);
-          var_dump($project->getCollaborators());
           $message_to_delete->delete();
-
           $messages = $user->getOwnerMessages();
 
           $message_num = count($messages);
@@ -267,7 +270,9 @@
         $new_photo = $_POST['new_photo'];
         $new_password = $_POST['new_password'];
         $user->update($escaped_new_first_name, $escaped_new_last_name, $new_email, $new_username, $escaped_new_bio, $new_photo, $new_password);
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'user_id' => $user_id));
+        $messages = $user->getOwnerMessages();
+        $message_num = count($messages);
+        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'user_id' => $user_id, 'collab_requests' => $message_num));
     });
 
     // Get page where user can edit their project
