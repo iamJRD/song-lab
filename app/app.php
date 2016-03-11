@@ -294,7 +294,7 @@
           $user->delete();
           $error = "";
           $error2 = "";
-          return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'error2' => $error2, 'session' => $user_id));
+          return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
       });
 
     // User Logs out of their session; homepage rendered
