@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width">
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/css-scripts.js"></script>
     <script src="js/materialize.js"></script>
 
-    <title>SongLab | Browse Open Projects</title>
+    <title>songLab | Browse Open Projects</title>
   </head>
   <body>
     <div class="pageWrapper">
@@ -57,9 +58,12 @@
               <p>Search through songLab's archive of unfinished projects in need of artistic collaboration.</p>
 
               <div class="searchbar" id="browsePageSearch">
-                <input type="text" name="name" value="">
-                <br>
-                <button class="searchButton" type="submit" name="button">SEARCH</button>
+
+                <form action="/search" method="post">
+                  <input type="text" name="search_term" value="">
+                  <br>
+                  <button type="submit">Search</button>
+                </form>
               </div>
             </div>
           </div>
@@ -124,7 +128,7 @@
       </div> <!-- projects wrapper end -->
       <div class="footer">
         <hr>
-        <p>SongLab &copy; 2016 | All Rights Reserved</p>
+        <p>songLab &copy; 2016 | All Rights Reserved</p>
       </div>
     </div> <!-- Page wrapper end -->
   </body>

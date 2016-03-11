@@ -14,7 +14,6 @@ Install SongLab locally by cloning this repository:
 
 https://github.com/jaredbeckler/song-lab.git
 
-Or, you can view the site [here](http://jaredbeckler.github.io/song-lab).
 
 ## Known Bugs
 
