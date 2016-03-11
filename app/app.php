@@ -118,7 +118,7 @@
         $owner_photo = $owner->getPhoto();
         // array_push($owners, $owner_name);
         }
-        return $app['twig']->render('projects.html.twig', array('projects' => $project_matches, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $user_id));
+        return $app['twig']->render('projects.html.twig', array('projects' => $project_matches, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user' => $owner_photo, 'user_id' => $user_id));
     });
 
 
