@@ -117,7 +117,6 @@
 
         foreach ($projects as $project){
             $owner = $project->getProjectOwner();
-  
             $owner_name = $owner->getUsername();
             $owner_photo = $owner->getPhoto();
         }
