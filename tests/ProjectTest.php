@@ -7,7 +7,7 @@
     require_once "src/Project.php";
     require_once "src/User.php";
 
-    $server = 'mysql:host=localhost;dbname=songlab_test';
+    $server = 'mysql:host=localhost:8889;dbname=songlab_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -237,7 +237,6 @@
             $test_project->save();
             $test_project2->save();
             $result = Project::getAll();
-            var_dump($result);
 
             // Assert
             $this->assertEquals([$test_project, $test_project2], $result);

@@ -176,9 +176,12 @@
         {
             $found_user = null;
             $users = User::getAll();
-            foreach($users as $user) {
+
+            foreach($users as $user)
+            {
                 $user_id = $user->getId();
-                if ($user_id == $search_id) {
+                if ($user_id == $search_id)
+                {
                   $found_user = $user;
                 }
             }
@@ -189,8 +192,11 @@
         {
             $found_user = null;
             $users = User::getAll();
-            foreach($users as $user) {
-                if ($search_username == $user->getUsername()) {
+
+            foreach($users as $user)
+            {
+                if ($search_username == $user->getUsername())
+                {
                   $found_user = $user;
                 }
             }
@@ -199,73 +205,75 @@
 
         function addProject($project)
        {
-           $GLOBALS['DB']->exec("INSERT INTO collaborations (project_id, user_id) VALUES ({$project->getId()}, {$this->getId()});");
+            $GLOBALS['DB']->exec("INSERT INTO collaborations (project_id, user_id) VALUES ({$project->getId()}, {$this->getId()});");
        }
 
        function getProjects()
        {
-           $returned_projects = $GLOBALS['DB']->query("SELECT projects.* FROM users JOIN collaborations ON (collaborations.user_id = users.id) JOIN projects ON (projects.id = collaborations.project_id) WHERE users.id = {$this->getId()};");
+            $returned_projects = $GLOBALS['DB']->query("SELECT projects.* FROM users JOIN collaborations ON (collaborations.user_id = users.id) JOIN projects ON (projects.id = collaborations.project_id) WHERE users.id = {$this->getId()};");
 
-           $projects = array();
-           foreach($returned_projects as $project)
-           {
-               $id = $project['id'];
-               $title = $project['title'];
-               $description = $project['description'];
-               $genre = $project['genre'];
-               $resources = $project['resources'];
-               $lyrics = $project['lyrics'];
-               $type = $project['type'];
-               $user_id = $project['user_id'];
-               $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
-               array_push($projects, $new_project);
-           }
-           return $projects;
-       }
+            $projects = array();
+            foreach($returned_projects as $project)
+            {
+                $id = $project['id'];
+                $title = $project['title'];
+                $description = $project['description'];
+                $genre = $project['genre'];
+                $resources = $project['resources'];
+                $lyrics = $project['lyrics'];
+                $type = $project['type'];
+                $user_id = $project['user_id'];
+                $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
+                array_push($projects, $new_project);
+            }
+            return $projects;
+        }
 
-       function getOwnerProjects()
-       {
+        function getOwnerProjects()
+        {
             $query = $GLOBALS['DB']->query("SELECT * FROM projects WHERE user_id = {$this->getId()} ORDER BY id DESC;");
 		    $projects = array();
 
-            foreach ($query as $project) {
-               $id = $project['id'];
-               $title = $project['title'];
-               $description = $project['description'];
-               $genre = $project['genre'];
-               $resources = $project['resources'];
-               $lyrics = $project['lyrics'];
-               $type = $project['type'];
-               $user_id = $project['user_id'];
-               $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
-
-               array_push($projects, $new_project);
+            foreach ($query as $project)
+            {
+                $id = $project['id'];
+                $title = $project['title'];
+                $description = $project['description'];
+                $genre = $project['genre'];
+                $resources = $project['resources'];
+                $lyrics = $project['lyrics'];
+                $type = $project['type'];
+                $user_id = $project['user_id'];
+                $new_project = new Project($id, $title, $description, $genre, $resources,        $lyrics, $type, $user_id);
+                array_push($projects, $new_project);
             }
             return $projects;
-       }
+        }
 
-       function addMessage($message) {
+        function addMessage($message)
+        {
            $GLOBALS['DB']->exec("INSERT INTO messages_user (message_id, user_id) VALUES ({$message->getId()}, {$this->getId()});");
-       }
+        }
 
-       function getOwnerMessages() {
-           $returned_messages = $GLOBALS['DB']->query("SELECT messages.* FROM users
-               JOIN messages_user ON (messages_user.user_id = users.id)
-               JOIN messages ON (messages.id = messages_user.message_id)
-               WHERE users.id = {$this->getId()};");
+        function getOwnerMessages()
+        {
+            $returned_messages = $GLOBALS['DB']->query("SELECT messages.* FROM users
+                JOIN messages_user ON (messages_user.user_id = users.id)
+                JOIN messages ON (messages.id = messages_user.message_id)
+                WHERE users.id = {$this->getId()};");
 
-           $messages = array();
-           foreach($returned_messages as $message)
-           {
-               $id = $message['id'];
-               $user_message = $message['message'];
-               $sender = $message['sender'];
-               $project_id = $message['project_id'];
-               $new_message = new Message($id, $user_message, $sender, $project_id);
-               array_push($messages, $new_message);
-           }
+            $messages = array();
+            foreach($returned_messages as $message)
+            {
+                $id = $message['id'];
+                $user_message = $message['message'];
+                $sender = $message['sender'];
+                $project_id = $message['project_id'];
+                $new_message = new Message($id, $user_message, $sender, $project_id);
+                array_push($messages, $new_message);
+            }
            return $messages;
-       }
+        }
 
     }
 ?>

@@ -23,7 +23,6 @@
     // Load site upon arrival
     $app->get("/", function() use ($app) {
         session_start();
-        $_SESSION['resources'] = null;
         $_SESSION['user_id'] = null;
         $user_id = $_SESSION['user_id'];
         $users = User::getAll();
@@ -100,7 +99,6 @@
         session_start();
         echo $id;
         $project = Project::find($id);
-
         $project->delete();
         $user = User::find($project->getUserId());
         $messages = $user->getOwnerMessages();
@@ -120,8 +118,8 @@
             $owner_name = $owner->getUsername();
             $owner_photo = $owner->getPhoto();
         }
-        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
 
+        return $app['twig']->render('projects.html.twig', array('projects' => $projects, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user_id' => $_SESSION['user_id']));
     });
 
     // Search projects page
@@ -131,12 +129,13 @@
         $user = User::find($_SESSION['user_id']);
         $keyword = $_POST['search_term'];
         $project_matches = Project::search($keyword);
+
         foreach ($project_matches as $project){
-        $owner = $project->getProjectOwner();
-        $owner_name = $owner->getUsername();
-        $owner_photo = $owner->getPhoto();
-        // array_push($owners, $owner_name);
+            $owner = $project->getProjectOwner();
+            $owner_name = $owner->getUsername();
+            $owner_photo = $owner->getPhoto();
         }
+
         return $app['twig']->render('projects.html.twig', array('projects' => $project_matches, 'owner' => $owner_name, 'owner_photo' => $owner_photo, 'current_user' => $user, 'user' => $owner_photo, 'user_id' => $user_id));
     });
 
@@ -166,24 +165,22 @@
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
         return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num, 'user_id' => $user_id));
-
     });
 
+    //add user to project as collaborator
     $app->post("/message/{id}/approve", function($id) use ($app){
-          session_start();
-          //add user to project as collaborator
-          $message_to_delete = Message::find($id);
-          $user = $message_to_delete->getMessageUser();
-          $project = Project::find($message_to_delete->getProjectId());
-          $sender_name = $message_to_delete->getSender();
-          $sender = User::findUsername($sender_name);
-          $project->addCollaborator($sender);
-          $message_to_delete->delete();
-          $messages = $user->getOwnerMessages();
-
-          $message_num = count($messages);
-          return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num, 'user_id' => $_SESSION['user_id']));
-        });
+        session_start();
+        $message_to_delete = Message::find($id);
+        $user = $message_to_delete->getMessageUser();
+        $project = Project::find($message_to_delete->getProjectId());
+        $sender_name = $message_to_delete->getSender();
+        $sender = User::findUsername($sender_name);
+        $project->addCollaborator($sender);
+        $message_to_delete->delete();
+        $messages = $user->getOwnerMessages();
+        $message_num = count($messages);
+        return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num, 'user_id' => $_SESSION['user_id']));
+    });
 
     // Create a user project on private profile
     $app->post("/user/{id}/create_project", function($id) use ($app){
@@ -207,7 +204,6 @@
         $user_id = $user->getId(); //delete????
         $new_project = new Project($id, $escaped_title, $escaped_description, $escaped_genre, $resources, $escaped_lyrics, $type, $user_id);
         $new_project->save();
-
         $projects = $user->getOwnerProjects();
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
@@ -224,7 +220,6 @@
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id, 'collab_requests' => $message_num));
-
       });
 
 
@@ -288,7 +283,6 @@
         session_start();
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
-
         $project = $user->getProjects($user->getId());
         $new_title = $_POST['new_title'];
         $escaped_new_title = addslashes($new_title);
@@ -306,24 +300,23 @@
 
     // Get page (from edit modal) to delete specific user
   	$app->get("/user/{id}/delete", function($id) use ($app) {
-          session_start();
-          $user_id = $_SESSION['user_id'];
+        session_start();
+        $user_id = $_SESSION['user_id'];
   		$user = User::find($id);
-  		return $app['twig']->render('delete_user.html.twig', array(
-  			'user' => $user, 'user_id' => $user_id));
+  		return $app['twig']->render('delete_user.html.twig', array('user' => $user, 'user_id' => $user_id));
   	});
 
     // Delete specific user; homepage rendered
   	$app->delete("/user/{id}/delete", function($id) use ($app) {
-          session_start();
-          $_SESSION['user_id'] = null;
-          $user_id = $_SESSION['user_id'];
-          $user = User::find($id);
-          $user->delete();
-          $error = "";
-          $error2 = "";
-          return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
-      });
+        session_start();
+        $_SESSION['user_id'] = null;
+        $user_id = $_SESSION['user_id'];
+        $user = User::find($id);
+        $user->delete();
+        $error = "";
+        $error2 = "";
+        return $app['twig']->render('index.html.twig', array('users' => User::getAll(), 'error' => $error, 'error2' => $error2, 'user_id' => $user_id));
+    });
 
     // User Logs out of their session; homepage rendered
     $app->get("/log_out", function() use ($app) {
