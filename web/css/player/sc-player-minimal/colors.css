@@ -4,7 +4,16 @@
   font-size: 1em;
   line-height: 1.6em;
   font-weight: bold;
+}
 
+.sc-play {
+  height: 70px !important ;
+  width: 70px !important;
+}
+
+.sc-pause {
+  height: 70px !important ;
+  width: 70px !important;
 }
 
 .sc-player.special {
@@ -53,6 +62,7 @@
 .sc-player .sc-controls a {
   color: transparent;
   background: url('img/play.png');
+  background-size: cover;
   background-repeat: no-repeat;
   border: none !important;
 }
@@ -73,6 +83,7 @@
 .sc-player.playing .sc-controls a.sc-pause{
   background: url('img/pause.png');
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*.sc-player.playing .sc-controls a.sc-pause:hover{

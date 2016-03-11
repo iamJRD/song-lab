@@ -46,8 +46,8 @@
 
 .sc-player .sc-controls{
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   top: 8px;
 }
 
@@ -78,7 +78,7 @@
 .sc-scrubber {
   position: absolute;
   left: -5000px;
-  bottom: 30px;
+  bottom: 50px;
   height: 40px;
   width: 95.5%;
 }
