@@ -100,7 +100,7 @@
         session_start();
         echo $id;
         $project = Project::find($id);
-        var_dump($project);
+
         $project->delete();
         $user = User::find($project->getUserId());
         $messages = $user->getOwnerMessages();
@@ -117,7 +117,7 @@
 
         foreach ($projects as $project){
             $owner = $project->getProjectOwner();
-            var_dump($owner);
+            
             $owner_name = $owner->getUsername();
             $owner_photo = $owner->getPhoto();
         }
