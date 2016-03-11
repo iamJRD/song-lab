@@ -193,15 +193,12 @@
         $genre = $_POST['genre'];
         $escaped_genre = addslashes($genre);
         $resources = $_POST['resources'];
-<<<<<<< HEAD
-        $_GET['resources'] = $resources;
-        $lyrics = $_POST['lyrics'];
-        $type = $_POST['type'];
-=======
+        // $_GET['resources'] = $resources;
+        // $lyrics = $_POST['lyrics'];
+        // $type = $_POST['type'];
         $lyrics = $_POST['lyrics'];
         $escaped_lyrics = addslashes($lyrics);
         $type = null;
->>>>>>> 4065626e5428546ac8ec14610ef6e967eac1a90f
         $user_id = $user->getId(); //delete????
         $new_project = new Project($id, $escaped_title, $escaped_description, $escaped_genre, $resources, $escaped_lyrics, $type, $user_id);
         $new_project->save();
@@ -257,13 +254,8 @@
         $escaped_new_bio = addslashes($new_bio);
         $new_photo = $_POST['new_photo'];
         $new_password = $_POST['new_password'];
-<<<<<<< HEAD
-        $user->update($new_first_name, $new_last_name, $new_email, $new_username, $new_bio, $new_photo, $new_password);
-        return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'embed' => $_SESSION['resources'], 'user_id' => $user_id));
-=======
         $user->update($escaped_new_first_name, $escaped_new_last_name, $new_email, $new_username, $escaped_new_bio, $new_photo, $new_password);
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user->getOwnerProjects(), 'user_id' => $user_id));
->>>>>>> 4065626e5428546ac8ec14610ef6e967eac1a90f
     });
 
     // Get page where user can edit their project
