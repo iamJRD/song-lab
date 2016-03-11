@@ -19,6 +19,17 @@
   }
 }
 
+// .galleryContent:hover {
+//   h2 {
+//     border-bottom: 1px solid white;
+//   }
+// }
+
+
+// .galleryItem:hover .galleryContent h2 {
+//     border-bottom: 2px solid white;
+// }
+
 // Gallery Column 1
 @include completedCollab("#{$img-path}/gallery-bright-sq.jpg", 400px, bright);
 @include completedCollab("#{$img-path}/gallery-desert-long.jpg", 300px, desert);

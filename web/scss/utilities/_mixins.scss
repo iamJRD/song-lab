@@ -2,6 +2,7 @@
 // Mixins
 // ---------------------------
 
+
 @mixin completedCollab ($image, $height, $names...) {
   @each $name in $names {
     ##{$name} {
@@ -11,25 +12,29 @@
       background-position: center;
       height: $height;
       margin: 1px;
-      .galleryContent {
-        padding-left: 10%;
-        padding-bottom: 5%;
-        @extend %headerFont;
-        h2, h3 {
-          color: $white;
-        }
+      padding-left: 10%;
+      border: 1px solid green;
+      padding-bottom: 5%;
+      @extend %headerFont;
+      &:hover {
         h2 {
-          @include textFormat(2.5em);
-          margin: 0;
-          border-bottom: 2px solid transparent;
-          width: 40%;
-          &:hover {
-            border-bottom: 2px solid $white;
-          }
+          letter-spacing: 3px;
+          border-bottom: 2px solid white;
+          transition: all 500ms linear;
         }
-        h3 {
-          @include textFormat($l-spacing: 1.5px);
-        }
+      }
+      h2, h3 {
+        color: $white;
+        transition: all 500ms linear;
+      }
+      h2 {
+        @include textFormat(2.5em);
+        margin: 0;
+        border-bottom: 2px solid transparent;
+        width: 60%;
+      }
+      h3 {
+        @include textFormat($l-spacing: 1.5px);
       }
     }
   }

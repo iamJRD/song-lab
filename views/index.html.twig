@@ -5,12 +5,13 @@
       <meta name="viewport" content="width=device-width">
       <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+      <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="js/css-scripts.js"></script>
       <script src="js/materialize.js"></script>
       <script src="js/scripts.js"></script>
 
-      <title>SongLab | Homepage</title>
+      <title>songLab | Homepage</title>
   </head>
   <body>
       <div class="pageWrapper">
@@ -52,65 +53,71 @@
             <p>Connect. Collaborate. Create.</p>
           </div>
           {% if user_id is null %}
-          <div class="headerButtons">
-            <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
-              <div id="modal1" class="modal modalLong">
-                <div class="modal-content">
-                  <h2>Create Your Account</h2>
-                  <h4>Join SongLab to discover and create creative ideas.</h4>
-                  <form class="createAccountForm" action="/user" method="post">
-                    <div class="input-field">
-                      <input placeholder="Username" id="Username" name="username" type="text" class="validate">
+              <div class="headerButtons">
+                <a class="modal-trigger modal-close" href="#modal1">Create Account</a>
+                  <div id="modal1" class="modal modalLong">
+                    <div class="modal-content">
+                      <h2>Create Your Account</h2>
+                      <h4>Join SongLab to discover and create creative ideas.</h4>
+                      <form class="createAccountForm" action="/user" method="post">
+                          {% if error2 is not empty %}
+                                <script type="text/javascript">
+                                  $("#modal1").openModal();
+                                  $(this).removeClass('.lean-overlay');
+                                </script>
+                                  <p class="errorMessage">{{ error2 }}</p>
+                          {% endif %}
+                        <div class="input-field">
+                          <input placeholder="Username" id="Username" name="username" type="text" class="validate" pattern="[a-zA-Z0-9]{6,25}" title="Required Length: 6-25 characters. Include only letters and/or numbers.">
+                        </div>
+                        <div class="input-field">
+                          <input placeholder="Password" id="password" name="password1" type="password" class="validate" pattern="[a-zA-Z0-9]{6,25}" title="Required Length: 6-25 characters. Include only letters and/or numbers.">
+                        </div>
+                        <div class="input-field">
+                          <input placeholder="Verify Password" id="password" name="password2" type="password" class="validate" pattern="[a-zA-Z0-9]{6,25}" title="Required Length: 6-25 characters. Include only letters and/or numbers.">
+                        </div>
+                        <div class="firstLastFields">
+                          <div class="input-field">
+                            <input placeholder="First Name" id="first_name" name="first_name" type="text" class="validate" pattern="[a-zA-Z0-9']{0,50}" title="Required Length: 0-50 characters. Include only letters, numbers and apostrophes.">
+                          </div>
+                          <div class="input-field">
+                            <input placeholder="Last Name" id="last_name" name="last_name" type="text" class="validate" pattern="[a-zA-Z0-9']{0,50}" title="Required Length: 0-50 characters. Include only letters, numbers and apostrophes.">
+                          </div>
+                        </div>
+                        <div class="input-field">
+                          <textarea placeholder="Bio" id="textarea1" name="bio" type="text" class="materialize-textarea" pattern="[a-zA-Z0-9!@#$%^*_|?.']" title="Include only letters, numbers and the following characters: !@#$%^*_|?.'"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit">Create Your Account</button>
+                        </div>
+                      </form>
                     </div>
-                    <div class="input-field">
-                      <input placeholder="Password" id="password" name="password1" type="password" class="validate">
-                    </div>
-                    <div class="input-field">
-                      <input placeholder="Verify Password" id="password" name="password2" type="password" class="validate">
-                    </div>
-                    <div class="firstLastFields">
+                  </div>
+                <a class="modal-trigger" href="#modal2">Sign In</a>
+                <div id="modal2" class="modal">
+                  <div class="modal-content">
+                    <h1>SongLab</h1>
+                    <form class="signInForm" action="/sign_in" method="post">
+                      {% if error is not empty %}
+                            <script type="text/javascript">
+                              $("#modal2").openModal();
+                              $(this).removeClass('.lean-overlay');
+                            </script>
+                              <p class="errorMessage">{{ error }}</p>
+                      {% endif %}
                       <div class="input-field">
-                        <input placeholder="First Name" id="first_name" name="first_name" type="text" class="validate">
+                        <input placeholder="Username" id="username" name="username" type="text" class="validate" pattern="[a-zA-Z0-9]{6,25}" title="Required Length: 6-25 characters. Include only letters and/or numbers.">
                       </div>
                       <div class="input-field">
-                        <input placeholder="Last Name" id="last_name" name="last_name" type="text" class="validate">
+                        <input placeholder="Password" id="password" name="password" type="password" class="validate" pattern="[a-zA-Z0-9]{6,25}" title="Required Length: 6-25 characters. Include only letters and/or numbers.">
                       </div>
-                    </div>
-                    <div class="input-field">
-                      <textarea placeholder="Bio" id="textarea1" name="bio" type="text" class="materialize-textarea"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="modal-close">Create Your Account</button>
-                    </div>
-                  </form>
+                      <div class="modal-footer">
+                          <button type="submit" name="button">Sign In</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-            <a class="modal-trigger" href="#modal2">Sign In</a>
-            <div id="modal2" class="modal">
-              <div class="modal-content">
-                <h1>SongLab</h1>
-                <form class="signInForm" action="/sign_in" method="post">
-                  {% if error is not empty %}
-                          <script type="text/javascript">
-                          $("#modal2").openModal();
-                          $(this).removeClass('.lean-overlay');
-                        </script>
-                          <p class="errorMessage">{{ error }}</p>
-
-                          {% endif %}
-                  <div class="input-field">
-                    <input placeholder="Username" id="username" name="username" type="text" class="validate">
-                  </div>
-                  <div class="input-field">
-                    <input placeholder="Password" id="password" name="password" type="password" class="validate">
-                  </div>
-                  <div class="modal-footer">
-                      <button type="submit" class="modal-close" name="button">Sign In</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
           {% endif %}
         </div>
       </div>
@@ -197,7 +204,7 @@
       </div>
       <div class="footer">
         <hr>
-        <p>SongLab &copy; 2016 | All Rights Reserved</p>
+        <p>songLab &copy; 2016 | All Rights Reserved</p>
       </div>
     </div>
 

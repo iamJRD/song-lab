@@ -7,7 +7,7 @@ html {
 .header .summary p:nth-child(2), .confirmation .confirmationContent h1, .songLabLogo h1 {
   font-family: 'Fjalla One', sans-serif; }
 
-h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .aboutButtons a, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, .noProjects h1, #bright .galleryContent, #desert .galleryContent, #hippie .galleryContent, #collage .galleryContent, #lights .galleryContent, #trippy .galleryContent, #robot .galleryContent, #boat .galleryContent, #girl .galleryContent, #triangles .galleryContent, #sun .galleryContent, #grafitti .galleryContent {
+h2, p, .overlay li, .browseHeader .headerVidText h1, .aboutHeader, .aboutContent h2, .aboutContent .connect, .inboxHeader, .youHave h3, .collabRequestWrapper .collabRequest .requestHeader h3, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons, .secondaryBlack, .secondaryWhite, .modal-footer button, .openProjectButtons, .viewAll, .aboutButtons, .aboutButtons a, button, .modal .modal-content, .profileInfo, .projectsWrapper h4, .projectsWrapper .open-project .openProjectHeader, .noProjects h1, #bright, #desert, #hippie, #collage, #lights, #trippy, #robot, #boat, #girl, #triangles, #sun, #grafitti {
   font-family: 'Open Sans Condensed', sans-serif; }
 
 h2, .overlay li, .header .summary p:nth-child(2), .browseHeader .headerVidText h1, .aboutHeader .aboutHeaderText h1, .inboxHeader h1, .collabRequestWrapper .collabRequest button, .headerContent .headerButtons a, .secondaryBlack, .secondaryWhite, .modal-footer button, .searchButton, .aboutButtons a, button {
@@ -198,8 +198,8 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: -webkit-linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
-  background-image: linear-gradient(rgba(179, 153, 255, 0.5), transparent), url("../img/piano-hands.jpeg");
+  background-image: -webkit-linear-gradient(rgba(39, 0, 153, 0.2), transparent), url("../img/piano-hands.jpeg");
+  background-image: linear-gradient(rgba(39, 0, 153, 0.2), transparent), url("../img/piano-hands.jpeg");
   background-size: cover;
   width: 100%;
   height: 70vh;
@@ -401,6 +401,7 @@ a {
 .aboutContent {
   width: 90%; }
   .aboutContent h2 {
+    font-size: 28px;
     color: #4d4d4d; }
   .aboutContent p {
     font-size: 19px; }
@@ -1785,21 +1786,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 400px;
-  margin: 1px; }
-  #bright .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #bright .galleryContent h2, #bright .galleryContent h3 {
-      color: #fff; }
-    #bright .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #bright .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #bright .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #bright:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #bright h2, #bright h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #bright h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #bright h3 {
+    letter-spacing: 1.5px; }
 
 #desert {
   display: flex;
@@ -1810,21 +1814,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 300px;
-  margin: 1px; }
-  #desert .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #desert .galleryContent h2, #desert .galleryContent h3 {
-      color: #fff; }
-    #desert .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #desert .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #desert .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #desert:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #desert h2, #desert h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #desert h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #desert h3 {
+    letter-spacing: 1.5px; }
 
 #hippie {
   display: flex;
@@ -1835,21 +1842,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 300px;
-  margin: 1px; }
-  #hippie .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #hippie .galleryContent h2, #hippie .galleryContent h3 {
-      color: #fff; }
-    #hippie .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #hippie .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #hippie .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #hippie:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #hippie h2, #hippie h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #hippie h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #hippie h3 {
+    letter-spacing: 1.5px; }
 
 #collage {
   display: flex;
@@ -1860,21 +1870,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 300px;
-  margin: 1px; }
-  #collage .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #collage .galleryContent h2, #collage .galleryContent h3 {
-      color: #fff; }
-    #collage .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #collage .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #collage .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #collage:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #collage h2, #collage h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #collage h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #collage h3 {
+    letter-spacing: 1.5px; }
 
 #lights {
   display: flex;
@@ -1885,21 +1898,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 400px;
-  margin: 1px; }
-  #lights .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #lights .galleryContent h2, #lights .galleryContent h3 {
-      color: #fff; }
-    #lights .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #lights .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #lights .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #lights:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #lights h2, #lights h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #lights h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #lights h3 {
+    letter-spacing: 1.5px; }
 
 #trippy {
   display: flex;
@@ -1910,21 +1926,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 300px;
-  margin: 1px; }
-  #trippy .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #trippy .galleryContent h2, #trippy .galleryContent h3 {
-      color: #fff; }
-    #trippy .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #trippy .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #trippy .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #trippy:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #trippy h2, #trippy h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #trippy h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #trippy h3 {
+    letter-spacing: 1.5px; }
 
 #robot {
   display: flex;
@@ -1935,21 +1954,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 450px;
-  margin: 1px; }
-  #robot .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #robot .galleryContent h2, #robot .galleryContent h3 {
-      color: #fff; }
-    #robot .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #robot .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #robot .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #robot:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #robot h2, #robot h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #robot h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #robot h3 {
+    letter-spacing: 1.5px; }
 
 #boat {
   display: flex;
@@ -1960,21 +1982,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 250px;
-  margin: 1px; }
-  #boat .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #boat .galleryContent h2, #boat .galleryContent h3 {
-      color: #fff; }
-    #boat .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #boat .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #boat .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #boat:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #boat h2, #boat h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #boat h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #boat h3 {
+    letter-spacing: 1.5px; }
 
 #girl {
   display: flex;
@@ -1985,21 +2010,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 300px;
-  margin: 1px; }
-  #girl .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #girl .galleryContent h2, #girl .galleryContent h3 {
-      color: #fff; }
-    #girl .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #girl .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #girl .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #girl:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #girl h2, #girl h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #girl h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #girl h3 {
+    letter-spacing: 1.5px; }
 
 #triangles {
   display: flex;
@@ -2010,21 +2038,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 400px;
-  margin: 1px; }
-  #triangles .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #triangles .galleryContent h2, #triangles .galleryContent h3 {
-      color: #fff; }
-    #triangles .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #triangles .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #triangles .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #triangles:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #triangles h2, #triangles h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #triangles h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #triangles h3 {
+    letter-spacing: 1.5px; }
 
 #sun {
   display: flex;
@@ -2035,21 +2066,24 @@ select {
   background-size: cover;
   background-position: center;
   height: 300px;
-  margin: 1px; }
-  #sun .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #sun .galleryContent h2, #sun .galleryContent h3 {
-      color: #fff; }
-    #sun .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #sun .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #sun .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #sun:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #sun h2, #sun h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #sun h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #sun h3 {
+    letter-spacing: 1.5px; }
 
 #grafitti {
   display: flex;
@@ -2060,20 +2094,23 @@ select {
   background-size: cover;
   background-position: center;
   height: 300px;
-  margin: 1px; }
-  #grafitti .galleryContent {
-    padding-left: 10%;
-    padding-bottom: 5%; }
-    #grafitti .galleryContent h2, #grafitti .galleryContent h3 {
-      color: #fff; }
-    #grafitti .galleryContent h2 {
-      font-size: 2.5em;
-      margin: 0;
-      border-bottom: 2px solid transparent;
-      width: 40%; }
-      #grafitti .galleryContent h2:hover {
-        border-bottom: 2px solid #fff; }
-    #grafitti .galleryContent h3 {
-      letter-spacing: 1.5px; }
+  margin: 1px;
+  padding-left: 10%;
+  border: 1px solid green;
+  padding-bottom: 5%; }
+  #grafitti:hover h2 {
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+    transition: all 500ms linear; }
+  #grafitti h2, #grafitti h3 {
+    color: #fff;
+    transition: all 500ms linear; }
+  #grafitti h2 {
+    font-size: 2.5em;
+    margin: 0;
+    border-bottom: 2px solid transparent;
+    width: 60%; }
+  #grafitti h3 {
+    letter-spacing: 1.5px; }
 
 /*# sourceMappingURL=main.css.map */
