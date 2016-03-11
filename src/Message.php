@@ -83,7 +83,8 @@
         $found_message = null;
         $returned_messages = Message::getAll();
 
-        foreach($returned_messages as $message){
+        foreach($returned_messages as $message)
+        {
             $message_id = $message->getId();
             if ($message_id == $search_id)
             {
