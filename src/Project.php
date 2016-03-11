@@ -157,7 +157,6 @@
 
         function delete()
         {
-            echo($this->getId());
             $GLOBALS['DB']->exec("DELETE FROM projects WHERE id = {$this->getId()}");
         }
 

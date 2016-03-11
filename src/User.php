@@ -238,7 +238,6 @@
                $type = $project['type'];
                $user_id = $project['user_id'];
                $new_project = new Project($id, $title, $description, $genre, $resources, $lyrics, $type, $user_id);
-
                array_push($projects, $new_project);
             }
             return $projects;

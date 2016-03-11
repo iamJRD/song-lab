@@ -93,7 +93,6 @@
               </div>
             </div>
 
-
             <div class="openProjectButtons">
               <a class="modal-trigger modal-close" href="#modal{{project.getId}}">VIEW MUSIC</a>
               <div id="modal{{project.getId}}" class="modal">
@@ -103,7 +102,7 @@
                 </div>
                 <div class="modal-content">
                     <h1><a href="{{project.getResources}}" class="sc-player minimal"></a></h1>
-                  <p>{{ project.getLyrics}}</p>
+                    <p>{{ project.getLyrics|nl2br }}</p>
                 </div>
               </div>
               <a class="modal-trigger" href="#modal{{project.getId}}2">REQUEST TO COLLABORATE</a>
