@@ -26,6 +26,7 @@
       }
       .titleAndAuthor {
         margin-left: 15px;
+        width: 100%;
         h3 {
           @include textFormat(30px);
           margin: 0 auto;
