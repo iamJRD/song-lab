@@ -54,27 +54,30 @@
   color: transparent;
   background: url('img/play.png');
   background-repeat: no-repeat;
+  border: none !important;
 }
 
-.sc-player .sc-controls a:hover {
+/*.sc-player .sc-controls a:hover {
   background: url('img/play-hover.png');
-}
+}*/
 
 .sc-player .sc-controls a.sc-pause {
   background: url('img/play.png');
+  background-repeat: no-repeat;
 }
 
-.sc-player .sc-controls a.sc-pause:hover{
+/*.sc-player .sc-controls a.sc-pause:hover{
   background: url('img/play-hover.png');
-}
+}*/
 
 .sc-player.playing .sc-controls a.sc-pause{
   background: url('img/pause.png');
+  background-repeat: no-repeat;
 }
 
-.sc-player.playing .sc-controls a.sc-pause:hover{
+/*.sc-player.playing .sc-controls a.sc-pause:hover{
   background: url('img/pause-hover.png');
-}
+}*/
 
 .sc-scrubber .sc-time-indicators{
   background: #fff;

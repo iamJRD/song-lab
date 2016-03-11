@@ -133,6 +133,10 @@
   list-style: none;
 }
 
+/*.sc-trackslist a {
+  border: 1px solid red;
+}*/
+
 /* Track info*/
 
 .sc-player .sc-info{
