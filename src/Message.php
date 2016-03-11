@@ -116,7 +116,6 @@
             // $photo= $user['photo'];
             // $password = $user['password'];
             $found_user = User::find($id);
-
         }
         return $found_user;
     }

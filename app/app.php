@@ -6,7 +6,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost;dbname=songlab';
+    $server = 'mysql:host=localhost:8889;dbname=songlab';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -100,7 +100,6 @@
         session_start();
         echo $id;
         $project = Project::find($id);
-
         $project->delete();
         $user = User::find($project->getUserId());
         $messages = $user->getOwnerMessages();
@@ -117,7 +116,6 @@
 
         foreach ($projects as $project){
             $owner = $project->getProjectOwner();
-            
             $owner_name = $owner->getUsername();
             $owner_photo = $owner->getPhoto();
         }
@@ -167,7 +165,6 @@
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
         return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num, 'user_id' => $user_id));
-
     });
 
     $app->post("/message/{id}/approve", function($id) use ($app){
@@ -181,7 +178,6 @@
           $project->addCollaborator($sender);
           $message_to_delete->delete();
           $messages = $user->getOwnerMessages();
-
           $message_num = count($messages);
           return $app['twig']->render('view_messages.html.twig', array('messages' => $messages, 'count' => $message_num, 'user_id' => $_SESSION['user_id']));
         });
@@ -208,7 +204,6 @@
         $user_id = $user->getId(); //delete????
         $new_project = new Project($id, $escaped_title, $escaped_description, $escaped_genre, $resources, $escaped_lyrics, $type, $user_id);
         $new_project->save();
-
         $projects = $user->getOwnerProjects();
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
@@ -225,7 +220,6 @@
         $messages = $user->getOwnerMessages();
         $message_num = count($messages);
         return $app['twig']->render('private_profile.html.twig', array('user' => $user, 'projects' => $user_projects, 'embed' => $_SESSION['resources'], 'user_id' => $user_id, 'collab_requests' => $message_num));
-
       });
 
 
@@ -289,7 +283,6 @@
         session_start();
         $user_id = $_SESSION['user_id'];
         $user = User::find($id);
-
         $project = $user->getProjects($user->getId());
         $new_title = $_POST['new_title'];
         $escaped_new_title = addslashes($new_title);
