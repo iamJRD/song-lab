@@ -56,7 +56,7 @@ _Please contact any of us through GitHub with any questions, comments, or concer
 * _mySQL_
 * _Apache Server_
 * _HTML_
-* _CSS / Sass_
+* _CSS/Sass_
 * _Materialize_
 * _Bourbon_
 
